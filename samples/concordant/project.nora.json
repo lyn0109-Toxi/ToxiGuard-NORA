@@ -1,0 +1,226 @@
+{
+  "schema_version": "nora-project-0.4",
+  "project_id": "PRJ-CONCORDANT-01",
+  "project_name": "Concordant EarlyTox",
+  "created_at_utc": "2026-08-26T00:00:00+00:00",
+  "updated_at_utc": "2026-08-26T00:00:00+00:00",
+  "owner": "ToxiGuard NORA",
+  "description": "Synthetic golden case for deterministic EarlyTox regression testing.",
+  "assessment_input": {
+    "context_of_use": {
+      "objective": "동물시험 범위 축소 가능성 평가",
+      "question_of_interest": "검증된 AI 모델과 사람 간 spheroid 음성결과가 저분자 후보의 후속 동물 간독성시험을 정교화하거나 축소하는 데 충분한가?",
+      "development_stage": "초기 비임상 개발",
+      "target_endpoint": "초기 간독성",
+      "intended_evidence_role": "R4 · 동물시험 축소 지원",
+      "jurisdiction": "미국 FDA 사전미팅 준비",
+      "model_influence": 3,
+      "decision_consequence": 3,
+      "decision_owner": "독성책임자"
+    },
+    "product": {
+      "product_name": "SM-NME-01",
+      "modality": "저분자 NME",
+      "indication": "대사질환",
+      "active_substance": "Small molecule candidate",
+      "target_mechanism": "Selective enzyme inhibitor",
+      "carrier_formulation": "",
+      "route": "경구",
+      "planned_dose": "10–50 mg/day",
+      "exposure_pattern": "반복 노출",
+      "frequency": "1일 1회",
+      "treatment_duration": "4주",
+      "target_organs": "간",
+      "human_cmax": "2 µM",
+      "human_auc": "20 µM·h",
+      "distribution_status": "정량적 자료",
+      "test_article_representativeness": "임상제품 대표성 확인"
+    },
+    "ai_model": {
+      "use_ai": true,
+      "model_name": "Validated Hepato-AI",
+      "model_version": "v5.2",
+      "model_type": "Machine learning classifier",
+      "endpoint": "초기 간독성",
+      "result": "음성 / 낮은 위험 예측",
+      "probability_percent": 8,
+      "domain_modalities": [
+        "저분자"
+      ],
+      "external_validation": "확인됨",
+      "sensitivity_percent": 90,
+      "specificity_percent": 86,
+      "false_negative_rate_percent": 10,
+      "calibration_status": "검증됨",
+      "domain_status": "In-domain",
+      "source": "독립 외부검증 보고서",
+      "known_limitations": "중증 간질환 환자군은 별도 검증 필요"
+    },
+    "nam_assay": {
+      "use_nam": true,
+      "nam_type": "3D 간 Spheroid",
+      "system_origin": "사람 유래",
+      "result": "음성",
+      "cell_types": [
+        "간세포(Hepatocyte)",
+        "Kupffer cell",
+        "Stellate cell"
+      ],
+      "metabolic_competence": "충분히 확인",
+      "immune_competence": "충분",
+      "exposure_design": "반복노출",
+      "positive_control": "유효",
+      "negative_control": "유효",
+      "carrier_only_control": "해당 없음",
+      "active_only_control": "해당 없음",
+      "protocol_completeness": "완결",
+      "nominal_exposure": "0.1–20 µM",
+      "measured_exposure": "측정됨",
+      "qivive_pbpk": "수행됨",
+      "reproducibility": "Donor/lot/반복 재현성 확인",
+      "endpoints": [
+        "Cell viability / ATP",
+        "미토콘드리아 기능",
+        "ALT / AST / GLDH",
+        "CYP 대사기능"
+      ]
+    },
+    "supporting_evidence": {
+      "mechanistic_evidence": true,
+      "class_or_clinical_evidence": true,
+      "quantitative_biodistribution": true,
+      "pk_tk_evidence": true,
+      "existing_in_vivo_evidence": false,
+      "human_evidence": true,
+      "evidence_traceable": true,
+      "assertions_reviewed": true,
+      "expert_reviewed": true,
+      "version_locked": true,
+      "expert_review_note": "제한된 간독성 endpoint에서 용량군과 중복 sampling 축소를 검토할 수 있음.",
+      "supporting_note": ""
+    }
+  },
+  "documents": [],
+  "assertions": [],
+  "audit_events": [
+    {
+      "event_id": "AUD-CONCORDANT",
+      "timestamp_utc": "2026-08-26T00:00:00+00:00",
+      "action": "Golden case generated",
+      "actor": "ToxiGuard NORA",
+      "detail": "Schema nora-project-0.4"
+    }
+  ],
+  "last_result": {
+    "evidence_role": 4,
+    "evidence_role_code": "R4",
+    "evidence_role_name": "동물시험 축소 지원",
+    "evidence_role_description": "정의된 조건 아래 특정 동물 수·용량군·endpoint 범위 축소를 지원할 수 있습니다.",
+    "animal_use_status": "제한적 축소 지원",
+    "animal_use_description": "명시된 조건과 endpoint에서 동물 수·용량군·중복시험 축소를 검토할 수 있습니다.",
+    "model_risk": "중간",
+    "residual_uncertainty": "낮음",
+    "evidence_stream_count": 7,
+    "scores": {
+      "방법 신뢰성": 4.0,
+      "후보 적용성": 3.5,
+      "사람 생물학적 관련성": 4.0,
+      "노출 관련성": 4.0,
+      "근거 일치성": 3.8,
+      "잔여 불확실성": "낮음"
+    },
+    "gates": [
+      {
+        "gate": "독성 질문·COU",
+        "status": "통과",
+        "rationale": "질문과 제품이 정의되어야 합니다.",
+        "effect": "미통과 시 R0"
+      },
+      {
+        "gate": "방법 식별·버전",
+        "status": "통과",
+        "rationale": "정확한 모델/시험법 버전이 필요합니다.",
+        "effect": "미통과 시 R0 또는 R1"
+      },
+      {
+        "gate": "Endpoint 일치",
+        "status": "통과",
+        "rationale": "방법 endpoint와 독성질문이 일치해야 합니다.",
+        "effect": "미통과 시 R0"
+      },
+      {
+        "gate": "후보 적용범위",
+        "status": "통과",
+        "rationale": "AI domain status: In-domain",
+        "effect": "Out-of-domain 음성은 최대 R1"
+      },
+      {
+        "gate": "NAM 실행 유효성",
+        "status": "통과",
+        "rationale": "대조군과 실행상태가 유효해야 합니다.",
+        "effect": "무효 실행은 근거 제외"
+      },
+      {
+        "gate": "사람 관련성",
+        "status": "통과",
+        "rationale": "관련 세포·대사·면역기능을 확인합니다.",
+        "effect": "낮으면 R3 이상 제한"
+      },
+      {
+        "gate": "노출 번역",
+        "status": "통과",
+        "rationale": "실제 노출 및 사람노출 연결이 필요합니다.",
+        "effect": "낮으면 R3 이상 제한"
+      },
+      {
+        "gate": "독립 근거",
+        "status": "통과",
+        "rationale": "독립 근거 흐름 7개",
+        "effect": "R4/R5에 최소 2개 필요"
+      },
+      {
+        "gate": "근거 추적성",
+        "status": "통과",
+        "rationale": "문서·페이지·표·원자료로 추적되어야 합니다.",
+        "effect": "미통과 시 최대 R2"
+      },
+      {
+        "gate": "전문가 검토",
+        "status": "통과",
+        "rationale": "R4/R5에는 독성전문가 승인이 필수입니다.",
+        "effect": "미검토 시 최대 R3"
+      }
+    ],
+    "data_gaps": [],
+    "observations": [
+      "평가 대상은 SM-NME-01이며 제품 modality는 저분자 NME, 투여경로는 경구입니다.",
+      "AI 모델 Validated Hepato-AI v5.2은 음성 / 낮은 위험 예측 결과를 제시했습니다.",
+      "3D 간 Spheroid NAM에서 음성 결과가 입력되었고 노출설계는 반복노출입니다."
+    ],
+    "interpretations": [
+      "현재 방법의 신뢰성·적용성·사람 관련성·노출 관련성을 종합하면 다른 독립적 근거와 함께 제한된 범위에서 활용할 수 있습니다."
+    ],
+    "development_relevance": [
+      "현재 패키지의 Evidence Role은 R4 — 동물시험 축소 지원입니다.",
+      "명시된 조건과 endpoint에서 동물 수·용량군·중복시험 축소를 검토할 수 있습니다.",
+      "잔여 불확실성은 낮음이며, 모델 위험은 중간입니다."
+    ],
+    "recommendations": [
+      "현재 근거 역할의 사용조건을 명확히 문서화하고, 실제 동물시험 변경 전 전문가 및 필요 시 규제기관과 검토하십시오."
+    ],
+    "audit": {
+      "assessment_id": "NORA-SAMPLE-CONCORDANT",
+      "assessment_timestamp_utc": "2026-08-26T00:00:00+00:00",
+      "ontology_version": "TG-PTO-ET v0.4",
+      "rule_set_version": "ET Rules v0.4",
+      "input_hash": "cfd7255af1554bab",
+      "ai_domain_status": "In-domain",
+      "assertions_reviewed": true,
+      "expert_reviewed": true,
+      "evidence_traceable": true,
+      "version_locked": true,
+      "expert_review_note": "제한된 간독성 endpoint에서 용량군과 중복 sampling 축소를 검토할 수 있음.",
+      "prototype_boundary": "초기 간독성 vertical slice; 연구 및 의사결정 지원용"
+    }
+  }
+}

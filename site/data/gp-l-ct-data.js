@@ -1,0 +1,31 @@
+window.NORA_GP_L_CT = {
+  "name": "GP-L-CT",
+  "modality": [
+    "siRNAProduct",
+    "OligonucleotideTherapeutic",
+    "Nanomedicine",
+    "HybridNanoparticle"
+  ],
+  "route": "Intravenous",
+  "target": "BIRC5 / Survivin",
+  "carrier": [
+    "Chitosan",
+    "Protamine",
+    "Lecithin",
+    "TPP"
+  ],
+  "question": "현재 AI와 사람 기반 NAM 근거가 GP-L-CT의 초기 간독성 위험을 평가하고 후속 동물시험 범위를 줄이는 데 충분한가?",
+  "defaultInputs": {
+    "aiDomain": "out",
+    "aiResult": "negative",
+    "falseNegativeKnown": false,
+    "namResult": "negative",
+    "namExposure": "single",
+    "measuredExposure": false,
+    "kupffer": false,
+    "carrierControl": false,
+    "biodistribution": "qualitative",
+    "independentStreams": 2,
+    "expertReviewed": false
+  }
+};

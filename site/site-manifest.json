@@ -1,0 +1,19 @@
+{
+  "name": "ToxiGuard NORA TG-PTO-ET Site",
+  "version": "1.0",
+  "language": "ko",
+  "entrypoints": {
+    "modular": "index.html",
+    "singleFile": "index_single.html"
+  },
+  "ontology": {
+    "name": "TG-PTO-ET",
+    "modules": 15,
+    "causalNodes": 12,
+    "evidenceRoles": 6,
+    "competencyQuestions": 15
+  },
+  "validated": true,
+  "repositoryVersion": "0.4.0",
+  "appVersion": "0.4.0"
+}

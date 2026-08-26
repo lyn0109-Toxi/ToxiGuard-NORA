@@ -1,0 +1,210 @@
+{
+  "@context": {
+    "tg": "https://toxiguard.ai/ontology/earlytox/",
+    "core": "https://toxiguard.ai/ontology/earlytox/core#",
+    "decision": "https://toxiguard.ai/ontology/earlytox/decision#",
+    "product": "https://toxiguard.ai/ontology/earlytox/product#",
+    "tox": "https://toxiguard.ai/ontology/earlytox/toxicity#",
+    "ai": "https://toxiguard.ai/ontology/earlytox/ai#",
+    "nam": "https://toxiguard.ai/ontology/earlytox/nam#",
+    "evidence": "https://toxiguard.ai/ontology/earlytox/evidence#",
+    "assessment": "https://toxiguard.ai/ontology/earlytox/assessment#",
+    "action": "https://toxiguard.ai/ontology/earlytox/action#",
+    "governance": "https://toxiguard.ai/ontology/earlytox/governance#"
+  },
+  "@id": "tg:assessment/NORA-SAMPLE-CONCORDANT",
+  "@type": "assessment:AssessmentRun",
+  "core:hasIdentifier": "NORA-SAMPLE-CONCORDANT",
+  "core:hasTimestamp": "2026-08-26T00:00:00+00:00",
+  "core:isPartOfProject": {
+    "@id": "tg:project/PRJ-CONCORDANT-01",
+    "@type": "core:DevelopmentProgram",
+    "core:hasName": "Concordant EarlyTox"
+  },
+  "decision:hasQuestionOfInterest": {
+    "@type": "decision:QuestionOfInterest",
+    "decision:hasQuestionText": "검증된 AI 모델과 사람 간 spheroid 음성결과가 저분자 후보의 후속 동물 간독성시험을 정교화하거나 축소하는 데 충분한가?",
+    "decision:hasDecisionObjective": "동물시험 범위 축소 가능성 평가",
+    "decision:hasDevelopmentStage": "초기 비임상 개발",
+    "decision:hasTargetEndpoint": "초기 간독성",
+    "decision:hasIntendedEvidenceRole": "R4 · 동물시험 축소 지원",
+    "decision:hasJurisdiction": "미국 FDA 사전미팅 준비",
+    "decision:hasModelInfluence": 3,
+    "decision:hasDecisionConsequence": 3,
+    "decision:hasDecisionOwner": "독성책임자"
+  },
+  "assessment:evaluatesProduct": {
+    "@id": "tg:product/SM-NME-01",
+    "@type": [
+      "product:InvestigationalProduct",
+      "product:ChemicalDrug"
+    ],
+    "core:hasName": "SM-NME-01",
+    "product:hasModality": "저분자 NME",
+    "product:hasIndication": "대사질환",
+    "product:hasActiveSubstance": "Small molecule candidate",
+    "product:hasTargetMechanism": "Selective enzyme inhibitor",
+    "product:hasCarrier": "",
+    "product:hasAdministrationRoute": "경구",
+    "product:hasPlannedDose": "10–50 mg/day",
+    "product:hasExposurePattern": "반복 노출",
+    "product:hasFrequency": "1일 1회",
+    "product:hasTreatmentDuration": "4주",
+    "product:hasTargetOrgans": "간",
+    "product:hasHumanCmax": "2 µM",
+    "product:hasHumanAUC": "20 µM·h",
+    "product:hasDistributionStatus": "정량적 자료",
+    "product:hasTestArticleRepresentativeness": "임상제품 대표성 확인"
+  },
+  "assessment:usesAIModelCard": {
+    "@type": "ai:AIModelCard",
+    "ai:useAI": true,
+    "ai:hasModelName": "Validated Hepato-AI",
+    "ai:hasModelVersion": "v5.2",
+    "ai:hasModelType": "Machine learning classifier",
+    "ai:hasIntendedEndpoint": "초기 간독성",
+    "ai:hasPredictionResult": "음성 / 낮은 위험 예측",
+    "ai:hasProbabilityPercent": 8,
+    "ai:hasDomainModalities": [
+      "저분자"
+    ],
+    "ai:hasExternalValidationStatus": "확인됨",
+    "ai:hasSensitivityPercent": 90,
+    "ai:hasSpecificityPercent": 86,
+    "ai:hasFalseNegativeRatePercent": 10,
+    "ai:hasCalibrationStatus": "검증됨",
+    "ai:hasDomainStatus": "In-domain",
+    "ai:hasSource": "독립 외부검증 보고서",
+    "ai:hasKnownLimitation": "중증 간질환 환자군은 별도 검증 필요"
+  },
+  "assessment:usesNAMAssayCard": {
+    "@type": "nam:NAMAssayCard",
+    "nam:useNAM": true,
+    "nam:hasNAMType": "3D 간 Spheroid",
+    "nam:hasSystemOrigin": "사람 유래",
+    "nam:hasResult": "음성",
+    "nam:hasCellTypes": [
+      "간세포(Hepatocyte)",
+      "Kupffer cell",
+      "Stellate cell"
+    ],
+    "nam:hasMetabolicCompetence": "충분히 확인",
+    "nam:hasImmuneCompetence": "충분",
+    "nam:hasExposureDesign": "반복노출",
+    "nam:hasPositiveControlStatus": "유효",
+    "nam:hasNegativeControlStatus": "유효",
+    "nam:hasCarrierOnlyControlStatus": "해당 없음",
+    "nam:hasActiveOnlyControlStatus": "해당 없음",
+    "nam:hasProtocolCompleteness": "완결",
+    "nam:hasNominalExposure": "0.1–20 µM",
+    "nam:hasMeasuredExposureStatus": "측정됨",
+    "nam:hasQIVIVEStatus": "수행됨",
+    "nam:hasReproducibilityStatus": "Donor/lot/반복 재현성 확인",
+    "nam:hasEndpoints": [
+      "Cell viability / ATP",
+      "미토콘드리아 기능",
+      "ALT / AST / GLDH",
+      "CYP 대사기능"
+    ]
+  },
+  "evidence:usesEvidenceItem": [],
+  "evidence:usesAcceptedAssertion": [],
+  "assessment:hasAssessmentResult": {
+    "@type": "assessment:EvidenceRoleAssessment",
+    "assessment:hasEvidenceRole": "R4",
+    "assessment:hasEvidenceRoleName": "동물시험 축소 지원",
+    "assessment:hasAnimalUseRecommendation": "제한적 축소 지원",
+    "assessment:hasModelRisk": "중간",
+    "assessment:hasResidualUncertainty": "낮음",
+    "assessment:hasEvidenceStreamCount": 7,
+    "assessment:hasScores": {
+      "방법 신뢰성": 4.0,
+      "후보 적용성": 3.5,
+      "사람 생물학적 관련성": 4.0,
+      "노출 관련성": 4.0,
+      "근거 일치성": 3.8,
+      "잔여 불확실성": "낮음"
+    },
+    "assessment:hasGateResults": [
+      {
+        "gate": "독성 질문·COU",
+        "status": "통과",
+        "rationale": "질문과 제품이 정의되어야 합니다.",
+        "effect": "미통과 시 R0"
+      },
+      {
+        "gate": "방법 식별·버전",
+        "status": "통과",
+        "rationale": "정확한 모델/시험법 버전이 필요합니다.",
+        "effect": "미통과 시 R0 또는 R1"
+      },
+      {
+        "gate": "Endpoint 일치",
+        "status": "통과",
+        "rationale": "방법 endpoint와 독성질문이 일치해야 합니다.",
+        "effect": "미통과 시 R0"
+      },
+      {
+        "gate": "후보 적용범위",
+        "status": "통과",
+        "rationale": "AI domain status: In-domain",
+        "effect": "Out-of-domain 음성은 최대 R1"
+      },
+      {
+        "gate": "NAM 실행 유효성",
+        "status": "통과",
+        "rationale": "대조군과 실행상태가 유효해야 합니다.",
+        "effect": "무효 실행은 근거 제외"
+      },
+      {
+        "gate": "사람 관련성",
+        "status": "통과",
+        "rationale": "관련 세포·대사·면역기능을 확인합니다.",
+        "effect": "낮으면 R3 이상 제한"
+      },
+      {
+        "gate": "노출 번역",
+        "status": "통과",
+        "rationale": "실제 노출 및 사람노출 연결이 필요합니다.",
+        "effect": "낮으면 R3 이상 제한"
+      },
+      {
+        "gate": "독립 근거",
+        "status": "통과",
+        "rationale": "독립 근거 흐름 7개",
+        "effect": "R4/R5에 최소 2개 필요"
+      },
+      {
+        "gate": "근거 추적성",
+        "status": "통과",
+        "rationale": "문서·페이지·표·원자료로 추적되어야 합니다.",
+        "effect": "미통과 시 최대 R2"
+      },
+      {
+        "gate": "전문가 검토",
+        "status": "통과",
+        "rationale": "R4/R5에는 독성전문가 승인이 필수입니다.",
+        "effect": "미검토 시 최대 R3"
+      }
+    ],
+    "assessment:hasDataGaps": [],
+    "assessment:hasRecommendations": [
+      "현재 근거 역할의 사용조건을 명확히 문서화하고, 실제 동물시험 변경 전 전문가 및 필요 시 규제기관과 검토하십시오."
+    ]
+  },
+  "governance:hasAudit": {
+    "assessment_id": "NORA-SAMPLE-CONCORDANT",
+    "assessment_timestamp_utc": "2026-08-26T00:00:00+00:00",
+    "ontology_version": "TG-PTO-ET v0.4",
+    "rule_set_version": "ET Rules v0.4",
+    "input_hash": "cfd7255af1554bab",
+    "ai_domain_status": "In-domain",
+    "assertions_reviewed": true,
+    "expert_reviewed": true,
+    "evidence_traceable": true,
+    "version_locked": true,
+    "expert_review_note": "제한된 간독성 endpoint에서 용량군과 중복 sampling 축소를 검토할 수 있음.",
+    "prototype_boundary": "초기 간독성 vertical slice; 연구 및 의사결정 지원용"
+  },
+  "@graph": []
+}

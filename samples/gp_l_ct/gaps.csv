@@ -1,0 +1,10 @@
+﻿Gap Code,제목,설명,중요도,Rule ID,판정 영향,권고
+ET-G025,Carrier-only 대조군 누락,전달체 자체의 독성기여를 분리할 수 없습니다.,결정 제한,ET-R010,제형 기여도 판단 불가,Carrier-only와 active-only 대조군으로 독성기여를 분리하십시오.
+ET-G028,구조화 근거 미검토,AI가 추출한 Evidence Assertion을 전문가가 아직 승인하지 않았습니다.,주요 보완,ET-R014,고영향 결론 보류,AI 추출 assertion을 독성전문가가 승인·수정·거절하도록 하십시오.
+ET-G005,False-negative 성능 미상,음성예측을 고영향 의사결정에 사용하려면 false-negative 특성이 필요합니다.,결정 제한,ET-R005,음성예측의 근거 역할을 R2 이하로 제한할 수 있음,"현재 endpoint와 threshold에서 sensitivity, false-negative rate 및 신뢰구간을 확보하십시오."
+ET-G006,AI 적용범위 밖,현재 후보의 modality 또는 특성이 모델 학습·검증범위에 포함되지 않습니다.,결정 제한,ET-R003,음성예측을 Reliable Negative로 인정하지 않으며 최대 R1,현재 modality를 포함하는 모델 또는 독립적인 orthogonal NAM을 사용하십시오.
+ET-G016,면역·Kupffer cell 반응 미평가,나노입자 또는 올리고뉴클레오타이드에서는 간 면역반응의 불확실성이 큽니다.,주요 보완,ET-R010,사람 관련성 및 면역기전 해석 제한,"Kupffer cell 공배양, cytokine 또는 보완적인 면역 적격 간 모델을 추가하십시오."
+ET-G018,사람 예상노출 정보 부족,Cmax 또는 AUC가 없어 시험노출과 사람노출을 직접 비교할 수 없습니다.,주요 보완,ET-R007,노출 관련성 제한,예상 사람 Cmax/AUC 또는 초기 PK 가정을 정의하십시오.
+ET-G019,실제 Free/세포내 노출 미측정,명목 농도만으로는 세포 또는 표적조직의 실제 노출을 확인할 수 없습니다.,결정 제한,ET-R008,음성 NAM 결과를 Reliable Negative로 인정하지 않음,명목 농도와 별도로 free 또는 세포내 실제 노출을 측정하십시오.
+ET-G020,QIVIVE/PBPK 연결 없음,NAM 결과가 계획된 사람노출로 정량 번역되지 않았습니다.,주요 보완,ET-R007,사람노출 번역 제한,QIVIVE 또는 PBPK를 이용하여 NAM 농도를 사람노출로 연결하십시오.
+ET-G021,단회·반복노출 불일치,계획된 반복 또는 지속 노출을 급성 단회시험만으로 지원하고 있습니다.,결정 제한,ET-R009,노출 관련성 및 Evidence Role을 R2 이하로 제한할 수 있음,반복노출 NAM 또는 과학적으로 타당한 acute-to-repeat bridge를 확보하십시오.

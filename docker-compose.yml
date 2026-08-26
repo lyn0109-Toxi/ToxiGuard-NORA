@@ -1,0 +1,13 @@
+services:
+  nora:
+    build: .
+    ports:
+      - "8501:8501"
+    environment:
+      NORA_DATA_DIR: /app/.nora_data
+    volumes:
+      - nora-data:/app/.nora_data
+    restart: unless-stopped
+
+volumes:
+  nora-data:

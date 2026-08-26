@@ -1,0 +1,295 @@
+{
+  "@context": {
+    "tg": "https://toxiguard.ai/ontology/earlytox/",
+    "core": "https://toxiguard.ai/ontology/earlytox/core#",
+    "decision": "https://toxiguard.ai/ontology/earlytox/decision#",
+    "product": "https://toxiguard.ai/ontology/earlytox/product#",
+    "tox": "https://toxiguard.ai/ontology/earlytox/toxicity#",
+    "ai": "https://toxiguard.ai/ontology/earlytox/ai#",
+    "nam": "https://toxiguard.ai/ontology/earlytox/nam#",
+    "evidence": "https://toxiguard.ai/ontology/earlytox/evidence#",
+    "assessment": "https://toxiguard.ai/ontology/earlytox/assessment#",
+    "action": "https://toxiguard.ai/ontology/earlytox/action#",
+    "governance": "https://toxiguard.ai/ontology/earlytox/governance#"
+  },
+  "@id": "tg:assessment/NORA-SAMPLE-GP-L-CT",
+  "@type": "assessment:AssessmentRun",
+  "core:hasIdentifier": "NORA-SAMPLE-GP-L-CT",
+  "core:hasTimestamp": "2026-08-26T00:00:00+00:00",
+  "core:isPartOfProject": {
+    "@id": "tg:project/PRJ-GPLCT-EARLYTOX",
+    "@type": "core:DevelopmentProgram",
+    "core:hasName": "GP-L-CT EarlyTox"
+  },
+  "decision:hasQuestionOfInterest": {
+    "@type": "decision:QuestionOfInterest",
+    "decision:hasQuestionText": "현재 AI와 사람 기반 NAM 근거가 GP-L-CT의 초기 간독성 위험을 평가하고 후속 동물시험 범위를 줄이는 데 충분한가?",
+    "decision:hasDecisionObjective": "동물시험 범위 축소 가능성 평가",
+    "decision:hasDevelopmentStage": "후보물질 선정",
+    "decision:hasTargetEndpoint": "초기 간독성",
+    "decision:hasIntendedEvidenceRole": "R4 · 동물시험 축소 지원",
+    "decision:hasJurisdiction": "연구용 / 내부 의사결정",
+    "decision:hasModelInfluence": 3,
+    "decision:hasDecisionConsequence": 3,
+    "decision:hasDecisionOwner": "독성책임자"
+  },
+  "assessment:evaluatesProduct": {
+    "@id": "tg:product/GP-L-CT",
+    "@type": [
+      "product:InvestigationalProduct",
+      "product:siRNANanomedicine"
+    ],
+    "core:hasName": "GP-L-CT",
+    "product:hasModality": "siRNA + 나노의약품",
+    "product:hasIndication": "항암 치료",
+    "product:hasActiveSubstance": "Survivin siRNA",
+    "product:hasTargetMechanism": "BIRC5 / transient gene silencing",
+    "product:hasCarrier": "Chitosan–Protamine–Lecithin–TPP hybrid nanocomplex",
+    "product:hasAdministrationRoute": "정맥투여",
+    "product:hasPlannedDose": "0.1–1.0 mg/kg",
+    "product:hasExposurePattern": "반복 노출",
+    "product:hasFrequency": "주 1회",
+    "product:hasTreatmentDuration": "4주",
+    "product:hasTargetOrgans": "간, 비장",
+    "product:hasHumanCmax": "",
+    "product:hasHumanAUC": "",
+    "product:hasDistributionStatus": "정성적 자료",
+    "product:hasTestArticleRepresentativeness": "불명확"
+  },
+  "assessment:usesAIModelCard": {
+    "@type": "ai:AIModelCard",
+    "ai:useAI": true,
+    "ai:hasModelName": "Small-Molecule Hepato Classifier",
+    "ai:hasModelVersion": "v3.0",
+    "ai:hasModelType": "Machine learning classifier",
+    "ai:hasIntendedEndpoint": "초기 간독성",
+    "ai:hasPredictionResult": "음성 / 낮은 위험 예측",
+    "ai:hasProbabilityPercent": 91,
+    "ai:hasDomainModalities": [
+      "저분자"
+    ],
+    "ai:hasExternalValidationStatus": "부분적으로 확인",
+    "ai:hasSensitivityPercent": 82,
+    "ai:hasSpecificityPercent": 76,
+    "ai:hasFalseNegativeRatePercent": null,
+    "ai:hasCalibrationStatus": "불명확",
+    "ai:hasDomainStatus": "Out-of-domain",
+    "ai:hasSource": "가상 모델 보고서",
+    "ai:hasKnownLimitation": "저분자 중심 학습; siRNA, 나노입자 전달체, 반복노출 및 간·비장 축적 미반영"
+  },
+  "assessment:usesNAMAssayCard": {
+    "@type": "nam:NAMAssayCard",
+    "nam:useNAM": true,
+    "nam:hasNAMType": "2D 세포시험",
+    "nam:hasSystemOrigin": "사람 유래",
+    "nam:hasResult": "음성",
+    "nam:hasCellTypes": [
+      "간세포(Hepatocyte)"
+    ],
+    "nam:hasMetabolicCompetence": "부분 확인",
+    "nam:hasImmuneCompetence": "미포함 / 불명확",
+    "nam:hasExposureDesign": "단회/급성 노출",
+    "nam:hasPositiveControlStatus": "유효",
+    "nam:hasNegativeControlStatus": "유효",
+    "nam:hasCarrierOnlyControlStatus": "미포함",
+    "nam:hasActiveOnlyControlStatus": "미포함",
+    "nam:hasProtocolCompleteness": "부분적",
+    "nam:hasNominalExposure": "0.1–100 µg/mL",
+    "nam:hasMeasuredExposureStatus": "측정 안 됨",
+    "nam:hasQIVIVEStatus": "없음",
+    "nam:hasReproducibilityStatus": "일부 확인",
+    "nam:hasEndpoints": [
+      "Cell viability / ATP"
+    ]
+  },
+  "evidence:usesEvidenceItem": [],
+  "evidence:usesAcceptedAssertion": [],
+  "assessment:hasAssessmentResult": {
+    "@type": "assessment:EvidenceRoleAssessment",
+    "assessment:hasEvidenceRole": "R1",
+    "assessment:hasEvidenceRoleName": "가설 생성",
+    "assessment:hasAnimalUseRecommendation": "축소·대체 근거 불충분",
+    "assessment:hasModelRisk": "중간",
+    "assessment:hasResidualUncertainty": "매우 높음",
+    "assessment:hasEvidenceStreamCount": 4,
+    "assessment:hasScores": {
+      "방법 신뢰성": 2.7,
+      "후보 적용성": 1.4,
+      "사람 생물학적 관련성": 2.5,
+      "노출 관련성": 0.2,
+      "근거 일치성": 2.7,
+      "잔여 불확실성": "매우 높음"
+    },
+    "assessment:hasGateResults": [
+      {
+        "gate": "독성 질문·COU",
+        "status": "통과",
+        "rationale": "질문과 제품이 정의되어야 합니다.",
+        "effect": "미통과 시 R0"
+      },
+      {
+        "gate": "방법 식별·버전",
+        "status": "통과",
+        "rationale": "정확한 모델/시험법 버전이 필요합니다.",
+        "effect": "미통과 시 R0 또는 R1"
+      },
+      {
+        "gate": "Endpoint 일치",
+        "status": "통과",
+        "rationale": "방법 endpoint와 독성질문이 일치해야 합니다.",
+        "effect": "미통과 시 R0"
+      },
+      {
+        "gate": "후보 적용범위",
+        "status": "미통과",
+        "rationale": "AI domain status: Out-of-domain",
+        "effect": "Out-of-domain 음성은 최대 R1"
+      },
+      {
+        "gate": "NAM 실행 유효성",
+        "status": "통과",
+        "rationale": "대조군과 실행상태가 유효해야 합니다.",
+        "effect": "무효 실행은 근거 제외"
+      },
+      {
+        "gate": "사람 관련성",
+        "status": "통과",
+        "rationale": "관련 세포·대사·면역기능을 확인합니다.",
+        "effect": "낮으면 R3 이상 제한"
+      },
+      {
+        "gate": "노출 번역",
+        "status": "조건부",
+        "rationale": "실제 노출 및 사람노출 연결이 필요합니다.",
+        "effect": "낮으면 R3 이상 제한"
+      },
+      {
+        "gate": "독립 근거",
+        "status": "통과",
+        "rationale": "독립 근거 흐름 4개",
+        "effect": "R4/R5에 최소 2개 필요"
+      },
+      {
+        "gate": "근거 추적성",
+        "status": "통과",
+        "rationale": "문서·페이지·표·원자료로 추적되어야 합니다.",
+        "effect": "미통과 시 최대 R2"
+      },
+      {
+        "gate": "전문가 검토",
+        "status": "미통과",
+        "rationale": "R4/R5에는 독성전문가 승인이 필수입니다.",
+        "effect": "미검토 시 최대 R3"
+      }
+    ],
+    "assessment:hasDataGaps": [
+      {
+        "code": "ET-G025",
+        "title": "Carrier-only 대조군 누락",
+        "description": "전달체 자체의 독성기여를 분리할 수 없습니다.",
+        "criticality": "결정 제한",
+        "rule_id": "ET-R010",
+        "effect": "제형 기여도 판단 불가",
+        "recommendation": "Carrier-only와 active-only 대조군으로 독성기여를 분리하십시오."
+      },
+      {
+        "code": "ET-G028",
+        "title": "구조화 근거 미검토",
+        "description": "AI가 추출한 Evidence Assertion을 전문가가 아직 승인하지 않았습니다.",
+        "criticality": "주요 보완",
+        "rule_id": "ET-R014",
+        "effect": "고영향 결론 보류",
+        "recommendation": "AI 추출 assertion을 독성전문가가 승인·수정·거절하도록 하십시오."
+      },
+      {
+        "code": "ET-G005",
+        "title": "False-negative 성능 미상",
+        "description": "음성예측을 고영향 의사결정에 사용하려면 false-negative 특성이 필요합니다.",
+        "criticality": "결정 제한",
+        "rule_id": "ET-R005",
+        "effect": "음성예측의 근거 역할을 R2 이하로 제한할 수 있음",
+        "recommendation": "현재 endpoint와 threshold에서 sensitivity, false-negative rate 및 신뢰구간을 확보하십시오."
+      },
+      {
+        "code": "ET-G006",
+        "title": "AI 적용범위 밖",
+        "description": "현재 후보의 modality 또는 특성이 모델 학습·검증범위에 포함되지 않습니다.",
+        "criticality": "결정 제한",
+        "rule_id": "ET-R003",
+        "effect": "음성예측을 Reliable Negative로 인정하지 않으며 최대 R1",
+        "recommendation": "현재 modality를 포함하는 모델 또는 독립적인 orthogonal NAM을 사용하십시오."
+      },
+      {
+        "code": "ET-G016",
+        "title": "면역·Kupffer cell 반응 미평가",
+        "description": "나노입자 또는 올리고뉴클레오타이드에서는 간 면역반응의 불확실성이 큽니다.",
+        "criticality": "주요 보완",
+        "rule_id": "ET-R010",
+        "effect": "사람 관련성 및 면역기전 해석 제한",
+        "recommendation": "Kupffer cell 공배양, cytokine 또는 보완적인 면역 적격 간 모델을 추가하십시오."
+      },
+      {
+        "code": "ET-G018",
+        "title": "사람 예상노출 정보 부족",
+        "description": "Cmax 또는 AUC가 없어 시험노출과 사람노출을 직접 비교할 수 없습니다.",
+        "criticality": "주요 보완",
+        "rule_id": "ET-R007",
+        "effect": "노출 관련성 제한",
+        "recommendation": "예상 사람 Cmax/AUC 또는 초기 PK 가정을 정의하십시오."
+      },
+      {
+        "code": "ET-G019",
+        "title": "실제 Free/세포내 노출 미측정",
+        "description": "명목 농도만으로는 세포 또는 표적조직의 실제 노출을 확인할 수 없습니다.",
+        "criticality": "결정 제한",
+        "rule_id": "ET-R008",
+        "effect": "음성 NAM 결과를 Reliable Negative로 인정하지 않음",
+        "recommendation": "명목 농도와 별도로 free 또는 세포내 실제 노출을 측정하십시오."
+      },
+      {
+        "code": "ET-G020",
+        "title": "QIVIVE/PBPK 연결 없음",
+        "description": "NAM 결과가 계획된 사람노출로 정량 번역되지 않았습니다.",
+        "criticality": "주요 보완",
+        "rule_id": "ET-R007",
+        "effect": "사람노출 번역 제한",
+        "recommendation": "QIVIVE 또는 PBPK를 이용하여 NAM 농도를 사람노출로 연결하십시오."
+      },
+      {
+        "code": "ET-G021",
+        "title": "단회·반복노출 불일치",
+        "description": "계획된 반복 또는 지속 노출을 급성 단회시험만으로 지원하고 있습니다.",
+        "criticality": "결정 제한",
+        "rule_id": "ET-R009",
+        "effect": "노출 관련성 및 Evidence Role을 R2 이하로 제한할 수 있음",
+        "recommendation": "반복노출 NAM 또는 과학적으로 타당한 acute-to-repeat bridge를 확보하십시오."
+      }
+    ],
+    "assessment:hasRecommendations": [
+      "Carrier-only와 active-only 대조군으로 독성기여를 분리하십시오.",
+      "AI 추출 assertion을 독성전문가가 승인·수정·거절하도록 하십시오.",
+      "현재 endpoint와 threshold에서 sensitivity, false-negative rate 및 신뢰구간을 확보하십시오.",
+      "현재 modality를 포함하는 모델 또는 독립적인 orthogonal NAM을 사용하십시오.",
+      "Kupffer cell 공배양, cytokine 또는 보완적인 면역 적격 간 모델을 추가하십시오.",
+      "예상 사람 Cmax/AUC 또는 초기 PK 가정을 정의하십시오.",
+      "명목 농도와 별도로 free 또는 세포내 실제 노출을 측정하십시오.",
+      "QIVIVE 또는 PBPK를 이용하여 NAM 농도를 사람노출로 연결하십시오.",
+      "반복노출 NAM 또는 과학적으로 타당한 acute-to-repeat bridge를 확보하십시오."
+    ]
+  },
+  "governance:hasAudit": {
+    "assessment_id": "NORA-SAMPLE-GP-L-CT",
+    "assessment_timestamp_utc": "2026-08-26T00:00:00+00:00",
+    "ontology_version": "TG-PTO-ET v0.4",
+    "rule_set_version": "ET Rules v0.4",
+    "input_hash": "11cf913fc9a948dc",
+    "ai_domain_status": "Out-of-domain",
+    "assertions_reviewed": false,
+    "expert_reviewed": false,
+    "evidence_traceable": true,
+    "version_locked": true,
+    "expert_review_note": "",
+    "prototype_boundary": "초기 간독성 vertical slice; 연구 및 의사결정 지원용"
+  },
+  "@graph": []
+}

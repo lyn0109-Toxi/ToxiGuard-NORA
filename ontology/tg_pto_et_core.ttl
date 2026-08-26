@@ -1,0 +1,68 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix tg: <https://toxiguard.ai/ontology/earlytox/> .
+@prefix core: <https://toxiguard.ai/ontology/earlytox/core#> .
+@prefix decision: <https://toxiguard.ai/ontology/earlytox/decision#> .
+@prefix product: <https://toxiguard.ai/ontology/earlytox/product#> .
+@prefix ai: <https://toxiguard.ai/ontology/earlytox/ai#> .
+@prefix nam: <https://toxiguard.ai/ontology/earlytox/nam#> .
+@prefix evidence: <https://toxiguard.ai/ontology/earlytox/evidence#> .
+@prefix assessment: <https://toxiguard.ai/ontology/earlytox/assessment#> .
+@prefix action: <https://toxiguard.ai/ontology/earlytox/action#> .
+@prefix governance: <https://toxiguard.ai/ontology/earlytox/governance#> .
+
+tg:TG_PTO_ET a owl:Ontology ;
+  rdfs:label "ToxiGuard Preclinical Toxicology Ontology - EarlyTox Extension"@en ;
+  rdfs:label "ToxiGuard 전임상 독성 온톨로지 - EarlyTox 확장"@ko ;
+  owl:versionInfo "0.4.0" .
+
+core:DevelopmentProgram a owl:Class .
+decision:QuestionOfInterest a owl:Class .
+decision:ContextOfUse a owl:Class .
+product:InvestigationalProduct a owl:Class .
+product:ChemicalDrug a owl:Class ; rdfs:subClassOf product:InvestigationalProduct .
+product:OligonucleotideTherapeutic a owl:Class ; rdfs:subClassOf product:InvestigationalProduct .
+product:siRNAProduct a owl:Class ; rdfs:subClassOf product:OligonucleotideTherapeutic .
+product:Nanomedicine a owl:Class ; rdfs:subClassOf product:InvestigationalProduct .
+ai:AIModelCard a owl:Class .
+nam:NAMAssayCard a owl:Class .
+evidence:EvidenceItem a owl:Class .
+evidence:EvidenceAssertion a owl:Class .
+assessment:AssessmentRun a owl:Class .
+assessment:EvidenceRoleAssessment a owl:Class .
+assessment:DataGap a owl:Class .
+action:AnimalUseRecommendation a owl:Class .
+governance:ExpertReview a owl:Class .
+
+assessment:evaluatesProduct a owl:ObjectProperty ;
+  rdfs:domain assessment:AssessmentRun ;
+  rdfs:range product:InvestigationalProduct .
+
+decision:hasQuestionOfInterest a owl:ObjectProperty ;
+  rdfs:domain assessment:AssessmentRun ;
+  rdfs:range decision:QuestionOfInterest .
+
+evidence:usesEvidenceItem a owl:ObjectProperty ;
+  rdfs:domain assessment:AssessmentRun ;
+  rdfs:range evidence:EvidenceItem .
+
+evidence:usesAcceptedAssertion a owl:ObjectProperty ;
+  rdfs:domain assessment:AssessmentRun ;
+  rdfs:range evidence:EvidenceAssertion .
+
+evidence:supportedByEvidence a owl:ObjectProperty ;
+  rdfs:domain evidence:EvidenceAssertion ;
+  rdfs:range evidence:EvidenceItem .
+
+assessment:hasAssessmentResult a owl:ObjectProperty ;
+  rdfs:domain assessment:AssessmentRun ;
+  rdfs:range assessment:EvidenceRoleAssessment .
+
+core:hasIdentifier a owl:DatatypeProperty ; rdfs:range xsd:string .
+core:hasName a owl:DatatypeProperty ; rdfs:range xsd:string .
+core:hasTimestamp a owl:DatatypeProperty ; rdfs:range xsd:dateTime .
+evidence:hasSourceLocation a owl:DatatypeProperty ; rdfs:range xsd:string .
+evidence:hasReviewStatus a owl:DatatypeProperty ; rdfs:range xsd:string .
+assessment:hasEvidenceRole a owl:DatatypeProperty ; rdfs:range xsd:string .

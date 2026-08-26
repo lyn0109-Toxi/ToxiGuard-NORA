@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="ToxiGuard NORA EarlyTox — AI와 비동물시험법(NAM)의 초기 독성근거가 현재 후보물질의 개발에 어디까지 사용 가능한지 검증하는 온톨로지 기반 Evidence Assurance 플랫폼">
+  <meta name="theme-color" content="#061928">
+  <title>ToxiGuard NORA | TG‑PTO‑ET Ontology</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#top" aria-label="ToxiGuard NORA 홈">
+      <img src="assets/logo.svg" alt="ToxiGuard NORA 로고">
+      <span><strong>ToxiGuard NORA</strong><small>TG‑PTO‑ET · Early Toxicity Evidence Assurance</small></span>
+    </a>
+    <nav class="nav" id="mainNav" aria-label="주요 메뉴">
+      <a href="#why">문제 정의</a>
+      <a href="#ontology">온톨로지</a>
+      <a href="#assurance">평가축</a>
+      <a href="#roles">Evidence Role</a>
+      <a href="#demo">GP‑L‑CT 데모</a>
+      <a href="#workflow">작동 방식</a>
+    </nav>
+    <div class="header-actions">
+      <button class="btn ghost" type="button" data-open-modal="disclaimerModal">사용 범위</button>
+      <a class="btn primary" href="#demo">데모 시작</a>
+      <button class="mobile-menu" id="mobileMenu" aria-label="메뉴 열기" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow light">Nonclinical Ontology‑based Risk Advisor</div>
+        <h1>AI가 독성을 예측합니다.<br><span>NORA는 그 근거를 어디까지 믿을지 판단합니다.</span></h1>
+        <p class="hero-copy">ToxiGuard NORA EarlyTox는 AI와 비동물시험법(NAM)의 결과를 그대로 안전성 결론으로 사용하지 않습니다. 제품 특성, Context of Use, 방법 신뢰성, 후보 적용성, 사람 생물학적 관련성, 노출 관련성, 근거 일치성과 잔여 불확실성을 연결하여 현재 근거의 사용 가능한 역할을 설명합니다.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#ontology">TG‑PTO‑ET 탐색하기</a>
+          <a class="btn ghost" href="#demo">GP‑L‑CT 사례 보기</a>
+        </div>
+        <div class="hero-proof">
+          <span><i></i> Missing evidence ≠ Negative evidence</span>
+          <span><i></i> Out‑of‑domain ≠ Reliable evidence</span>
+          <span><i></i> High‑impact conclusions require expert review</span>
+        </div>
+      </div>
+      <div class="hero-visual" aria-label="NORA 온톨로지 연결 구조 시각화">
+        <div class="orbit"></div><div class="orbit o2"></div>
+        <div class="core-card"><img src="assets/logo.svg" alt=""><strong>TG‑PTO‑ET</strong><p>Product → Hazard → Question → Evidence → Uncertainty → Action</p></div>
+        <div class="floating-node n1"><strong>Product Context</strong><small>Modality · Carrier · CQA</small></div>
+        <div class="floating-node n2"><strong>AI / NAM Method</strong><small>Version · COU · Validation</small></div>
+        <div class="floating-node n3"><strong>Evidence Assurance</strong><small>Credibility · Relevance · Exposure</small></div>
+        <div class="floating-node n4"><strong>Evidence Role</strong><small>R0–R5 · 3Rs · Expert Decision</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="why">
+    <div class="container">
+      <div class="section-heading">
+        <div><div class="eyebrow">The core question</div><h2>“AI가 동물시험을 대체할 수 있는가?”를 더 정확한 질문으로 바꿉니다.</h2></div>
+        <p>NORA는 Yes/No를 먼저 말하지 않습니다. 어떤 독성질문에서, 어떤 사용범위와 검증수준 아래, 어떤 근거가 보완·정교화·축소·대체후보 역할을 할 수 있는지를 묻습니다.</p>
+      </div>
+      <div class="question-card">
+        <div class="big-question">어떤 <span>독성질문</span>에서,<br>어떤 <span>Context of Use</span> 아래,<br>AI 또는 NAM을 어디까지 사용할 수 있는가?</div>
+        <div class="principle-list" id="principleList"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft" id="ontology">
+    <div class="container">
+      <div class="section-heading">
+        <div><div class="eyebrow">TG‑PTO‑ET causal model</div><h2>데이터 목록이 아니라 의사결정의 인과관계를 표현합니다.</h2></div>
+        <p>각 노드를 선택하면 해당 객체가 다음 단계와 어떻게 연결되는지 확인할 수 있습니다. 잠재위험, 관찰결과, 사람 위험과 데이터 갭은 서로 다른 객체로 유지됩니다.</p>
+      </div>
+      <div class="chain-shell">
+        <div class="chain-scroll"><div class="chain" id="causalChain"></div></div>
+        <div class="chain-detail"><div><small id="chainDetailEn">Development Decision</small><h3 id="chainDetailTitle">개발 의사결정</h3></div><p id="chainDetailText">NORA가 지원하려는 구체적인 개발 판단</p></div>
+      </div>
+
+      <div style="height:28px"></div>
+      <div class="module-layout">
+        <aside class="module-list" id="moduleList" aria-label="온톨로지 모듈"></aside>
+        <section class="module-panel" aria-live="polite">
+          <div class="module-hero"><div class="eyebrow" id="moduleSubtitle">Decision & COU Ontology</div><h3 id="moduleTitle">의사결정 및 Context of Use</h3><p id="moduleSummary"></p></div>
+          <div class="tabs" role="tablist">
+            <button class="tab-button active" data-tab="classes" role="tab">Class</button>
+            <button class="tab-button" data-tab="properties" role="tab">Property</button>
+            <button class="tab-button" data-tab="validation" role="tab">Validation</button>
+            <button class="tab-button" data-tab="rules" role="tab">Decision Rule</button>
+          </div>
+          <div class="tab-panel" id="moduleContent"></div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="assurance">
+    <div class="container">
+      <div class="section-heading">
+        <div><div class="eyebrow">Evidence assurance dimensions</div><h2>하나의 종합점수로 서로 다른 신뢰 문제를 감추지 않습니다.</h2></div>
+        <p>방법 자체가 우수해도 후보가 적용범위 밖이면 사용할 수 없습니다. 사람 관련 시험이라도 실제 노출과 대조군이 부족하면 이번 음성결과는 신뢰할 수 없습니다.</p>
+      </div>
+      <div class="dimension-grid">
+        <article class="dimension"><div class="icon">01</div><h3>방법 신뢰성</h3><p>모델·시험법의 정체성, 성능, 외부검증, 재현성과 품질시스템</p><ul><li>Version / endpoint</li><li>Sensitivity / false-negative</li><li>External validation</li></ul></article>
+        <article class="dimension"><div class="icon">02</div><h3>후보 적용성</h3><p>현재 제품 modality, 구조, 기전, 경로와 노출이 검증범위 안에 있는지 평가</p><ul><li>Applicability domain</li><li>Modality coverage</li><li>Endpoint match</li></ul></article>
+        <article class="dimension"><div class="icon">03</div><h3>사람 생물학적 관련성</h3><p>관련 세포·조직구조·대사능·면역기전과 임상 endpoint 연결</p><ul><li>Hepatocyte / Kupffer cell</li><li>Metabolic competence</li><li>Mechanistic alignment</li></ul></article>
+        <article class="dimension"><div class="icon">04</div><h3>노출 관련성</h3><p>명목농도를 free·세포내·표적조직 및 예정 사람노출로 번역</p><ul><li>Cmax / AUC coverage</li><li>Repeated exposure</li><li>QIVIVE / PBPK</li></ul></article>
+        <article class="dimension"><div class="icon">05</div><h3>근거 일치성</h3><p>AI, NAM, 기전, PK/TK, in vivo와 사람 근거의 일치·상충</p><ul><li>Directional concordance</li><li>Mechanistic concordance</li><li>Independent evidence streams</li></ul></article>
+        <article class="dimension"><div class="icon">06</div><h3>잔여 불확실성</h3><p>미확인 정보와 상충결과가 환자안전과 의사결정에 미치는 영향</p><ul><li>Data / model / assay uncertainty</li><li>Criticality and timing</li><li>Resolution plan</li></ul></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft" id="roles">
+    <div class="container">
+      <div class="section-heading"><div><div class="eyebrow">Evidence Role R0–R5</div><h2>“안전하다”가 아니라 현재 근거의 역할과 한계를 분류합니다.</h2></div><p>R5도 제품 안전성 인증, 동물시험 면제 또는 규제기관 수용을 의미하지 않습니다. 특정 endpoint와 좁게 정의된 COU에서 공식 검토할 후보라는 뜻입니다.</p></div>
+      <div class="role-track" id="roleTrack"></div>
+    </div>
+  </section>
+
+  <section class="section" id="demo">
+    <div class="container">
+      <div class="section-heading"><div><div class="eyebrow">Interactive ontology case</div><h2>GP‑L‑CT에서 규칙이 Evidence Role을 어떻게 제한하는지 확인합니다.</h2></div><p>가상 입력을 변경하면 Out‑of‑domain, 실제 노출, 반복노출, carrier control, biodistribution과 전문가 검토가 근거 역할에 미치는 영향을 볼 수 있습니다.</p></div>
+      <div class="demo-shell">
+        <form class="demo-controls" id="demoForm">
+          <h3>GP‑L‑CT 가상 근거 설정</h3>
+          <div class="case-meta"><strong>제품:</strong> siRNA + Hybrid Nanoparticle · <strong>경로:</strong> IV · <strong>표적:</strong> BIRC5/Survivin<br><strong>질문:</strong> 현재 AI/NAM 근거가 초기 간독성 선별과 후속 동물시험 축소를 지원하는가?</div>
+          <div class="control"><label for="aiDomain">AI 후보 적용범위 <span>Applicability Domain</span></label><select id="aiDomain"><option value="out">Out‑of‑domain</option><option value="border">Borderline</option><option value="in">In‑domain</option></select></div>
+          <div class="control"><label class="checkbox"><input type="checkbox" id="falseNegativeKnown"> 음성예측의 false-negative 성능 확인</label></div>
+          <div class="control"><label for="namExposure">NAM 노출설계 <span>Exposure Design</span></label><select id="namExposure"><option value="single">급성 단회</option><option value="repeat">반복노출</option></select></div>
+          <div class="control"><label class="checkbox"><input type="checkbox" id="measuredExposure"> Free / 세포내 실제 노출 측정</label></div>
+          <div class="control"><label class="checkbox"><input type="checkbox" id="kupffer"> Kupffer cell 또는 면역 적격 간 모델</label></div>
+          <div class="control"><label class="checkbox"><input type="checkbox" id="carrierControl"> Carrier‑only 대조군 포함</label></div>
+          <div class="control"><label for="biodistribution">Biodistribution <span>Target Tissue Exposure</span></label><select id="biodistribution"><option value="missing">없음</option><option value="qualitative">정성적</option><option value="quantitative">정량적</option></select></div>
+          <div class="control"><label for="independentStreams">독립 근거 흐름 <span>Evidence Streams</span></label><select id="independentStreams"><option value="1">1개</option><option value="2">2개</option><option value="3">3개 이상</option></select></div>
+          <div class="control"><label class="checkbox"><input type="checkbox" id="expertReviewed"> 독성전문가 검토 및 승인</label></div>
+          <button class="btn primary" type="button" id="resetDemo">기본 GP‑L‑CT 상태로 되돌리기</button>
+        </form>
+        <section class="demo-result" aria-live="polite">
+          <h3>NORA 가상 평가</h3>
+          <div class="result-top"><div class="result-role" id="demoRoleCode">R1</div><div class="result-summary"><strong id="demoRoleName">가설 생성</strong><p id="demoRoleDescription">현재 근거는 잠재 위험과 다음 시험을 제안하는 수준입니다.</p><span class="result-status" id="demoAnimalStatus">동물시험 축소 미지원</span></div></div>
+          <div class="gap-stack" id="demoGaps"></div>
+          <div class="next-evidence"><strong>권고되는 다음 근거</strong><ul id="demoRecommendations"></ul></div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark" id="workflow">
+    <div class="container">
+      <div class="section-heading"><div><div class="eyebrow light">Human-in-the-loop workflow</div><h2>LLM은 사실 후보를 제안하고, 온톨로지와 규칙이 판단을 구조화합니다.</h2></div><p>자동 추출 결과가 바로 결론이 되지 않습니다. 출처에 연결된 Assertion을 사람이 승인하거나 수정한 뒤, 결정론적 규칙이 Evidence Role과 Data Gap을 생성합니다.</p></div>
+      <div class="workflow">
+        <div class="workflow-step"><b>01</b><strong>문서 수집</strong><p>AI model card, NAM report, PK/TK, biodistribution, publication</p></div>
+        <div class="workflow-step"><b>02</b><strong>Assertion 추출</strong><p>문서·페이지·표·원자료 위치가 연결된 사실 후보</p></div>
+        <div class="workflow-step"><b>03</b><strong>사람 검토</strong><p>제안됨 → 승인·수정·거절. 승인 전에는 고영향 판단에 미사용</p></div>
+        <div class="workflow-step"><b>04</b><strong>SHACL 검증</strong><p>필수정보, control, exposure, traceability와 version 확인</p></div>
+        <div class="workflow-step"><b>05</b><strong>Rule Engine</strong><p>Hard Gate, Data Gap, residual uncertainty와 R0–R5</p></div>
+        <div class="workflow-step"><b>06</b><strong>전문가 자문</strong><p>Observation → Interpretation → Development relevance → Recommendation</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft" id="downstream">
+    <div class="container">
+      <div class="section-heading"><div><div class="eyebrow">From EarlyTox to clinical entry</div><h2>초기 독성근거 검증은 CTA/IND 준비의 앞단에 위치합니다.</h2></div><p>NORA EarlyTox의 1차 역할은 대체근거의 credibility와 fit‑for‑purpose를 평가하는 것입니다. CTA/IND 준비도 평가는 충분한 근거가 축적된 뒤 downstream 모듈에서 수행합니다.</p></div>
+      <div class="downstream">
+        <div class="down-card"><h3>NORA EarlyTox</h3><p>AI/NAM 근거를 검증하고 다음 독성근거를 우선순위화합니다.</p><ul><li>Potential hazard와 toxicity question</li><li>Method credibility와 applicability</li><li>Human relevance와 exposure translation</li><li>Evidence Role 및 3Rs 권고</li></ul></div>
+        <div class="down-arrow">→</div>
+        <div class="down-card"><h3>Preclinical / CTA‑IND Readiness</h3><p>계획된 임상시험을 지원하는 전체 비임상 패키지를 검토합니다.</p><ul><li>Repeat‑dose, TK, biodistribution</li><li>Test article comparability</li><li>Human risk 및 clinical mitigation</li><li>Starting dose, monitoring, stopping rule</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="users">
+    <div class="container">
+      <div class="section-heading"><div><div class="eyebrow">Who NORA supports</div><h2>독성전문가를 대체하지 않고, 올바른 질문과 검토순서를 표준화합니다.</h2></div><p>같은 온톨로지는 연구실의 초기 위험설정부터 바이오텍의 study strategy, 제약사의 외부자산 검토, CRO의 intake와 gap analysis까지 확장할 수 있습니다.</p></div>
+      <div class="user-grid">
+        <article class="user-card"><h3>대학·연구기관</h3><p>연구용 데이터와 개발용 독성근거의 차이를 이해하고 다음 translational experiment를 계획합니다.</p></article>
+        <article class="user-card"><h3>초기 바이오텍</h3><p>CRO 의뢰 전에 AI/NAM 결과의 한계와 필요한 시험의 우선순위를 검토합니다.</p></article>
+        <article class="user-card"><h3>제약·License‑in 팀</h3><p>다른 자산의 근거를 같은 의미모델로 정규화하여 unresolved uncertainty를 비교합니다.</p></article>
+        <article class="user-card"><h3>CRO·컨설팅</h3><p>고객자료 intake, source traceability, 목적별 결과 구조화와 전문가 검토시간을 지원합니다.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft" id="questions">
+    <div class="container">
+      <div class="section-heading"><div><div class="eyebrow">Competency questions</div><h2>이 온톨로지가 실제로 답해야 하는 질문</h2></div><p>온톨로지 구현은 클래스 수가 아니라 이 질문에 출처와 규칙을 포함하여 답할 수 있는지로 검증합니다.</p></div>
+      <div class="cq-grid" id="competencyQuestions"></div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-card">
+        <div><div class="eyebrow light">ToxiGuard NORA</div><h2>Check toxicity earlier. Decide with evidence.</h2><p>초기 독성위험을 더 일찍 설정하고, AI와 NAM의 결과를 근거의 역할·한계·다음 행동으로 변환합니다.</p></div>
+        <div class="contact-actions"><a class="btn primary" href="#demo">GP‑L‑CT 데모</a><button class="btn ghost" type="button" data-open-modal="disclaimerModal">사용 제한 보기</button></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer"><div class="container footer-inner"><div><strong>ToxiGuard NORA EarlyTox</strong><br>TG‑PTO‑ET Ontology‑driven Evidence Assurance</div><div>Prototype · Human‑in‑the‑loop · No automatic safety certification</div></div></footer>
+
+<div class="modal" id="disclaimerModal" role="dialog" aria-modal="true" aria-labelledby="disclaimerTitle">
+  <div class="modal-card">
+    <div class="modal-head"><h3 id="disclaimerTitle">제품 사용 범위와 제한</h3><button class="close" type="button" data-close-modal aria-label="닫기">×</button></div>
+    <div class="modal-body">
+      <div class="disclaimer"><strong>NORA는 제품 안전성을 인증하거나 동물시험 면제·CTA/IND 승인·규제기관 수용을 보장하지 않습니다.</strong> 자동화된 결과는 초기 연구와 개발 의사결정 지원을 위한 prototype입니다.</div>
+      <p>NORA의 핵심 출력은 “안전/위험” 단정이 아니라 다음입니다.</p>
+      <ul><li>현재 근거가 답할 수 있는 독성질문</li><li>방법과 실행의 신뢰조건</li><li>후보물질·사람 생물학·노출 관련성</li><li>미해결 Data Gap과 잔여 불확실성</li><li>Evidence Role R0–R5와 다음 근거</li><li>전문가 검토 및 audit trail</li></ul>
+      <p><strong>R5 Replacement Candidate</strong>도 좁게 정의된 Context of Use에서 특정 endpoint를 공식 검토할 후보라는 의미이며, 전체 전임상 독성패키지 대체를 뜻하지 않습니다.</p>
+    </div>
+  </div>
+</div>
+
+<script src="data/ontology-data.js"></script>
+<script src="data/gp-l-ct-data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

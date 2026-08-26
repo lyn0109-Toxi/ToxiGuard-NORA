@@ -1,0 +1,107 @@
+@prefix ai: <https://toxiguard.ai/ontology/earlytox/ai#> .
+@prefix assessment: <https://toxiguard.ai/ontology/earlytox/assessment#> .
+@prefix core: <https://toxiguard.ai/ontology/earlytox/core#> .
+@prefix decision: <https://toxiguard.ai/ontology/earlytox/decision#> .
+@prefix governance: <https://toxiguard.ai/ontology/earlytox/governance#> .
+@prefix nam: <https://toxiguard.ai/ontology/earlytox/nam#> .
+@prefix product: <https://toxiguard.ai/ontology/earlytox/product#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://toxiguard.ai/ontology/earlytox/assessment/NORA-SAMPLE-CONFLICT> a assessment:AssessmentRun ;
+    assessment:evaluatesProduct <https://toxiguard.ai/ontology/earlytox/product/Conflict-NME-01> ;
+    assessment:hasAssessmentResult [ a assessment:EvidenceRoleAssessment ;
+            assessment:hasAnimalUseRecommendation "선별 용도로만 사용" ;
+            assessment:hasDataGaps [ ] ;
+            assessment:hasEvidenceRole "R2" ;
+            assessment:hasEvidenceRoleName "초기 선별" ;
+            assessment:hasEvidenceStreamCount 4 ;
+            assessment:hasGateResults [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ] ;
+            assessment:hasModelRisk "높음" ;
+            assessment:hasRecommendations "상충 원인을 확인할 orthogonal assay와 독립적 전문가 검토를 수행하십시오." ;
+            assessment:hasResidualUncertainty "높음" ;
+            assessment:hasScores [ ] ] ;
+    assessment:usesAIModelCard [ a ai:AIModelCard ;
+            ai:hasCalibrationStatus "부분 검증" ;
+            ai:hasDomainModalities "저분자" ;
+            ai:hasDomainStatus "In-domain" ;
+            ai:hasExternalValidationStatus "확인됨" ;
+            ai:hasFalseNegativeRatePercent 20 ;
+            ai:hasIntendedEndpoint "초기 간독성" ;
+            ai:hasKnownLimitation "" ;
+            ai:hasModelName "Hepato-ML" ;
+            ai:hasModelType "Machine learning classifier" ;
+            ai:hasModelVersion "v2.1" ;
+            ai:hasPredictionResult "음성 / 낮은 위험 예측" ;
+            ai:hasProbabilityPercent 15 ;
+            ai:hasSensitivityPercent 80 ;
+            ai:hasSource "외부검증 논문" ;
+            ai:hasSpecificityPercent 82 ;
+            ai:useAI true ] ;
+    assessment:usesNAMAssayCard [ a nam:NAMAssayCard ;
+            nam:hasActiveOnlyControlStatus "해당 없음" ;
+            nam:hasCarrierOnlyControlStatus "해당 없음" ;
+            nam:hasCellTypes "Kupffer cell",
+                "간세포(Hepatocyte)" ;
+            nam:hasEndpoints "Cell viability / ATP",
+                "Omics signature",
+                "미토콘드리아 기능" ;
+            nam:hasExposureDesign "반복노출" ;
+            nam:hasImmuneCompetence "부분적" ;
+            nam:hasMeasuredExposureStatus "측정됨" ;
+            nam:hasMetabolicCompetence "충분히 확인" ;
+            nam:hasNAMType "간 Organoid" ;
+            nam:hasNegativeControlStatus "유효" ;
+            nam:hasNominalExposure "" ;
+            nam:hasPositiveControlStatus "유효" ;
+            nam:hasProtocolCompleteness "완결" ;
+            nam:hasQIVIVEStatus "초기 연결" ;
+            nam:hasReproducibilityStatus "Donor/lot/반복 재현성 확인" ;
+            nam:hasResult "양성" ;
+            nam:hasSystemOrigin "사람 유래" ;
+            nam:useNAM true ] ;
+    core:hasIdentifier "NORA-SAMPLE-CONFLICT" ;
+    core:hasTimestamp "2026-08-26T00:00:00+00:00" ;
+    core:isPartOfProject <https://toxiguard.ai/ontology/earlytox/project/PRJ-CONFLICT-01> ;
+    decision:hasQuestionOfInterest [ a decision:QuestionOfInterest ;
+            decision:hasDecisionConsequence 4 ;
+            decision:hasDecisionObjective "AI·NAM·기존 근거 통합" ;
+            decision:hasDecisionOwner "프로그램 독성책임자" ;
+            decision:hasDevelopmentStage "후보물질 선정" ;
+            decision:hasIntendedEvidenceRole "R3 · 보조 근거" ;
+            decision:hasJurisdiction "연구용 / 내부 의사결정" ;
+            decision:hasModelInfluence 3 ;
+            decision:hasQuestionText "AI 음성예측과 사람 간 organoid 양성결과가 상충할 때 초기 간독성 위험과 다음 시험을 어떻게 결정해야 하는가?" ;
+            decision:hasTargetEndpoint "초기 간독성" ] ;
+    governance:hasAudit [ ] .
+
+<https://toxiguard.ai/ontology/earlytox/product/Conflict-NME-01> a product:ChemicalDrug,
+        product:InvestigationalProduct ;
+    core:hasName "Conflict-NME-01" ;
+    product:hasActiveSubstance "Candidate X" ;
+    product:hasAdministrationRoute "경구" ;
+    product:hasCarrier "" ;
+    product:hasDistributionStatus "정성적 자료" ;
+    product:hasExposurePattern "반복 노출" ;
+    product:hasFrequency "" ;
+    product:hasHumanAUC "" ;
+    product:hasHumanCmax "5 µM" ;
+    product:hasIndication "신경계 질환" ;
+    product:hasModality "저분자 NME" ;
+    product:hasPlannedDose "" ;
+    product:hasTargetMechanism "Mitochondrial pathway modulator" ;
+    product:hasTargetOrgans "간, 비장" ;
+    product:hasTestArticleRepresentativeness "불명확" ;
+    product:hasTreatmentDuration "" .
+
+<https://toxiguard.ai/ontology/earlytox/project/PRJ-CONFLICT-01> a core:DevelopmentProgram ;
+    core:hasName "Conflicting Evidence EarlyTox" .
+

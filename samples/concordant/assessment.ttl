@@ -1,0 +1,108 @@
+@prefix ai: <https://toxiguard.ai/ontology/earlytox/ai#> .
+@prefix assessment: <https://toxiguard.ai/ontology/earlytox/assessment#> .
+@prefix core: <https://toxiguard.ai/ontology/earlytox/core#> .
+@prefix decision: <https://toxiguard.ai/ontology/earlytox/decision#> .
+@prefix governance: <https://toxiguard.ai/ontology/earlytox/governance#> .
+@prefix nam: <https://toxiguard.ai/ontology/earlytox/nam#> .
+@prefix product: <https://toxiguard.ai/ontology/earlytox/product#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://toxiguard.ai/ontology/earlytox/assessment/NORA-SAMPLE-CONCORDANT> a assessment:AssessmentRun ;
+    assessment:evaluatesProduct <https://toxiguard.ai/ontology/earlytox/product/SM-NME-01> ;
+    assessment:hasAssessmentResult [ a assessment:EvidenceRoleAssessment ;
+            assessment:hasAnimalUseRecommendation "제한적 축소 지원" ;
+            assessment:hasEvidenceRole "R4" ;
+            assessment:hasEvidenceRoleName "동물시험 축소 지원" ;
+            assessment:hasEvidenceStreamCount 7 ;
+            assessment:hasGateResults [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ] ;
+            assessment:hasModelRisk "중간" ;
+            assessment:hasRecommendations "현재 근거 역할의 사용조건을 명확히 문서화하고, 실제 동물시험 변경 전 전문가 및 필요 시 규제기관과 검토하십시오." ;
+            assessment:hasResidualUncertainty "낮음" ;
+            assessment:hasScores [ ] ] ;
+    assessment:usesAIModelCard [ a ai:AIModelCard ;
+            ai:hasCalibrationStatus "검증됨" ;
+            ai:hasDomainModalities "저분자" ;
+            ai:hasDomainStatus "In-domain" ;
+            ai:hasExternalValidationStatus "확인됨" ;
+            ai:hasFalseNegativeRatePercent 10 ;
+            ai:hasIntendedEndpoint "초기 간독성" ;
+            ai:hasKnownLimitation "중증 간질환 환자군은 별도 검증 필요" ;
+            ai:hasModelName "Validated Hepato-AI" ;
+            ai:hasModelType "Machine learning classifier" ;
+            ai:hasModelVersion "v5.2" ;
+            ai:hasPredictionResult "음성 / 낮은 위험 예측" ;
+            ai:hasProbabilityPercent 8 ;
+            ai:hasSensitivityPercent 90 ;
+            ai:hasSource "독립 외부검증 보고서" ;
+            ai:hasSpecificityPercent 86 ;
+            ai:useAI true ] ;
+    assessment:usesNAMAssayCard [ a nam:NAMAssayCard ;
+            nam:hasActiveOnlyControlStatus "해당 없음" ;
+            nam:hasCarrierOnlyControlStatus "해당 없음" ;
+            nam:hasCellTypes "Kupffer cell",
+                "Stellate cell",
+                "간세포(Hepatocyte)" ;
+            nam:hasEndpoints "ALT / AST / GLDH",
+                "CYP 대사기능",
+                "Cell viability / ATP",
+                "미토콘드리아 기능" ;
+            nam:hasExposureDesign "반복노출" ;
+            nam:hasImmuneCompetence "충분" ;
+            nam:hasMeasuredExposureStatus "측정됨" ;
+            nam:hasMetabolicCompetence "충분히 확인" ;
+            nam:hasNAMType "3D 간 Spheroid" ;
+            nam:hasNegativeControlStatus "유효" ;
+            nam:hasNominalExposure "0.1–20 µM" ;
+            nam:hasPositiveControlStatus "유효" ;
+            nam:hasProtocolCompleteness "완결" ;
+            nam:hasQIVIVEStatus "수행됨" ;
+            nam:hasReproducibilityStatus "Donor/lot/반복 재현성 확인" ;
+            nam:hasResult "음성" ;
+            nam:hasSystemOrigin "사람 유래" ;
+            nam:useNAM true ] ;
+    core:hasIdentifier "NORA-SAMPLE-CONCORDANT" ;
+    core:hasTimestamp "2026-08-26T00:00:00+00:00" ;
+    core:isPartOfProject <https://toxiguard.ai/ontology/earlytox/project/PRJ-CONCORDANT-01> ;
+    decision:hasQuestionOfInterest [ a decision:QuestionOfInterest ;
+            decision:hasDecisionConsequence 3 ;
+            decision:hasDecisionObjective "동물시험 범위 축소 가능성 평가" ;
+            decision:hasDecisionOwner "독성책임자" ;
+            decision:hasDevelopmentStage "초기 비임상 개발" ;
+            decision:hasIntendedEvidenceRole "R4 · 동물시험 축소 지원" ;
+            decision:hasJurisdiction "미국 FDA 사전미팅 준비" ;
+            decision:hasModelInfluence 3 ;
+            decision:hasQuestionText "검증된 AI 모델과 사람 간 spheroid 음성결과가 저분자 후보의 후속 동물 간독성시험을 정교화하거나 축소하는 데 충분한가?" ;
+            decision:hasTargetEndpoint "초기 간독성" ] ;
+    governance:hasAudit [ ] .
+
+<https://toxiguard.ai/ontology/earlytox/product/SM-NME-01> a product:ChemicalDrug,
+        product:InvestigationalProduct ;
+    core:hasName "SM-NME-01" ;
+    product:hasActiveSubstance "Small molecule candidate" ;
+    product:hasAdministrationRoute "경구" ;
+    product:hasCarrier "" ;
+    product:hasDistributionStatus "정량적 자료" ;
+    product:hasExposurePattern "반복 노출" ;
+    product:hasFrequency "1일 1회" ;
+    product:hasHumanAUC "20 µM·h" ;
+    product:hasHumanCmax "2 µM" ;
+    product:hasIndication "대사질환" ;
+    product:hasModality "저분자 NME" ;
+    product:hasPlannedDose "10–50 mg/day" ;
+    product:hasTargetMechanism "Selective enzyme inhibitor" ;
+    product:hasTargetOrgans "간" ;
+    product:hasTestArticleRepresentativeness "임상제품 대표성 확인" ;
+    product:hasTreatmentDuration "4주" .
+
+<https://toxiguard.ai/ontology/earlytox/project/PRJ-CONCORDANT-01> a core:DevelopmentProgram ;
+    core:hasName "Concordant EarlyTox" .
+

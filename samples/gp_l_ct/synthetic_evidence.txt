@@ -1,0 +1,30 @@
+ToxiGuard NORA Synthetic Evidence Package - GP-L-CT
+
+Product Name: GP-L-CT
+Active Substance: Survivin siRNA
+Target: BIRC5 / transient gene silencing
+Carrier: Chitosan-Protamine-Lecithin-TPP hybrid nanocomplex
+Route: intravenous
+Planned exposure: repeated dose, weekly for four weeks
+Qualitative biodistribution suggests liver and spleen uptake; quantitative biodistribution is not available.
+
+AI Model Card
+Model Name: Small-Molecule Hepato Classifier
+Version: v3.0
+Endpoint: hepatotoxicity
+Prediction result: negative / low risk
+Sensitivity: 82%
+Specificity: 76%
+External validation was partially performed in a small-molecule dataset.
+The training dataset mainly included small-molecule compounds and did not include siRNA nanomedicines.
+False-negative rate was not reported.
+
+NAM Study Summary
+A primary human hepatocyte 2D cell assay was performed using a single 24-hour exposure.
+The NAM assay result was negative.
+Positive control passed and negative control passed.
+Cell viability and ATP were measured.
+Free concentration and intracellular concentration were not measured.
+Kupffer cells and stellate cells were not included.
+Carrier-only control was not included.
+QIVIVE or PBPK translation was not performed.

@@ -1,0 +1,234 @@
+{
+  "schema_version": "nora-project-0.4",
+  "project_id": "PRJ-CONFLICT-01",
+  "project_name": "Conflicting Evidence EarlyTox",
+  "created_at_utc": "2026-08-26T00:00:00+00:00",
+  "updated_at_utc": "2026-08-26T00:00:00+00:00",
+  "owner": "ToxiGuard NORA",
+  "description": "Synthetic golden case for deterministic EarlyTox regression testing.",
+  "assessment_input": {
+    "context_of_use": {
+      "objective": "AI·NAM·기존 근거 통합",
+      "question_of_interest": "AI 음성예측과 사람 간 organoid 양성결과가 상충할 때 초기 간독성 위험과 다음 시험을 어떻게 결정해야 하는가?",
+      "development_stage": "후보물질 선정",
+      "target_endpoint": "초기 간독성",
+      "intended_evidence_role": "R3 · 보조 근거",
+      "jurisdiction": "연구용 / 내부 의사결정",
+      "model_influence": 3,
+      "decision_consequence": 4,
+      "decision_owner": "프로그램 독성책임자"
+    },
+    "product": {
+      "product_name": "Conflict-NME-01",
+      "modality": "저분자 NME",
+      "indication": "신경계 질환",
+      "active_substance": "Candidate X",
+      "target_mechanism": "Mitochondrial pathway modulator",
+      "carrier_formulation": "",
+      "route": "경구",
+      "planned_dose": "",
+      "exposure_pattern": "반복 노출",
+      "frequency": "",
+      "treatment_duration": "",
+      "target_organs": "간, 비장",
+      "human_cmax": "5 µM",
+      "human_auc": "",
+      "distribution_status": "정성적 자료",
+      "test_article_representativeness": "불명확"
+    },
+    "ai_model": {
+      "use_ai": true,
+      "model_name": "Hepato-ML",
+      "model_version": "v2.1",
+      "model_type": "Machine learning classifier",
+      "endpoint": "초기 간독성",
+      "result": "음성 / 낮은 위험 예측",
+      "probability_percent": 15,
+      "domain_modalities": [
+        "저분자"
+      ],
+      "external_validation": "확인됨",
+      "sensitivity_percent": 80,
+      "specificity_percent": 82,
+      "false_negative_rate_percent": 20,
+      "calibration_status": "부분 검증",
+      "domain_status": "In-domain",
+      "source": "외부검증 논문",
+      "known_limitations": ""
+    },
+    "nam_assay": {
+      "use_nam": true,
+      "nam_type": "간 Organoid",
+      "system_origin": "사람 유래",
+      "result": "양성",
+      "cell_types": [
+        "간세포(Hepatocyte)",
+        "Kupffer cell"
+      ],
+      "metabolic_competence": "충분히 확인",
+      "immune_competence": "부분적",
+      "exposure_design": "반복노출",
+      "positive_control": "유효",
+      "negative_control": "유효",
+      "carrier_only_control": "해당 없음",
+      "active_only_control": "해당 없음",
+      "protocol_completeness": "완결",
+      "nominal_exposure": "",
+      "measured_exposure": "측정됨",
+      "qivive_pbpk": "초기 연결",
+      "reproducibility": "Donor/lot/반복 재현성 확인",
+      "endpoints": [
+        "Cell viability / ATP",
+        "미토콘드리아 기능",
+        "Omics signature"
+      ]
+    },
+    "supporting_evidence": {
+      "mechanistic_evidence": true,
+      "class_or_clinical_evidence": false,
+      "quantitative_biodistribution": false,
+      "pk_tk_evidence": true,
+      "existing_in_vivo_evidence": false,
+      "human_evidence": false,
+      "evidence_traceable": true,
+      "assertions_reviewed": true,
+      "expert_reviewed": false,
+      "version_locked": true,
+      "expert_review_note": "",
+      "supporting_note": ""
+    }
+  },
+  "documents": [],
+  "assertions": [],
+  "audit_events": [
+    {
+      "event_id": "AUD-CONFLICT",
+      "timestamp_utc": "2026-08-26T00:00:00+00:00",
+      "action": "Golden case generated",
+      "actor": "ToxiGuard NORA",
+      "detail": "Schema nora-project-0.4"
+    }
+  ],
+  "last_result": {
+    "evidence_role": 2,
+    "evidence_role_code": "R2",
+    "evidence_role_name": "초기 선별",
+    "evidence_role_description": "후보 우선순위와 추가시험 선택에는 사용할 수 있으나, 동물시험 축소·대체를 지지하지 않습니다.",
+    "animal_use_status": "선별 용도로만 사용",
+    "animal_use_description": "후보 우선순위와 추가시험 선택에는 사용할 수 있으나 동물시험 축소는 지지하지 않습니다.",
+    "model_risk": "높음",
+    "residual_uncertainty": "높음",
+    "evidence_stream_count": 4,
+    "scores": {
+      "방법 신뢰성": 3.9,
+      "후보 적용성": 3.5,
+      "사람 생물학적 관련성": 3.6,
+      "노출 관련성": 3.7,
+      "근거 일치성": 0.9,
+      "잔여 불확실성": "높음"
+    },
+    "gates": [
+      {
+        "gate": "독성 질문·COU",
+        "status": "통과",
+        "rationale": "질문과 제품이 정의되어야 합니다.",
+        "effect": "미통과 시 R0"
+      },
+      {
+        "gate": "방법 식별·버전",
+        "status": "통과",
+        "rationale": "정확한 모델/시험법 버전이 필요합니다.",
+        "effect": "미통과 시 R0 또는 R1"
+      },
+      {
+        "gate": "Endpoint 일치",
+        "status": "통과",
+        "rationale": "방법 endpoint와 독성질문이 일치해야 합니다.",
+        "effect": "미통과 시 R0"
+      },
+      {
+        "gate": "후보 적용범위",
+        "status": "통과",
+        "rationale": "AI domain status: In-domain",
+        "effect": "Out-of-domain 음성은 최대 R1"
+      },
+      {
+        "gate": "NAM 실행 유효성",
+        "status": "통과",
+        "rationale": "대조군과 실행상태가 유효해야 합니다.",
+        "effect": "무효 실행은 근거 제외"
+      },
+      {
+        "gate": "사람 관련성",
+        "status": "통과",
+        "rationale": "관련 세포·대사·면역기능을 확인합니다.",
+        "effect": "낮으면 R3 이상 제한"
+      },
+      {
+        "gate": "노출 번역",
+        "status": "통과",
+        "rationale": "실제 노출 및 사람노출 연결이 필요합니다.",
+        "effect": "낮으면 R3 이상 제한"
+      },
+      {
+        "gate": "독립 근거",
+        "status": "통과",
+        "rationale": "독립 근거 흐름 4개",
+        "effect": "R4/R5에 최소 2개 필요"
+      },
+      {
+        "gate": "근거 추적성",
+        "status": "통과",
+        "rationale": "문서·페이지·표·원자료로 추적되어야 합니다.",
+        "effect": "미통과 시 최대 R2"
+      },
+      {
+        "gate": "전문가 검토",
+        "status": "미통과",
+        "rationale": "R4/R5에는 독성전문가 승인이 필수입니다.",
+        "effect": "미검토 시 최대 R3"
+      }
+    ],
+    "data_gaps": [
+      {
+        "code": "ET-G023",
+        "title": "근거 간 상충",
+        "description": "AI와 사람 관련 NAM 결과가 반대 방향을 나타냅니다. 원인 규명 전 동물시험 축소를 지지할 수 없습니다.",
+        "criticality": "결정 제한",
+        "rule_id": "ET-R011",
+        "effect": "Evidence Role 최대 R2 및 전문가 검토 필요",
+        "recommendation": "상충 원인을 확인할 orthogonal assay와 독립적 전문가 검토를 수행하십시오."
+      }
+    ],
+    "observations": [
+      "평가 대상은 Conflict-NME-01이며 제품 modality는 저분자 NME, 투여경로는 경구입니다.",
+      "AI 모델 Hepato-ML v2.1은 음성 / 낮은 위험 예측 결과를 제시했습니다.",
+      "간 Organoid NAM에서 양성 결과가 입력되었고 노출설계는 반복노출입니다."
+    ],
+    "interpretations": [
+      "AI와 NAM 근거가 상충하므로 어느 결과도 우선하지 않고 원인 규명과 독립적 확인이 필요합니다."
+    ],
+    "development_relevance": [
+      "현재 패키지의 Evidence Role은 R2 — 초기 선별입니다.",
+      "후보 우선순위와 추가시험 선택에는 사용할 수 있으나 동물시험 축소는 지지하지 않습니다.",
+      "잔여 불확실성은 높음이며, 모델 위험은 높음입니다."
+    ],
+    "recommendations": [
+      "상충 원인을 확인할 orthogonal assay와 독립적 전문가 검토를 수행하십시오."
+    ],
+    "audit": {
+      "assessment_id": "NORA-SAMPLE-CONFLICT",
+      "assessment_timestamp_utc": "2026-08-26T00:00:00+00:00",
+      "ontology_version": "TG-PTO-ET v0.4",
+      "rule_set_version": "ET Rules v0.4",
+      "input_hash": "99c45277a42cc79a",
+      "ai_domain_status": "In-domain",
+      "assertions_reviewed": true,
+      "expert_reviewed": false,
+      "evidence_traceable": true,
+      "version_locked": true,
+      "expert_review_note": "",
+      "prototype_boundary": "초기 간독성 vertical slice; 연구 및 의사결정 지원용"
+    }
+  }
+}

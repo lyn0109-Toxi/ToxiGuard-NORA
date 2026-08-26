@@ -1,0 +1,43 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix decision: <https://toxiguard.ai/ontology/earlytox/decision#> .
+@prefix product: <https://toxiguard.ai/ontology/earlytox/product#> .
+@prefix ai: <https://toxiguard.ai/ontology/earlytox/ai#> .
+@prefix nam: <https://toxiguard.ai/ontology/earlytox/nam#> .
+@prefix evidence: <https://toxiguard.ai/ontology/earlytox/evidence#> .
+@prefix assessment: <https://toxiguard.ai/ontology/earlytox/assessment#> .
+
+assessment:AssessmentRunShape a sh:NodeShape ;
+  sh:targetClass assessment:AssessmentRun ;
+  sh:property [
+    sh:path decision:hasQuestionOfInterest ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "AssessmentRun에는 정확히 하나의 Question of Interest가 필요합니다."@ko
+  ] ;
+  sh:property [
+    sh:path assessment:evaluatesProduct ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+    sh:message "AssessmentRun에는 정확히 하나의 평가 대상 제품이 필요합니다."@ko
+  ] .
+
+evidence:AcceptedAssertionShape a sh:NodeShape ;
+  sh:targetClass evidence:EvidenceAssertion ;
+  sh:property [
+    sh:path evidence:supportedByEvidence ;
+    sh:minCount 1 ;
+    sh:message "승인된 Assertion에는 출처 EvidenceItem이 필요합니다."@ko
+  ] ;
+  sh:property [
+    sh:path evidence:hasSourceLocation ;
+    sh:minCount 1 ;
+    sh:minLength 1 ;
+    sh:message "승인된 Assertion에는 페이지·표·행 등 출처 위치가 필요합니다."@ko
+  ] ;
+  sh:property [
+    sh:path evidence:hasReviewStatus ;
+    sh:minCount 1 ;
+    sh:in ("승인" "수정") ;
+    sh:message "평가에 사용되는 Assertion은 승인 또는 수정 상태여야 합니다."@ko
+  ] .

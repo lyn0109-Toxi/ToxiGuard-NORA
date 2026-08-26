@@ -1,0 +1,93 @@
+[
+  {
+    "rule_id": "ET-R001",
+    "name_ko": "필수 맥락 및 방법 식별",
+    "condition": "독성 질문, 후보물질, 모델명 또는 버전이 누락됨",
+    "conclusion": "평가 불가 또는 근거 역할 제한",
+    "maximum_role": "R0-R1"
+  },
+  {
+    "rule_id": "ET-R002",
+    "name_ko": "Endpoint 일치",
+    "condition": "모델 endpoint와 Question of Interest가 다름",
+    "conclusion": "Fit-for-purpose 부적절",
+    "maximum_role": "R0"
+  },
+  {
+    "rule_id": "ET-R003",
+    "name_ko": "Applicability domain",
+    "condition": "후보물질이 모델 적용범위 밖 또는 불명확",
+    "conclusion": "Out-of-domain 음성예측을 Reliable Negative로 인정하지 않음",
+    "maximum_role": "R1-R2"
+  },
+  {
+    "rule_id": "ET-R005",
+    "name_ko": "False-negative 특성",
+    "condition": "음성예측이고 고영향 결정이나 false-negative 성능이 없음",
+    "conclusion": "음성예측 신뢰 제한",
+    "maximum_role": "R2"
+  },
+  {
+    "rule_id": "ET-R006",
+    "name_ko": "NAM 실행 유효성",
+    "condition": "양성/음성 대조군 실패 또는 프로토콜 불충분",
+    "conclusion": "NAM 결과를 Uninterpretable로 분류",
+    "maximum_role": "R1-R2"
+  },
+  {
+    "rule_id": "ET-R007",
+    "name_ko": "사람노출 번역",
+    "condition": "Cmax/AUC, QIVIVE/PBPK 또는 조직분포 자료가 부족",
+    "conclusion": "사람노출 관련성 제한",
+    "maximum_role": "R3"
+  },
+  {
+    "rule_id": "ET-R008",
+    "name_ko": "Negative NAM의 실제 노출",
+    "condition": "NAM 음성이나 free/세포내 실제 노출 미측정",
+    "conclusion": "Reliable Negative 불인정",
+    "maximum_role": "R2"
+  },
+  {
+    "rule_id": "ET-R009",
+    "name_ko": "단회-반복 노출 정합성",
+    "condition": "반복/지속 개발노출을 단회 NAM만으로 평가",
+    "conclusion": "누적·지연독성 불확실성 생성",
+    "maximum_role": "R2"
+  },
+  {
+    "rule_id": "ET-R010",
+    "name_ko": "사람 생물학 및 전달체 기여",
+    "condition": "관련 세포·대사·면역기능 또는 carrier-only control이 부족",
+    "conclusion": "사람 관련성 또는 제형 기여도 제한",
+    "maximum_role": "R3"
+  },
+  {
+    "rule_id": "ET-R011",
+    "name_ko": "상충 근거",
+    "condition": "AI와 사람 관련 NAM 결과가 반대 방향",
+    "conclusion": "동물시험 축소 권고 금지 및 전문가 검토",
+    "maximum_role": "R2"
+  },
+  {
+    "rule_id": "ET-R012",
+    "name_ko": "독립 근거 흐름",
+    "condition": "독립적인 근거 흐름이 2개 미만",
+    "conclusion": "Weight of Evidence 불충분",
+    "maximum_role": "R3"
+  },
+  {
+    "rule_id": "ET-R014",
+    "name_ko": "추적성과 전문가 검토",
+    "condition": "근거 추적성, assertion review 또는 expert review 부족",
+    "conclusion": "고영향 Evidence Role 제한",
+    "maximum_role": "R2-R3"
+  },
+  {
+    "rule_id": "ET-R015",
+    "name_ko": "R5 대체 후보 조건",
+    "condition": "좁은 COU, 높은 평가축, 외부검증, false-negative 특성, 추적성 및 전문가 검토 충족",
+    "conclusion": "특정 endpoint 대체후보",
+    "maximum_role": "R5"
+  }
+]

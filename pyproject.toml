@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "toxiguard-nora"
+version = "0.4.0"
+description = "Ontology-driven evidence assurance for AI/NAM early-toxicity decisions"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+license = {text = "Proprietary"}
+authors = [
+  {name = "Youngnam Lee", email = "youngnam.lee@slu.edu"}
+]
+keywords = [
+  "toxicology",
+  "new approach methodologies",
+  "artificial intelligence",
+  "ontology",
+  "drug development"
+]
+dependencies = [
+  "streamlit>=1.39,<2",
+  "pandas>=2.2,<3",
+  "pypdf>=5,<7",
+  "python-docx>=1.1,<2",
+  "openpyxl>=3.1,<4",
+  "reportlab>=4.2,<5",
+  "rdflib>=7,<8"
+]
+
+[tool.setuptools]
+packages = ["nora"]

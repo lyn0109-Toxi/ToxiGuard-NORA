@@ -1,0 +1,2434 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="ToxiGuard NORA EarlyTox — AI와 비동물시험법(NAM)의 초기 독성근거가 현재 후보물질의 개발에 어디까지 사용 가능한지 검증하는 온톨로지 기반 Evidence Assurance 플랫폼">
+  <meta name="theme-color" content="#061928">
+  <title>ToxiGuard NORA | TG‑PTO‑ET Ontology</title>
+  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5NiA5NiIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPjx0aXRsZSBpZD0idGl0bGUiPlRveGlHdWFyZCBOT1JBPC90aXRsZT48ZGVzYyBpZD0iZGVzYyI+7Jew6rKw65CcIOq3vOqxsCDrhbjrk5zsmYAg67O07Zi466eJ7J2EIO2YleyDge2ZlO2VnCDroZzqs6A8L2Rlc2M+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNWVlYWQ0Ii8+PHN0b3Agb2Zmc2V0PSIuNTUiIHN0b3AtY29sb3I9IiMyMmMxYTMiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmNGM5NWQiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHJ4PSIyNiIgZmlsbD0iIzA3MWIyYyIvPjxwYXRoIGQ9Ik00OCAxNCA3NiAyNnYyMGMwIDE4LTExIDI5LTI4IDM2QzMxIDc1IDIwIDY0IDIwIDQ2VjI2WiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI2cpIiBzdHJva2Utd2lkdGg9IjUiLz48Y2lyY2xlIGN4PSIzNCIgY3k9IjM5IiByPSI1IiBmaWxsPSIjNWVlYWQ0Ii8+PGNpcmNsZSBjeD0iNjAiIGN5PSIzNyIgcj0iNSIgZmlsbD0iI2Y0Yzk1ZCIvPjxjaXJjbGUgY3g9IjQ3IiBjeT0iNTkiIHI9IjUiIGZpbGw9IiMyMmMxYTMiLz48cGF0aCBkPSJtMzggNDEgMTctMk0zNyA0M2w4IDEybTEzLTE0LTggMTQiIHN0cm9rZT0iI2RmZmJmNSIgc3Ryb2tlLXdpZHRoPSIzLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjwvc3ZnPg==" type="image/svg+xml">
+  <style>
+:root{
+  --navy:#061928;
+  --navy-2:#0b2d43;
+  --navy-3:#0f4259;
+  --ink:#10212e;
+  --muted:#5e6c78;
+  --line:#d9e2e8;
+  --soft:#f4f8fa;
+  --white:#ffffff;
+  --teal:#0f9f8f;
+  --teal-2:#55d7c6;
+  --mint:#e9fbf7;
+  --gold:#f2c45d;
+  --gold-soft:#fff7dd;
+  --red:#bc4858;
+  --red-soft:#fff0f2;
+  --amber:#b26d00;
+  --amber-soft:#fff7e8;
+  --green:#197650;
+  --green-soft:#edf9f2;
+  --blue:#216b94;
+  --blue-soft:#eef7fc;
+  --shadow:0 20px 56px rgba(6,25,40,.10);
+  --radius:22px;
+  --max:1240px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:linear-gradient(180deg,#f5f9fb 0,#fff 42%,#f5f9fb 100%);
+  font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Segoe UI",sans-serif;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit}
+button{cursor:pointer}
+img{max-width:100%}
+.container{max-width:var(--max);margin:0 auto;padding:0 24px}
+.eyebrow{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;font-weight:900;color:var(--teal)}
+.eyebrow.light{color:#a9f5e8}
+.muted{color:var(--muted)}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(6,25,40,.90);
+  border-bottom:1px solid rgba(85,215,198,.16);
+  backdrop-filter:blur(18px);
+}
+.header-inner{height:76px;display:flex;align-items:center;gap:22px;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px;color:#fff;min-width:max-content}
+.brand img{width:43px;height:43px}
+.brand strong{display:block;font-size:1rem;letter-spacing:-.01em}
+.brand small{display:block;color:#b8d3dc;font-size:.72rem;margin-top:1px}
+.nav{display:flex;gap:4px;align-items:center}
+.nav a{color:#cae0e7;font-size:.84rem;font-weight:750;padding:9px 10px;border-radius:9px}
+.nav a:hover{background:rgba(255,255,255,.08);color:#fff}
+.header-actions{display:flex;gap:8px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:11px;padding:11px 15px;border:1px solid var(--line);background:#fff;color:var(--navy);font-weight:850;font-size:.86rem;transition:.18s ease;box-shadow:0 8px 22px rgba(6,25,40,.05)}
+.btn:hover{transform:translateY(-1px);box-shadow:0 13px 28px rgba(6,25,40,.10)}
+.btn.primary{background:linear-gradient(135deg,var(--teal),#3cccb8);border-color:transparent;color:#fff}
+.btn.dark{background:var(--navy);border-color:var(--navy);color:#fff}
+.btn.ghost{background:transparent;border-color:rgba(255,255,255,.24);color:#fff;box-shadow:none}
+.mobile-menu{display:none;background:transparent;border:0;color:#fff;font-size:1.4rem}
+
+.hero{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 16% 12%,rgba(85,215,198,.17),transparent 30%),
+    radial-gradient(circle at 90% 16%,rgba(242,196,93,.12),transparent 28%),
+    linear-gradient(145deg,#061928 0,#0a2e42 58%,#0c4052 100%);
+  color:#fff;
+  padding:82px 0 70px;
+}
+.hero:after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,black,transparent 92%);pointer-events:none}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.16fr .84fr;gap:48px;align-items:center}
+.hero h1{font-size:clamp(2.55rem,5vw,4.8rem);line-height:1.04;letter-spacing:-.052em;margin:13px 0 20px;max-width:790px}
+.hero h1 span{color:#8ce8db}
+.hero-copy{font-size:1.12rem;color:#d5e9ee;max-width:760px;margin:0 0 25px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.hero-proof{display:flex;gap:20px;flex-wrap:wrap;margin-top:30px;color:#c3dbe1;font-size:.78rem}
+.hero-proof span{display:inline-flex;gap:7px;align-items:center}
+.hero-proof i{width:7px;height:7px;border-radius:50%;background:var(--teal-2);box-shadow:0 0 12px var(--teal-2)}
+.hero-visual{position:relative;min-height:460px}
+.orbit{position:absolute;inset:2% 4%;border:1px solid rgba(117,238,218,.22);border-radius:50%;animation:spin 30s linear infinite}
+.orbit.o2{inset:14% 16%;animation-direction:reverse;animation-duration:22s;border-color:rgba(242,196,93,.19)}
+.core-card{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:250px;padding:28px 24px;border-radius:25px;background:rgba(7,35,48,.84);border:1px solid rgba(129,236,219,.32);box-shadow:0 28px 80px rgba(0,0,0,.35),inset 0 1px rgba(255,255,255,.08);backdrop-filter:blur(12px);text-align:center}
+.core-card img{width:72px;margin-bottom:12px}.core-card strong{display:block;font-size:1.2rem}.core-card p{margin:8px 0 0;color:#bcd6dc;font-size:.78rem}
+.floating-node{position:absolute;min-width:142px;padding:11px 13px;border-radius:13px;background:rgba(255,255,255,.94);color:var(--navy);box-shadow:0 18px 42px rgba(0,0,0,.22);font-size:.75rem;border-left:4px solid var(--teal);animation:float 5s ease-in-out infinite}
+.floating-node strong{display:block;font-size:.78rem}.floating-node small{color:#667683}.n1{left:0;top:10%}.n2{right:0;top:16%;animation-delay:-1s;border-left-color:var(--gold)}.n3{left:4%;bottom:13%;animation-delay:-2s;border-left-color:#5d9bc0}.n4{right:1%;bottom:8%;animation-delay:-3s;border-left-color:#c06f84}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+.section{padding:82px 0}
+.section.soft{background:var(--soft)}
+.section.dark{background:var(--navy);color:#fff}
+.section-heading{display:flex;justify-content:space-between;gap:30px;align-items:flex-end;margin-bottom:34px}
+.section-heading h2{font-size:clamp(2rem,3.5vw,3rem);line-height:1.12;letter-spacing:-.04em;margin:8px 0 0;max-width:760px;color:var(--navy)}
+.section.dark .section-heading h2{color:#fff}
+.section-heading p{max-width:500px;color:var(--muted);margin:0;font-size:.93rem}
+.section.dark .section-heading p{color:#bcd2d9}
+
+.question-card{border:1px solid var(--line);background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:34px;display:grid;grid-template-columns:.75fr 1.25fr;gap:34px;align-items:center}
+.big-question{font-size:clamp(1.8rem,3vw,2.7rem);line-height:1.18;letter-spacing:-.035em;font-weight:900;color:var(--navy)}
+.big-question span{color:var(--teal)}
+.principle-list{display:grid;gap:10px}.principle{display:flex;gap:12px;align-items:flex-start;padding:13px 14px;background:#f8fbfc;border:1px solid #e2eaee;border-radius:12px;font-size:.84rem}.principle b{display:grid;place-items:center;flex:0 0 27px;height:27px;border-radius:8px;background:var(--mint);color:var(--teal);font-size:.72rem}
+
+.chain-shell{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px;overflow:hidden}
+.chain-scroll{overflow-x:auto;padding-bottom:10px}
+.chain{display:flex;min-width:1900px;align-items:stretch;gap:8px}
+.chain-node{position:relative;flex:1;min-width:145px;border:1px solid #dce7eb;border-radius:14px;padding:15px 13px;background:#fbfdfe;cursor:pointer;text-align:left;transition:.18s}.chain-node:after{content:"→";position:absolute;right:-14px;top:50%;transform:translateY(-50%);z-index:2;color:#92a9b2;font-size:1rem}.chain-node:last-child:after{display:none}.chain-node:hover,.chain-node.active{border-color:var(--teal);background:var(--mint);transform:translateY(-2px)}.chain-node .num{display:block;font-size:.68rem;color:var(--teal);font-weight:900}.chain-node strong{display:block;font-size:.8rem;margin-top:5px;color:var(--navy)}.chain-node small{display:block;color:#788691;font-size:.66rem;margin-top:3px;line-height:1.35}
+.chain-detail{margin-top:17px;background:linear-gradient(135deg,var(--navy),var(--navy-3));color:#fff;border-radius:15px;padding:20px 22px;display:grid;grid-template-columns:170px 1fr;gap:20px}.chain-detail h3{margin:0;font-size:1.1rem}.chain-detail small{color:#a9cbd4}.chain-detail p{margin:0;color:#d5e8ed;font-size:.85rem}
+
+.module-layout{display:grid;grid-template-columns:300px minmax(0,1fr);gap:20px;align-items:start}
+.module-list{display:grid;gap:8px;position:sticky;top:96px}.module-button{border:1px solid var(--line);border-radius:12px;background:#fff;text-align:left;padding:13px 14px;transition:.16s;color:var(--ink)}.module-button:hover,.module-button.active{border-color:var(--teal);background:var(--mint)}.module-button strong{display:block;font-size:.82rem;color:var(--navy)}.module-button small{display:block;color:var(--muted);font-size:.68rem;margin-top:2px}
+.module-panel{border:1px solid var(--line);background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}.module-hero{padding:27px 29px;background:linear-gradient(135deg,#f7fcfd,#eaf7f4);border-bottom:1px solid var(--line)}.module-hero h3{font-size:1.55rem;margin:5px 0;color:var(--navy);letter-spacing:-.025em}.module-hero p{margin:0;color:var(--muted)}.tabs{display:flex;gap:4px;padding:14px 18px;border-bottom:1px solid var(--line);overflow:auto}.tab-button{white-space:nowrap;border:0;background:transparent;border-radius:9px;padding:9px 12px;color:var(--muted);font-size:.78rem;font-weight:800}.tab-button.active{background:var(--navy);color:#fff}.tab-panel{padding:22px 26px}.class-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.class-card{border:1px solid var(--line);border-radius:13px;padding:15px;background:#fbfdfe}.class-card h4{margin:0;color:var(--navy);font-size:.88rem}.class-card p{margin:5px 0 10px;color:var(--muted);font-size:.75rem}.pill-wrap{display:flex;flex-wrap:wrap;gap:6px}.pill{padding:5px 8px;border-radius:999px;background:#eaf2f6;color:#375364;font-size:.63rem;font-weight:750}.list-box{display:grid;gap:8px}.list-row{padding:11px 13px;border:1px solid var(--line);border-radius:10px;background:#fbfdfe;font-size:.77rem}.list-row code{color:var(--teal);font-weight:850}.rule-row{border-left:4px solid var(--gold);background:var(--gold-soft)}.validation-row{border-left:4px solid var(--teal);background:var(--mint)}
+
+.dimension-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.dimension{border:1px solid var(--line);background:#fff;border-radius:16px;padding:20px;box-shadow:0 12px 30px rgba(6,25,40,.055)}.dimension .icon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:var(--mint);color:var(--teal);font-weight:900}.dimension h3{margin:12px 0 5px;color:var(--navy);font-size:1rem}.dimension p{margin:0;color:var(--muted);font-size:.78rem}.dimension ul{margin:12px 0 0;padding-left:18px;color:#435563;font-size:.72rem}
+
+.role-track{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}.role{position:relative;border:1px solid var(--line);background:#fff;border-radius:15px;padding:18px 13px;min-height:190px}.role:after{content:"";position:absolute;right:-6px;top:29px;width:11px;height:11px;background:#fff;border-top:1px solid var(--line);border-right:1px solid var(--line);transform:rotate(45deg);z-index:2}.role:last-child:after{display:none}.role-code{font-size:1.5rem;font-weight:950;color:var(--teal)}.role h3{margin:5px 0;color:var(--navy);font-size:.88rem}.role p{margin:0;color:var(--muted);font-size:.7rem}.role small{display:block;margin-top:12px;padding-top:10px;border-top:1px solid var(--line);font-size:.64rem;color:#455967}.role.r4,.role.r5{border-color:#8ed7c9;background:#f2fffc}.role.r5{border-color:#e0bd66;background:#fffaf0}
+
+.demo-shell{display:grid;grid-template-columns:.8fr 1.2fr;gap:18px}.demo-controls,.demo-result{border:1px solid var(--line);background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:24px}.demo-controls h3,.demo-result h3{margin:0 0 8px;color:var(--navy)}.case-meta{font-size:.74rem;color:var(--muted);padding:10px 12px;background:#f6fafb;border-radius:10px;margin-bottom:17px}.control{padding:11px 0;border-top:1px solid var(--line)}.control:first-of-type{border-top:0}.control label{display:flex;justify-content:space-between;gap:12px;font-size:.78rem;font-weight:800;color:#344a58;margin-bottom:6px}.control select{width:100%;border:1px solid #ccd9df;border-radius:9px;padding:9px 10px;background:#fff;color:var(--ink)}.checkbox{display:flex!important;justify-content:flex-start!important;gap:9px!important;align-items:center}.checkbox input{accent-color:var(--teal)}
+.result-top{display:grid;grid-template-columns:130px 1fr;gap:17px;align-items:center;padding-bottom:18px;border-bottom:1px solid var(--line)}.result-role{height:110px;border-radius:20px;background:linear-gradient(135deg,var(--navy),var(--navy-3));color:#fff;display:grid;place-items:center;font-size:2.2rem;font-weight:950}.result-summary strong{display:block;color:var(--navy);font-size:1.2rem}.result-summary p{margin:6px 0 0;color:var(--muted);font-size:.78rem}.result-status{display:inline-flex;margin-top:9px;border-radius:999px;padding:5px 9px;background:var(--red-soft);color:var(--red);font-size:.68rem;font-weight:850}.result-status.ok{background:var(--green-soft);color:var(--green)}.gap-stack{display:grid;gap:8px;margin-top:15px}.demo-gap{display:grid;grid-template-columns:92px 1fr;gap:9px;padding:10px 11px;border:1px solid var(--line);border-radius:10px;background:#fbfdfe}.demo-gap code{font-size:.62rem;color:var(--red);font-weight:900}.demo-gap span{font-size:.72rem;color:#41525e}.next-evidence{margin-top:16px;background:var(--mint);border:1px solid #c8ede5;border-radius:12px;padding:13px}.next-evidence strong{display:block;color:var(--navy);font-size:.78rem}.next-evidence ul{margin:8px 0 0;padding-left:18px;font-size:.7rem;color:#3e5a61}
+
+.workflow{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px}.workflow-step{border:1px solid rgba(255,255,255,.16);border-radius:15px;padding:17px 13px;background:rgba(255,255,255,.055);min-height:155px}.workflow-step b{display:block;color:#8ce8db;font-size:.7rem}.workflow-step strong{display:block;margin:7px 0;color:#fff;font-size:.84rem}.workflow-step p{margin:0;color:#b7ced5;font-size:.67rem}
+
+.downstream{display:grid;grid-template-columns:1fr auto 1fr;gap:17px;align-items:center}.down-card{border:1px solid var(--line);background:#fff;border-radius:18px;padding:24px;box-shadow:var(--shadow)}.down-card h3{margin:0 0 9px;color:var(--navy)}.down-card p{margin:0;color:var(--muted);font-size:.82rem}.down-card ul{padding-left:18px;font-size:.74rem;color:#405361}.down-arrow{font-size:2rem;color:var(--teal);font-weight:900}
+
+.user-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.user-card{border:1px solid var(--line);background:#fff;border-radius:16px;padding:20px}.user-card h3{font-size:.9rem;color:var(--navy);margin:0 0 8px}.user-card p{margin:0;color:var(--muted);font-size:.72rem}
+.cq-grid{columns:2;column-gap:18px}.cq{break-inside:avoid;border:1px solid var(--line);background:#fff;border-radius:12px;padding:13px;margin:0 0 10px;font-size:.76rem;color:#41515d}
+
+.contact-card{display:grid;grid-template-columns:1.2fr .8fr;gap:32px;background:linear-gradient(135deg,var(--navy),var(--navy-3));border-radius:28px;padding:38px;color:#fff;box-shadow:0 28px 70px rgba(6,25,40,.22)}.contact-card h2{font-size:2rem;letter-spacing:-.035em;margin:7px 0 12px}.contact-card p{color:#c9e0e6;max-width:680px}.contact-actions{display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:wrap}
+.footer{padding:30px 0 42px;color:#76858f;font-size:.7rem}.footer-inner{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line);padding-top:23px}.footer strong{color:var(--navy)}
+
+.modal{position:fixed;inset:0;z-index:90;background:rgba(0,13,22,.72);display:none;align-items:center;justify-content:center;padding:22px}.modal.open{display:flex}.modal-card{width:min(760px,100%);max-height:90vh;overflow:auto;background:#fff;border-radius:20px;box-shadow:0 32px 100px rgba(0,0,0,.35)}.modal-head{display:flex;justify-content:space-between;gap:20px;align-items:center;padding:19px 22px;border-bottom:1px solid var(--line)}.modal-head h3{margin:0;color:var(--navy)}.close{border:0;background:#eef3f6;width:34px;height:34px;border-radius:10px;font-size:1.2rem}.modal-body{padding:22px}.disclaimer{background:var(--amber-soft);border:1px solid #efd6a2;border-left:5px solid var(--amber);border-radius:11px;padding:13px;font-size:.75rem;color:#654b1f}
+
+@media(max-width:1050px){
+  .nav{display:none}.mobile-menu{display:block}.nav.open{display:flex;position:absolute;top:76px;left:0;right:0;background:var(--navy);padding:12px 20px;flex-direction:column;align-items:stretch;border-top:1px solid rgba(255,255,255,.1)}
+  .header-actions .ghost{display:none}.hero-grid,.question-card,.demo-shell,.contact-card{grid-template-columns:1fr}.hero-visual{min-height:380px}.module-layout{grid-template-columns:1fr}.module-list{position:static;grid-template-columns:repeat(3,1fr)}.role-track{grid-template-columns:repeat(3,1fr)}.workflow{grid-template-columns:repeat(3,1fr)}.user-grid{grid-template-columns:repeat(2,1fr)}.contact-actions{justify-content:flex-start}.section-heading{align-items:flex-start;flex-direction:column}.downstream{grid-template-columns:1fr}.down-arrow{transform:rotate(90deg);text-align:center}
+}
+@media(max-width:700px){
+  .container{padding:0 16px}.header-inner{height:68px}.brand small{display:none}.header-actions .btn:not(.primary){display:none}.hero{padding:58px 0 48px}.hero h1{font-size:2.65rem}.hero-visual{min-height:330px}.floating-node{min-width:120px;font-size:.66rem}.core-card{width:210px;padding:22px 18px}.section{padding:62px 0}.chain-detail{grid-template-columns:1fr}.module-list{grid-template-columns:repeat(2,1fr)}.class-grid,.dimension-grid,.score-grid{grid-template-columns:1fr}.role-track{grid-template-columns:repeat(2,1fr)}.workflow{grid-template-columns:repeat(2,1fr)}.user-grid{grid-template-columns:1fr}.cq-grid{columns:1}.footer-inner{flex-direction:column}.question-card{padding:24px}.result-top{grid-template-columns:1fr}.result-role{height:88px}.contact-card{padding:28px 23px}
+}
+@media print{.site-header,.hero-actions,.header-actions,.mobile-menu,.btn,.demo-controls,.contact-card,.footer{display:none!important}.hero{background:#fff;color:#111;padding:30px 0}.hero h1,.section.dark h2{color:#111}.hero-copy,.section.dark p{color:#444}.hero-visual{display:none}.section{padding:30px 0}.section.dark{background:#fff;color:#111}.module-list{display:none}.module-layout{grid-template-columns:1fr}.module-panel,.chain-shell,.question-card{box-shadow:none}.workflow-step{border-color:#ccc;background:#fff}.workflow-step strong{color:#111}.workflow-step p{color:#444}}
+/* Korean typography: keep semantic words intact across responsive breakpoints. */
+h1,h2,h3,h4,p,.big-question,.hero-copy,.section-heading,.role,.dimension,.user-card{word-break:keep-all;overflow-wrap:break-word}
+
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="#top" aria-label="ToxiGuard NORA 홈">
+      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5NiA5NiIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPjx0aXRsZSBpZD0idGl0bGUiPlRveGlHdWFyZCBOT1JBPC90aXRsZT48ZGVzYyBpZD0iZGVzYyI+7Jew6rKw65CcIOq3vOqxsCDrhbjrk5zsmYAg67O07Zi466eJ7J2EIO2YleyDge2ZlO2VnCDroZzqs6A8L2Rlc2M+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNWVlYWQ0Ii8+PHN0b3Agb2Zmc2V0PSIuNTUiIHN0b3AtY29sb3I9IiMyMmMxYTMiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmNGM5NWQiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHJ4PSIyNiIgZmlsbD0iIzA3MWIyYyIvPjxwYXRoIGQ9Ik00OCAxNCA3NiAyNnYyMGMwIDE4LTExIDI5LTI4IDM2QzMxIDc1IDIwIDY0IDIwIDQ2VjI2WiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI2cpIiBzdHJva2Utd2lkdGg9IjUiLz48Y2lyY2xlIGN4PSIzNCIgY3k9IjM5IiByPSI1IiBmaWxsPSIjNWVlYWQ0Ii8+PGNpcmNsZSBjeD0iNjAiIGN5PSIzNyIgcj0iNSIgZmlsbD0iI2Y0Yzk1ZCIvPjxjaXJjbGUgY3g9IjQ3IiBjeT0iNTkiIHI9IjUiIGZpbGw9IiMyMmMxYTMiLz48cGF0aCBkPSJtMzggNDEgMTctMk0zNyA0M2w4IDEybTEzLTE0LTggMTQiIHN0cm9rZT0iI2RmZmJmNSIgc3Ryb2tlLXdpZHRoPSIzLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjwvc3ZnPg==" alt="ToxiGuard NORA 로고">
+      <span><strong>ToxiGuard NORA</strong><small>TG‑PTO‑ET · Early Toxicity Evidence Assurance</small></span>
+    </a>
+    <nav class="nav" id="mainNav" aria-label="주요 메뉴">
+      <a href="#why">문제 정의</a>
+      <a href="#ontology">온톨로지</a>
+      <a href="#assurance">평가축</a>
+      <a href="#roles">Evidence Role</a>
+      <a href="#demo">GP‑L‑CT 데모</a>
+      <a href="#workflow">작동 방식</a>
+    </nav>
+    <div class="header-actions">
+      <button class="btn ghost" type="button" data-open-modal="disclaimerModal">사용 범위</button>
+      <a class="btn primary" href="#demo">데모 시작</a>
+      <button class="mobile-menu" id="mobileMenu" aria-label="메뉴 열기" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow light">Nonclinical Ontology‑based Risk Advisor</div>
+        <h1>AI가 독성을 예측합니다.<br><span>NORA는 그 근거를 어디까지 믿을지 판단합니다.</span></h1>
+        <p class="hero-copy">ToxiGuard NORA EarlyTox는 AI와 비동물시험법(NAM)의 결과를 그대로 안전성 결론으로 사용하지 않습니다. 제품 특성, Context of Use, 방법 신뢰성, 후보 적용성, 사람 생물학적 관련성, 노출 관련성, 근거 일치성과 잔여 불확실성을 연결하여 현재 근거의 사용 가능한 역할을 설명합니다.</p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#ontology">TG‑PTO‑ET 탐색하기</a>
+          <a class="btn ghost" href="#demo">GP‑L‑CT 사례 보기</a>
+        </div>
+        <div class="hero-proof">
+          <span><i></i> Missing evidence ≠ Negative evidence</span>
+          <span><i></i> Out‑of‑domain ≠ Reliable evidence</span>
+          <span><i></i> High‑impact conclusions require expert review</span>
+        </div>
+      </div>
+      <div class="hero-visual" aria-label="NORA 온톨로지 연결 구조 시각화">
+        <div class="orbit"></div><div class="orbit o2"></div>
+        <div class="core-card"><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5NiA5NiIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsbGVkYnk9InRpdGxlIGRlc2MiPjx0aXRsZSBpZD0idGl0bGUiPlRveGlHdWFyZCBOT1JBPC90aXRsZT48ZGVzYyBpZD0iZGVzYyI+7Jew6rKw65CcIOq3vOqxsCDrhbjrk5zsmYAg67O07Zi466eJ7J2EIO2YleyDge2ZlO2VnCDroZzqs6A8L2Rlc2M+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeTE9IjAiIHgyPSIxIiB5Mj0iMSI+PHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjNWVlYWQ0Ii8+PHN0b3Agb2Zmc2V0PSIuNTUiIHN0b3AtY29sb3I9IiMyMmMxYTMiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmNGM5NWQiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iOTYiIGhlaWdodD0iOTYiIHJ4PSIyNiIgZmlsbD0iIzA3MWIyYyIvPjxwYXRoIGQ9Ik00OCAxNCA3NiAyNnYyMGMwIDE4LTExIDI5LTI4IDM2QzMxIDc1IDIwIDY0IDIwIDQ2VjI2WiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI2cpIiBzdHJva2Utd2lkdGg9IjUiLz48Y2lyY2xlIGN4PSIzNCIgY3k9IjM5IiByPSI1IiBmaWxsPSIjNWVlYWQ0Ii8+PGNpcmNsZSBjeD0iNjAiIGN5PSIzNyIgcj0iNSIgZmlsbD0iI2Y0Yzk1ZCIvPjxjaXJjbGUgY3g9IjQ3IiBjeT0iNTkiIHI9IjUiIGZpbGw9IiMyMmMxYTMiLz48cGF0aCBkPSJtMzggNDEgMTctMk0zNyA0M2w4IDEybTEzLTE0LTggMTQiIHN0cm9rZT0iI2RmZmJmNSIgc3Ryb2tlLXdpZHRoPSIzLjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjwvc3ZnPg==" alt=""><strong>TG‑PTO‑ET</strong><p>Product → Hazard → Question → Evidence → Uncertainty → Action</p></div>
+        <div class="floating-node n1"><strong>Product Context</strong><small>Modality · Carrier · CQA</small></div>
+        <div class="floating-node n2"><strong>AI / NAM Method</strong><small>Version · COU · Validation</small></div>
+        <div class="floating-node n3"><strong>Evidence Assurance</strong><small>Credibility · Relevance · Exposure</small></div>
+        <div class="floating-node n4"><strong>Evidence Role</strong><small>R0–R5 · 3Rs · Expert Decision</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="why">
+    <div class="container">
+      <div class="section-heading">
+        <div><div class="eyebrow">The core question</div><h2>“AI가 동물시험을 대체할 수 있는가?”를 더 정확한 질문으로 바꿉니다.</h2></div>
+        <p>NORA는 Yes/No를 먼저 말하지 않습니다. 어떤 독성질문에서, 어떤 사용범위와 검증수준 아래, 어떤 근거가 보완·정교화·축소·대체후보 역할을 할 수 있는지를 묻습니다.</p>
+      </div>
+      <div class="question-card">
+        <div class="big-question">어떤 <span>독성질문</span>에서,<br>어떤 <span>Context of Use</span> 아래,<br>AI 또는 NAM을 어디까지 사용할 수 있는가?</div>
+        <div class="principle-list" id="principleList"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft" id="ontology">
+    <div class="container">
+      <div class="section-heading">
+        <div><div class="eyebrow">TG‑PTO‑ET causal model</div><h2>데이터 목록이 아니라 의사결정의 인과관계를 표현합니다.</h2></div>
+        <p>각 노드를 선택하면 해당 객체가 다음 단계와 어떻게 연결되는지 확인할 수 있습니다. 잠재위험, 관찰결과, 사람 위험과 데이터 갭은 서로 다른 객체로 유지됩니다.</p>
+      </div>
+      <div class="chain-shell">
+        <div class="chain-scroll"><div class="chain" id="causalChain"></div></div>
+        <div class="chain-detail"><div><small id="chainDetailEn">Development Decision</small><h3 id="chainDetailTitle">개발 의사결정</h3></div><p id="chainDetailText">NORA가 지원하려는 구체적인 개발 판단</p></div>
+      </div>
+
+      <div style="height:28px"></div>
+      <div class="module-layout">
+        <aside class="module-list" id="moduleList" aria-label="온톨로지 모듈"></aside>
+        <section class="module-panel" aria-live="polite">
+          <div class="module-hero"><div class="eyebrow" id="moduleSubtitle">Decision & COU Ontology</div><h3 id="moduleTitle">의사결정 및 Context of Use</h3><p id="moduleSummary"></p></div>
+          <div class="tabs" role="tablist">
+            <button class="tab-button active" data-tab="classes" role="tab">Class</button>
+            <button class="tab-button" data-tab="properties" role="tab">Property</button>
+            <button class="tab-button" data-tab="validation" role="tab">Validation</button>
+            <button class="tab-button" data-tab="rules" role="tab">Decision Rule</button>
+          </div>
+          <div class="tab-panel" id="moduleContent"></div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="assurance">
+    <div class="container">
+      <div class="section-heading">
+        <div><div class="eyebrow">Evidence assurance dimensions</div><h2>하나의 종합점수로 서로 다른 신뢰 문제를 감추지 않습니다.</h2></div>
+        <p>방법 자체가 우수해도 후보가 적용범위 밖이면 사용할 수 없습니다. 사람 관련 시험이라도 실제 노출과 대조군이 부족하면 이번 음성결과는 신뢰할 수 없습니다.</p>
+      </div>
+      <div class="dimension-grid">
+        <article class="dimension"><div class="icon">01</div><h3>방법 신뢰성</h3><p>모델·시험법의 정체성, 성능, 외부검증, 재현성과 품질시스템</p><ul><li>Version / endpoint</li><li>Sensitivity / false-negative</li><li>External validation</li></ul></article>
+        <article class="dimension"><div class="icon">02</div><h3>후보 적용성</h3><p>현재 제품 modality, 구조, 기전, 경로와 노출이 검증범위 안에 있는지 평가</p><ul><li>Applicability domain</li><li>Modality coverage</li><li>Endpoint match</li></ul></article>
+        <article class="dimension"><div class="icon">03</div><h3>사람 생물학적 관련성</h3><p>관련 세포·조직구조·대사능·면역기전과 임상 endpoint 연결</p><ul><li>Hepatocyte / Kupffer cell</li><li>Metabolic competence</li><li>Mechanistic alignment</li></ul></article>
+        <article class="dimension"><div class="icon">04</div><h3>노출 관련성</h3><p>명목농도를 free·세포내·표적조직 및 예정 사람노출로 번역</p><ul><li>Cmax / AUC coverage</li><li>Repeated exposure</li><li>QIVIVE / PBPK</li></ul></article>
+        <article class="dimension"><div class="icon">05</div><h3>근거 일치성</h3><p>AI, NAM, 기전, PK/TK, in vivo와 사람 근거의 일치·상충</p><ul><li>Directional concordance</li><li>Mechanistic concordance</li><li>Independent evidence streams</li></ul></article>
+        <article class="dimension"><div class="icon">06</div><h3>잔여 불확실성</h3><p>미확인 정보와 상충결과가 환자안전과 의사결정에 미치는 영향</p><ul><li>Data / model / assay uncertainty</li><li>Criticality and timing</li><li>Resolution plan</li></ul></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft" id="roles">
+    <div class="container">
+      <div class="section-heading"><div><div class="eyebrow">Evidence Role R0–R5</div><h2>“안전하다”가 아니라 현재 근거의 역할과 한계를 분류합니다.</h2></div><p>R5도 제품 안전성 인증, 동물시험 면제 또는 규제기관 수용을 의미하지 않습니다. 특정 endpoint와 좁게 정의된 COU에서 공식 검토할 후보라는 뜻입니다.</p></div>
+      <div class="role-track" id="roleTrack"></div>
+    </div>
+  </section>
+
+  <section class="section" id="demo">
+    <div class="container">
+      <div class="section-heading"><div><div class="eyebrow">Interactive ontology case</div><h2>GP‑L‑CT에서 규칙이 Evidence Role을 어떻게 제한하는지 확인합니다.</h2></div><p>가상 입력을 변경하면 Out‑of‑domain, 실제 노출, 반복노출, carrier control, biodistribution과 전문가 검토가 근거 역할에 미치는 영향을 볼 수 있습니다.</p></div>
+      <div class="demo-shell">
+        <form class="demo-controls" id="demoForm">
+          <h3>GP‑L‑CT 가상 근거 설정</h3>
+          <div class="case-meta"><strong>제품:</strong> siRNA + Hybrid Nanoparticle · <strong>경로:</strong> IV · <strong>표적:</strong> BIRC5/Survivin<br><strong>질문:</strong> 현재 AI/NAM 근거가 초기 간독성 선별과 후속 동물시험 축소를 지원하는가?</div>
+          <div class="control"><label for="aiDomain">AI 후보 적용범위 <span>Applicability Domain</span></label><select id="aiDomain"><option value="out">Out‑of‑domain</option><option value="border">Borderline</option><option value="in">In‑domain</option></select></div>
+          <div class="control"><label class="checkbox"><input type="checkbox" id="falseNegativeKnown"> 음성예측의 false-negative 성능 확인</label></div>
+          <div class="control"><label for="namExposure">NAM 노출설계 <span>Exposure Design</span></label><select id="namExposure"><option value="single">급성 단회</option><option value="repeat">반복노출</option></select></div>
+          <div class="control"><label class="checkbox"><input type="checkbox" id="measuredExposure"> Free / 세포내 실제 노출 측정</label></div>
+          <div class="control"><label class="checkbox"><input type="checkbox" id="kupffer"> Kupffer cell 또는 면역 적격 간 모델</label></div>
+          <div class="control"><label class="checkbox"><input type="checkbox" id="carrierControl"> Carrier‑only 대조군 포함</label></div>
+          <div class="control"><label for="biodistribution">Biodistribution <span>Target Tissue Exposure</span></label><select id="biodistribution"><option value="missing">없음</option><option value="qualitative">정성적</option><option value="quantitative">정량적</option></select></div>
+          <div class="control"><label for="independentStreams">독립 근거 흐름 <span>Evidence Streams</span></label><select id="independentStreams"><option value="1">1개</option><option value="2">2개</option><option value="3">3개 이상</option></select></div>
+          <div class="control"><label class="checkbox"><input type="checkbox" id="expertReviewed"> 독성전문가 검토 및 승인</label></div>
+          <button class="btn primary" type="button" id="resetDemo">기본 GP‑L‑CT 상태로 되돌리기</button>
+        </form>
+        <section class="demo-result" aria-live="polite">
+          <h3>NORA 가상 평가</h3>
+          <div class="result-top"><div class="result-role" id="demoRoleCode">R1</div><div class="result-summary"><strong id="demoRoleName">가설 생성</strong><p id="demoRoleDescription">현재 근거는 잠재 위험과 다음 시험을 제안하는 수준입니다.</p><span class="result-status" id="demoAnimalStatus">동물시험 축소 미지원</span></div></div>
+          <div class="gap-stack" id="demoGaps"></div>
+          <div class="next-evidence"><strong>권고되는 다음 근거</strong><ul id="demoRecommendations"></ul></div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="section dark" id="workflow">
+    <div class="container">
+      <div class="section-heading"><div><div class="eyebrow light">Human-in-the-loop workflow</div><h2>LLM은 사실 후보를 제안하고, 온톨로지와 규칙이 판단을 구조화합니다.</h2></div><p>자동 추출 결과가 바로 결론이 되지 않습니다. 출처에 연결된 Assertion을 사람이 승인하거나 수정한 뒤, 결정론적 규칙이 Evidence Role과 Data Gap을 생성합니다.</p></div>
+      <div class="workflow">
+        <div class="workflow-step"><b>01</b><strong>문서 수집</strong><p>AI model card, NAM report, PK/TK, biodistribution, publication</p></div>
+        <div class="workflow-step"><b>02</b><strong>Assertion 추출</strong><p>문서·페이지·표·원자료 위치가 연결된 사실 후보</p></div>
+        <div class="workflow-step"><b>03</b><strong>사람 검토</strong><p>제안됨 → 승인·수정·거절. 승인 전에는 고영향 판단에 미사용</p></div>
+        <div class="workflow-step"><b>04</b><strong>SHACL 검증</strong><p>필수정보, control, exposure, traceability와 version 확인</p></div>
+        <div class="workflow-step"><b>05</b><strong>Rule Engine</strong><p>Hard Gate, Data Gap, residual uncertainty와 R0–R5</p></div>
+        <div class="workflow-step"><b>06</b><strong>전문가 자문</strong><p>Observation → Interpretation → Development relevance → Recommendation</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft" id="downstream">
+    <div class="container">
+      <div class="section-heading"><div><div class="eyebrow">From EarlyTox to clinical entry</div><h2>초기 독성근거 검증은 CTA/IND 준비의 앞단에 위치합니다.</h2></div><p>NORA EarlyTox의 1차 역할은 대체근거의 credibility와 fit‑for‑purpose를 평가하는 것입니다. CTA/IND 준비도 평가는 충분한 근거가 축적된 뒤 downstream 모듈에서 수행합니다.</p></div>
+      <div class="downstream">
+        <div class="down-card"><h3>NORA EarlyTox</h3><p>AI/NAM 근거를 검증하고 다음 독성근거를 우선순위화합니다.</p><ul><li>Potential hazard와 toxicity question</li><li>Method credibility와 applicability</li><li>Human relevance와 exposure translation</li><li>Evidence Role 및 3Rs 권고</li></ul></div>
+        <div class="down-arrow">→</div>
+        <div class="down-card"><h3>Preclinical / CTA‑IND Readiness</h3><p>계획된 임상시험을 지원하는 전체 비임상 패키지를 검토합니다.</p><ul><li>Repeat‑dose, TK, biodistribution</li><li>Test article comparability</li><li>Human risk 및 clinical mitigation</li><li>Starting dose, monitoring, stopping rule</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="users">
+    <div class="container">
+      <div class="section-heading"><div><div class="eyebrow">Who NORA supports</div><h2>독성전문가를 대체하지 않고, 올바른 질문과 검토순서를 표준화합니다.</h2></div><p>같은 온톨로지는 연구실의 초기 위험설정부터 바이오텍의 study strategy, 제약사의 외부자산 검토, CRO의 intake와 gap analysis까지 확장할 수 있습니다.</p></div>
+      <div class="user-grid">
+        <article class="user-card"><h3>대학·연구기관</h3><p>연구용 데이터와 개발용 독성근거의 차이를 이해하고 다음 translational experiment를 계획합니다.</p></article>
+        <article class="user-card"><h3>초기 바이오텍</h3><p>CRO 의뢰 전에 AI/NAM 결과의 한계와 필요한 시험의 우선순위를 검토합니다.</p></article>
+        <article class="user-card"><h3>제약·License‑in 팀</h3><p>다른 자산의 근거를 같은 의미모델로 정규화하여 unresolved uncertainty를 비교합니다.</p></article>
+        <article class="user-card"><h3>CRO·컨설팅</h3><p>고객자료 intake, source traceability, 목적별 결과 구조화와 전문가 검토시간을 지원합니다.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section soft" id="questions">
+    <div class="container">
+      <div class="section-heading"><div><div class="eyebrow">Competency questions</div><h2>이 온톨로지가 실제로 답해야 하는 질문</h2></div><p>온톨로지 구현은 클래스 수가 아니라 이 질문에 출처와 규칙을 포함하여 답할 수 있는지로 검증합니다.</p></div>
+      <div class="cq-grid" id="competencyQuestions"></div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-card">
+        <div><div class="eyebrow light">ToxiGuard NORA</div><h2>Check toxicity earlier. Decide with evidence.</h2><p>초기 독성위험을 더 일찍 설정하고, AI와 NAM의 결과를 근거의 역할·한계·다음 행동으로 변환합니다.</p></div>
+        <div class="contact-actions"><a class="btn primary" href="#demo">GP‑L‑CT 데모</a><button class="btn ghost" type="button" data-open-modal="disclaimerModal">사용 제한 보기</button></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer"><div class="container footer-inner"><div><strong>ToxiGuard NORA EarlyTox</strong><br>TG‑PTO‑ET Ontology‑driven Evidence Assurance</div><div>Prototype · Human‑in‑the‑loop · No automatic safety certification</div></div></footer>
+
+<div class="modal" id="disclaimerModal" role="dialog" aria-modal="true" aria-labelledby="disclaimerTitle">
+  <div class="modal-card">
+    <div class="modal-head"><h3 id="disclaimerTitle">제품 사용 범위와 제한</h3><button class="close" type="button" data-close-modal aria-label="닫기">×</button></div>
+    <div class="modal-body">
+      <div class="disclaimer"><strong>NORA는 제품 안전성을 인증하거나 동물시험 면제·CTA/IND 승인·규제기관 수용을 보장하지 않습니다.</strong> 자동화된 결과는 초기 연구와 개발 의사결정 지원을 위한 prototype입니다.</div>
+      <p>NORA의 핵심 출력은 “안전/위험” 단정이 아니라 다음입니다.</p>
+      <ul><li>현재 근거가 답할 수 있는 독성질문</li><li>방법과 실행의 신뢰조건</li><li>후보물질·사람 생물학·노출 관련성</li><li>미해결 Data Gap과 잔여 불확실성</li><li>Evidence Role R0–R5와 다음 근거</li><li>전문가 검토 및 audit trail</li></ul>
+      <p><strong>R5 Replacement Candidate</strong>도 좁게 정의된 Context of Use에서 특정 endpoint를 공식 검토할 후보라는 의미이며, 전체 전임상 독성패키지 대체를 뜻하지 않습니다.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+window.NORA_ONTOLOGY = {
+  "meta": {
+    "name": "ToxiGuard Preclinical Toxicology Ontology — EarlyTox Extension",
+    "shortName": "TG-PTO-ET",
+    "version": "1.0-site",
+    "product": "ToxiGuard NORA EarlyTox",
+    "purpose": "AI 및 NAM 기반 초기 독성근거가 특정 후보물질과 정의된 개발 의사결정에서 어디까지 신뢰 가능하고 사용할 수 있는지를 구조화"
+  },
+  "principles": [
+    "높은 모델 정확도는 현재 후보물질에 대한 높은 적용성을 의미하지 않는다.",
+    "음성 AI 예측은 독성 부재를 의미하지 않는다.",
+    "음성 NAM 결과는 자동으로 신뢰 가능한 음성이 아니다.",
+    "적용범위 밖 예측은 신뢰 가능한 근거가 아니다.",
+    "명목농도는 표적세포 또는 표적조직 노출과 동일하지 않다.",
+    "하나의 근거 흐름은 Weight of Evidence가 아니다.",
+    "특정 endpoint 대체는 전체 독성패키지 대체가 아니다.",
+    "자료 없음은 음성 근거가 아니다.",
+    "불확실성은 낮은 독성우려로 계산하지 않는다."
+  ],
+  "chain": [
+    {
+      "id": "decision",
+      "label": "개발 의사결정",
+      "en": "Development Decision",
+      "description": "NORA가 지원하려는 구체적인 개발 판단"
+    },
+    {
+      "id": "product",
+      "label": "제품·노출 맥락",
+      "en": "Product & Exposure Context",
+      "description": "제품 modality, 성분, 전달체, 경로, 용량, 기간과 예정 사람노출"
+    },
+    {
+      "id": "hazard",
+      "label": "잠재 독성위험",
+      "en": "Potential Toxicity Hazard",
+      "description": "제품 특성상 반드시 답해야 하는 이론적 위험"
+    },
+    {
+      "id": "question",
+      "label": "핵심 독성질문",
+      "en": "Question of Interest",
+      "description": "현재 의사결정에서 실제로 답하려는 독성질문"
+    },
+    {
+      "id": "cou",
+      "label": "사용범위",
+      "en": "Context of Use",
+      "description": "AI/NAM의 역할, 범위, endpoint, 개발단계와 제외범위"
+    },
+    {
+      "id": "method",
+      "label": "AI·NAM 방법",
+      "en": "Alternative Method",
+      "description": "특정 버전의 AI 모델, QSAR 또는 사람 관련 NAM"
+    },
+    {
+      "id": "execution",
+      "label": "방법 실행",
+      "en": "Method Execution",
+      "description": "특정 후보와 배치에 대해 수행된 실제 실행과 대조군 유효성"
+    },
+    {
+      "id": "evidence",
+      "label": "예측·관찰·근거",
+      "en": "Result & Evidence",
+      "description": "Prediction, Observation, Finding, Evidence Assertion과 provenance"
+    },
+    {
+      "id": "assessment",
+      "label": "신뢰성·적용성 평가",
+      "en": "Evidence Assurance",
+      "description": "방법, 후보, 사람 생물학, 노출과 근거 일치성 평가"
+    },
+    {
+      "id": "uncertainty",
+      "label": "Data Gap·불확실성",
+      "en": "Residual Uncertainty",
+      "description": "미확인, 상충, 적용범위 이탈과 결정 제한 요소"
+    },
+    {
+      "id": "role",
+      "label": "근거 역할",
+      "en": "Evidence Role R0–R5",
+      "description": "현재 근거를 어디까지 사용할 수 있는지 분류"
+    },
+    {
+      "id": "recommendation",
+      "label": "다음 근거·전문가 판단",
+      "en": "Next Evidence & Expert Decision",
+      "description": "3Rs 권고, 추가시험, 전문가 검토와 감사 추적"
+    }
+  ],
+  "modules": [
+    {
+      "id": "decision",
+      "title": "의사결정 및 Context of Use",
+      "subtitle": "Decision & COU Ontology",
+      "summary": "AI/NAM을 평가하기 전에 질문, 역할, 범위와 오판 결과를 명시합니다.",
+      "classes": [
+        {
+          "name": "DevelopmentDecision",
+          "definition": "NORA를 통해 지원하려는 구체적인 개발 의사결정",
+          "children": [
+            "EarlyHazardIdentificationDecision",
+            "CandidatePrioritizationDecision",
+            "AIPredictionValidationDecision",
+            "NAMHumanRelevanceDecision",
+            "AlternativeEvidenceIntegrationDecision",
+            "AnimalReductionDecision",
+            "AnimalReplacementCandidateDecision",
+            "FollowUpStudyPrioritizationDecision",
+            "RegulatoryInteractionPlanningDecision"
+          ]
+        },
+        {
+          "name": "QuestionOfInterest",
+          "definition": "의사결정에서 답하려는 과학적 질문",
+          "children": [
+            "HazardIdentificationQuestion",
+            "DoseResponseQuestion",
+            "ExposureResponseQuestion",
+            "MechanisticQuestion",
+            "HumanRelevanceQuestion",
+            "EvidenceConflictQuestion",
+            "AnimalReductionQuestion",
+            "AnimalReplacementQuestion"
+          ]
+        },
+        {
+          "name": "ContextOfUse",
+          "definition": "AI/NAM의 구체적인 역할·범위·사용목적",
+          "children": [
+            "TargetEndpointScope",
+            "ProductScope",
+            "ExposureRangeScope",
+            "DevelopmentStageScope",
+            "PopulationScope",
+            "ExcludedUse"
+          ]
+        },
+        {
+          "name": "ModelRiskAssessment",
+          "definition": "Model Influence와 Decision Consequence에 기반한 위험 평가",
+          "children": [
+            "ModelInfluenceAssessment",
+            "DecisionConsequenceAssessment",
+            "ErrorDetectabilityAssessment",
+            "MitigationStrengthAssessment"
+          ]
+        }
+      ],
+      "properties": [
+        "asksQuestion",
+        "definesContextOfUse",
+        "hasDecisionObjective",
+        "hasTargetToxicityEndpoint",
+        "hasIntendedEvidenceRole",
+        "hasMethodRole",
+        "hasMethodScope",
+        "hasModelInfluence",
+        "hasDecisionConsequence",
+        "hasExcludedUse",
+        "hasPerformanceRequirement"
+      ],
+      "validation": [
+        "Question of Interest 정확히 1개",
+        "Target endpoint 최소 1개",
+        "Intended Evidence Role 정확히 1개",
+        "Model Influence 및 Decision Consequence 필수",
+        "제품과 개발단계 필수"
+      ],
+      "rules": [
+        "높은 Model Influence × 높은 Decision Consequence → 최고 수준의 credibility requirement",
+        "COU 미정의 → Evidence Role R0",
+        "Endpoint 불일치 → Fit-for-purpose 부적절"
+      ]
+    },
+    {
+      "id": "product",
+      "title": "제품 및 품질특성",
+      "subtitle": "Product & CQA Ontology",
+      "summary": "제품 modality와 독성 관련 품질특성을 잠재위험에 연결합니다.",
+      "classes": [
+        {
+          "name": "InvestigationalProduct",
+          "definition": "평가 대상 후보물질 또는 시험약",
+          "children": [
+            "ChemicalDrug",
+            "OligonucleotideTherapeutic",
+            "siRNAProduct",
+            "AntisenseOligonucleotide",
+            "mRNAProduct",
+            "BiologicalProduct",
+            "GeneTherapyProduct",
+            "CellTherapyProduct",
+            "Nanomedicine",
+            "LipidNanoparticle",
+            "PolymericNanoparticle",
+            "HybridNanoparticle",
+            "CombinationProduct"
+          ]
+        },
+        {
+          "name": "ProductComponent",
+          "definition": "제품을 구성하는 활성·비활성·불순물 요소",
+          "children": [
+            "ActiveSubstance",
+            "TargetingSequence",
+            "Carrier",
+            "LipidCarrier",
+            "PolymericCarrier",
+            "ViralVector",
+            "InorganicCarrier",
+            "Excipient",
+            "Conjugate",
+            "ProcessRelatedImpurity",
+            "ProductRelatedImpurity",
+            "DegradationProduct",
+            "ResidualSolvent",
+            "AdventitiousAgent"
+          ]
+        },
+        {
+          "name": "CriticalQualityAttribute",
+          "definition": "독성 해석과 시험물질 대표성에 영향을 주는 품질특성",
+          "children": [
+            "Identity",
+            "Purity",
+            "Potency",
+            "MolecularWeight",
+            "ParticleSize",
+            "ParticleSizeDistribution",
+            "ZetaPotential",
+            "Morphology",
+            "EncapsulationEfficiency",
+            "FreeActiveSubstance",
+            "Aggregation",
+            "DegreeOfDeacetylation",
+            "NucleicAcidIntegrity",
+            "SequenceIdentity",
+            "SequencePurity",
+            "Endotoxin",
+            "Sterility",
+            "pH",
+            "Osmolality",
+            "Stability",
+            "ReleaseProfile",
+            "SurfaceComposition"
+          ]
+        },
+        {
+          "name": "ComparabilityAssessment",
+          "definition": "독성시험물질과 임상제품의 독성 관련 비교가능성 평가",
+          "children": [
+            "CompositionComparability",
+            "ManufacturingComparability",
+            "CQAComparability",
+            "ExposureComparability"
+          ]
+        }
+      ],
+      "properties": [
+        "hasActiveSubstance",
+        "hasTargetingSequence",
+        "hasCarrier",
+        "hasExcipient",
+        "hasImpurity",
+        "hasManufacturingBatch",
+        "hasCriticalQualityAttribute",
+        "hasIntendedTarget",
+        "hasIntendedMechanism",
+        "hasAdministrationRoute",
+        "hasExpectedTissueDistribution",
+        "createsPotentialHazard",
+        "comparesTestArticle",
+        "comparesClinicalProduct"
+      ],
+      "validation": [
+        "나노의약품은 particle characterization 필수",
+        "전달체 포함 제품은 carrier composition 필수",
+        "독성시험물질 배치와 임상제품 대표성 평가 필수",
+        "독성 관련 CQA의 출처와 단위 필수"
+      ],
+      "rules": [
+        "Nanomedicine + small-molecule-only model → modality out-of-domain",
+        "Carrier 포함 + carrier-only control 누락 → 전달체 기여도 평가 불가",
+        "Comparability 불명확 → R4/R5 제한"
+      ]
+    },
+    {
+      "id": "toxicity",
+      "title": "독성위험 및 기전",
+      "subtitle": "Hazard & Mechanism Ontology",
+      "summary": "제품특성이 만드는 잠재위험과 이를 해결할 독성질문을 표현합니다.",
+      "classes": [
+        {
+          "name": "PotentialHazard",
+          "definition": "제품 특성상 평가가 필요한 이론적 독성위험",
+          "children": [
+            "OrganToxicityHazard",
+            "MechanismBasedHazard",
+            "ModalitySpecificHazard",
+            "RouteSpecificHazard",
+            "FormulationRelatedHazard",
+            "ImmuneHazard",
+            "GeneticToxicityHazard",
+            "ExposureRelatedHazard"
+          ]
+        },
+        {
+          "name": "TargetOrgan",
+          "definition": "독성소견 또는 잠재위험의 대상 장기",
+          "children": [
+            "Liver",
+            "Kidney",
+            "Heart",
+            "Lung",
+            "Brain",
+            "PeripheralNervousSystem",
+            "BoneMarrow",
+            "Blood",
+            "Spleen",
+            "Thymus",
+            "GastrointestinalTract",
+            "EndocrineOrgan",
+            "ReproductiveOrgan",
+            "InjectionSite",
+            "ImmuneSystem"
+          ]
+        },
+        {
+          "name": "ToxicityMechanism",
+          "definition": "독성발생의 과학적 기전",
+          "children": [
+            "OnTargetExaggeratedPharmacology",
+            "SequenceDependentOffTarget",
+            "SequenceIndependentEffect",
+            "ReactiveMetaboliteFormation",
+            "ImmuneMediatedToxicity",
+            "ComplementMediatedToxicity",
+            "MitochondrialToxicity",
+            "OxidativeStress",
+            "MembraneDamage",
+            "LysosomalAccumulation",
+            "Phospholipidosis",
+            "BileAcidTransportInhibition",
+            "AccumulationMediatedToxicity",
+            "AggregateMediatedToxicity",
+            "InfusionRelatedReaction",
+            "UnknownMechanism"
+          ]
+        },
+        {
+          "name": "HepatotoxicityHazard",
+          "definition": "EarlyTox v0.1의 첫 vertical slice",
+          "children": [
+            "DirectHepatocellularInjury",
+            "CholestaticInjury",
+            "MixedLiverInjury",
+            "MitochondrialDysfunction",
+            "ReactiveMetaboliteMediatedInjury",
+            "OxidativeStressMediatedInjury",
+            "Steatosis",
+            "Phospholipidosis",
+            "BileAcidTransportDisruption",
+            "KupfferCellActivation",
+            "ImmuneMediatedLiverInjury",
+            "ComplementMediatedHepaticInflammation",
+            "LysosomalAccumulation",
+            "NanoparticleAccumulation",
+            "CarrierMediatedMembraneInjury",
+            "SequenceDependentHepaticOffTarget"
+          ]
+        }
+      ],
+      "properties": [
+        "hasPotentialHazard",
+        "raisesToxicityQuestion",
+        "hasTargetOrgan",
+        "hasMechanism",
+        "hasMechanisticPlausibility",
+        "isTriggeredByCharacteristic",
+        "isModifiedByExposure",
+        "isAddressedByMethod"
+      ],
+      "validation": [
+        "PotentialHazard와 Observed Finding 분리",
+        "Hazard마다 최소 1개 ToxicityQuestion 연결",
+        "사람 관련성 결론에는 기전·노출·표적발현 근거 필요"
+      ],
+      "rules": [
+        "PotentialHazard ≠ ObservedToxicity",
+        "Hazard 존재는 독성 양성을 의미하지 않음",
+        "미해결 critical hazard → 낮은 concern 분류 불가"
+      ]
+    },
+    {
+      "id": "studies",
+      "title": "전임상시험 및 시험목적",
+      "subtitle": "Nonclinical Study & Purpose Ontology",
+      "summary": "시험이 존재하는지가 아니라 어떤 독성질문과 시험목적에 답하는지를 구조화합니다.",
+      "classes": [
+        {
+          "name": "NonclinicalStudy",
+          "definition": "개별 약리·PK·독성시험",
+          "children": [
+            "PharmacologyStudy",
+            "PrimaryPharmacodynamicsStudy",
+            "SecondaryPharmacodynamicsStudy",
+            "SafetyPharmacologyStudy",
+            "PharmacokineticStudy",
+            "ADMEStudy",
+            "ToxicokineticStudy",
+            "BiodistributionStudy",
+            "ToxicologyStudy"
+          ]
+        },
+        {
+          "name": "ToxicologyStudy",
+          "definition": "독성평가를 목적으로 수행된 시험",
+          "children": [
+            "SingleDoseToxicityStudy",
+            "RepeatDoseToxicityStudy",
+            "GenotoxicityStudy",
+            "CarcinogenicityStudy",
+            "ReproductiveToxicityStudy",
+            "LocalToleranceStudy",
+            "ImmunotoxicityStudy",
+            "OtherToxicityStudy"
+          ]
+        },
+        {
+          "name": "OtherToxicityStudy",
+          "definition": "제품·경로·기전에 따라 필요한 특수독성시험",
+          "children": [
+            "PhototoxicityStudy",
+            "PhotosafetyStudy",
+            "SkinSensitizationStudy",
+            "JuvenileAnimalStudy",
+            "DependenceLiabilityStudy",
+            "ImpurityQualificationStudy",
+            "CombinationToxicityStudy",
+            "MechanisticToxicityStudy",
+            "OffTargetStudy",
+            "CytokineReleaseStudy",
+            "ComplementActivationStudy",
+            "ThrombogenicityStudy",
+            "TissuePersistenceStudy"
+          ]
+        },
+        {
+          "name": "StudyPurpose",
+          "definition": "각 시험이 실제로 답해야 하는 과학적 목적",
+          "children": [
+            "IdentifyAcuteToxicity",
+            "IdentifyTargetOrgan",
+            "EstablishDoseResponse",
+            "EstablishExposureResponse",
+            "DetermineNOAEL",
+            "DetermineHNSTD",
+            "AssessAccumulation",
+            "AssessReversibility",
+            "AssessVitalOrganFunction",
+            "AssessGeneticDamage",
+            "AssessCarcinogenicPotential",
+            "AssessFertility",
+            "AssessEmbryofetalDevelopment",
+            "AssessPrePostnatalDevelopment",
+            "AssessLocalTissueDamage",
+            "AssessImmuneSuppression",
+            "AssessImmuneActivation",
+            "AssessHypersensitivity",
+            "AssessBiodistribution",
+            "AssessPersistence",
+            "AssessShedding",
+            "AssessOnTargetToxicity",
+            "AssessOffTargetToxicity"
+          ]
+        },
+        {
+          "name": "StudyPurposeAssessment",
+          "definition": "적용 가능한 목적별 근거충족 상태",
+          "children": [
+            "PurposeSupported",
+            "PurposePartiallySupported",
+            "PurposeUnsupported",
+            "PurposeUnknown",
+            "PurposeNotApplicableJustified"
+          ]
+        }
+      ],
+      "properties": [
+        "hasStudyPurpose",
+        "addressesToxicityQuestion",
+        "supportsClinicalContext",
+        "usesTestArticle",
+        "hasStudyDesign",
+        "generatesObservation",
+        "producesFinding",
+        "hasApplicabilityStatus",
+        "hasPurposeFulfillment",
+        "definesNOAEL",
+        "definesHNSTD",
+        "assessesReversibility",
+        "assessesAccumulation"
+      ],
+      "validation": [
+        "시험마다 최소 1개 StudyPurpose 연결",
+        "Repeat-dose는 target organ·exposure response·accumulation·reversibility 목적 평가",
+        "TK는 독성과 동물노출 연결",
+        "시험 존재와 목적충족을 분리"
+      ],
+      "rules": [
+        "Study existence ≠ Study purpose fulfillment",
+        "Applicable Purpose 중 근거가 없는 항목은 PurposeUnknown 또는 Unsupported",
+        "필수 목적 미충족 → Data Gap 및 다음시험 권고"
+      ]
+    },
+    {
+      "id": "study_design",
+      "title": "시험설계 및 시험계",
+      "subtitle": "Study Design & Test System Ontology",
+      "summary": "시험방법이 독성질문과 예정 사람노출에 적절한지를 설계요소별로 검증합니다.",
+      "classes": [
+        {
+          "name": "StudyDesign",
+          "definition": "비임상 또는 NAM 시험의 전체 설계",
+          "children": [
+            "TestSystemDesign",
+            "DoseDesign",
+            "AdministrationDesign",
+            "ObservationDesign",
+            "EndpointDesign",
+            "RecoveryDesign",
+            "TKDesign",
+            "StatisticalDesign"
+          ]
+        },
+        {
+          "name": "TestSystem",
+          "definition": "시험결과의 과학적 관련성을 결정하는 시스템",
+          "children": [
+            "InSilicoSystem",
+            "InVitroSystem",
+            "ExVivoSystem",
+            "InVivoSystem",
+            "RodentSpecies",
+            "NonRodentSpecies",
+            "DiseaseModel",
+            "HumanizedModel",
+            "HumanDerivedSystem"
+          ]
+        },
+        {
+          "name": "DoseDesign",
+          "definition": "용량·농도·노출수준을 설정하는 설계",
+          "children": [
+            "ControlDose",
+            "LowDose",
+            "MidDose",
+            "HighDose",
+            "LimitDose",
+            "MTDDose",
+            "ExposureBasedDose",
+            "ClinicalExposureMatchedDose"
+          ]
+        },
+        {
+          "name": "AdministrationDesign",
+          "definition": "투여경로·빈도·속도·기간 설계",
+          "children": [
+            "Route",
+            "Frequency",
+            "InfusionRate",
+            "TreatmentDuration",
+            "DoseVolume",
+            "FormulationConcentration",
+            "DosingInterval"
+          ]
+        },
+        {
+          "name": "RecoveryDesign",
+          "definition": "가역성·지속성 평가 설계",
+          "children": [
+            "RecoveryGroup",
+            "RecoveryDuration",
+            "PostTreatmentObservation",
+            "DelayedAssessment"
+          ]
+        }
+      ],
+      "properties": [
+        "hasSpecies",
+        "hasStrain",
+        "hasSex",
+        "hasAge",
+        "hasDiseaseStatus",
+        "hasTargetExpression",
+        "hasPharmacologicalRelevance",
+        "hasMetabolicRelevance",
+        "hasSequenceHomology",
+        "hasImmuneSystemRelevance",
+        "producesExposure",
+        "causesFinding",
+        "coversHumanExposure",
+        "showsDoseResponse",
+        "hasRecoveryDuration",
+        "hasInfusionRate"
+      ],
+      "validation": [
+        "Study route와 clinical route 비교",
+        "Study duration과 planned treatment duration 비교",
+        "동물 또는 NAM exposure가 예정 사람노출을 커버하는지 확인",
+        "음성결과에 target exposure와 valid controls 필수"
+      ],
+      "rules": [
+        "Route mismatch → RouteMismatch Gap",
+        "Duration mismatch → DurationMismatch Gap",
+        "Missing recovery design → 가역성 Unknown",
+        "Insufficient exposure → 음성결과 신뢰 제한"
+      ]
+    },
+    {
+      "id": "ai",
+      "title": "AI 모델 및 적용범위",
+      "subtitle": "AI Model Card Ontology",
+      "summary": "모델 성능과 현재 후보에서의 사용 가능성을 분리합니다.",
+      "classes": [
+        {
+          "name": "AIModel",
+          "definition": "특정 독성 endpoint를 예측하는 계산모델",
+          "children": [
+            "RuleBasedQSAR",
+            "StatisticalQSAR",
+            "MachineLearningClassifier",
+            "MachineLearningRegressor",
+            "DeepLearningModel",
+            "GraphNeuralNetwork",
+            "TranscriptomicSignatureModel",
+            "NetworkToxicologyModel"
+          ]
+        },
+        {
+          "name": "AIDataset",
+          "definition": "모델 개발·검증에 사용된 데이터",
+          "children": [
+            "TrainingDataset",
+            "TuningDataset",
+            "InternalTestDataset",
+            "ExternalValidationDataset",
+            "ProspectiveValidationDataset"
+          ]
+        },
+        {
+          "name": "PerformanceMetricMeasurement",
+          "definition": "특정 threshold와 dataset에서 측정된 성능",
+          "children": [
+            "SensitivityMeasurement",
+            "SpecificityMeasurement",
+            "PositivePredictiveValueMeasurement",
+            "NegativePredictiveValueMeasurement",
+            "FalsePositiveRateMeasurement",
+            "FalseNegativeRateMeasurement",
+            "AccuracyMeasurement",
+            "BalancedAccuracyMeasurement",
+            "AUROCMeasurement",
+            "AUPRCMeasurement",
+            "BrierScoreMeasurement",
+            "CalibrationSlopeMeasurement",
+            "CalibrationInterceptMeasurement"
+          ]
+        },
+        {
+          "name": "ApplicabilityDomain",
+          "definition": "모델이 신뢰 가능하게 사용될 수 있는 범위",
+          "children": [
+            "ChemicalApplicabilityDomain",
+            "StructuralApplicabilityDomain",
+            "BiologicalApplicabilityDomain",
+            "ModalityApplicabilityDomain",
+            "MechanisticApplicabilityDomain",
+            "ExposureApplicabilityDomain",
+            "PopulationApplicabilityDomain",
+            "EndpointApplicabilityDomain"
+          ]
+        }
+      ],
+      "properties": [
+        "hasModelName",
+        "hasModelVersion",
+        "hasArchitecture",
+        "hasIntendedEndpoint",
+        "hasInputDefinition",
+        "hasOutputDefinition",
+        "hasDecisionThreshold",
+        "hasTrainingDataset",
+        "hasExternalValidationDataset",
+        "hasReferenceStandard",
+        "hasApplicabilityDomain",
+        "hasPerformanceMetric",
+        "hasKnownLimitation",
+        "hasChangeControlPlan",
+        "hasLifecycleMonitoringPlan"
+      ],
+      "validation": [
+        "모델명·버전·endpoint 필수",
+        "음성예측은 sensitivity 및 false-negative 정보 필요",
+        "학습·검증 데이터의 modality와 독립성 기술",
+        "applicability domain과 후보 domain status 필수"
+      ],
+      "rules": [
+        "Out-of-domain negative → Reliable Negative 불인정, 최대 R1",
+        "False-negative 성능 미상 + 중대 결정 → 최대 R2",
+        "Endpoint mismatch → R0",
+        "Test dataset가 training dataset와 겹침 → 외부검증 부적절"
+      ]
+    },
+    {
+      "id": "nam",
+      "title": "NAM 시험계 및 실행 유효성",
+      "subtitle": "NAM Assay Ontology",
+      "summary": "사람 유래 여부뿐 아니라 관련 세포, 기능, 대조군, 반복노출과 플랫폼 상호작용을 평가합니다.",
+      "classes": [
+        {
+          "name": "InVitroNAM",
+          "definition": "비동물 기반 시험법",
+          "children": [
+            "TwoDimensionalCellAssay",
+            "CocultureAssay",
+            "ThreeDimensionalSpheroid",
+            "OrganoidAssay",
+            "OrganOnChip",
+            "MicrophysiologicalSystem",
+            "HighContentImagingAssay",
+            "OmicsBasedAssay",
+            "ReporterGeneAssay",
+            "FunctionalCellAssay"
+          ]
+        },
+        {
+          "name": "TestSystem",
+          "definition": "시험에 사용된 생물학적 시스템",
+          "children": [
+            "HumanDerivedSystem",
+            "AnimalDerivedSystem",
+            "PrimaryCellSystem",
+            "ImmortalizedCellSystem",
+            "StemCellDerivedSystem",
+            "CocultureSystem",
+            "SpheroidSystem",
+            "OrganoidSystem",
+            "OrganChipSystem"
+          ]
+        },
+        {
+          "name": "LiverCellType",
+          "definition": "간독성 사람 관련성의 주요 세포",
+          "children": [
+            "PrimaryHumanHepatocyte",
+            "iPSCDerivedHepatocyte",
+            "KupfferCell",
+            "HepaticStellateCell",
+            "LiverSinusoidalEndothelialCell",
+            "Cholangiocyte",
+            "HepaticImmuneCell"
+          ]
+        },
+        {
+          "name": "AssayControl",
+          "definition": "시험실행 유효성과 독성기여도 분리를 위한 대조군",
+          "children": [
+            "PositiveControl",
+            "NegativeControl",
+            "VehicleControl",
+            "UntreatedControl",
+            "CarrierOnlyControl",
+            "ActiveOnlyControl",
+            "FormulationMatchedControl",
+            "PlatformMaterialControl",
+            "ReferenceCompoundControl"
+          ]
+        },
+        {
+          "name": "PlatformInteractionAssessment",
+          "definition": "시험물질과 chip·matrix·배지의 상호작용",
+          "children": [
+            "TestArticleAdsorption",
+            "TestArticleAbsorption",
+            "MatrixBinding",
+            "DeviceLeaching",
+            "MaterialInducedToxicity",
+            "SurfaceLoss",
+            "AggregationInMedium",
+            "Sedimentation",
+            "FlowDependentDistribution"
+          ]
+        }
+      ],
+      "properties": [
+        "hasMethodVersion",
+        "hasProtocol",
+        "hasSOP",
+        "hasQualitySystem",
+        "hasTestSystem",
+        "hasExposureDesign",
+        "hasEndpoint",
+        "hasControl",
+        "hasReferenceCompound",
+        "hasAcceptanceCriterion",
+        "hasStatisticalMethod",
+        "hasReproducibilityEvidence",
+        "hasKnownLimitation",
+        "hasCellType",
+        "hasMetabolicCompetence",
+        "hasImmuneCompetence"
+      ],
+      "validation": [
+        "양성·음성대조군 필수",
+        "Negative NAM은 적절한 target exposure 입증 필요",
+        "반복 사람노출은 반복 NAM 또는 bridging rationale 필요",
+        "나노의약품은 carrier-only control 및 platform interaction 평가 필요"
+      ],
+      "rules": [
+        "Positive 또는 Negative control 실패 → 실행 무효",
+        "NAM 음성 + 실제 노출 미측정 → Unreliable Negative",
+        "Repeat clinical exposure + acute NAM → 최대 R2",
+        "Carrier-only control 누락 → formulation contribution 평가 불가"
+      ]
+    },
+    {
+      "id": "exposure",
+      "title": "노출 및 사람 번역",
+      "subtitle": "Exposure & Translation Ontology",
+      "summary": "명목 농도를 실제 세포·조직·사람 노출로 연결합니다.",
+      "classes": [
+        {
+          "name": "ExposureContext",
+          "definition": "계획 또는 관찰된 노출 맥락",
+          "children": [
+            "PlannedHumanExposure",
+            "ObservedHumanExposure",
+            "InVivoExposure",
+            "InVitroExposure",
+            "TissueExposure",
+            "IntracellularExposure"
+          ]
+        },
+        {
+          "name": "ExposureMetric",
+          "definition": "노출을 정량화하는 지표",
+          "children": [
+            "AdministeredDose",
+            "NominalConcentration",
+            "MeasuredTotalConcentration",
+            "UnboundConcentration",
+            "IntracellularConcentration",
+            "TargetTissueConcentration",
+            "Cmax",
+            "Cmin",
+            "AUC",
+            "HalfLife",
+            "AccumulationRatio",
+            "TimeAboveThreshold",
+            "ExposureMargin"
+          ]
+        },
+        {
+          "name": "ExposureDesign",
+          "definition": "노출의 시간적 설계",
+          "children": [
+            "SingleExposure",
+            "RepeatedExposure",
+            "ContinuousExposure",
+            "PulseExposure",
+            "RecoveryExposure",
+            "WashoutDesign"
+          ]
+        },
+        {
+          "name": "ExposureTranslationModel",
+          "definition": "in vitro 결과를 사람노출로 번역하는 모델",
+          "children": [
+            "SimpleConcentrationBridge",
+            "ProteinBindingAdjustedBridge",
+            "FreeConcentrationBridge",
+            "QIVIVEModel",
+            "PBPKModel",
+            "TissuePartitionModel",
+            "IntracellularExposureModel"
+          ]
+        }
+      ],
+      "properties": [
+        "hasNominalConcentration",
+        "hasMeasuredConcentration",
+        "hasUnboundConcentration",
+        "hasIntracellularConcentration",
+        "coversPlannedHumanCmax",
+        "coversPlannedHumanAUC",
+        "coversTreatmentDuration",
+        "showsAccumulation",
+        "hasExposureMargin",
+        "translatedBy",
+        "hasTargetTissueConcentration"
+      ],
+      "validation": [
+        "수치는 값·단위·시간·노출형태와 함께 저장",
+        "Negative NAM은 충분한 target exposure 확인",
+        "계획 임상기간과 NAM 노출기간 비교",
+        "QIVIVE/PBPK의 가정과 불확실성 기록"
+      ],
+      "rules": [
+        "Nominal concentration ≠ target exposure",
+        "사람 Cmax/AUC 연결 없음 → exposure relevance 제한",
+        "정량 biodistribution 없음 → 나노의약품 간·비장 위험 미해결"
+      ]
+    },
+    {
+      "id": "evidence",
+      "title": "근거·Assertion·Provenance",
+      "subtitle": "Evidence Ontology",
+      "summary": "문서 자체와 문서에서 추출된 주장을 분리하고 모든 결론을 출처에 연결합니다.",
+      "classes": [
+        {
+          "name": "EvidenceItem",
+          "definition": "보고서, 논문, 표, 원자료 등 근거",
+          "children": [
+            "AIModelCard",
+            "AIValidationReport",
+            "DatasetDescription",
+            "SoftwareVerificationReport",
+            "NAMProtocol",
+            "NAMStudyReport",
+            "RawData",
+            "DataTable",
+            "Figure",
+            "Publication",
+            "ProductCharacterizationReport",
+            "BiodistributionReport",
+            "PKTKReport",
+            "QIVIVEReport",
+            "RegulatoryGuidance",
+            "RegulatoryCorrespondence",
+            "ExpertJudgment",
+            "PriorClassKnowledge"
+          ]
+        },
+        {
+          "name": "EvidenceAssertion",
+          "definition": "근거로부터 추출된 구조화된 주장",
+          "children": [
+            "ProposedAssertion",
+            "AcceptedAssertion",
+            "CorrectedAssertion",
+            "RejectedAssertion",
+            "SupersededAssertion"
+          ]
+        },
+        {
+          "name": "PredictionResult",
+          "definition": "AI 또는 in silico 방법이 생성한 예측",
+          "children": [
+            "BinaryPrediction",
+            "MulticlassPrediction",
+            "ProbabilityPrediction",
+            "ContinuousPrediction",
+            "RankedPrediction",
+            "MechanisticPrediction"
+          ]
+        },
+        {
+          "name": "Observation",
+          "definition": "시험에서 실제 측정된 값",
+          "children": [
+            "QuantitativeObservation",
+            "QualitativeObservation",
+            "ImagingObservation",
+            "OmicsObservation",
+            "FunctionalObservation",
+            "ClinicalBiomarkerObservation"
+          ]
+        },
+        {
+          "name": "ToxicityFinding",
+          "definition": "Observation을 과학적으로 해석한 소견",
+          "children": [
+            "PredictedToxicitySignal",
+            "NAMToxicityFinding",
+            "InVivoToxicityFinding",
+            "ClinicalToxicityFinding",
+            "IntegratedToxicityFinding"
+          ]
+        },
+        {
+          "name": "ResultReliability",
+          "definition": "결과의 해석가능성과 신뢰성",
+          "children": [
+            "ReliablePositive",
+            "ReliableNegative",
+            "ProvisionallyReliable",
+            "UnreliablePositive",
+            "UnreliableNegative",
+            "UninterpretableResult"
+          ]
+        }
+      ],
+      "properties": [
+        "hasSubject",
+        "hasPredicate",
+        "hasObject",
+        "supportedByEvidence",
+        "contradictedByEvidence",
+        "hasSourceLocation",
+        "extractedBy",
+        "hasExtractionConfidence",
+        "hasReviewStatus",
+        "reviewedBy",
+        "derivedFrom",
+        "reportedIn",
+        "usesBatch",
+        "basedOnObservation",
+        "generatedByExecution"
+      ],
+      "validation": [
+        "Accepted Assertion은 출처·위치·검토자·버전 필수",
+        "AI 추출은 Proposed로 시작",
+        "Prediction·Observation·Finding 분리",
+        "Missing Evidence를 Negative로 변환 금지"
+      ],
+      "rules": [
+        "승인·수정된 Assertion만 고영향 평가에 사용",
+        "Untraceable Evidence → R4/R5 제한",
+        "Negative Finding은 exposure·controls·acceptance criteria 충족 시에만 Reliable Negative"
+      ]
+    },
+    {
+      "id": "human_risk",
+      "title": "독성소견·사람 관련성·위험",
+      "subtitle": "Finding & Human Risk Ontology",
+      "summary": "측정값, 독성소견, 사람 관련성 및 실제 사람 위험을 서로 다른 객체로 유지합니다.",
+      "classes": [
+        {
+          "name": "ToxicityFinding",
+          "definition": "시험에서 관찰된 결과의 과학적 독성 해석",
+          "children": [
+            "ClinicalObservationFinding",
+            "MortalityFinding",
+            "BodyWeightFinding",
+            "FoodConsumptionFinding",
+            "HematologyFinding",
+            "ClinicalChemistryFinding",
+            "UrinalysisFinding",
+            "ECGFinding",
+            "OrganWeightFinding",
+            "MacroscopicFinding",
+            "HistopathologyFinding",
+            "ImmuneFinding",
+            "GeneticToxicityFinding",
+            "LocalToleranceFinding"
+          ]
+        },
+        {
+          "name": "FindingAssessment",
+          "definition": "Finding의 심각도·유해성·인과성·가역성 평가",
+          "children": [
+            "SeverityAssessment",
+            "AdversityAssessment",
+            "CausalityAssessment",
+            "ReversibilityAssessment",
+            "BiologicalSignificanceAssessment",
+            "StatisticalSignificanceAssessment"
+          ]
+        },
+        {
+          "name": "HumanRelevanceAssessment",
+          "definition": "동물·NAM·AI 소견의 사람 관련성 평가",
+          "children": [
+            "HighHumanRelevance",
+            "ModerateHumanRelevance",
+            "LowHumanRelevance",
+            "HumanSpecificRisk",
+            "AnimalSpecificFinding",
+            "UnknownHumanRelevance"
+          ]
+        },
+        {
+          "name": "RelevanceFactor",
+          "definition": "사람 관련성 결론을 지지하는 요인",
+          "children": [
+            "TargetConservation",
+            "SequenceHomology",
+            "ReceptorExpression",
+            "MetabolicSimilarity",
+            "ExposureSimilarity",
+            "AnatomicalSimilarity",
+            "ImmuneSimilarity",
+            "MechanisticPlausibility",
+            "ClinicalClassEffect",
+            "HumanInVitroEvidence"
+          ]
+        },
+        {
+          "name": "HumanRisk",
+          "definition": "Hazard와 Finding을 노출·사람 관련성과 함께 해석한 개발위험",
+          "children": [
+            "IdentifiedHumanRisk",
+            "PotentialHumanRisk",
+            "MitigatedHumanRisk",
+            "UnresolvedHumanRisk",
+            "UnknownHumanRisk"
+          ]
+        }
+      ],
+      "properties": [
+        "hasEndpoint",
+        "hasObservedValue",
+        "hasReferenceRange",
+        "hasIncidence",
+        "hasSeverity",
+        "hasOnset",
+        "hasDuration",
+        "hasDose",
+        "hasExposure",
+        "hasSex",
+        "hasSpecies",
+        "hasTargetOrgan",
+        "hasDoseResponse",
+        "hasExposureResponse",
+        "hasReversibility",
+        "hasAdversityAssessment",
+        "hasCausalityAssessment",
+        "hasHumanRelevance",
+        "hasRelevanceFactor",
+        "determinesHumanRisk"
+      ],
+      "validation": [
+        "Observation과 Finding 분리",
+        "Human relevance 결론마다 factor와 evidence 필수",
+        "rat-specific 주장만으로 Low relevance 불가",
+        "Negative Finding과 No Human Risk 분리"
+      ],
+      "rules": [
+        "On-target mechanism + human target expression + overlapping exposure → High relevance 가능",
+        "Species-specific pathway가 사람에 없고 기전이 실험적으로 확인된 경우에만 Low relevance",
+        "Severe irreversible finding at planned exposure + high relevance → 개발 중대위험"
+      ]
+    },
+    {
+      "id": "assessment",
+      "title": "Evidence Assurance 평가",
+      "subtitle": "Assessment Ontology",
+      "summary": "하나의 점수 대신 서로 다른 신뢰 문제를 여섯 축으로 평가합니다.",
+      "classes": [
+        {
+          "name": "MethodCredibilityAssessment",
+          "definition": "방법 자체의 신뢰성",
+          "children": [
+            "MethodIdentityAssessment",
+            "DocumentationCompletenessAssessment",
+            "DataQualityAssessment",
+            "ModelPerformanceAssessment",
+            "ExternalValidationAssessment",
+            "ReproducibilityAssessment",
+            "SoftwareVerificationAssessment",
+            "ReferenceStandardAssessment",
+            "QualitySystemAssessment",
+            "ChangeControlAssessment",
+            "LifecycleManagementAssessment"
+          ]
+        },
+        {
+          "name": "CandidateApplicabilityAssessment",
+          "definition": "현재 후보에 대한 적용성",
+          "children": [
+            "ChemicalDomainFitAssessment",
+            "StructuralDomainFitAssessment",
+            "ModalityDomainFitAssessment",
+            "MechanisticDomainFitAssessment",
+            "RouteDomainFitAssessment",
+            "ExposureDomainFitAssessment",
+            "EndpointDomainFitAssessment",
+            "PopulationDomainFitAssessment"
+          ]
+        },
+        {
+          "name": "HumanBiologicalRelevanceAssessment",
+          "definition": "사람 생물학·기전 관련성",
+          "children": [
+            "SpeciesOriginAssessment",
+            "CellTypeRelevanceAssessment",
+            "TissueArchitectureAssessment",
+            "PhysiologicalFunctionAssessment",
+            "MetabolicCompetenceAssessment",
+            "ImmuneCompetenceAssessment",
+            "MechanisticAlignmentAssessment",
+            "DonorRepresentationAssessment",
+            "ClinicalEndpointLinkageAssessment"
+          ]
+        },
+        {
+          "name": "ExposureRelevanceAssessment",
+          "definition": "시험과 예정 사람노출의 관련성",
+          "children": [
+            "NominalExposureAssessment",
+            "FreeExposureAssessment",
+            "IntracellularExposureAssessment",
+            "TargetTissueExposureAssessment",
+            "CmaxCoverageAssessment",
+            "AUCCoverageAssessment",
+            "RepeatedExposureCoverageAssessment",
+            "AccumulationAssessment",
+            "QIVIVEAdequacyAssessment"
+          ]
+        },
+        {
+          "name": "EvidenceConcordanceAssessment",
+          "definition": "근거 흐름의 일치와 상충",
+          "children": [
+            "DirectionalConcordance",
+            "MechanisticConcordance",
+            "DoseResponseConcordance",
+            "ExposureConcordance",
+            "TemporalConcordance",
+            "CrossPlatformConcordance",
+            "HumanAnimalConcordance"
+          ]
+        },
+        {
+          "name": "FitForPurposeAssessment",
+          "definition": "정의된 COU에서의 최종 적합성",
+          "children": [
+            "COUAdequacyAssessment",
+            "PerformanceAdequacyAssessment",
+            "EvidenceSufficiencyAssessment",
+            "ResidualRiskAssessment",
+            "DecisionUseAdequacyAssessment"
+          ]
+        }
+      ],
+      "properties": [
+        "assessesEntity",
+        "hasAssessmentDimension",
+        "hasAssessmentLevel",
+        "hasNumericScore",
+        "hasConclusion",
+        "hasRationale",
+        "supportedByEvidence",
+        "generatedByRule",
+        "hasUncertainty",
+        "reviewedBy",
+        "hasAssessmentDate"
+      ],
+      "validation": [
+        "Unknown과 0을 구분",
+        "각 점수에 근거·rule version·평가일 연결",
+        "평균점수로 Hard Gate를 보상하지 않음"
+      ],
+      "rules": [
+        "Method credibility가 높아도 applicability가 낮으면 Evidence Role 제한",
+        "Human relevance와 exposure relevance 미충족 시 R4/R5 불가",
+        "AI/NAM 상충 → 최대 R2 및 Expert Review"
+      ]
+    },
+    {
+      "id": "gaps",
+      "title": "Data Gap 및 잔여 불확실성",
+      "subtitle": "Gap & Uncertainty Ontology",
+      "summary": "자료 부족과 낮은 독성우려를 분리하고, 해결해야 할 다음 근거를 지정합니다.",
+      "classes": [
+        {
+          "name": "ResidualUncertainty",
+          "definition": "평가 후에도 남아 있는 불확실성",
+          "children": [
+            "DataUncertainty",
+            "ModelUncertainty",
+            "AssayUncertainty",
+            "ApplicabilityUncertainty",
+            "ProductUncertainty",
+            "ExposureUncertainty",
+            "TranslationUncertainty",
+            "MechanisticUncertainty",
+            "BiologicalVariability",
+            "EvidenceConflictUncertainty",
+            "DecisionUncertainty",
+            "RegulatoryUncertainty"
+          ]
+        },
+        {
+          "name": "DataGap",
+          "definition": "필요한 질문에 답할 근거가 없거나 해석 불가능한 상태",
+          "children": [
+            "MissingQuestionOfInterest",
+            "MissingContextOfUse",
+            "EndpointMismatch",
+            "MissingMethodIdentity",
+            "MissingModelVersion",
+            "MissingDatasetDescription",
+            "MissingExternalValidation",
+            "NonIndependentTestDataset",
+            "UnknownFalseNegativePerformance",
+            "MissingDecisionThreshold",
+            "MissingApplicabilityDomain",
+            "OutOfDomainPrediction",
+            "MissingNAMProtocol",
+            "MissingAcceptanceCriterion",
+            "InvalidControl",
+            "MissingReferenceCompound",
+            "MissingReproducibilityEvidence",
+            "MissingDonorVariability",
+            "MissingHumanRelevantCellType",
+            "MissingMetabolicCompetence",
+            "MissingImmuneCompetence",
+            "MissingMeasuredExposure",
+            "MissingFreeConcentration",
+            "MissingIntracellularExposure",
+            "AcuteRepeatExposureMismatch",
+            "MissingQIVIVE",
+            "MissingBiodistribution",
+            "MissingCarrierOnlyControl",
+            "MissingActiveOnlyControl",
+            "PlatformInteractionUnknown",
+            "UnresolvedConflictingEvidence",
+            "MissingTraceability",
+            "MissingExpertReview",
+            "SupersededMethodVersion"
+          ]
+        },
+        {
+          "name": "GapCriticality",
+          "definition": "의사결정에 미치는 심각도",
+          "children": [
+            "Informational",
+            "Minor",
+            "Major",
+            "Critical",
+            "DecisionBlocking"
+          ]
+        },
+        {
+          "name": "GapResolutionPlan",
+          "definition": "Gap을 해소할 구체적인 다음 행동",
+          "children": [
+            "AdditionalAIValidation",
+            "OrthogonalNAM",
+            "RepeatedExposureNAM",
+            "QIVIVEAnalysis",
+            "PBPKAnalysis",
+            "BiodistributionStudy",
+            "CarrierControlStudy",
+            "MechanisticStudy",
+            "TargetedInVivoStudy",
+            "ExpertEscalation",
+            "RegulatoryMeeting"
+          ]
+        }
+      ],
+      "properties": [
+        "hasUncertaintySource",
+        "hasMagnitude",
+        "hasPatientSafetyImpact",
+        "hasDecisionImpact",
+        "canBeReducedBy",
+        "hasResolutionPriority",
+        "hasCriticality",
+        "hasRequiredTiming",
+        "recommendsMethod",
+        "requiresEvidence",
+        "hasOwner",
+        "hasDependency",
+        "affectsDecision",
+        "limitsEvidenceRole"
+      ],
+      "validation": [
+        "Gap마다 criticality·timing·decision impact 필수",
+        "Missing과 Not Applicable 분리",
+        "해결계획은 owner와 evidence requirement 포함"
+      ],
+      "rules": [
+        "Critical gap 존재 → 낮은 concern 분류 불가",
+        "Decision-blocking gap → 최대 Evidence Role 제한",
+        "Missing evidence → Unknown + DataGap 생성"
+      ]
+    },
+    {
+      "id": "clinical",
+      "title": "임상 번역 및 규제 자문",
+      "subtitle": "Clinical Translation & Regulatory Decision Ontology",
+      "summary": "독성근거를 임상 용량·모니터링·중단기준과 다음 개발단계 권고로 연결합니다.",
+      "classes": [
+        {
+          "name": "ClinicalTrialContext",
+          "definition": "비임상 패키지가 지원해야 하는 임상시험 조건",
+          "children": [
+            "TrialPopulation",
+            "DosePlan",
+            "RoutePlan",
+            "TreatmentDuration",
+            "DoseEscalationPlan",
+            "ClinicalMonitoringPlan",
+            "EligibilityPlan",
+            "StoppingRulePlan",
+            "FollowUpPlan"
+          ]
+        },
+        {
+          "name": "ClinicalMitigation",
+          "definition": "임상시험에 적용하는 위험완화조치",
+          "children": [
+            "StartingDoseSelection",
+            "MaximumDoseLimit",
+            "DoseEscalationRestriction",
+            "SentinelDosing",
+            "StaggeredEnrollment",
+            "ObservationPeriod",
+            "LaboratoryMonitoring",
+            "BiomarkerMonitoring",
+            "ECGMonitoring",
+            "InfusionRateControl",
+            "Premedication",
+            "EligibilityCriterion",
+            "StoppingRule",
+            "FollowUpRequirement",
+            "EmergencyManagement"
+          ]
+        },
+        {
+          "name": "AdvisoryAssessment",
+          "definition": "규제결정을 대체하지 않는 설명 가능한 자문",
+          "children": [
+            "EvidenceCoverageAssessment",
+            "EvidenceConfidenceAssessment",
+            "ToxicityConcernAssessment",
+            "StudyDesignAssessment",
+            "RegulatoryRelevanceAssessment",
+            "DevelopmentReadinessAssessment"
+          ]
+        },
+        {
+          "name": "AdvisoryRecommendation",
+          "definition": "다음 개발단계에 대한 조건부 권고",
+          "children": [
+            "StudyRecommendation",
+            "DataRecommendation",
+            "MonitoringRecommendation",
+            "DoseRecommendation",
+            "CMCComparabilityRecommendation",
+            "RegulatoryMeetingRecommendation",
+            "ExpertEscalationRecommendation"
+          ]
+        },
+        {
+          "name": "RegulatoryDecision",
+          "definition": "내부 규제논리를 표현하는 최종 상태",
+          "children": [
+            "Go",
+            "ConditionalGo",
+            "Hold",
+            "NoGo",
+            "UnableToAssess"
+          ]
+        },
+        {
+          "name": "CriticalGate",
+          "definition": "현재 임상진입 지원 여부를 제한하는 핵심 Gate",
+          "children": [
+            "FinalTestArticleDefinedGate",
+            "TestArticleComparabilityGate",
+            "RepeatDoseCoverageGate",
+            "ExposureCoverageGate",
+            "RouteCoverageGate",
+            "RecoveryAssessmentGate",
+            "StartingDoseJustificationGate",
+            "ClinicalMonitoringGate"
+          ]
+        }
+      ],
+      "properties": [
+        "hasPopulation",
+        "hasStartingDose",
+        "hasMaximumPlannedDose",
+        "hasClinicalRoute",
+        "hasFrequency",
+        "hasTreatmentDuration",
+        "hasSentinelDesign",
+        "hasEscalationInterval",
+        "hasFollowUpDuration",
+        "requiresMonitoring",
+        "limitsStartingDose",
+        "limitsMaximumDose",
+        "requiresStoppingRule",
+        "requiresEligibilityRestriction",
+        "requiresFollowUp",
+        "isMitigatedBy",
+        "hasAdvisoryStatus",
+        "hasRecommendationPriority",
+        "supportsClinicalEntry"
+      ],
+      "validation": [
+        "독성소견이 임상 모니터링·용량·중단기준 중 관련 항목과 연결",
+        "starting dose justification 필수",
+        "critical gap과 clinical mitigation 상태 확인",
+        "자동결론과 Human Expert Decision 분리"
+      ],
+      "rules": [
+        "Missing repeat-dose study가 현재 단계에 필수 → Additional Evidence Required / Development Hold",
+        "TK missing + systemic exposure required → Exposure Gate 실패",
+        "Critical gap 존재 → 자동 최대 권고 제한",
+        "NORA는 규제기관 승인 여부를 보장하지 않음"
+      ]
+    },
+    {
+      "id": "action",
+      "title": "Evidence Role 및 3Rs 권고",
+      "subtitle": "Action Ontology",
+      "summary": "근거의 사용 가능한 역할과 동물실험 보완·정교화·축소·대체후보를 명확히 구분합니다.",
+      "classes": [
+        {
+          "name": "EvidenceRole",
+          "definition": "현재 근거를 어디까지 사용할 수 있는지 나타내는 통제어휘",
+          "children": [
+            "R0_NotAssessable",
+            "R1_HypothesisGenerating",
+            "R2_ScreeningUse",
+            "R3_SupportiveEvidence",
+            "R4_ReductionSupporting",
+            "R5_ReplacementCandidate"
+          ]
+        },
+        {
+          "name": "AnimalUseRecommendation",
+          "definition": "동물사용과 관련된 권고",
+          "children": [
+            "NoAnimalUseConclusion",
+            "NoReductionSupported",
+            "RefinementRecommended",
+            "ReductionPotentialIdentified",
+            "ReductionSupported",
+            "ReplacementCandidateIdentified",
+            "AgencyDiscussionRequired",
+            "UnableToAssessAnimalUse"
+          ]
+        },
+        {
+          "name": "ThreeRsAction",
+          "definition": "Refinement·Reduction·Replacement 조치",
+          "children": [
+            "RefineEndpointSelection",
+            "RefineSamplingTime",
+            "RefineDoseSelection",
+            "RefineMonitoring",
+            "ReduceAnimalNumber",
+            "ReduceDoseGroup",
+            "ReduceSpecies",
+            "ReduceStudyDuration",
+            "ReduceStandaloneStudy",
+            "IntegrateEndpointIntoExistingStudy",
+            "ReplaceSpecificEndpoint",
+            "ReplaceSpecificMechanisticQuestion",
+            "ReplaceSpecificAnimalSpecies",
+            "ReplaceSpecificStudyCandidate"
+          ]
+        },
+        {
+          "name": "AdvisoryRecommendation",
+          "definition": "다음 근거와 조치를 설명하는 자문",
+          "children": [
+            "AdditionalAIValidationRecommendation",
+            "ApplicabilityDomainExtensionRecommendation",
+            "OrthogonalNAMRecommendation",
+            "RepeatedExposureRecommendation",
+            "QIVIVERecommendation",
+            "PBPKRecommendation",
+            "BiodistributionRecommendation",
+            "CarrierControlRecommendation",
+            "MechanisticStudyRecommendation",
+            "TargetedInVivoRecommendation",
+            "ExpertEscalationRecommendation",
+            "RegulatoryMeetingRecommendation"
+          ]
+        }
+      ],
+      "properties": [
+        "assignsEvidenceRole",
+        "supportsAnimalUseAction",
+        "hasReplacementTarget",
+        "hasReductionTarget",
+        "hasAffectedSpecies",
+        "hasAffectedEndpoint",
+        "hasAffectedDoseGroup",
+        "hasAffectedStudy",
+        "hasConditions",
+        "requiresExpertApproval",
+        "requiresAgencyDiscussion",
+        "hasObservationStatement",
+        "hasInterpretationStatement",
+        "hasDevelopmentRelevanceStatement",
+        "hasRecommendedAction"
+      ],
+      "validation": [
+        "R4/R5는 전문가 검토 필수",
+        "R5는 좁게 정의된 COU 필수",
+        "Replacement target은 endpoint·species·study 수준으로 명시",
+        "전체 안전성 또는 전체 독성패키지 대체 표현 금지"
+      ],
+      "rules": [
+        "핵심 평가축 ≥3 + 독립근거 ≥2 + critical gap 없음 + 전문가 승인 → R4 가능",
+        "R4 + 외부검증 + false-negative 허용 + 재현성 + 좁은 COU → R5 후보",
+        "R5 ≠ 규제 qualification 또는 면제"
+      ]
+    },
+    {
+      "id": "governance",
+      "title": "전문가 검토 및 감사 추적",
+      "subtitle": "Human-in-the-loop Governance",
+      "summary": "누가 어떤 근거와 규칙으로 결론을 만들고 변경했는지 기록합니다.",
+      "classes": [
+        {
+          "name": "Agent",
+          "definition": "평가·검토·결정에 참여하는 주체",
+          "children": [
+            "Sponsor",
+            "ModelDeveloper",
+            "NAMDeveloper",
+            "TestingLaboratory",
+            "DataScientist",
+            "Toxicologist",
+            "Pathologist",
+            "Pharmacokineticist",
+            "RegulatoryScientist",
+            "QualityReviewer",
+            "DecisionOwner"
+          ]
+        },
+        {
+          "name": "ExpertReview",
+          "definition": "자동평가에 대한 사람의 검토",
+          "children": [
+            "Accept",
+            "AcceptWithCondition",
+            "Correct",
+            "Reject",
+            "Escalate",
+            "Override"
+          ]
+        },
+        {
+          "name": "OverrideRecord",
+          "definition": "자동결론을 변경한 과학적 기록",
+          "children": [
+            "OriginalConclusion",
+            "RevisedConclusion",
+            "ScientificRationale",
+            "AdditionalEvidence"
+          ]
+        },
+        {
+          "name": "AssessmentRun",
+          "definition": "한 번의 NORA 평가 전체 기록",
+          "children": [
+            "InputSnapshot",
+            "RuleExecutionSet",
+            "AssessmentResult",
+            "RecommendationSet",
+            "AuditEvent"
+          ]
+        },
+        {
+          "name": "RuleExecution",
+          "definition": "특정 규칙이 어떤 사실에 적용되어 어떤 결과를 생성했는지 기록",
+          "children": [
+            "TriggeredRule",
+            "NonTriggeredRule",
+            "RuleException",
+            "RuleOverride"
+          ]
+        }
+      ],
+      "properties": [
+        "hasReviewer",
+        "reviewsAssessment",
+        "hasReviewAction",
+        "hasReviewRationale",
+        "hasReviewDate",
+        "hasConflictOfInterestStatement",
+        "hasSignature",
+        "overridesAutomatedConclusion",
+        "hasOriginalConclusion",
+        "hasRevisedConclusion",
+        "hasScientificRationale",
+        "performedBy",
+        "approvedBy",
+        "usesOntologyVersion",
+        "usesRuleSetVersion",
+        "usesModelVersion",
+        "usesNAMMethodVersion",
+        "usesInputSnapshot",
+        "hasInputHash",
+        "hasExecutionTimestamp",
+        "generatesAssessment",
+        "generatesRecommendation",
+        "hasAuditStatus"
+      ],
+      "validation": [
+        "모든 AssessmentRun에 ontology·rule·method version 필수",
+        "Override는 원결론·수정결론·근거·승인자 필수",
+        "모델 또는 시험법 version 변경 시 reassessment flag"
+      ],
+      "rules": [
+        "R4/R5에 Expert Review가 없으면 최대 R3",
+        "Superseded version 사용 → ReassessmentRequired",
+        "승인되지 않은 Assertion은 고영향 규칙 입력에서 제외"
+      ]
+    }
+  ],
+  "roles": [
+    {
+      "code": "R0",
+      "name": "평가 불가",
+      "description": "필수정보 또는 유효한 근거가 부족하여 사용 가능한 역할을 정할 수 없음",
+      "animalUse": "동물사용 변경 결론 불가"
+    },
+    {
+      "code": "R1",
+      "name": "가설 생성",
+      "description": "잠재 위험이나 기전을 제안하는 수준",
+      "animalUse": "축소·대체 미지원"
+    },
+    {
+      "code": "R2",
+      "name": "초기 선별",
+      "description": "후보 우선순위 및 추가시험 선택에 사용 가능",
+      "animalUse": "축소·대체 미지원"
+    },
+    {
+      "code": "R3",
+      "name": "보조 근거",
+      "description": "다른 독립적 근거와 함께 독성판단을 지원",
+      "animalUse": "시험 정교화 가능, 축소는 추가검토"
+    },
+    {
+      "code": "R4",
+      "name": "동물시험 축소 지원",
+      "description": "특정 동물 수·용량군·endpoint 축소를 제한적으로 지원",
+      "animalUse": "명시된 조건 아래 축소 검토"
+    },
+    {
+      "code": "R5",
+      "name": "특정 시험 대체 후보",
+      "description": "좁게 정의된 COU에서 특정 endpoint 대체를 공식 검토할 후보",
+      "animalUse": "규제기관 논의·qualification 필요"
+    }
+  ],
+  "competencyQuestions": [
+    "현재 AI 결과는 어떤 Question of Interest와 Context of Use를 지원하는가?",
+    "AI 모델은 현재 후보물질의 modality와 화학적 범위를 포함하는가?",
+    "음성 예측의 false-negative 성능은 현재 endpoint와 COU에서 알려져 있는가?",
+    "이번 NAM 실행은 대조군과 acceptance criteria를 충족했는가?",
+    "시험에서 실제 target-site exposure가 입증되었는가?",
+    "반복 임상노출이 단회 NAM 시험으로 충분히 지원되는가?",
+    "사용한 간 모델은 필요한 세포와 기능을 포함하는가?",
+    "AI, NAM, class evidence가 서로 일치하는가?",
+    "어떤 Data Gap이 Evidence Role을 제한하는가?",
+    "R4 또는 R5를 위해 부족한 근거는 무엇인가?",
+    "어떤 동물시험 요소를 줄일 수 있고 어떤 요소는 유지해야 하는가?",
+    "각 권고는 어느 문서의 어느 페이지·표에 근거하는가?",
+    "어떤 규칙 버전이 현재 결론을 생성했는가?",
+    "전문가가 자동결론을 변경했는가? 그 이유는 무엇인가?",
+    "모델이나 시험법 버전이 변경되면 어떤 평가를 다시 수행해야 하는가?"
+  ]
+};
+
+</script>
+<script>
+window.NORA_GP_L_CT = {
+  "name": "GP-L-CT",
+  "modality": [
+    "siRNAProduct",
+    "OligonucleotideTherapeutic",
+    "Nanomedicine",
+    "HybridNanoparticle"
+  ],
+  "route": "Intravenous",
+  "target": "BIRC5 / Survivin",
+  "carrier": [
+    "Chitosan",
+    "Protamine",
+    "Lecithin",
+    "TPP"
+  ],
+  "question": "현재 AI와 사람 기반 NAM 근거가 GP-L-CT의 초기 간독성 위험을 평가하고 후속 동물시험 범위를 줄이는 데 충분한가?",
+  "defaultInputs": {
+    "aiDomain": "out",
+    "aiResult": "negative",
+    "falseNegativeKnown": false,
+    "namResult": "negative",
+    "namExposure": "single",
+    "measuredExposure": false,
+    "kupffer": false,
+    "carrierControl": false,
+    "biodistribution": "qualitative",
+    "independentStreams": 2,
+    "expertReviewed": false
+  }
+};
+
+</script>
+<script>
+(() => {
+  const ontology = window.NORA_ONTOLOGY;
+  const gp = window.NORA_GP_L_CT;
+  if (!ontology) return;
+
+  const $ = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
+  const esc = (value) => String(value ?? '').replace(/[&<>'"]/g, (ch) => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[ch]));
+
+  // Header / mobile
+  const menu = $('#mobileMenu');
+  const nav = $('#mainNav');
+  menu?.addEventListener('click', () => {
+    const opened = nav.classList.toggle('open');
+    menu.setAttribute('aria-expanded', String(opened));
+  });
+  $$('#mainNav a').forEach((link) => link.addEventListener('click', () => nav.classList.remove('open')));
+
+  // Modal
+  $$('[data-open-modal]').forEach((button) => button.addEventListener('click', () => {
+    const modal = document.getElementById(button.dataset.openModal);
+    modal?.classList.add('open');
+    modal?.querySelector('[data-close-modal]')?.focus();
+  }));
+  $$('[data-close-modal]').forEach((button) => button.addEventListener('click', () => button.closest('.modal')?.classList.remove('open')));
+  $$('.modal').forEach((modal) => modal.addEventListener('click', (event) => {
+    if (event.target === modal) modal.classList.remove('open');
+  }));
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') $$('.modal.open').forEach((modal) => modal.classList.remove('open'));
+  });
+
+  // Principles
+  const principleList = $('#principleList');
+  if (principleList) {
+    principleList.innerHTML = ontology.principles.map((item, index) => `
+      <div class="principle"><b>${String(index + 1).padStart(2, '0')}</b><span>${esc(item)}</span></div>
+    `).join('');
+  }
+
+  // Causal chain
+  const chainEl = $('#causalChain');
+  const detailTitle = $('#chainDetailTitle');
+  const detailEn = $('#chainDetailEn');
+  const detailText = $('#chainDetailText');
+  function showChain(item, button) {
+    $$('.chain-node').forEach((node) => node.classList.remove('active'));
+    button?.classList.add('active');
+    detailTitle.textContent = item.label;
+    detailEn.textContent = item.en;
+    detailText.textContent = item.description;
+  }
+  if (chainEl) {
+    ontology.chain.forEach((item, index) => {
+      const button = document.createElement('button');
+      button.className = `chain-node${index === 0 ? ' active' : ''}`;
+      button.type = 'button';
+      button.innerHTML = `<span class="num">${String(index + 1).padStart(2, '0')}</span><strong>${esc(item.label)}</strong><small>${esc(item.en)}</small>`;
+      button.addEventListener('click', () => showChain(item, button));
+      chainEl.appendChild(button);
+    });
+  }
+
+  // Ontology module explorer
+  let selectedModule = ontology.modules[0];
+  let selectedTab = 'classes';
+  const moduleList = $('#moduleList');
+  const moduleTitle = $('#moduleTitle');
+  const moduleSubtitle = $('#moduleSubtitle');
+  const moduleSummary = $('#moduleSummary');
+  const moduleContent = $('#moduleContent');
+
+  function renderModuleList() {
+    moduleList.innerHTML = ontology.modules.map((module) => `
+      <button class="module-button${module.id === selectedModule.id ? ' active' : ''}" type="button" data-module="${esc(module.id)}">
+        <strong>${esc(module.title)}</strong><small>${esc(module.subtitle)}</small>
+      </button>
+    `).join('');
+    $$('.module-button', moduleList).forEach((button) => button.addEventListener('click', () => {
+      selectedModule = ontology.modules.find((module) => module.id === button.dataset.module) || ontology.modules[0];
+      renderModuleList();
+      renderModule();
+    }));
+  }
+
+  function classContent(module) {
+    return `<div class="class-grid">${module.classes.map((cls) => `
+      <article class="class-card"><h4>${esc(cls.name)}</h4><p>${esc(cls.definition)}</p><div class="pill-wrap">${cls.children.map((child) => `<span class="pill">${esc(child)}</span>`).join('')}</div></article>
+    `).join('')}</div>`;
+  }
+  function listContent(items, type) {
+    const cls = type === 'rules' ? 'rule-row' : type === 'validation' ? 'validation-row' : '';
+    return `<div class="list-box">${items.map((item) => `<div class="list-row ${cls}">${type === 'properties' ? `<code>${esc(item)}</code>` : esc(item)}</div>`).join('')}</div>`;
+  }
+  function renderModule() {
+    moduleTitle.textContent = selectedModule.title;
+    moduleSubtitle.textContent = selectedModule.subtitle;
+    moduleSummary.textContent = selectedModule.summary;
+    if (selectedTab === 'classes') moduleContent.innerHTML = classContent(selectedModule);
+    else moduleContent.innerHTML = listContent(selectedModule[selectedTab], selectedTab);
+  }
+  $$('.tab-button').forEach((button) => button.addEventListener('click', () => {
+    $$('.tab-button').forEach((tab) => tab.classList.remove('active'));
+    button.classList.add('active');
+    selectedTab = button.dataset.tab;
+    renderModule();
+  }));
+  renderModuleList();
+  renderModule();
+
+  // Evidence roles
+  const roleTrack = $('#roleTrack');
+  if (roleTrack) {
+    roleTrack.innerHTML = ontology.roles.map((role) => `
+      <article class="role ${role.code.toLowerCase()}"><div class="role-code">${esc(role.code)}</div><h3>${esc(role.name)}</h3><p>${esc(role.description)}</p><small>${esc(role.animalUse)}</small></article>
+    `).join('');
+  }
+
+  // Competency questions
+  const cq = $('#competencyQuestions');
+  if (cq) cq.innerHTML = ontology.competencyQuestions.map((q, i) => `<div class="cq"><strong>${String(i + 1).padStart(2, '0')}.</strong> ${esc(q)}</div>`).join('');
+
+  // GP-L-CT demo
+  const inputs = {
+    aiDomain: $('#aiDomain'),
+    falseNegativeKnown: $('#falseNegativeKnown'),
+    namExposure: $('#namExposure'),
+    measuredExposure: $('#measuredExposure'),
+    kupffer: $('#kupffer'),
+    carrierControl: $('#carrierControl'),
+    biodistribution: $('#biodistribution'),
+    independentStreams: $('#independentStreams'),
+    expertReviewed: $('#expertReviewed')
+  };
+  const roleDefinitions = Object.fromEntries(ontology.roles.map((role) => [role.code, role]));
+  const ruleCap = (cap, value) => Math.min(cap, value);
+
+  function getDemoState() {
+    return {
+      aiDomain: inputs.aiDomain.value,
+      falseNegativeKnown: inputs.falseNegativeKnown.checked,
+      namExposure: inputs.namExposure.value,
+      measuredExposure: inputs.measuredExposure.checked,
+      kupffer: inputs.kupffer.checked,
+      carrierControl: inputs.carrierControl.checked,
+      biodistribution: inputs.biodistribution.value,
+      independentStreams: Number(inputs.independentStreams.value),
+      expertReviewed: inputs.expertReviewed.checked
+    };
+  }
+
+  function evaluateDemo(state) {
+    let cap = 5;
+    let base = 3;
+    const gaps = [];
+    const recommendations = [];
+    const add = (code, text, rec, roleCap = 5) => {
+      gaps.push({ code, text });
+      if (rec) recommendations.push(rec);
+      cap = ruleCap(cap, roleCap);
+    };
+
+    if (state.aiDomain === 'out') add('ET‑R001', '저분자 중심 AI 모델이 siRNA 나노의약품에 적용되어 후보가 Out‑of‑domain입니다.', '현재 modality를 포함하는 모델 또는 orthogonal NAM을 사용합니다.', 1);
+    else if (state.aiDomain === 'border') add('ET‑R001B', '후보가 applicability domain 경계에 있어 음성예측의 불확실성이 큽니다.', '구조·modality 유사성 분석과 외부검증자료를 보강합니다.', 2);
+    else base += 0.4;
+
+    if (!state.falseNegativeKnown) add('ET‑R003', '음성예측의 false‑negative 성능이 확인되지 않았습니다.', '현재 endpoint와 threshold에서 sensitivity와 false‑negative 특성을 확인합니다.', 2);
+    else base += 0.35;
+
+    if (state.namExposure === 'single') add('ET‑R007', '계획된 반복투여를 급성 단회 NAM으로만 평가합니다.', '반복노출 NAM 또는 acute‑to‑repeat bridging 근거를 마련합니다.', 2);
+    else base += 0.5;
+
+    if (!state.measuredExposure) add('ET‑R006', '명목농도만 존재하고 free 또는 세포내 실제 노출이 확인되지 않았습니다.', 'Free 또는 intracellular exposure를 측정하고 QIVIVE로 연결합니다.', 2);
+    else base += 0.55;
+
+    if (!state.kupffer) add('ET‑HR001', 'Kupffer cell 또는 면역 적격 간 모델이 없어 나노입자 관련 면역반응을 평가하기 어렵습니다.', 'Human hepatocyte–Kupffer cell 공배양 또는 cytokine/complement 평가를 추가합니다.', 3);
+    else base += 0.45;
+
+    if (!state.carrierControl) add('ET‑R009', 'Carrier‑only 대조군이 없어 전달체의 독성기여도를 분리할 수 없습니다.', 'Carrier‑only와 active‑only 대조군을 포함합니다.', 3);
+    else base += 0.35;
+
+    if (state.biodistribution === 'missing') add('ET‑BD001', '간·비장 biodistribution 자료가 없습니다.', '정량적 간·비장 biodistribution과 잔류를 평가합니다.', 2);
+    else if (state.biodistribution === 'qualitative') add('ET‑BD002', '정성적 분포만 존재하여 조직노출과 독성을 정량 연결할 수 없습니다.', '정량적 biodistribution과 exposure margin을 확보합니다.', 3);
+    else base += 0.55;
+
+    if (state.independentStreams < 2) add('ET‑RWoE', '독립적인 근거 흐름이 1개뿐이어서 Weight of Evidence가 부족합니다.', '기전 또는 사람 관련 독립 근거를 하나 이상 추가합니다.', 2);
+    else if (state.independentStreams >= 3) base += 0.45;
+
+    if (!state.expertReviewed) add('ET‑R013', '고영향 결론에 대한 독성전문가 검토가 완료되지 않았습니다.', '독성전문가가 Evidence Role과 동물사용 권고를 승인·수정합니다.', 3);
+    else base += 0.45;
+
+    let role = Math.max(1, Math.min(5, Math.floor(base)));
+    if (gaps.length >= 6) role = Math.min(role, 2);
+    if (gaps.length >= 8) role = 1;
+    role = Math.min(role, cap);
+
+    if (role >= 4 && !state.expertReviewed) role = 3;
+    if (role === 5 && !(state.aiDomain === 'in' && state.falseNegativeKnown && state.namExposure === 'repeat' && state.measuredExposure && state.kupffer && state.carrierControl && state.biodistribution === 'quantitative' && state.independentStreams >= 3 && state.expertReviewed)) role = 4;
+
+    const code = `R${role}`;
+    const roleDef = roleDefinitions[code];
+    const animal = role <= 2 ? '동물시험 축소 미지원' : role === 3 ? '시험 정교화 가능 · 축소는 추가검토' : role === 4 ? '제한적 축소 검토 가능' : '특정 endpoint 대체후보';
+    return { code, roleDef, animal, gaps, recommendations: [...new Set(recommendations)].slice(0, 6) };
+  }
+
+  function renderDemo() {
+    const result = evaluateDemo(getDemoState());
+    $('#demoRoleCode').textContent = result.code;
+    $('#demoRoleName').textContent = result.roleDef.name;
+    $('#demoRoleDescription').textContent = result.roleDef.description;
+    const status = $('#demoAnimalStatus');
+    status.textContent = result.animal;
+    status.classList.toggle('ok', Number(result.code.slice(1)) >= 4);
+    $('#demoGaps').innerHTML = result.gaps.length ? result.gaps.map((gap) => `<div class="demo-gap"><code>${esc(gap.code)}</code><span>${esc(gap.text)}</span></div>`).join('') : `<div class="demo-gap"><code>NO CRITICAL GAP</code><span>현재 입력에서 핵심 결정 제한요소가 탐지되지 않았습니다. 실제 적용 전 독립적인 전문가 검토가 필요합니다.</span></div>`;
+    $('#demoRecommendations').innerHTML = result.recommendations.length ? result.recommendations.map((rec) => `<li>${esc(rec)}</li>`).join('') : '<li>현재 사용범위와 근거 역할을 명확히 문서화하고 전문가 검토를 유지합니다.</li>';
+  }
+
+  function setDemoDefaults() {
+    const d = gp.defaultInputs;
+    inputs.aiDomain.value = d.aiDomain;
+    inputs.falseNegativeKnown.checked = d.falseNegativeKnown;
+    inputs.namExposure.value = d.namExposure;
+    inputs.measuredExposure.checked = d.measuredExposure;
+    inputs.kupffer.checked = d.kupffer;
+    inputs.carrierControl.checked = d.carrierControl;
+    inputs.biodistribution.value = d.biodistribution;
+    inputs.independentStreams.value = String(d.independentStreams);
+    inputs.expertReviewed.checked = d.expertReviewed;
+    renderDemo();
+  }
+  Object.values(inputs).forEach((input) => input?.addEventListener('change', renderDemo));
+  $('#resetDemo')?.addEventListener('click', setDemoDefaults);
+  setDemoDefaults();
+
+  // Section observer for subtle navigation state
+  const sections = $$('main section[id]');
+  const navLinks = $$('#mainNav a');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach((link) => link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`));
+      });
+    }, { rootMargin: '-40% 0px -52% 0px', threshold: 0 });
+    sections.forEach((section) => observer.observe(section));
+  }
+})();
+
+</script>
+</body>
+</html>

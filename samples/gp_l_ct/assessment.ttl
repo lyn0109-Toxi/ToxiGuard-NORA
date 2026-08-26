@@ -1,0 +1,119 @@
+@prefix ai: <https://toxiguard.ai/ontology/earlytox/ai#> .
+@prefix assessment: <https://toxiguard.ai/ontology/earlytox/assessment#> .
+@prefix core: <https://toxiguard.ai/ontology/earlytox/core#> .
+@prefix decision: <https://toxiguard.ai/ontology/earlytox/decision#> .
+@prefix governance: <https://toxiguard.ai/ontology/earlytox/governance#> .
+@prefix nam: <https://toxiguard.ai/ontology/earlytox/nam#> .
+@prefix product: <https://toxiguard.ai/ontology/earlytox/product#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://toxiguard.ai/ontology/earlytox/assessment/NORA-SAMPLE-GP-L-CT> a assessment:AssessmentRun ;
+    assessment:evaluatesProduct <https://toxiguard.ai/ontology/earlytox/product/GP-L-CT> ;
+    assessment:hasAssessmentResult [ a assessment:EvidenceRoleAssessment ;
+            assessment:hasAnimalUseRecommendation "축소·대체 근거 불충분" ;
+            assessment:hasDataGaps [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ] ;
+            assessment:hasEvidenceRole "R1" ;
+            assessment:hasEvidenceRoleName "가설 생성" ;
+            assessment:hasEvidenceStreamCount 4 ;
+            assessment:hasGateResults [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ] ;
+            assessment:hasModelRisk "중간" ;
+            assessment:hasRecommendations "AI 추출 assertion을 독성전문가가 승인·수정·거절하도록 하십시오.",
+                "Carrier-only와 active-only 대조군으로 독성기여를 분리하십시오.",
+                "Kupffer cell 공배양, cytokine 또는 보완적인 면역 적격 간 모델을 추가하십시오.",
+                "QIVIVE 또는 PBPK를 이용하여 NAM 농도를 사람노출로 연결하십시오.",
+                "명목 농도와 별도로 free 또는 세포내 실제 노출을 측정하십시오.",
+                "반복노출 NAM 또는 과학적으로 타당한 acute-to-repeat bridge를 확보하십시오.",
+                "예상 사람 Cmax/AUC 또는 초기 PK 가정을 정의하십시오.",
+                "현재 endpoint와 threshold에서 sensitivity, false-negative rate 및 신뢰구간을 확보하십시오.",
+                "현재 modality를 포함하는 모델 또는 독립적인 orthogonal NAM을 사용하십시오." ;
+            assessment:hasResidualUncertainty "매우 높음" ;
+            assessment:hasScores [ ] ] ;
+    assessment:usesAIModelCard [ a ai:AIModelCard ;
+            ai:hasCalibrationStatus "불명확" ;
+            ai:hasDomainModalities "저분자" ;
+            ai:hasDomainStatus "Out-of-domain" ;
+            ai:hasExternalValidationStatus "부분적으로 확인" ;
+            ai:hasIntendedEndpoint "초기 간독성" ;
+            ai:hasKnownLimitation "저분자 중심 학습; siRNA, 나노입자 전달체, 반복노출 및 간·비장 축적 미반영" ;
+            ai:hasModelName "Small-Molecule Hepato Classifier" ;
+            ai:hasModelType "Machine learning classifier" ;
+            ai:hasModelVersion "v3.0" ;
+            ai:hasPredictionResult "음성 / 낮은 위험 예측" ;
+            ai:hasProbabilityPercent 91 ;
+            ai:hasSensitivityPercent 82 ;
+            ai:hasSource "가상 모델 보고서" ;
+            ai:hasSpecificityPercent 76 ;
+            ai:useAI true ] ;
+    assessment:usesNAMAssayCard [ a nam:NAMAssayCard ;
+            nam:hasActiveOnlyControlStatus "미포함" ;
+            nam:hasCarrierOnlyControlStatus "미포함" ;
+            nam:hasCellTypes "간세포(Hepatocyte)" ;
+            nam:hasEndpoints "Cell viability / ATP" ;
+            nam:hasExposureDesign "단회/급성 노출" ;
+            nam:hasImmuneCompetence "미포함 / 불명확" ;
+            nam:hasMeasuredExposureStatus "측정 안 됨" ;
+            nam:hasMetabolicCompetence "부분 확인" ;
+            nam:hasNAMType "2D 세포시험" ;
+            nam:hasNegativeControlStatus "유효" ;
+            nam:hasNominalExposure "0.1–100 µg/mL" ;
+            nam:hasPositiveControlStatus "유효" ;
+            nam:hasProtocolCompleteness "부분적" ;
+            nam:hasQIVIVEStatus "없음" ;
+            nam:hasReproducibilityStatus "일부 확인" ;
+            nam:hasResult "음성" ;
+            nam:hasSystemOrigin "사람 유래" ;
+            nam:useNAM true ] ;
+    core:hasIdentifier "NORA-SAMPLE-GP-L-CT" ;
+    core:hasTimestamp "2026-08-26T00:00:00+00:00" ;
+    core:isPartOfProject <https://toxiguard.ai/ontology/earlytox/project/PRJ-GPLCT-EARLYTOX> ;
+    decision:hasQuestionOfInterest [ a decision:QuestionOfInterest ;
+            decision:hasDecisionConsequence 3 ;
+            decision:hasDecisionObjective "동물시험 범위 축소 가능성 평가" ;
+            decision:hasDecisionOwner "독성책임자" ;
+            decision:hasDevelopmentStage "후보물질 선정" ;
+            decision:hasIntendedEvidenceRole "R4 · 동물시험 축소 지원" ;
+            decision:hasJurisdiction "연구용 / 내부 의사결정" ;
+            decision:hasModelInfluence 3 ;
+            decision:hasQuestionText "현재 AI와 사람 기반 NAM 근거가 GP-L-CT의 초기 간독성 위험을 평가하고 후속 동물시험 범위를 줄이는 데 충분한가?" ;
+            decision:hasTargetEndpoint "초기 간독성" ] ;
+    governance:hasAudit [ ] .
+
+<https://toxiguard.ai/ontology/earlytox/product/GP-L-CT> a product:InvestigationalProduct,
+        product:siRNANanomedicine ;
+    core:hasName "GP-L-CT" ;
+    product:hasActiveSubstance "Survivin siRNA" ;
+    product:hasAdministrationRoute "정맥투여" ;
+    product:hasCarrier "Chitosan–Protamine–Lecithin–TPP hybrid nanocomplex" ;
+    product:hasDistributionStatus "정성적 자료" ;
+    product:hasExposurePattern "반복 노출" ;
+    product:hasFrequency "주 1회" ;
+    product:hasHumanAUC "" ;
+    product:hasHumanCmax "" ;
+    product:hasIndication "항암 치료" ;
+    product:hasModality "siRNA + 나노의약품" ;
+    product:hasPlannedDose "0.1–1.0 mg/kg" ;
+    product:hasTargetMechanism "BIRC5 / transient gene silencing" ;
+    product:hasTargetOrgans "간, 비장" ;
+    product:hasTestArticleRepresentativeness "불명확" ;
+    product:hasTreatmentDuration "4주" .
+
+<https://toxiguard.ai/ontology/earlytox/project/PRJ-GPLCT-EARLYTOX> a core:DevelopmentProgram ;
+    core:hasName "GP-L-CT EarlyTox" .
+

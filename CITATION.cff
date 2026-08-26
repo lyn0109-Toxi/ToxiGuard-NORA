@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+title: "ToxiGuard NORA EarlyTox"
+message: "If you use this software or ontology in an authorized academic collaboration, please cite it using this metadata."
+type: software
+authors:
+  - family-names: Lee
+    given-names: Youngnam
+    orcid: "https://orcid.org/0009-0001-2352-4101"
+version: 0.4.0
+date-released: 2026-08-26
+repository-code: "https://github.com/lyn0109-Toxi/ToxiGuard-NORA"
+license: proprietary
+abstract: "Ontology-driven evidence assurance for evaluating AI- and NAM-generated early toxicity evidence within a defined drug-development Context of Use."
+keywords:
+  - toxicology
+  - new approach methodologies
+  - artificial intelligence
+  - ontology
+  - evidence assurance
+  - drug development

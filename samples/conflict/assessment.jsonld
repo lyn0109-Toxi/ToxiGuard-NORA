@@ -1,0 +1,218 @@
+{
+  "@context": {
+    "tg": "https://toxiguard.ai/ontology/earlytox/",
+    "core": "https://toxiguard.ai/ontology/earlytox/core#",
+    "decision": "https://toxiguard.ai/ontology/earlytox/decision#",
+    "product": "https://toxiguard.ai/ontology/earlytox/product#",
+    "tox": "https://toxiguard.ai/ontology/earlytox/toxicity#",
+    "ai": "https://toxiguard.ai/ontology/earlytox/ai#",
+    "nam": "https://toxiguard.ai/ontology/earlytox/nam#",
+    "evidence": "https://toxiguard.ai/ontology/earlytox/evidence#",
+    "assessment": "https://toxiguard.ai/ontology/earlytox/assessment#",
+    "action": "https://toxiguard.ai/ontology/earlytox/action#",
+    "governance": "https://toxiguard.ai/ontology/earlytox/governance#"
+  },
+  "@id": "tg:assessment/NORA-SAMPLE-CONFLICT",
+  "@type": "assessment:AssessmentRun",
+  "core:hasIdentifier": "NORA-SAMPLE-CONFLICT",
+  "core:hasTimestamp": "2026-08-26T00:00:00+00:00",
+  "core:isPartOfProject": {
+    "@id": "tg:project/PRJ-CONFLICT-01",
+    "@type": "core:DevelopmentProgram",
+    "core:hasName": "Conflicting Evidence EarlyTox"
+  },
+  "decision:hasQuestionOfInterest": {
+    "@type": "decision:QuestionOfInterest",
+    "decision:hasQuestionText": "AI 음성예측과 사람 간 organoid 양성결과가 상충할 때 초기 간독성 위험과 다음 시험을 어떻게 결정해야 하는가?",
+    "decision:hasDecisionObjective": "AI·NAM·기존 근거 통합",
+    "decision:hasDevelopmentStage": "후보물질 선정",
+    "decision:hasTargetEndpoint": "초기 간독성",
+    "decision:hasIntendedEvidenceRole": "R3 · 보조 근거",
+    "decision:hasJurisdiction": "연구용 / 내부 의사결정",
+    "decision:hasModelInfluence": 3,
+    "decision:hasDecisionConsequence": 4,
+    "decision:hasDecisionOwner": "프로그램 독성책임자"
+  },
+  "assessment:evaluatesProduct": {
+    "@id": "tg:product/Conflict-NME-01",
+    "@type": [
+      "product:InvestigationalProduct",
+      "product:ChemicalDrug"
+    ],
+    "core:hasName": "Conflict-NME-01",
+    "product:hasModality": "저분자 NME",
+    "product:hasIndication": "신경계 질환",
+    "product:hasActiveSubstance": "Candidate X",
+    "product:hasTargetMechanism": "Mitochondrial pathway modulator",
+    "product:hasCarrier": "",
+    "product:hasAdministrationRoute": "경구",
+    "product:hasPlannedDose": "",
+    "product:hasExposurePattern": "반복 노출",
+    "product:hasFrequency": "",
+    "product:hasTreatmentDuration": "",
+    "product:hasTargetOrgans": "간, 비장",
+    "product:hasHumanCmax": "5 µM",
+    "product:hasHumanAUC": "",
+    "product:hasDistributionStatus": "정성적 자료",
+    "product:hasTestArticleRepresentativeness": "불명확"
+  },
+  "assessment:usesAIModelCard": {
+    "@type": "ai:AIModelCard",
+    "ai:useAI": true,
+    "ai:hasModelName": "Hepato-ML",
+    "ai:hasModelVersion": "v2.1",
+    "ai:hasModelType": "Machine learning classifier",
+    "ai:hasIntendedEndpoint": "초기 간독성",
+    "ai:hasPredictionResult": "음성 / 낮은 위험 예측",
+    "ai:hasProbabilityPercent": 15,
+    "ai:hasDomainModalities": [
+      "저분자"
+    ],
+    "ai:hasExternalValidationStatus": "확인됨",
+    "ai:hasSensitivityPercent": 80,
+    "ai:hasSpecificityPercent": 82,
+    "ai:hasFalseNegativeRatePercent": 20,
+    "ai:hasCalibrationStatus": "부분 검증",
+    "ai:hasDomainStatus": "In-domain",
+    "ai:hasSource": "외부검증 논문",
+    "ai:hasKnownLimitation": ""
+  },
+  "assessment:usesNAMAssayCard": {
+    "@type": "nam:NAMAssayCard",
+    "nam:useNAM": true,
+    "nam:hasNAMType": "간 Organoid",
+    "nam:hasSystemOrigin": "사람 유래",
+    "nam:hasResult": "양성",
+    "nam:hasCellTypes": [
+      "간세포(Hepatocyte)",
+      "Kupffer cell"
+    ],
+    "nam:hasMetabolicCompetence": "충분히 확인",
+    "nam:hasImmuneCompetence": "부분적",
+    "nam:hasExposureDesign": "반복노출",
+    "nam:hasPositiveControlStatus": "유효",
+    "nam:hasNegativeControlStatus": "유효",
+    "nam:hasCarrierOnlyControlStatus": "해당 없음",
+    "nam:hasActiveOnlyControlStatus": "해당 없음",
+    "nam:hasProtocolCompleteness": "완결",
+    "nam:hasNominalExposure": "",
+    "nam:hasMeasuredExposureStatus": "측정됨",
+    "nam:hasQIVIVEStatus": "초기 연결",
+    "nam:hasReproducibilityStatus": "Donor/lot/반복 재현성 확인",
+    "nam:hasEndpoints": [
+      "Cell viability / ATP",
+      "미토콘드리아 기능",
+      "Omics signature"
+    ]
+  },
+  "evidence:usesEvidenceItem": [],
+  "evidence:usesAcceptedAssertion": [],
+  "assessment:hasAssessmentResult": {
+    "@type": "assessment:EvidenceRoleAssessment",
+    "assessment:hasEvidenceRole": "R2",
+    "assessment:hasEvidenceRoleName": "초기 선별",
+    "assessment:hasAnimalUseRecommendation": "선별 용도로만 사용",
+    "assessment:hasModelRisk": "높음",
+    "assessment:hasResidualUncertainty": "높음",
+    "assessment:hasEvidenceStreamCount": 4,
+    "assessment:hasScores": {
+      "방법 신뢰성": 3.9,
+      "후보 적용성": 3.5,
+      "사람 생물학적 관련성": 3.6,
+      "노출 관련성": 3.7,
+      "근거 일치성": 0.9,
+      "잔여 불확실성": "높음"
+    },
+    "assessment:hasGateResults": [
+      {
+        "gate": "독성 질문·COU",
+        "status": "통과",
+        "rationale": "질문과 제품이 정의되어야 합니다.",
+        "effect": "미통과 시 R0"
+      },
+      {
+        "gate": "방법 식별·버전",
+        "status": "통과",
+        "rationale": "정확한 모델/시험법 버전이 필요합니다.",
+        "effect": "미통과 시 R0 또는 R1"
+      },
+      {
+        "gate": "Endpoint 일치",
+        "status": "통과",
+        "rationale": "방법 endpoint와 독성질문이 일치해야 합니다.",
+        "effect": "미통과 시 R0"
+      },
+      {
+        "gate": "후보 적용범위",
+        "status": "통과",
+        "rationale": "AI domain status: In-domain",
+        "effect": "Out-of-domain 음성은 최대 R1"
+      },
+      {
+        "gate": "NAM 실행 유효성",
+        "status": "통과",
+        "rationale": "대조군과 실행상태가 유효해야 합니다.",
+        "effect": "무효 실행은 근거 제외"
+      },
+      {
+        "gate": "사람 관련성",
+        "status": "통과",
+        "rationale": "관련 세포·대사·면역기능을 확인합니다.",
+        "effect": "낮으면 R3 이상 제한"
+      },
+      {
+        "gate": "노출 번역",
+        "status": "통과",
+        "rationale": "실제 노출 및 사람노출 연결이 필요합니다.",
+        "effect": "낮으면 R3 이상 제한"
+      },
+      {
+        "gate": "독립 근거",
+        "status": "통과",
+        "rationale": "독립 근거 흐름 4개",
+        "effect": "R4/R5에 최소 2개 필요"
+      },
+      {
+        "gate": "근거 추적성",
+        "status": "통과",
+        "rationale": "문서·페이지·표·원자료로 추적되어야 합니다.",
+        "effect": "미통과 시 최대 R2"
+      },
+      {
+        "gate": "전문가 검토",
+        "status": "미통과",
+        "rationale": "R4/R5에는 독성전문가 승인이 필수입니다.",
+        "effect": "미검토 시 최대 R3"
+      }
+    ],
+    "assessment:hasDataGaps": [
+      {
+        "code": "ET-G023",
+        "title": "근거 간 상충",
+        "description": "AI와 사람 관련 NAM 결과가 반대 방향을 나타냅니다. 원인 규명 전 동물시험 축소를 지지할 수 없습니다.",
+        "criticality": "결정 제한",
+        "rule_id": "ET-R011",
+        "effect": "Evidence Role 최대 R2 및 전문가 검토 필요",
+        "recommendation": "상충 원인을 확인할 orthogonal assay와 독립적 전문가 검토를 수행하십시오."
+      }
+    ],
+    "assessment:hasRecommendations": [
+      "상충 원인을 확인할 orthogonal assay와 독립적 전문가 검토를 수행하십시오."
+    ]
+  },
+  "governance:hasAudit": {
+    "assessment_id": "NORA-SAMPLE-CONFLICT",
+    "assessment_timestamp_utc": "2026-08-26T00:00:00+00:00",
+    "ontology_version": "TG-PTO-ET v0.4",
+    "rule_set_version": "ET Rules v0.4",
+    "input_hash": "99c45277a42cc79a",
+    "ai_domain_status": "In-domain",
+    "assertions_reviewed": true,
+    "expert_reviewed": false,
+    "evidence_traceable": true,
+    "version_locked": true,
+    "expert_review_note": "",
+    "prototype_boundary": "초기 간독성 vertical slice; 연구 및 의사결정 지원용"
+  },
+  "@graph": []
+}
