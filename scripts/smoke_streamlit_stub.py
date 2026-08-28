@@ -110,7 +110,13 @@ class StreamlitStub(types.ModuleType):
         return value
 
     def radio(self, label, options, key=None, **_kwargs):
-        value = os.environ.get("NORA_SMOKE_PAGE", options[0]) if label == "작업공간" else options[0]
+        is_workspace = set(options) == {"overview", "documents", "assertions", "assessment", "results", "rules"}
+        if key == "nora_language":
+            value = os.environ.get("NORA_SMOKE_LANGUAGE", options[0])
+        elif is_workspace:
+            value = os.environ.get("NORA_SMOKE_PAGE", options[0])
+        else:
+            value = options[0]
         if key:
             self.session_state[key] = value
         return value
@@ -135,9 +141,11 @@ def run_page(page: str) -> None:
 if __name__ == "__main__":
     temp_dir = tempfile.TemporaryDirectory(prefix="nora-smoke-")
     os.environ["NORA_DATA_DIR"] = temp_dir.name
-    pages = ["프로젝트 개요", "문서 근거", "근거 검토", "평가 입력", "결과·보고서", "규칙·온톨로지"]
-    for page in pages:
-        STUB.session_state.clear()
-        run_page(page)
-        print(f"PASS - {page}")
+    pages = ["overview", "documents", "assertions", "assessment", "results", "rules"]
+    for language in ["한국어", "English"]:
+        os.environ["NORA_SMOKE_LANGUAGE"] = language
+        for page in pages:
+            STUB.session_state.clear()
+            run_page(page)
+            print(f"PASS - {language} - {page}")
     temp_dir.cleanup()

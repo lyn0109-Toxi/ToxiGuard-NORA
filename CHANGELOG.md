@@ -24,3 +24,11 @@ All notable changes to ToxiGuard NORA are documented here.
 - JSON-LD and Turtle export
 - SQLite and project JSON persistence
 - TG-PTO-ET OWL/RDF and SHACL
+
+## 0.4.1 - Bilingual language hotfix
+
+- Added a top-right `한국어 | English` language switch.
+- Preserved project, document, assertion, and assessment state during language changes.
+- Added bilingual UI labels, Golden Cases, Markdown/PDF reports, and Data Gap CSV exports.
+- Unified the footer regulatory notice with the same `nora_language` session-state key.
+- Added bilingual regression tests and two-language Streamlit smoke coverage.

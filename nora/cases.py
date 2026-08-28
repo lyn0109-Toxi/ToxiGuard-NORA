@@ -264,6 +264,46 @@ CASE_BUILDERS = {
 }
 
 
-def load_case(name: str) -> AssessmentInput:
+def load_case(name: str, language: str = "ko") -> AssessmentInput:
     builder = CASE_BUILDERS.get(name, gp_l_ct_case)
-    return deepcopy(builder())
+    case = deepcopy(builder())
+    if language != "en":
+        return case
+
+    if name == "GP-L-CT — 적용범위 밖 음성예측":
+        case.context_of_use.question_of_interest = (
+            "Are the current AI and human-relevant NAM data sufficient to assess the early "
+            "hepatotoxicity risk of GP-L-CT and support reduction of a follow-up animal study?"
+        )
+        case.context_of_use.decision_owner = "Toxicology lead"
+        case.product.indication = "Oncology"
+        case.ai_model.source = "Synthetic model report"
+        case.ai_model.known_limitations = (
+            "Training focused on small molecules; siRNA, nanoparticle carrier effects, repeated exposure, "
+            "and liver/spleen accumulation were not represented."
+        )
+        case.supporting_evidence.supporting_note = (
+            "Published work supports serum stability, survivin knockdown, and antitumor proof of concept, "
+            "but quantitative biodistribution, repeat-dose toxicity, and immune-response evidence remain limited."
+        )
+    elif name == "저분자 — 일치하는 고품질 근거":
+        case.context_of_use.question_of_interest = (
+            "Are a validated AI model and concordant negative human liver-spheroid results sufficient to refine "
+            "or reduce a follow-up animal hepatotoxicity study for this small-molecule candidate?"
+        )
+        case.context_of_use.decision_owner = "Toxicology lead"
+        case.product.indication = "Metabolic disease"
+        case.ai_model.source = "Independent external-validation report"
+        case.ai_model.known_limitations = "Patients with severe liver disease require separate validation."
+        case.supporting_evidence.expert_review_note = (
+            "Within the defined hepatotoxicity endpoint, reduction of dose groups and duplicate sampling may be considered."
+        )
+    elif name == "저분자 — AI/NAM 상충":
+        case.context_of_use.question_of_interest = (
+            "How should early hepatotoxicity risk and the next study be determined when a negative AI prediction "
+            "conflicts with a positive human liver-organoid result?"
+        )
+        case.context_of_use.decision_owner = "Program toxicology lead"
+        case.product.indication = "Neurologic disease"
+        case.ai_model.source = "External-validation publication"
+    return case
