@@ -9,35 +9,33 @@
 
 assessment:AssessmentRunShape a sh:NodeShape ;
   sh:targetClass assessment:AssessmentRun ;
-  sh:property [
-    sh:path decision:hasQuestionOfInterest ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
-    sh:message "AssessmentRun에는 정확히 하나의 Question of Interest가 필요합니다."@ko
-  ] ;
-  sh:property [
-    sh:path assessment:evaluatesProduct ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
-    sh:message "AssessmentRun에는 정확히 하나의 평가 대상 제품이 필요합니다."@ko
-  ] .
+  sh:property [ sh:path decision:hasQuestionOfInterest ; sh:minCount 1 ; sh:maxCount 1 ; sh:message "AssessmentRun requires exactly one Question of Interest."@en ; sh:message "AssessmentRun에는 정확히 하나의 Question of Interest가 필요합니다."@ko ] ;
+  sh:property [ sh:path assessment:evaluatesProduct ; sh:minCount 1 ; sh:maxCount 1 ; sh:message "AssessmentRun requires exactly one evaluated product."@en ; sh:message "AssessmentRun에는 정확히 하나의 평가 대상 제품이 필요합니다."@ko ] .
 
 evidence:AcceptedAssertionShape a sh:NodeShape ;
   sh:targetClass evidence:EvidenceAssertion ;
-  sh:property [
-    sh:path evidence:supportedByEvidence ;
-    sh:minCount 1 ;
-    sh:message "승인된 Assertion에는 출처 EvidenceItem이 필요합니다."@ko
-  ] ;
-  sh:property [
-    sh:path evidence:hasSourceLocation ;
-    sh:minCount 1 ;
-    sh:minLength 1 ;
-    sh:message "승인된 Assertion에는 페이지·표·행 등 출처 위치가 필요합니다."@ko
-  ] ;
-  sh:property [
-    sh:path evidence:hasReviewStatus ;
-    sh:minCount 1 ;
-    sh:in ("승인" "수정") ;
-    sh:message "평가에 사용되는 Assertion은 승인 또는 수정 상태여야 합니다."@ko
-  ] .
+  sh:property [ sh:path evidence:supportedByEvidence ; sh:minCount 1 ; sh:message "A reviewed Assertion requires a source EvidenceItem."@en ; sh:message "승인된 Assertion에는 출처 EvidenceItem이 필요합니다."@ko ] ;
+  sh:property [ sh:path evidence:hasSourceLocation ; sh:minCount 1 ; sh:minLength 1 ; sh:message "A reviewed Assertion requires a source page, table, figure, row, or cell location."@en ; sh:message "승인된 Assertion에는 페이지·표·행 등 출처 위치가 필요합니다."@ko ] ;
+  sh:property [ sh:path evidence:hasReviewStatus ; sh:minCount 1 ; sh:in ("승인" "수정") ; sh:message "Assertions used in assessment must be Approved or Corrected."@en ; sh:message "평가에 사용되는 Assertion은 승인 또는 수정 상태여야 합니다."@ko ] .
+
+ai:AIModelCardShape a sh:NodeShape ;
+  sh:targetClass ai:AIModelCard ;
+  sh:property [ sh:path ai:hasModelName ; sh:minCount 1 ; sh:minLength 1 ; sh:message "AI Model Card requires a model name."@en ; sh:message "AI Model Card에는 모델명이 필요합니다."@ko ] ;
+  sh:property [ sh:path ai:hasModelVersion ; sh:minCount 1 ; sh:minLength 1 ; sh:message "AI Model Card requires an exact model version."@en ; sh:message "AI Model Card에는 정확한 모델 버전이 필요합니다."@ko ] ;
+  sh:property [ sh:path ai:hasIntendedEndpoint ; sh:minCount 1 ; sh:minLength 1 ; sh:message "The predicted toxicity endpoint must be defined."@en ; sh:message "예측 독성 endpoint가 정의되어야 합니다."@ko ] ;
+  sh:property [ sh:path ai:hasEndpointDefinition ; sh:minCount 1 ; sh:minLength 1 ; sh:message "The endpoint and positive/negative label criteria must be defined."@en ; sh:message "Endpoint와 양성·음성 label 기준이 정의되어야 합니다."@ko ] ;
+  sh:property [ sh:path ai:hasReferenceStandard ; sh:minCount 1 ; sh:not [ sh:hasValue "불명확" ] ; sh:message "The ground-truth reference standard must be identified."@en ; sh:message "Ground truth reference standard를 확인해야 합니다."@ko ] ;
+  sh:property [ sh:path ai:hasDatasetSource ; sh:minCount 1 ; sh:minLength 1 ; sh:message "Dataset source is required."@en ; sh:message "데이터셋 출처가 필요합니다."@ko ] ;
+  sh:property [ sh:path ai:hasDatasetVersion ; sh:minCount 1 ; sh:minLength 1 ; sh:message "Dataset version is required."@en ; sh:message "데이터셋 버전이 필요합니다."@ko ] ;
+  sh:property [ sh:path ai:hasTestSetIndependence ; sh:minCount 1 ; sh:in ("독립 확인" "부분 확인" "비독립 / 중복 확인" "불명확") ; sh:message "Test-set independence status must be recorded."@en ; sh:message "시험세트 독립성 상태를 기록해야 합니다."@ko ] ;
+  sh:property [ sh:path ai:hasLeakageAssessment ; sh:minCount 1 ; sh:in ("평가 완료 — 문제 없음" "일부 확인" "누수 가능성" "누수 확인" "미평가") ; sh:message "Data-leakage assessment status must be recorded."@en ; sh:message "Data leakage 평가상태를 기록해야 합니다."@ko ] ;
+  sh:property [ sh:path ai:hasDecisionThreshold ; sh:minCount 1 ; sh:message "A decision threshold is required to reproduce the predicted class."@en ; sh:message "예측 class 재현을 위한 decision threshold가 필요합니다."@ko ] ;
+  sh:property [ sh:path ai:hasPerformanceConfidenceIntervals ; sh:minCount 1 ; sh:message "Confidence-interval reporting status must be recorded."@en ; sh:message "성능 신뢰구간 보고상태를 기록해야 합니다."@ko ] ;
+  sh:property [ sh:path ai:hasVerifiedInputQuality ; sh:minCount 1 ; sh:datatype xsd:boolean ; sh:message "Prediction-input quality verification status is required."@en ; sh:message "개별 예측 입력품질 검증상태가 필요합니다."@ko ] ;
+  sh:property [ sh:path ai:hasPredictionUncertainty ; sh:minCount 1 ; sh:message "Prediction-level uncertainty must be recorded."@en ; sh:message "개별 예측 불확실성을 기록해야 합니다."@ko ] ;
+  sh:property [ sh:path ai:hasChangeControl ; sh:minCount 1 ; sh:message "Model change-control status must be recorded."@en ; sh:message "모델 변경관리 상태를 기록해야 합니다."@ko ] .
+
+ai:ProbabilityOutputShape a sh:NodeShape ;
+  sh:targetSubjectsOf ai:hasProbabilityPercent ;
+  sh:property [ sh:path ai:hasProbabilityType ; sh:minCount 1 ; sh:message "A displayed percentage must identify whether it is calibrated probability, raw score, or ensemble agreement."@en ; sh:message "표시된 퍼센트가 보정확률, 원시점수 또는 ensemble agreement인지 정의해야 합니다."@ko ] ;
+  sh:property [ sh:path ai:hasCalibrationStatus ; sh:minCount 1 ; sh:message "Probability calibration status is required when a percentage is displayed."@en ; sh:message "퍼센트를 표시할 때 calibration 상태가 필요합니다."@ko ] .

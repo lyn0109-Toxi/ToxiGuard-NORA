@@ -1,0 +1,230 @@
+[
+  {
+    "source_id": "TAC-REF-001",
+    "asset": "Tacrolimus",
+    "title": "PROGRAF (tacrolimus) approved prescribing information",
+    "organization": "U.S. FDA / Drugs@FDA",
+    "source_type": "official_product_label",
+    "status": "current approved labeling; version must be checked at use",
+    "url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=050708",
+    "evidence_grade": "A1",
+    "supports": [
+      "nephrotoxicity",
+      "neurotoxicity",
+      "hyperkalemia",
+      "CYP3A interactions",
+      "therapeutic drug monitoring"
+    ],
+    "limitations": "Prograf-specific labeling; not proof of bioequivalence or clinical interchangeability for every generic or formulation.",
+    "verification_status": "VERIFIED",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "source_id": "TAC-REF-002",
+    "asset": "Tacrolimus",
+    "title": "FDA therapeutic-equivalence update for a specific Accord tacrolimus capsule product",
+    "organization": "U.S. FDA",
+    "source_type": "official_regulatory_action",
+    "status": "product-specific regulatory communication",
+    "url": "https://www.fda.gov/drugs/drug-safety-and-availability/fda-updates-therapeutic-equivalence-rating-accord-healthcare-incs-tacrolimus-1-mg-capsules",
+    "evidence_grade": "A1",
+    "supports": [
+      "product-specific concern that trough similarity may not fully characterize peak exposure"
+    ],
+    "limitations": "Must not be generalized to all strengths, manufacturers, formulations, or tacrolimus generic products. Exact study design and PK statistics must be reproduced from the official record before quantitative claims.",
+    "verification_status": "VERIFIED_LIMITED",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "source_id": "TAC-REF-003",
+    "asset": "Tacrolimus",
+    "title": "CPIC Guideline for CYP3A5 Genotype and Tacrolimus Dosing",
+    "organization": "Clinical Pharmacogenetics Implementation Consortium",
+    "source_type": "peer_reviewed_guideline",
+    "status": "published guideline; current update status must be checked at use",
+    "citation": "Birdwell KA, et al. Clin Pharmacol Ther. 2015;98(1):19-24. doi:10.1002/cpt.113.",
+    "url": "https://cpicpgx.org/guidelines/guideline-for-tacrolimus-and-cyp3a5/",
+    "evidence_grade": "B1",
+    "supports": [
+      "CYP3A5-guided starting-dose adjustment",
+      "continued therapeutic drug monitoring"
+    ],
+    "limitations": "Starting-dose guidance is not a replacement for TDM and does not validate a specific AI/PopPK model, transplant population, or interacting-drug scenario.",
+    "verification_status": "VERIFIED",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "source_id": "TAC-REF-004",
+    "asset": "Tacrolimus",
+    "title": "Local assay-method comparison required for immunoassay-to-LC-MS/MS transition",
+    "organization": "Client laboratory / method-validation program",
+    "source_type": "required_local_primary_evidence",
+    "status": "not supplied in the current flagship case",
+    "evidence_grade": "S",
+    "supports": [],
+    "limitations": "Public literature cannot substitute for the laboratory's paired-sample bias, commutability, decision-limit reclassification, and matrix-interference study.",
+    "verification_status": "HOLD",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "source_id": "TIR-REF-001",
+    "asset": "Tirzepatide",
+    "title": "MOUNJARO (tirzepatide) approved prescribing information",
+    "organization": "U.S. FDA / Drugs@FDA",
+    "source_type": "official_product_label",
+    "status": "current approved labeling; version must be checked at use",
+    "url": "https://www.accessdata.fda.gov/scripts/cder/daf/index.cfm?event=overview.process&ApplNo=215866",
+    "evidence_grade": "A1",
+    "supports": [
+      "rodent thyroid C-cell tumor warning",
+      "human relevance not determined",
+      "nonclinical genotoxicity and carcinogenicity summaries"
+    ],
+    "limitations": "The label is product-specific. It does not establish the human risk for every dual/triple agonist and does not provide all raw incidence tables or exact p-values.",
+    "verification_status": "VERIFIED",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "source_id": "TIR-REF-002",
+    "asset": "Tirzepatide",
+    "title": "LY3298176, a novel dual GIP and GLP-1 receptor agonist: discovery to clinical proof of concept",
+    "organization": "Primary peer-reviewed research",
+    "source_type": "primary_pharmacology_paper",
+    "status": "published",
+    "citation": "Coskun T, et al. Mol Metab. 2018;18:3-14. doi:10.1016/j.molmet.2018.09.009.",
+    "url": "https://doi.org/10.1016/j.molmet.2018.09.009",
+    "evidence_grade": "B1",
+    "supports": [
+      "tirzepatide/LY3298176 product-specific pharmacology"
+    ],
+    "limitations": "Directly supports tirzepatide pharmacology, not comparability or safety bridging for a different dual/triple agonist.",
+    "verification_status": "VERIFIED",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "source_id": "TIR-REF-003",
+    "asset": "Tirzepatide",
+    "title": "Tirzepatide as an imbalanced and biased dual GIP/GLP-1 receptor agonist",
+    "organization": "Primary peer-reviewed research",
+    "source_type": "primary_mechanistic_paper",
+    "status": "published",
+    "citation": "Willard FS, et al. JCI Insight. 2020;5(17):e140532. doi:10.1172/jci.insight.140532.",
+    "url": "https://doi.org/10.1172/jci.insight.140532",
+    "evidence_grade": "B2",
+    "supports": [
+      "tirzepatide-specific receptor pharmacology and signaling bias"
+    ],
+    "limitations": "Mechanistic distinction supports caution against class-wide extrapolation; it does not directly quantify human toxicity risk.",
+    "verification_status": "VERIFIED",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "source_id": "TIR-REF-004",
+    "asset": "Tirzepatide",
+    "title": "Emerging analytical report concerning tirzepatide and vitamin B12 co-formulation",
+    "organization": "Source metadata incomplete in v0.9.0 case library",
+    "source_type": "emerging_analytical_evidence",
+    "status": "insufficiently documented for independent claim verification",
+    "url": "",
+    "evidence_grade": "D1",
+    "supports": [
+      "hypothesis that an uncharacterized additional species may occur under some co-formulation conditions"
+    ],
+    "limitations": "Article title/DOI, sample provenance, number of products/lots, validated method, structural confirmation, reference standard, quantitative exposure, independent replication, and conflict-of-interest details are not fully captured. Must not be described as a confirmed clinical-risk impurity.",
+    "verification_status": "HOLD",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "source_id": "ASO-REF-001",
+    "asset": "BIRC5/Survivin antisense",
+    "title": "Nonclinical Safety Assessment of Oligonucleotide-Based Therapeutics",
+    "organization": "U.S. FDA",
+    "source_type": "draft_guidance",
+    "status": "draft; nonbinding; verify current status at use",
+    "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/nonclinical-safety-assessment-oligonucleotide-based-therapeutics",
+    "evidence_grade": "C1",
+    "supports": [
+      "questions concerning sequence, chemistry, species relevance, exposure, class and off-target effects"
+    ],
+    "limitations": "Does not approve a product, define NORA R0-R5 roles, or justify animal-study reduction by itself.",
+    "verification_status": "VERIFIED_LIMITED",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "source_id": "ASO-REF-002",
+    "asset": "BIRC5/Survivin antisense",
+    "title": "ICH Safety Guideline topic S13: Nonclinical Safety Studies for Oligonucleotide-Based Therapeutics",
+    "organization": "International Council for Harmonisation",
+    "source_type": "guideline_topic",
+    "status": "topic status and regional implementation must be checked at the time of use",
+    "url": "https://www.ich.org/page/safety-guidelines",
+    "evidence_grade": "C1",
+    "supports": [
+      "harmonized topic context for oligonucleotide nonclinical safety"
+    ],
+    "limitations": "Do not state that S13 is final or implemented in a jurisdiction without point-in-time confirmation.",
+    "verification_status": "VERIFIED_LIMITED",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "source_id": "ASO-REF-003",
+    "asset": "BIRC5/Survivin antisense",
+    "title": "LY2181308 preclinical survivin inhibition study",
+    "organization": "Primary peer-reviewed research",
+    "source_type": "primary_preclinical_paper",
+    "status": "published; exact citation must be linked in the case record",
+    "evidence_grade": "B2",
+    "supports": [
+      "preclinical survivin knockdown, apoptosis, and xenograft activity for LY2181308"
+    ],
+    "limitations": "LY2181308-specific chemistry, sequence, exposure, models, and regimen; indirect for a new BIRC5 ASO.",
+    "verification_status": "VERIFIED_LIMITED",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "source_id": "ASO-REF-004",
+    "asset": "BIRC5/Survivin antisense",
+    "title": "First-in-human LY2181308 pharmacodynamic and tumor-distribution study",
+    "organization": "Primary peer-reviewed research",
+    "source_type": "primary_phase1_paper",
+    "status": "published; exact evaluable-biopsy denominator must be captured",
+    "evidence_grade": "B1",
+    "supports": [
+      "tumor exposure and exploratory survivin mRNA/protein reduction in evaluable paired biopsies"
+    ],
+    "limitations": "Small evaluable subset, exploratory biopsy endpoints, assay variability, and no validated knockdown threshold for clinical benefit. The approximate 20% reduction must not be presented as population-wide or sufficient target engagement.",
+    "verification_status": "VERIFIED_LIMITED",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "source_id": "ASO-REF-005",
+    "asset": "BIRC5/Survivin antisense",
+    "title": "Randomized phase II LY2181308 plus docetaxel/prednisone in metastatic castration-resistant prostate cancer",
+    "organization": "Primary peer-reviewed research",
+    "source_type": "randomized_phase2_paper",
+    "status": "published",
+    "evidence_grade": "A2",
+    "supports": [
+      "approximately 154 randomized patients",
+      "no demonstrated improvement in the reported efficacy endpoints"
+    ],
+    "limitations": "The negative trial does not by itself distinguish target invalidity from insufficient tumor exposure, knockdown depth/duration, patient selection, schedule, or combination strategy. Exact HR, 95% CI, p-value and analysis population must be copied from the paper into the claim record.",
+    "verification_status": "VERIFIED_LIMITED",
+    "last_verified": "2026-08-31"
+  },
+  {
+    "source_id": "ASO-REF-006",
+    "asset": "BIRC5/Survivin antisense",
+    "title": "Japanese phase I LY2181308 study",
+    "organization": "Primary peer-reviewed research",
+    "source_type": "primary_phase1_paper",
+    "status": "published; detailed cohort table required",
+    "evidence_grade": "B1",
+    "supports": [
+      "a reported reversible grade 3 liver-enzyme dose-limiting toxicity at the 750 mg dose in that study"
+    ],
+    "limitations": "Small early-phase cohort and LY2181308-specific regimen. Does not establish a class effect for all BIRC5 ASOs or all oligonucleotides.",
+    "verification_status": "VERIFIED_LIMITED",
+    "last_verified": "2026-08-31"
+  }
+]

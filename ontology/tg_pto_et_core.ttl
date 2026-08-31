@@ -16,8 +16,10 @@
 tg:TG_PTO_ET a owl:Ontology ;
   rdfs:label "ToxiGuard Preclinical Toxicology Ontology - EarlyTox Extension"@en ;
   rdfs:label "ToxiGuard 전임상 독성 온톨로지 - EarlyTox 확장"@ko ;
-  owl:versionInfo "0.4.0" .
+  owl:versionInfo "0.8.0" ;
+  rdfs:comment "Ontology for context-of-use-based assurance of AI and NAM toxicity evidence. NORA Evidence Roles are internal decision-support constructs, not regulatory classifications."@en .
 
+# Core decision and product classes
 core:DevelopmentProgram a owl:Class .
 decision:QuestionOfInterest a owl:Class .
 decision:ContextOfUse a owl:Class .
@@ -26,43 +28,138 @@ product:ChemicalDrug a owl:Class ; rdfs:subClassOf product:InvestigationalProduc
 product:OligonucleotideTherapeutic a owl:Class ; rdfs:subClassOf product:InvestigationalProduct .
 product:siRNAProduct a owl:Class ; rdfs:subClassOf product:OligonucleotideTherapeutic .
 product:Nanomedicine a owl:Class ; rdfs:subClassOf product:InvestigationalProduct .
+
+# AI model and prediction-level credibility classes
 ai:AIModelCard a owl:Class .
+ai:AIModelAssessmentSubject a owl:Class .
+ai:AIDataset a owl:Class .
+ai:TrainingDataset a owl:Class ; rdfs:subClassOf ai:AIDataset .
+ai:InternalTestDataset a owl:Class ; rdfs:subClassOf ai:AIDataset .
+ai:ExternalValidationDataset a owl:Class ; rdfs:subClassOf ai:AIDataset .
+ai:PredictionResult a owl:Class .
+ai:ApplicabilityDomain a owl:Class .
+ai:PerformanceMetricMeasurement a owl:Class .
+ai:GroundTruthDefinition a owl:Class .
+ai:DataLeakageAssessment a owl:Class .
+ai:CalibrationAssessment a owl:Class .
+ai:PredictionUncertaintyAssessment a owl:Class .
+ai:LifecycleGovernanceAssessment a owl:Class .
+
+# NAM, evidence and governance
 nam:NAMAssayCard a owl:Class .
 evidence:EvidenceItem a owl:Class .
 evidence:EvidenceAssertion a owl:Class .
 assessment:AssessmentRun a owl:Class .
 assessment:EvidenceRoleAssessment a owl:Class .
+assessment:EvidenceConfidenceAssessment a owl:Class .
+assessment:ToxicityDirectionAssessment a owl:Class .
+assessment:PredictionReliabilityAssessment a owl:Class .
+assessment:DevelopmentConcernAssessment a owl:Class .
+assessment:AICredibilityProfile a owl:Class .
 assessment:DataGap a owl:Class .
 action:AnimalUseRecommendation a owl:Class .
 governance:ExpertReview a owl:Class .
 
+# Object properties
 assessment:evaluatesProduct a owl:ObjectProperty ;
   rdfs:domain assessment:AssessmentRun ;
   rdfs:range product:InvestigationalProduct .
-
 decision:hasQuestionOfInterest a owl:ObjectProperty ;
   rdfs:domain assessment:AssessmentRun ;
   rdfs:range decision:QuestionOfInterest .
-
+assessment:usesAIModelCard a owl:ObjectProperty ;
+  rdfs:domain assessment:AssessmentRun ;
+  rdfs:range ai:AIModelCard .
+assessment:usesNAMAssayCard a owl:ObjectProperty ;
+  rdfs:domain assessment:AssessmentRun ;
+  rdfs:range nam:NAMAssayCard .
 evidence:usesEvidenceItem a owl:ObjectProperty ;
   rdfs:domain assessment:AssessmentRun ;
   rdfs:range evidence:EvidenceItem .
-
 evidence:usesAcceptedAssertion a owl:ObjectProperty ;
   rdfs:domain assessment:AssessmentRun ;
   rdfs:range evidence:EvidenceAssertion .
-
 evidence:supportedByEvidence a owl:ObjectProperty ;
   rdfs:domain evidence:EvidenceAssertion ;
   rdfs:range evidence:EvidenceItem .
-
 assessment:hasAssessmentResult a owl:ObjectProperty ;
   rdfs:domain assessment:AssessmentRun ;
   rdfs:range assessment:EvidenceRoleAssessment .
 
+# Generic core/evidence properties
 core:hasIdentifier a owl:DatatypeProperty ; rdfs:range xsd:string .
 core:hasName a owl:DatatypeProperty ; rdfs:range xsd:string .
 core:hasTimestamp a owl:DatatypeProperty ; rdfs:range xsd:dateTime .
 evidence:hasSourceLocation a owl:DatatypeProperty ; rdfs:range xsd:string .
 evidence:hasReviewStatus a owl:DatatypeProperty ; rdfs:range xsd:string .
+
+# AI identity, ground truth and dataset properties
+ai:useAI a owl:DatatypeProperty ; rdfs:range xsd:boolean .
+ai:hasModelName a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasModelVersion a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasModelType a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasIntendedEndpoint a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasPredictionResult a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasProbabilityPercent a owl:DatatypeProperty ; rdfs:range xsd:decimal .
+ai:hasProbabilityType a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasEndpointDefinition a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasReferenceStandard a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasLabelQuality a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasMissingLabelPolicy a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasDefinedTimeWindow a owl:DatatypeProperty ; rdfs:range xsd:boolean .
+ai:hasDefinedSeverityThreshold a owl:DatatypeProperty ; rdfs:range xsd:boolean .
+ai:hasDatasetSource a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasDatasetVersion a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasTrainingSampleSize a owl:DatatypeProperty ; rdfs:range xsd:integer .
+ai:hasPositiveClassPercent a owl:DatatypeProperty ; rdfs:range xsd:decimal .
+ai:hasSplitStrategy a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasTestSetIndependence a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasLeakageAssessment a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasDuplicateAssessment a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasDomainModalities a owl:DatatypeProperty ; rdfs:range xsd:string .
+
+# Model performance, calibration and prediction-level properties
+ai:hasExternalValidationStatus a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasExternalValidationRepresentativeness a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasSensitivityPercent a owl:DatatypeProperty ; rdfs:range xsd:decimal .
+ai:hasSpecificityPercent a owl:DatatypeProperty ; rdfs:range xsd:decimal .
+ai:hasFalseNegativeRatePercent a owl:DatatypeProperty ; rdfs:range xsd:decimal .
+ai:hasFalsePositiveRatePercent a owl:DatatypeProperty ; rdfs:range xsd:decimal .
+ai:hasPPVPercent a owl:DatatypeProperty ; rdfs:range xsd:decimal .
+ai:hasNPVPercent a owl:DatatypeProperty ; rdfs:range xsd:decimal .
+ai:hasBalancedAccuracyPercent a owl:DatatypeProperty ; rdfs:range xsd:decimal .
+ai:hasAUROC a owl:DatatypeProperty ; rdfs:range xsd:decimal .
+ai:hasAUPRC a owl:DatatypeProperty ; rdfs:range xsd:decimal .
+ai:hasPerformanceConfidenceIntervals a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasDecisionThreshold a owl:DatatypeProperty ; rdfs:range xsd:decimal .
+ai:hasCalibrationStatus a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasBrierScore a owl:DatatypeProperty ; rdfs:range xsd:decimal .
+ai:hasCalibrationSlope a owl:DatatypeProperty ; rdfs:range xsd:decimal .
+ai:hasCalibrationIntercept a owl:DatatypeProperty ; rdfs:range xsd:decimal .
+ai:hasDomainStatus a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasNearestNeighborSimilarityPercent a owl:DatatypeProperty ; rdfs:range xsd:decimal .
+ai:hasOODDetectionStatus a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasPredictionInterval a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasPredictionUncertainty a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasVerifiedInputQuality a owl:DatatypeProperty ; rdfs:range xsd:boolean .
+ai:hasExplainabilityStatus a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasBiologicalPlausibility a owl:DatatypeProperty ; rdfs:range xsd:string .
+
+# Lifecycle and reproducibility properties
+ai:hasSource a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasKnownLimitation a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasCodeCommit a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasSoftwareEnvironment a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasTrainingDataHash a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasLastValidationDate a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasDriftMonitoring a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasChangeControl a owl:DatatypeProperty ; rdfs:range xsd:string .
+ai:hasLifecyclePlan a owl:DatatypeProperty ; rdfs:range xsd:string .
+
+# Assessment outcome properties
 assessment:hasEvidenceRole a owl:DatatypeProperty ; rdfs:range xsd:string .
+assessment:hasEvidenceConfidence a owl:DatatypeProperty ; rdfs:range xsd:string .
+assessment:hasToxicityDirection a owl:DatatypeProperty ; rdfs:range xsd:string .
+assessment:hasPredictionReliability a owl:DatatypeProperty ; rdfs:range xsd:string .
+assessment:hasDevelopmentConcern a owl:DatatypeProperty ; rdfs:range xsd:string .
+assessment:hasAICredibilityProfile a owl:DatatypeProperty ; rdfs:range rdf:JSON .

@@ -39,6 +39,13 @@ class ProductContext:
 
 @dataclass
 class AIModelCard:
+    """Structured model card for prediction-level toxicity assurance.
+
+    The legacy fields remain intact for project-file compatibility. The v0.8
+    fields separate data credibility, ground truth, model-level performance,
+    individual-prediction reliability, and lifecycle governance.
+    """
+
     use_ai: bool = True
     model_name: str = ""
     model_version: str = ""
@@ -46,15 +53,70 @@ class AIModelCard:
     endpoint: str = "초기 간독성"
     result: str = "음성 / 낮은 위험 예측"
     probability_percent: float | None = None
-    domain_modalities: list[str] = field(default_factory=lambda: ["저분자"])
+    probability_type: str = "불명확"
+
+    # Endpoint and ground truth
+    endpoint_definition: str = ""
+    reference_standard: str = "불명확"
+    label_quality: str = "불명확"
+    missing_label_policy: str = "불명확"
+    time_window_defined: bool = False
+    severity_threshold_defined: bool = False
+
+    # Dataset credibility and leakage controls
+    dataset_source: str = ""
+    dataset_version: str = ""
+    training_sample_size: int | None = None
+    positive_class_percent: float | None = None
+    split_strategy: str = "불명확"
+    test_set_independence: str = "불명확"
+    leakage_assessment: str = "미평가"
+    duplicate_assessment: str = "미평가"
+
+    # Model-level performance
     external_validation: str = "부분적으로 확인"
+    external_validation_representativeness: str = "불명확"
     sensitivity_percent: float | None = None
     specificity_percent: float | None = None
     false_negative_rate_percent: float | None = None
+    false_positive_rate_percent: float | None = None
+    ppv_percent: float | None = None
+    npv_percent: float | None = None
+    balanced_accuracy_percent: float | None = None
+    auroc: float | None = None
+    auprc: float | None = None
+    performance_confidence_intervals: str = "불명확"
+    decision_threshold: float | None = None
+
+    # Calibration
     calibration_status: str = "불명확"
+    brier_score: float | None = None
+    calibration_slope: float | None = None
+    calibration_intercept: float | None = None
+
+    # Applicability and individual-prediction uncertainty
+    domain_modalities: list[str] = field(default_factory=lambda: ["저분자"])
     domain_status: str = "자동 평가"
+    nearest_neighbor_similarity_percent: float | None = None
+    ood_detection: str = "불명확"
+    prediction_interval: str = ""
+    prediction_uncertainty: str = "불명확"
+    input_quality_verified: bool = False
+
+    # Scientific interpretability
+    explainability_status: str = "불명확"
+    biological_plausibility: str = "불명확"
+
+    # Reproducibility and lifecycle
     source: str = ""
     known_limitations: str = ""
+    code_commit: str = ""
+    software_environment: str = ""
+    training_data_hash: str = ""
+    last_validation_date: str = ""
+    drift_monitoring: str = "없음"
+    change_control: str = "불명확"
+    lifecycle_plan: str = "없음"
 
 
 @dataclass
@@ -153,6 +215,11 @@ class AssessmentResult:
     model_risk: str
     residual_uncertainty: str
     evidence_stream_count: int
+    evidence_confidence: str
+    toxicity_direction: str
+    prediction_reliability: str
+    development_concern: str
+    ai_credibility_profile: dict[str, float | str]
     scores: dict[str, float | str]
     gates: list[GateResult]
     data_gaps: list[DataGap]
@@ -173,6 +240,11 @@ class AssessmentResult:
             "model_risk": self.model_risk,
             "residual_uncertainty": self.residual_uncertainty,
             "evidence_stream_count": self.evidence_stream_count,
+            "evidence_confidence": self.evidence_confidence,
+            "toxicity_direction": self.toxicity_direction,
+            "prediction_reliability": self.prediction_reliability,
+            "development_concern": self.development_concern,
+            "ai_credibility_profile": self.ai_credibility_profile,
             "scores": self.scores,
             "gates": [g.to_dict() for g in self.gates],
             "data_gaps": [g.to_dict() for g in self.data_gaps],

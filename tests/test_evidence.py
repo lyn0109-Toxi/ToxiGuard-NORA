@@ -7,7 +7,7 @@ from docx import Document
 from openpyxl import Workbook
 from reportlab.pdfgen import canvas
 
-from nora.assertions import apply_reviewed_assertions, extract_assertions
+from nora.assertions import apply_reviewed_assertions, extract_assertions, reviewed_assertion_conflicts
 from nora.evidence import extract_document
 from nora.models import AssessmentInput
 
@@ -72,6 +72,45 @@ class EvidenceExtractionTests(unittest.TestCase):
         self.assertEqual(updated.ai_model.model_name, "Reviewed Model")
         self.assertEqual(updated.ai_model.model_version, "v9.1")
         self.assertTrue(updated.supporting_evidence.assertions_reviewed)
+
+    def test_negated_evidence_does_not_create_positive_assertions(self) -> None:
+        text = b"""
+        Quantitative biodistribution was not available.
+        Training data did not include siRNA nanomedicines.
+        Free concentration and intracellular concentration were not measured.
+        Kupffer cells and stellate cells were not included.
+        Carrier-only control was not included.
+        QIVIVE or PBPK translation was not performed.
+        External validation was partially performed.
+        """
+        record = extract_document(text, "negated.txt", "text/plain")
+        assertions = extract_assertions(record)
+        pairs = {(item.field_path, item.proposed_value) for item in assertions}
+        self.assertNotIn(("product.distribution_status", "정량적 자료"), pairs)
+        self.assertNotIn(("supporting_evidence.quantitative_biodistribution", "true"), pairs)
+        self.assertNotIn(("ai_model.domain_modalities", "나노의약품"), pairs)
+        self.assertNotIn(("nam_assay.measured_exposure", "측정됨"), pairs)
+        self.assertNotIn(("nam_assay.cell_types", "Kupffer cell"), pairs)
+        self.assertNotIn(("nam_assay.cell_types", "Stellate cell"), pairs)
+        self.assertNotIn(("nam_assay.carrier_only_control", "포함"), pairs)
+        self.assertNotIn(("nam_assay.qivive_pbpk", "수행됨"), pairs)
+        self.assertIn(("ai_model.external_validation", "부분적으로 확인"), pairs)
+
+    def test_conflicting_reviewed_scalar_assertions_do_not_silently_overwrite(self) -> None:
+        record = extract_document(
+            b"Prediction result: negative. Prediction result: positive.",
+            "conflict.txt",
+            "text/plain",
+        )
+        assertions = [item for item in extract_assertions(record) if item.field_path == "ai_model.result"]
+        for item in assertions:
+            item.review_status = "승인"
+        conflicts = reviewed_assertion_conflicts(assertions)
+        self.assertIn("ai_model.result", conflicts)
+        baseline = AssessmentInput()
+        original = baseline.ai_model.result
+        updated = apply_reviewed_assertions(baseline, assertions)
+        self.assertEqual(updated.ai_model.result, original)
 
 
 if __name__ == "__main__":

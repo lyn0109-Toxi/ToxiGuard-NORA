@@ -55,6 +55,18 @@ UI_TEXT: dict[str, dict[str, str]] = {
     "synthetic_case": {"ko": "가상 사례", "en": "Synthetic Case"},
     "load_case": {"ko": "사례 불러오기", "en": "Load Case"},
     "project_overview": {"ko": "프로젝트 개요", "en": "Project Overview"},
+    "consulting_studio": {"ko": "컨설팅 스튜디오", "en": "Advisory Studio"},
+    "consulting_studio_title": {"ko": "고객 목적별 컨설팅 사례", "en": "Client-Objective Advisory Cases"},
+    "consulting_studio_caption": {
+        "ko": "고객 유형과 의사결정 목적에 맞는 사례를 비교하고, 현재 EarlyTox 엔진으로 평가할 수 있는 범위와 전문가 주도 범위를 구분합니다.",
+        "en": "Compare cases by client segment and decision objective, and distinguish the current EarlyTox automation scope from expert-led advisory work.",
+    },
+    "next_best_action": {"ko": "다음 권장 작업", "en": "Next Best Action"},
+    "case_filters": {"ko": "사례 필터", "en": "Case Filters"},
+    "case_summary": {"ko": "선택 사례 요약", "en": "Selected Case Summary"},
+    "case_deliverables": {"ko": "주요 산출물", "en": "Key Deliverables"},
+    "case_actions": {"ko": "권장 다음 단계", "en": "Recommended Next Steps"},
+    "case_library_table": {"ko": "사례 라이브러리", "en": "Case Library"},
     "document_evidence": {"ko": "문서 근거", "en": "Document Evidence"},
     "evidence_review": {"ko": "근거 검토", "en": "Evidence Review"},
     "assessment_input": {"ko": "평가 입력", "en": "Assessment Input"},
@@ -167,9 +179,10 @@ UI_TEXT: dict[str, dict[str, str]] = {
     "top_constraints": {"ko": "최상위 논리제약", "en": "Top-Level Logical Constraints"},
 }
 
-PAGE_IDS = ["overview", "documents", "assertions", "assessment", "results", "rules"]
+PAGE_IDS = ["overview", "consulting", "documents", "assertions", "assessment", "results", "rules"]
 PAGE_KEYS = {
     "overview": "project_overview",
+    "consulting": "consulting_studio",
     "documents": "document_evidence",
     "assertions": "evidence_review",
     "assessment": "assessment_input",
@@ -236,6 +249,51 @@ VALUE_EN: dict[str, str] = {
     "확인됨": "Confirmed",
     "자동 평가": "Automatic assessment",
     "해당 없음": "Not applicable",
+    # AI credibility v0.8
+    "보정된 확률": "Calibrated probability",
+    "정량 평가 — In-domain": "Quantitative assessment — In-domain",
+    "정량 평가 — Borderline": "Quantitative assessment — Borderline",
+    "정량 평가 — Out-of-domain": "Quantitative assessment — Out-of-domain",
+    "기전과 연결됨": "Linked to a plausible toxicity mechanism",
+    "부분 연결": "Partially linked to mechanism",
+    "원시 모델점수": "Raw model score",
+    "Ensemble agreement": "Ensemble agreement",
+    "전문가 adjudication / 임상 기준": "Expert-adjudicated / clinical reference standard",
+    "검증된 in vivo / 병리 기준": "Validated in vivo / pathology reference standard",
+    "검증된 NAM 기준": "Validated NAM reference standard",
+    "문헌 / 라벨 기반": "Literature / label-derived reference",
+    "전문가 검토·합의": "Expert review and consensus",
+    "독립적 검토": "Independent review",
+    "단일 출처 / 자동 라벨": "Single-source / automated label",
+    "미평가와 음성을 명확히 구분": "Untested/missing clearly separated from negative",
+    "일부 구분": "Partially distinguished",
+    "미평가를 음성으로 처리": "Untested/missing treated as negative",
+    "외부 독립검증": "Independent external validation",
+    "시간 분할": "Temporal split",
+    "Scaffold 분할": "Scaffold split",
+    "무작위 분할": "Random split",
+    "독립 확인": "Independence confirmed",
+    "비독립 / 중복 확인": "Non-independent / overlap confirmed",
+    "평가 완료 — 문제 없음": "Assessed — no issue identified",
+    "누수 가능성": "Possible leakage",
+    "누수 확인": "Leakage confirmed",
+    "미평가": "Not assessed",
+    "중복 제거 / 관리": "Duplicates removed / controlled",
+    "중복 확인": "Duplicates identified",
+    "현재 COU에 적절": "Representative for the current COU",
+    "부분적으로 적절": "Partially representative",
+    "현재 COU에 부적절": "Not representative for the current COU",
+    "부적절": "Inadequate",
+    "보고됨": "Reported",
+    "부분 보고": "Partially reported",
+    "정량적 OOD 평가 있음": "Quantitative OOD assessment available",
+    "계획 있음": "Planned",
+    "운영 중": "Operational",
+    "정의됨": "Defined",
+    "부분 정의": "Partially defined",
+    "검증된 feature attribution": "Validated feature attribution",
+    "낮음–중간": "Low to moderate",
+    "중간–높음": "Moderate to high",
     # NAM
     "2D 세포시험": "2D cell assay",
     "공배양(Coculture)": "Coculture",
@@ -401,6 +459,41 @@ GAP_EN: dict[str, tuple[str, str, str, str, str]] = {
     "ET-G028": ("Structured evidence not reviewed", "Evidence Assertions extracted by AI have not yet been reviewed by an expert.", "Major gap", "High-impact conclusion is held", "Require a toxicology expert to approve, correct, or reject the extracted Assertions."),
 }
 
+GAP_EN.update({
+    "AI-G001": ("Training-data source/version incomplete", "The source and exact version of the training and validation data are not both available.", "Major gap", "Data lineage and reproducibility are limited", "Record the data source, version, generation date, and immutable hash."),
+    "AI-G002": ("Training sample size unknown", "The number of samples used for model development is not available.", "Major gap", "Precision and representativeness of the performance estimates are limited", "Report the total sample size and endpoint-specific positive/negative distribution."),
+    "AI-G003": ("Class balance unknown", "The prevalence of toxicity-positive labels and class imbalance have not been reported.", "Major gap", "Accuracy and AUROC are difficult to interpret", "Report prevalence, class balance, and imbalance-handling methods."),
+    "AI-G004": ("Data-split strategy unclear", "It is unclear whether random, scaffold, temporal, or external splitting was used.", "Major gap", "Generalization performance is difficult to interpret", "Document the split unit, timing, and independence of training, tuning, and test sets."),
+    "AI-G005": ("Test set is non-independent or overlapping", "Training and test/external-validation data are not independent, or duplicate/near-duplicate items were identified.", "Decision-limiting", "Reported validation performance cannot be accepted as independent predictivity", "Remove overlap and repeat validation on an independent scaffold, temporal, or external test set."),
+    "AI-G006": ("Test-set independence insufficient", "Independence and analog overlap across training, tuning, and test sets have not been adequately demonstrated.", "Major gap", "External-validation credibility is limited", "Assess overlap at compound, salt, stereoisomer, scaffold, and source levels."),
+    "AI-G007": ("Data leakage confirmed", "Outcome information or evaluation data leaked into the model-development pipeline.", "Decision-limiting", "Performance evaluation is invalid; maximum Evidence Role R1", "Repeat the full pipeline after an independent split, including preprocessing and feature selection."),
+    "AI-G008": ("Data-leakage assessment insufficient", "Leakage assessment across preprocessing, feature selection, analog overlap, and target-derived features is incomplete.", "Major gap", "Model performance may be overestimated", "Perform and document an end-to-end leakage assessment using an independent pipeline."),
+    "AI-G009": ("Duplicate/analog assessment insufficient", "Exact duplicates, salts, stereoisomers, or near scaffolds across data splits have not been excluded.", "Major gap", "Validation independence is limited", "Normalize structures and assess exact and scaffold-level overlap."),
+    "AI-G010": ("Endpoint definition missing", "The clinical, pathology, or assay meaning of the positive and negative labels is not defined.", "Decision-limiting", "The model output cannot be aligned with the Question of Interest", "Define the endpoint, time window, severity threshold, and positive/negative criteria."),
+    "AI-G011": ("Ground truth unclear", "The reference standard used to generate model labels cannot be identified.", "Decision-limiting", "Model performance and clinical meaning are limited", "Link the labels to expert adjudication, pathology, a validated assay, or another explicit reference method."),
+    "AI-G012": ("Label quality limited", "The toxicity labels lack evidence of expert consensus or independent review.", "Major gap", "Ground-truth error may propagate into model performance", "Use blinded expert review, adjudication, or label-uncertainty analysis."),
+    "AI-G013": ("Untested data labeled negative", "Not-tested or not-reported records were assigned to the negative toxicity class.", "Decision-limiting", "Negative-class contamination and false reassurance risk", "Separate untested, missing, and unreported states from true negative labels."),
+    "AI-G014": ("Missing-label policy insufficient", "The separation of untested, missing, unreported, and truly negative records is unclear.", "Major gap", "Negative-label reliability is limited", "Document the missingness taxonomy and label-assignment rule."),
+    "AI-G015": ("Toxicity time window undefined", "The model does not clearly distinguish acute, repeated, delayed, or cumulative toxicity.", "Major gap", "Alignment with the intended dosing duration is limited", "Define the observation window and align it with the current Context of Use."),
+    "AI-G016": ("Severity threshold undefined", "The model does not distinguish minor changes from adverse or clinically important toxicity.", "Major gap", "Development meaning of a positive result is unclear", "Define severity/adversity thresholds and the adjudication process."),
+    "AI-G017": ("Core classification metrics missing", "Sensitivity or specificity is not reported.", "Decision-limiting", "Accuracy alone is insufficient for toxicity-model evaluation", "Report sensitivity, specificity, and a threshold-specific confusion matrix."),
+    "AI-G018": ("Negative-prediction performance incomplete", "False-negative rate or NPV is missing for the current negative prediction.", "Decision-limiting", "Prediction Reliability is capped at moderate", "Report FNR and NPV at the relevant endpoint, prevalence, and threshold."),
+    "AI-G019": ("PPV missing for positive prediction", "The proportion of positive predictions that are true positives is unavailable.", "Major gap", "Prioritization of confirmatory testing is limited", "Report PPV and its confidence interval at the current prevalence and threshold."),
+    "AI-G020": ("Performance confidence intervals incomplete", "Confidence intervals are available for only some core performance metrics.", "Major gap", "Precision of performance estimates is limited", "Report 95% confidence intervals for core metrics and relevant subgroups."),
+    "AI-G021": ("Performance confidence intervals missing", "Point estimates alone do not characterize statistical uncertainty in model performance.", "Major gap", "Performance-estimate precision is unknown", "Report confidence intervals for sensitivity, specificity, PPV/NPV, AUROC, and AUPRC."),
+    "AI-G022": ("Decision threshold missing", "The threshold used to classify positive and negative predictions is unavailable.", "Decision-limiting", "The prediction class cannot be reproduced", "Report the threshold, its intended purpose, and the false-positive/false-negative trade-off."),
+    "AI-G023": ("External-validation representativeness insufficient", "The external-validation population may not represent the current modality, endpoint, exposure range, or intended population.", "Major gap", "Generalization to the current COU is limited", "Compare the external-validation population with the candidate and current Context of Use."),
+    "AI-G024": ("AUPRC missing for a rare positive class", "When toxicity-positive cases are rare, AUROC or accuracy alone may be misleading.", "Major gap", "Rare-toxicity detection performance is unknown", "Report the precision-recall curve and AUPRC with confidence intervals."),
+    "AI-G025": ("Sensitivity and FNR are inconsistent", "For the same dataset and threshold, FNR should generally equal 100%-sensitivity, but the reported values differ materially.", "Decision-limiting", "Metric denominators, thresholds, or datasets may have been mixed", "Reconcile the dataset, threshold, denominator, and confidence interval for each metric."),
+    "AI-G026": ("Meaning of output percentage unclear", "The displayed percentage is not confirmed as a calibrated probability rather than a raw score or ensemble agreement.", "Decision-limiting", "The value cannot be presented as an actual toxicity probability", "Define the output and avoid probability/confidence language for uncalibrated scores."),
+    "AI-G027": ("Calibration insufficient", "Agreement between model output and observed event rates has not been validated.", "Major gap", "The output cannot be interpreted as an actual risk probability", "Provide a reliability curve, Brier score, and calibration slope/intercept."),
+    "AI-G028": ("Reproducibility metadata incomplete", "Code commit, software environment, or training-data hash is missing.", "Major gap", "Prediction reproduction and change-impact tracking are limited", "Record the code commit, locked software environment, and dataset hash."),
+    "AI-G029": ("Lifecycle/drift management insufficient", "Procedures for performance degradation, drift, threshold changes, and revalidation are incomplete.", "Major gap", "R4/R5 and repeated operational use are limited", "Define drift triggers, change control, revalidation criteria, and retrospective reassessment procedures."),
+    "AI-G030": ("Individual-prediction input quality unverified", "The structure, salt, stereoisomer, sequence, formulation, or input features have not been verified against the candidate.", "Decision-limiting", "Individual Prediction Reliability is capped at moderate", "Verify identity, structure/sequence normalization, and relevant batch/formulation information."),
+    "AI-G031": ("OOD detection evidence insufficient", "There is insufficient quantitative evidence that the candidate lies within the training distribution.", "Major gap", "Objectivity of applicability assessment is limited", "Report nearest-neighbor distance, leverage, domain density, or a dedicated OOD detector."),
+    "AI-G032": ("Biological explainability limited", "Model features are not adequately connected to a plausible toxicity mechanism, product characteristic, or measurable endpoint.", "Major gap", "Mechanistic interpretation and follow-up-study design are limited", "Connect prediction explanations with known toxicity mechanisms and orthogonal NAM endpoints."),
+})
+
 GATE_EN: dict[str, tuple[str, str]] = {
     "독성 질문·COU": ("Toxicity question & COU", "The question and candidate must be defined."),
     "방법 식별·버전": ("Method identity & version", "An exact model or method version is required."),
@@ -421,6 +514,63 @@ SCORE_EN = {
     "노출 관련성": "Exposure relevance",
     "근거 일치성": "Evidence concordance",
     "잔여 불확실성": "Residual uncertainty",
+}
+
+GATE_EN.update({
+    "Endpoint·Ground Truth": ("Endpoint & ground truth", "Review the endpoint definition, reference standard, label quality, and missing-label policy."),
+    "데이터 독립성·Leakage": ("Data independence & leakage", "Review independence across data splits and end-to-end leakage controls."),
+    "예측성능·불확실성": ("Predictive performance & uncertainty", "Review sensitivity, specificity, predictive values, threshold, AUPRC, and confidence intervals."),
+    "확률 Calibration": ("Probability calibration", "Confirm whether the displayed percentage is a calibrated probability."),
+    "개별 예측 신뢰성": ("Individual Prediction Reliability", "Review input quality, domain fit, OOD evidence, and prediction uncertainty for the candidate."),
+    "AI Lifecycle·Governance": ("AI lifecycle & governance", "Review versioning, code/data lineage, drift monitoring, and change control."),
+})
+
+SCORE_EN.update({
+    "데이터 신뢰성": "Data credibility",
+    "Endpoint·Ground Truth 적절성": "Endpoint & ground-truth adequacy",
+    "예측성능 적절성": "Predictive-performance adequacy",
+    "Calibration 적절성": "Calibration adequacy",
+    "개별 예측 신뢰성": "Individual Prediction Reliability",
+    "Lifecycle·Governance": "Lifecycle & governance",
+})
+
+TOXICITY_DIRECTION_EN = {
+    "일관된 양성 신호": "Concordant positive signal",
+    "양성 신호": "Positive signal",
+    "상충": "Conflicting evidence",
+    "일관된 음성 신호": "Concordant negative signal",
+    "음성 신호": "Negative signal",
+    "불확실": "Uncertain",
+    "평가 불가": "Unable to assess",
+}
+
+DEVELOPMENT_CONCERN_EN = {
+    "높음 — 신뢰 가능한 독성신호의 확인·기전규명 우선": "High — prioritize confirmation and mechanistic characterization of a credible toxicity signal",
+    "중간–높음 — 양성신호 확인 필요": "Moderate to high — positive signal requires confirmation",
+    "중간–높음 — 상충 근거 해소 전 낮게 분류 불가": "Moderate to high — cannot be considered low until conflicting evidence is resolved",
+    "미정 — 경계 또는 불확실한 결과": "Unknown — borderline or uncertain result",
+    "낮음 — 정의된 Context of Use 내": "Low — within the defined Context of Use",
+    "낮음–중간 — 추가 확인과 사용범위 제한 필요": "Low to moderate — additional confirmation and use restrictions are required",
+    "미정 — 음성결과만으로 낮게 분류할 수 없음": "Unknown — a negative result alone cannot support a low-concern conclusion",
+    "평가 불가": "Unable to assess",
+}
+
+ANIMAL_STATUS_EN = {
+    "평가 불가": "Unable to assess",
+    "축소·대체 근거 불충분": "Insufficient for reduction or replacement",
+    "선별 용도로만 사용": "Use for screening only",
+    "보조·정교화 가능": "Supportive for study refinement",
+    "제한적 축소 지원": "Supports limited reduction",
+    "특정 시험 대체 후보": "Candidate replacement for a specific study",
+    "축소보다 독성신호 확인 우선": "Prioritize toxicity-signal confirmation over reduction",
+    "동물시험 축소 미지원": "Animal-study reduction not supported",
+    "축소 판단 보류": "Hold reduction decision",
+}
+
+ANIMAL_DESCRIPTION_EN = {
+    "현재 근거는 독성신호의 확인, 기전규명, 노출-반응 및 표적화된 후속시험을 우선하도록 지지합니다. 단순 동물시험 축소로 해석해서는 안 됩니다.": "The current evidence supports prioritizing toxicity-signal confirmation, mechanistic characterization, exposure-response analysis, and targeted follow-up testing. It must not be interpreted as a simple basis for animal-study reduction.",
+    "상충 원인을 독립적으로 확인하기 전에는 동물시험 축소 또는 대체를 지지하지 않습니다.": "Animal-study reduction or replacement is not supported until the cause of the conflicting evidence is independently resolved.",
+    "Evidence Role이 높더라도 Development Concern이 미정이면 동물시험 축소 결론을 보류합니다.": "Even when the Evidence Role is high, an animal-study reduction conclusion is held when Development Concern remains unknown.",
 }
 
 REVIEW_STATUS_EN = {"제안됨": "Proposed", "승인": "Approved", "수정": "Corrected", "거절": "Rejected"}
@@ -596,10 +746,16 @@ def _english_interpretations(inp: AssessmentInput, result: AssessmentResult) -> 
         items.append("The negative NAM result is not a Reliable Negative because free or intracellular exposure was not demonstrated.")
     if nam.use_nam and product.exposure_pattern in {"반복 노출", "지속 노출"} and nam.exposure_design == "단회/급성 노출":
         items.append("An acute single-exposure NAM is being used to support a repeated or continuous dosing plan, leaving uncertainty about accumulation, adaptation, and delayed toxicity.")
+    if ai.use_ai and ai.probability_percent is not None and ai.probability_type != "보정된 확률":
+        items.append("The displayed percentage has not been confirmed as a calibrated probability and therefore must not be described as the actual probability of toxicity.")
+    if ai.use_ai and ai.leakage_assessment in {"누수 확인", "누수 가능성"}:
+        items.append("Possible data leakage may have inflated the reported validation performance.")
     if any(gap.code == "ET-G023" for gap in result.data_gaps):
         items.append("AI and NAM evidence conflict. Neither result should be prioritized until the cause of the discordance is investigated and independently confirmed.")
+    if result.toxicity_direction in {"일관된 양성 신호", "양성 신호"}:
+        items.append("High evidence credibility does not imply safety; it may instead indicate that the positive toxicity signal itself is more credible.")
     if not items:
-        items.append("Considering method credibility, candidate applicability, human relevance, and exposure relevance, the evidence may be used within a limited scope together with other independent evidence.")
+        items.append("Considering data credibility, ground truth, predictive performance, candidate applicability, human relevance, and exposure relevance, the evidence may be used only within the defined scope together with other independent evidence.")
     return items
 
 
@@ -615,6 +771,11 @@ def localize_result(result: AssessmentResult, inp: AssessmentInput, lang: str = 
             "model_risk": result.model_risk,
             "residual_uncertainty": result.residual_uncertainty,
             "evidence_stream_count": result.evidence_stream_count,
+            "evidence_confidence": result.evidence_confidence,
+            "toxicity_direction": result.toxicity_direction,
+            "prediction_reliability": result.prediction_reliability,
+            "development_concern": result.development_concern,
+            "ai_credibility_profile": result.ai_credibility_profile,
             "scores": result.scores,
             "gates": [gate.to_dict() for gate in result.gates],
             "data_gaps": [gap.to_dict() for gap in result.data_gaps],
@@ -625,13 +786,19 @@ def localize_result(result: AssessmentResult, inp: AssessmentInput, lang: str = 
             "audit": result.audit,
         }
     role_code, role_name, role_desc = role_definition(result.evidence_role, "en")
-    animal_status, animal_desc = animal_use_definition(result.evidence_role, "en")
+    animal_status = ANIMAL_STATUS_EN.get(result.animal_use_status, result.animal_use_status)
+    animal_desc = ANIMAL_DESCRIPTION_EN.get(result.animal_use_description, animal_use_definition(result.evidence_role, "en")[1])
     localized_gaps = [localize_gap(gap, "en") for gap in result.data_gaps]
     recommendations = list(dict.fromkeys(gap["recommendation"] for gap in localized_gaps))
     if not recommendations:
         recommendations = ["Document the conditions and limits of the current Evidence Role, and obtain expert and, where appropriate, regulatory review before changing an animal-study plan."]
+    evidence_confidence = value_label(result.evidence_confidence, "en")
+    toxicity_direction = TOXICITY_DIRECTION_EN.get(result.toxicity_direction, result.toxicity_direction)
+    prediction_reliability = value_label(result.prediction_reliability, "en")
+    development_concern = DEVELOPMENT_CONCERN_EN.get(result.development_concern, result.development_concern)
     development_relevance = [
         f"The current evidence package is classified as {role_code} — {role_name}.",
+        f"Evidence Confidence is {evidence_confidence}; Toxicity Direction is {toxicity_direction}; Development Concern is {development_concern}.",
         animal_desc,
         f"Residual uncertainty is {value_label(result.residual_uncertainty, 'en')}, and model risk is {value_label(result.model_risk, 'en')}.",
     ]
@@ -645,6 +812,11 @@ def localize_result(result: AssessmentResult, inp: AssessmentInput, lang: str = 
         "model_risk": value_label(result.model_risk, "en"),
         "residual_uncertainty": value_label(result.residual_uncertainty, "en"),
         "evidence_stream_count": result.evidence_stream_count,
+        "evidence_confidence": evidence_confidence,
+        "toxicity_direction": toxicity_direction,
+        "prediction_reliability": prediction_reliability,
+        "development_concern": development_concern,
+        "ai_credibility_profile": {SCORE_EN.get(key, key): value_label(value, "en") if isinstance(value, str) else value for key, value in result.ai_credibility_profile.items()},
         "scores": {SCORE_EN.get(key, key): value_label(value, "en") if isinstance(value, str) else value for key, value in result.scores.items()},
         "gates": [localize_gate(gate, "en") for gate in result.gates],
         "data_gaps": localized_gaps,
@@ -695,6 +867,7 @@ AUDIT_ACTION_EN = {
     "로컬 프로젝트 불러오기": "Local project loaded",
     "JSON 프로젝트 불러오기": "JSON project imported",
     "Golden Case 불러오기": "Golden Case loaded",
+    "컨설팅 사례 불러오기": "Consulting case loaded",
     "문서 및 Assertion 추가": "Documents and Assertions added",
     "문서 삭제": "Document deleted",
     "Assertion 검토 저장": "Assertion review saved",

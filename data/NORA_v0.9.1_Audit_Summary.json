@@ -1,0 +1,33 @@
+{
+  "audit_version": "0.9.1",
+  "audit_date": "2026-08-31",
+  "cases": 9,
+  "claims": 26,
+  "references": 14,
+  "status_counts": {
+    "VERIFIED": 4,
+    "VERIFIED_LIMITED": 6,
+    "REVISE": 4,
+    "HOLD": 5,
+    "RECOMMENDATION": 5,
+    "SYNTHETIC": 2
+  },
+  "release_recommendation": {
+    "TAC-101": "conditional",
+    "TAC-102": "revise",
+    "TAC-103": "synthetic_only",
+    "TIR-201": "conditional",
+    "TIR-202": "hold",
+    "TIR-203": "benchmark_only",
+    "ASO-301": "synthetic_only",
+    "ASO-302": "conditional",
+    "ASO-303": "conditional"
+  },
+  "critical_findings": [
+    "TIR-202 evidence is insufficient for a confirmed impurity or patient-risk claim.",
+    "Product-specific evidence must not be generalized across generic products, agonist classes, or antisense candidates.",
+    "The LY2181308 phase II result does not by itself prove BIRC5 target invalidity.",
+    "Evidence Role must be separated from Development Concern.",
+    "Quantitative trial claims require effect estimates and confidence intervals, not significance wording alone."
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "version": "0.9.1",
+  "last_verified": "2026-08-31",
+  "principles": [
+    "공식 사실, 고객 가정, NORA 추론, 권고를 분리한다.",
+    "p-value는 효과크기, 신뢰구간, 연구설계, 표본수, 다중성 및 적용가능성과 함께 해석한다.",
+    "제품·제형·대상군·노출·시험법을 넘어서는 일반화는 별도의 간접근거로 표시한다.",
+    "공식 라벨과 가이던스, 원저 논문, 2차 자료, 기업 분석자료의 권위를 구분한다.",
+    "자료가 없거나 미평가인 상태를 음성 근거로 처리하지 않는다."
+  ],
+  "claim_types": {
+    "verified_fact": "공식 문서 또는 원저로 직접 확인된 사실",
+    "verified_with_limits": "핵심 방향은 확인되지만 정량정보·대상군·적용범위가 제한된 사실",
+    "contextual_evidence": "현재 사례를 해석하는 데 유용하지만 제품에 직접 적용할 수 없는 간접근거",
+    "synthetic_assumption": "가상 고객사례를 구성하기 위해 명시적으로 설정한 가정",
+    "inference": "복수 근거를 연결한 NORA의 해석",
+    "recommendation": "의사결정과 다음 근거를 위한 전문가 권고",
+    "unverified_claim": "출처 또는 상세정보가 부족하여 현재 확인되지 않은 주장"
+  },
+  "evidence_grades": {
+    "A1": "현재 공식 제품 라벨·규제조치처럼 제품과 주장에 직접 관련된 1차 규제자료",
+    "A2": "무작위 비교시험 또는 직접적이고 충분히 기술된 사람 대상 원저",
+    "B1": "직접 관련된 전향적 임상·PK/PD·분석법 원저",
+    "B2": "직접 관련된 GLP/비임상·기전 연구 또는 충분히 기술된 원저",
+    "C1": "동일 계열·기전·다른 제형·다른 집단의 간접근거",
+    "D1": "독립 재현이 부족한 초기 분석보고, 비동료심사 자료, 이해상충 영향이 큰 자료",
+    "S": "합성·가상 시나리오",
+    "R": "전문가 추론 또는 권고"
+  },
+  "minimum_statistical_fields": [
+    "study_design",
+    "population_or_species",
+    "sample_size",
+    "dose_or_exposure",
+    "comparator",
+    "endpoint",
+    "effect_estimate",
+    "confidence_interval",
+    "p_value",
+    "multiplicity",
+    "missing_data",
+    "applicability_limits"
+  ],
+  "status_definitions": {
+    "VERIFIED": "현재 문구를 유지 가능",
+    "VERIFIED_LIMITED": "방향은 유지하되 제한사항과 정량정보를 함께 표시",
+    "REVISE": "과장 또는 일반화가 있어 수정문구 사용",
+    "HOLD": "핵심 근거가 부족해 외부사례의 사실 주장으로 사용 중지",
+    "SYNTHETIC": "가상 고객 가정임을 화면과 보고서에 명확히 표시",
+    "RECOMMENDATION": "근거와 불확실성을 연결한 전문가 권고"
+  }
+}

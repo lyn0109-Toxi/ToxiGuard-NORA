@@ -4,6 +4,7 @@ import json
 import os
 import sqlite3
 import uuid
+from contextlib import contextmanager
 from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
@@ -137,8 +138,16 @@ class ProjectStore:
         connection.row_factory = sqlite3.Row
         return connection
 
+    @contextmanager
+    def _connection(self):
+        connection = self._connect()
+        try:
+            yield connection
+        finally:
+            connection.close()
+
     def _initialize(self) -> None:
-        with self._connect() as connection:
+        with self._connection() as connection:
             connection.execute(
                 """
                 CREATE TABLE IF NOT EXISTS projects (
@@ -156,7 +165,7 @@ class ProjectStore:
     def save(self, project: ProjectBundle) -> None:
         project.touch()
         payload = json.dumps(project.to_dict(), ensure_ascii=False)
-        with self._connect() as connection:
+        with self._connection() as connection:
             connection.execute(
                 """
                 INSERT INTO projects(project_id, project_name, owner, created_at_utc, updated_at_utc, payload_json)
@@ -179,7 +188,7 @@ class ProjectStore:
             connection.commit()
 
     def load(self, project_id: str) -> ProjectBundle | None:
-        with self._connect() as connection:
+        with self._connection() as connection:
             row = connection.execute(
                 "SELECT payload_json FROM projects WHERE project_id = ?", (project_id,)
             ).fetchone()
@@ -188,12 +197,12 @@ class ProjectStore:
         return ProjectBundle.from_dict(json.loads(row["payload_json"]))
 
     def delete(self, project_id: str) -> None:
-        with self._connect() as connection:
+        with self._connection() as connection:
             connection.execute("DELETE FROM projects WHERE project_id = ?", (project_id,))
             connection.commit()
 
     def list_projects(self) -> list[dict[str, str]]:
-        with self._connect() as connection:
+        with self._connection() as connection:
             rows = connection.execute(
                 """
                 SELECT project_id, project_name, owner, created_at_utc, updated_at_utc

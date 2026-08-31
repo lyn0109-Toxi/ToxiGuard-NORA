@@ -1,0 +1,152 @@
+[
+  {
+    "rule_id": "AI-R001",
+    "name_ko": "학습데이터 계보와 규모",
+    "name_en": "Training-Data Lineage and Scale",
+    "condition": "데이터 출처·버전 또는 학습표본 수가 확인되지 않음",
+    "condition_en": "Dataset source, version, or training sample size is unavailable",
+    "conclusion": "데이터 신뢰성과 재현성 제한",
+    "conclusion_en": "Limits data credibility and reproducibility",
+    "maximum_role": "R2-R3"
+  },
+  {
+    "rule_id": "AI-R002",
+    "name_ko": "Class balance와 희귀 독성",
+    "name_en": "Class Balance and Rare Toxicity",
+    "condition": "독성 양성 비율 또는 imbalance 처리방법이 불명확",
+    "condition_en": "Positive-class prevalence or imbalance handling is unclear",
+    "conclusion": "Accuracy와 AUROC 단독 해석 금지",
+    "conclusion_en": "Do not rely on accuracy or AUROC alone",
+    "maximum_role": "R3"
+  },
+  {
+    "rule_id": "AI-R003",
+    "name_ko": "시험세트 독립성과 구조 중복",
+    "name_en": "Test-Set Independence and Structural Overlap",
+    "condition": "학습·시험 세트가 비독립이거나 화합물·염·이성질체·scaffold 중복이 미평가",
+    "condition_en": "Training/test sets are non-independent or compound, salt, stereoisomer, or scaffold overlap is unassessed",
+    "conclusion": "검증성능의 일반화 가능성 제한",
+    "conclusion_en": "Limits generalizability of reported validation performance",
+    "maximum_role": "R1-R2"
+  },
+  {
+    "rule_id": "AI-R004",
+    "name_ko": "Data leakage",
+    "name_en": "Data Leakage",
+    "condition": "전처리·feature selection·target-derived feature 또는 데이터 중복에서 leakage가 확인되거나 의심됨",
+    "condition_en": "Leakage is confirmed or suspected in preprocessing, feature selection, target-derived features, or data overlap",
+    "conclusion": "보고된 성능을 독립 예측성으로 인정하지 않음",
+    "conclusion_en": "Reported performance cannot be accepted as independent predictivity",
+    "maximum_role": "R1"
+  },
+  {
+    "rule_id": "AI-R005",
+    "name_ko": "Endpoint와 Ground Truth 적절성",
+    "name_en": "Endpoint and Ground-Truth Adequacy",
+    "condition": "Endpoint 정의, reference standard, label 품질, 관찰기간 또는 중증도 기준이 부족",
+    "condition_en": "Endpoint definition, reference standard, label quality, observation window, or severity criteria are insufficient",
+    "conclusion": "모델 output과 독성질문의 의미정합성 제한",
+    "conclusion_en": "Limits semantic alignment between model output and the toxicity question",
+    "maximum_role": "R2"
+  },
+  {
+    "rule_id": "AI-R006",
+    "name_ko": "Missing label과 실제 음성의 분리",
+    "name_en": "Separation of Missing Labels from True Negatives",
+    "condition": "Not tested, not reported 또는 missing evidence가 음성 label로 처리됨",
+    "condition_en": "Not tested, not reported, or missing evidence is treated as a negative label",
+    "conclusion": "음성 class 오염과 false reassurance 위험",
+    "conclusion_en": "Creates negative-class contamination and false-reassurance risk",
+    "maximum_role": "R1"
+  },
+  {
+    "rule_id": "AI-R007",
+    "name_ko": "독성 예측성능과 불확실성",
+    "name_en": "Toxicity Predictive Performance and Uncertainty",
+    "condition": "Sensitivity, specificity, FNR/NPV 또는 PPV, AUPRC, confidence interval이 충분히 보고되지 않음",
+    "condition_en": "Sensitivity, specificity, FNR/NPV or PPV, AUPRC, or confidence intervals are insufficiently reported",
+    "conclusion": "음성·양성 예측의 신뢰성 제한",
+    "conclusion_en": "Limits reliability of negative or positive predictions",
+    "maximum_role": "R2-R3"
+  },
+  {
+    "rule_id": "AI-R008",
+    "name_ko": "Decision threshold",
+    "name_en": "Decision Threshold",
+    "condition": "양성·음성을 구분한 threshold와 선정근거가 없음",
+    "condition_en": "The positive/negative decision threshold and its rationale are unavailable",
+    "conclusion": "예측 class 재현성과 오류비용 평가 제한",
+    "conclusion_en": "Limits reproducibility of the predicted class and evaluation of error costs",
+    "maximum_role": "R2"
+  },
+  {
+    "rule_id": "AI-R009",
+    "name_ko": "외부검증 대표성",
+    "name_en": "External-Validation Representativeness",
+    "condition": "외부검증 집단이 현재 modality, endpoint, 노출 또는 population을 대표하지 못함",
+    "condition_en": "The external validation cohort does not represent the current modality, endpoint, exposure, or population",
+    "conclusion": "현재 Context of Use로의 일반화 제한",
+    "conclusion_en": "Limits generalization to the current Context of Use",
+    "maximum_role": "R3"
+  },
+  {
+    "rule_id": "AI-R010",
+    "name_ko": "성능지표 내부 정합성",
+    "name_en": "Internal Consistency of Performance Metrics",
+    "condition": "동일 dataset과 threshold에서 sensitivity와 FNR 등 성능지표가 서로 맞지 않음",
+    "condition_en": "Performance metrics such as sensitivity and FNR are inconsistent for the same dataset and threshold",
+    "conclusion": "분모·threshold·dataset 혼용 가능성",
+    "conclusion_en": "Suggests possible mixing of denominators, thresholds, or datasets",
+    "maximum_role": "R2"
+  },
+  {
+    "rule_id": "AI-R011",
+    "name_ko": "출력확률 의미와 Calibration",
+    "name_en": "Output Semantics and Calibration",
+    "condition": "표시된 퍼센트가 calibrated probability인지 불명확하거나 calibration이 검증되지 않음",
+    "condition_en": "The displayed percentage is not clearly a calibrated probability or calibration is unvalidated",
+    "conclusion": "실제 독성 발생확률 또는 안전확률로 표현 금지",
+    "conclusion_en": "Do not present the output as an actual toxicity or safety probability",
+    "maximum_role": "R3"
+  },
+  {
+    "rule_id": "AI-R012",
+    "name_ko": "재현성·Drift·Change Control",
+    "name_en": "Reproducibility, Drift, and Change Control",
+    "condition": "Code commit, software lock, data hash, drift trigger, change control 또는 재검증 절차가 부족",
+    "condition_en": "Code commit, software lock, data hash, drift triggers, change control, or revalidation procedures are insufficient",
+    "conclusion": "반복사용과 R4/R5 적합성 제한",
+    "conclusion_en": "Limits repeat use and eligibility for R4/R5",
+    "maximum_role": "R3"
+  },
+  {
+    "rule_id": "AI-R013",
+    "name_ko": "개별 예측 입력 품질",
+    "name_en": "Prediction-Input Quality",
+    "condition": "구조·염형·이성질체·서열·제형 또는 입력 feature가 현재 후보를 정확히 표현하는지 미확인",
+    "condition_en": "The structure, salt form, stereoisomer, sequence, formulation, or input features are not verified as representing the current candidate",
+    "conclusion": "개별 Prediction Reliability 최대 중간",
+    "conclusion_en": "Caps individual Prediction Reliability at Moderate",
+    "maximum_role": "R2-R3"
+  },
+  {
+    "rule_id": "AI-R014",
+    "name_ko": "Out-of-distribution 탐지",
+    "name_en": "Out-of-Distribution Detection",
+    "condition": "Nearest-neighbor, leverage, domain density 또는 OOD detector 근거가 없음",
+    "condition_en": "No nearest-neighbor, leverage, domain-density, or OOD-detector evidence is available",
+    "conclusion": "Applicability domain 판단의 객관성 제한",
+    "conclusion_en": "Limits objectivity of the applicability-domain assessment",
+    "maximum_role": "R2-R3"
+  },
+  {
+    "rule_id": "AI-R015",
+    "name_ko": "생물학적 설명가능성",
+    "name_en": "Biological Explainability",
+    "condition": "모델 feature 또는 explanation이 독성기전·제품 특성·검증 가능한 NAM endpoint와 연결되지 않음",
+    "condition_en": "Model features or explanations are not linked to toxicity mechanisms, product characteristics, or testable NAM endpoints",
+    "conclusion": "기전 해석과 후속시험 설계 제한",
+    "conclusion_en": "Limits mechanistic interpretation and follow-up study design",
+    "maximum_role": "R3"
+  }
+]

@@ -1,0 +1,221 @@
+{
+  "version": "0.8.0",
+  "scenarios": [
+    {
+      "scenario": "GP-L-CT out-of-domain negative",
+      "expected": "R1; negative not reliable; no reduction",
+      "actual": {
+        "evidence_role": "R1",
+        "evidence_confidence": "낮음",
+        "prediction_reliability": "낮음",
+        "toxicity_direction": "일관된 음성 신호",
+        "development_concern": "미정 — 음성결과만으로 낮게 분류할 수 없음",
+        "animal_use_status": "축소·대체 근거 불충분",
+        "data_gap_codes": [
+          "ET-G025",
+          "ET-G028",
+          "ET-G005",
+          "ET-G006",
+          "ET-G016",
+          "ET-G018",
+          "ET-G019",
+          "ET-G020",
+          "ET-G021",
+          "AI-G003",
+          "AI-G006",
+          "AI-G008",
+          "AI-G009",
+          "AI-G012",
+          "AI-G014",
+          "AI-G015",
+          "AI-G016",
+          "AI-G018",
+          "AI-G021",
+          "AI-G022",
+          "AI-G023",
+          "AI-G026",
+          "AI-G027",
+          "AI-G028",
+          "AI-G029",
+          "AI-G030",
+          "AI-G031",
+          "AI-G032"
+        ],
+        "ai_credibility_profile": {
+          "데이터 신뢰성": 1.8,
+          "Endpoint·Ground Truth 적절성": 1.5,
+          "예측성능 적절성": 1.4,
+          "Calibration 적절성": 0.0,
+          "개별 예측 신뢰성": 1.1,
+          "Lifecycle·Governance": 0.4
+        }
+      }
+    },
+    {
+      "scenario": "High-quality concordant negative",
+      "expected": "R4; high prediction reliability; low concern within COU",
+      "actual": {
+        "evidence_role": "R4",
+        "evidence_confidence": "높음",
+        "prediction_reliability": "높음",
+        "toxicity_direction": "일관된 음성 신호",
+        "development_concern": "낮음 — 정의된 Context of Use 내",
+        "animal_use_status": "제한적 축소 지원",
+        "data_gap_codes": [],
+        "ai_credibility_profile": {
+          "데이터 신뢰성": 4.0,
+          "Endpoint·Ground Truth 적절성": 4.0,
+          "예측성능 적절성": 3.8,
+          "Calibration 적절성": 4.0,
+          "개별 예측 신뢰성": 3.9,
+          "Lifecycle·Governance": 4.0
+        }
+      }
+    },
+    {
+      "scenario": "AI-NAM conflict",
+      "expected": "R2; conflict; no reduction",
+      "actual": {
+        "evidence_role": "R2",
+        "evidence_confidence": "중간",
+        "prediction_reliability": "높음",
+        "toxicity_direction": "상충",
+        "development_concern": "중간–높음 — 상충 근거 해소 전 낮게 분류 불가",
+        "animal_use_status": "축소보다 독성신호 확인 우선",
+        "data_gap_codes": [
+          "ET-G023"
+        ],
+        "ai_credibility_profile": {
+          "데이터 신뢰성": 4.0,
+          "Endpoint·Ground Truth 적절성": 4.0,
+          "예측성능 적절성": 3.8,
+          "Calibration 적절성": 3.2,
+          "개별 예측 신뢰성": 3.6,
+          "Lifecycle·Governance": 3.0
+        }
+      }
+    },
+    {
+      "scenario": "Confirmed data leakage",
+      "expected": "Maximum R1; AI-G007",
+      "actual": {
+        "evidence_role": "R1",
+        "evidence_confidence": "중간",
+        "prediction_reliability": "평가 불가",
+        "toxicity_direction": "일관된 음성 신호",
+        "development_concern": "미정 — 음성결과만으로 낮게 분류할 수 없음",
+        "animal_use_status": "축소·대체 근거 불충분",
+        "data_gap_codes": [
+          "AI-G007"
+        ],
+        "ai_credibility_profile": {
+          "데이터 신뢰성": 3.4,
+          "Endpoint·Ground Truth 적절성": 4.0,
+          "예측성능 적절성": 3.8,
+          "Calibration 적절성": 4.0,
+          "개별 예측 신뢰성": 0.8,
+          "Lifecycle·Governance": 4.0
+        }
+      }
+    },
+    {
+      "scenario": "Uncalibrated score displayed as percent",
+      "expected": "AI-G026/027; maximum R3",
+      "actual": {
+        "evidence_role": "R3",
+        "evidence_confidence": "중간",
+        "prediction_reliability": "높음",
+        "toxicity_direction": "일관된 음성 신호",
+        "development_concern": "낮음–중간 — 추가 확인과 사용범위 제한 필요",
+        "animal_use_status": "보조·정교화 가능",
+        "data_gap_codes": [
+          "AI-G026",
+          "AI-G027"
+        ],
+        "ai_credibility_profile": {
+          "데이터 신뢰성": 4.0,
+          "Endpoint·Ground Truth 적절성": 4.0,
+          "예측성능 적절성": 3.8,
+          "Calibration 적절성": 0.3,
+          "개별 예측 신뢰성": 3.3,
+          "Lifecycle·Governance": 4.0
+        }
+      }
+    },
+    {
+      "scenario": "Credible concordant positive toxicity signal",
+      "expected": "R3 or lower; high concern; no reduction",
+      "actual": {
+        "evidence_role": "R3",
+        "evidence_confidence": "높음",
+        "prediction_reliability": "높음",
+        "toxicity_direction": "일관된 양성 신호",
+        "development_concern": "높음 — 신뢰 가능한 독성신호의 확인·기전규명 우선",
+        "animal_use_status": "축소보다 독성신호 확인 우선",
+        "data_gap_codes": [],
+        "ai_credibility_profile": {
+          "데이터 신뢰성": 4.0,
+          "Endpoint·Ground Truth 적절성": 4.0,
+          "예측성능 적절성": 3.8,
+          "Calibration 적절성": 4.0,
+          "개별 예측 신뢰성": 3.9,
+          "Lifecycle·Governance": 4.0
+        }
+      }
+    },
+    {
+      "scenario": "Missing ground truth definition",
+      "expected": "Maximum R2; AI-G010/011",
+      "actual": {
+        "evidence_role": "R2",
+        "evidence_confidence": "낮음",
+        "prediction_reliability": "높음",
+        "toxicity_direction": "일관된 음성 신호",
+        "development_concern": "낮음–중간 — 추가 확인과 사용범위 제한 필요",
+        "animal_use_status": "선별 용도로만 사용",
+        "data_gap_codes": [
+          "AI-G010",
+          "AI-G011",
+          "AI-G012",
+          "AI-G014",
+          "AI-G015",
+          "AI-G016"
+        ],
+        "ai_credibility_profile": {
+          "데이터 신뢰성": 4.0,
+          "Endpoint·Ground Truth 적절성": 0.0,
+          "예측성능 적절성": 3.8,
+          "Calibration 적절성": 4.0,
+          "개별 예측 신뢰성": 3.2,
+          "Lifecycle·Governance": 4.0
+        }
+      }
+    }
+  ],
+  "negation_regression": {
+    "source": "samples/gp_l_ct/synthetic_evidence.txt",
+    "assertion_count": 24,
+    "forbidden_false_positive_assertions": [
+      [
+        "nam_assay.carrier_only_control",
+        "포함"
+      ],
+      [
+        "nam_assay.measured_exposure",
+        "측정됨"
+      ],
+      [
+        "nam_assay.qivive_pbpk",
+        "수행됨"
+      ],
+      [
+        "supporting_evidence.quantitative_biodistribution",
+        "true"
+      ]
+    ],
+    "pass": true
+  },
+  "expected_test_count": 36,
+  "streamlit_smoke_workspaces": 14,
+  "repeated_validate_runs": 2
+}

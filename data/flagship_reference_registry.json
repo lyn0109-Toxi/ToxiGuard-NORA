@@ -1,0 +1,212 @@
+{
+  "CPIC-TAC-CYP3A5-2015": {
+    "title": "CPIC Guideline for CYP3A5 Genotype and Tacrolimus Dosing",
+    "status": "Peer-reviewed clinical pharmacogenetics guideline",
+    "issuer": "CPIC",
+    "year": 2015,
+    "source_type": "Consensus guideline",
+    "evidence_tier": "Peer-reviewed guideline",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4481158/",
+    "limitations": "Genotype-based starting-dose guidance does not replace therapeutic drug monitoring or patient-specific clinical adjustment."
+  },
+  "EMA-TAC-BE-2026": {
+    "title": "Tacrolimus Granules for Oral Suspension 0.2 and 1 mg Product-Specific Bioequivalence Guidance — Revision 1",
+    "status": "Effective 1 January 2026; EMA/188385/2025/Rev. 1",
+    "issuer": "EMA",
+    "year": 2026,
+    "source_type": "Product-specific bioequivalence guidance",
+    "evidence_tier": "Primary regulatory source",
+    "url": "https://www.ema.europa.eu/en/tacrolimus-granules-product-specific-bioequivalence-guidance",
+    "limitations": "Applies to the specified granule strengths and EU context."
+  },
+  "FDA-AI-2025-DRAFT": {
+    "title": "Considerations for the Use of Artificial Intelligence To Support Regulatory Decision-Making for Drug and Biological Products",
+    "status": "Draft Level 1; not for implementation; nonbinding recommendations",
+    "issuer": "FDA",
+    "year": 2025,
+    "source_type": "Draft regulatory guidance",
+    "evidence_tier": "Primary regulatory source",
+    "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/considerations-use-artificial-intelligence-support-regulatory-decision-making-drug-and-biological",
+    "limitations": "Draft Level 1; not for implementation and nonbinding. It provides a credibility framework, not approval of a model or NORA Evidence Role."
+  },
+  "FDA-NAM-2026-DRAFT": {
+    "title": "General Considerations for the Use of New Approach Methodologies in Drug Development",
+    "status": "Draft Level 1; not for implementation; nonbinding recommendations",
+    "issuer": "FDA",
+    "year": 2026,
+    "source_type": "Draft regulatory guidance",
+    "evidence_tier": "Primary regulatory source",
+    "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/general-considerations-use-new-approach-methodologies-drug-development",
+    "limitations": "Draft Level 1; not for implementation and nonbinding. It does not qualify a specific NAM or grant an animal-study waiver."
+  },
+  "FDA-ONT-CLINPHARM-2024": {
+    "title": "Clinical Pharmacology Considerations for the Development of Oligonucleotide Therapeutics",
+    "status": "Final guidance, June 2024",
+    "issuer": "FDA",
+    "year": 2024,
+    "source_type": "Final guidance",
+    "evidence_tier": "Primary regulatory source",
+    "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/clinical-pharmacology-considerations-development-oligonucleotide-therapeutics",
+    "limitations": "Addresses selected clinical-pharmacology topics and does not replace product-specific nonclinical safety strategy."
+  },
+  "FDA-ONT-NONCLINICAL-2024-DRAFT": {
+    "title": "Nonclinical Safety Assessment of Oligonucleotide-Based Therapeutics",
+    "status": "Draft Level 1 guidance; not for implementation; nonbinding recommendations",
+    "issuer": "FDA",
+    "year": 2024,
+    "source_type": "Draft guidance",
+    "evidence_tier": "Primary regulatory source — draft",
+    "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/nonclinical-safety-assessment-oligonucleotide-based-therapeutics",
+    "limitations": "Draft and nonbinding; verify current status before client or submission use."
+  },
+  "FDA-TAC-ASSAY-SPECIAL-CONTROLS": {
+    "title": "Cyclosporine and Tacrolimus Assays — Class II Special Controls Guidance",
+    "status": "FDA medical-device guidance",
+    "issuer": "FDA",
+    "year": 2002,
+    "source_type": "Assay special-controls guidance",
+    "evidence_tier": "Primary regulatory source",
+    "url": "https://www.fda.gov/medical-devices/guidance-documents-medical-devices-and-radiation-emitting-products/cyclosporine-and-tacrolimus-assays-class-ii-special-controls-guidance-document-industry-and-fda",
+    "limitations": "Older guidance; current assay technology, standards, and local accreditation requirements should also be checked."
+  },
+  "FDA-TAC-TE-2023": {
+    "title": "FDA Is Changing the Therapeutic Equivalence Rating for Accord Healthcare Inc.'s Generics of Prograf (Tacrolimus) Oral Capsules",
+    "status": "FDA drug alert and therapeutic-equivalence action dated 18 September 2023",
+    "issuer": "FDA",
+    "year": 2023,
+    "source_type": "Official regulatory action",
+    "evidence_tier": "Primary regulatory source",
+    "url": "https://www.fda.gov/drugs/drug-alerts-and-statements/fda-changing-therapeutic-equivalence-rating-accord-healthcare-incs-generics-prograf-tacrolimus-oral",
+    "limitations": "The action applies to the identified Accord products and should not be generalized to all tacrolimus generics."
+  },
+  "FDA-TE-GUIDANCE-2026": {
+    "title": "Evaluation of Therapeutic Equivalence",
+    "status": "Final Level 1 guidance, August 2026",
+    "issuer": "FDA",
+    "year": 2026,
+    "source_type": "Final guidance",
+    "evidence_tier": "Primary regulatory source",
+    "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/evaluation-therapeutic-equivalence",
+    "limitations": "General therapeutic-equivalence framework; product-specific BE recommendations remain relevant."
+  },
+  "ICH-M15-2026": {
+    "title": "M15 General Principles for Model-Informed Drug Development",
+    "status": "Final Level 1 guidance",
+    "issuer": "ICH / FDA",
+    "year": 2026,
+    "source_type": "Final harmonized regulatory guidance",
+    "evidence_tier": "Primary regulatory source",
+    "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/m15-general-principles-model-informed-drug-development",
+    "limitations": "General MIDD principles; it does not validate a particular tacrolimus dosing model or replace therapeutic drug monitoring."
+  },
+  "LILLY-TIR-B12-LETTER-2026": {
+    "title": "Open Letter Warning of Potential Patient Safety Risks Associated with Tirzepatide Compounded with Vitamin B12",
+    "status": "Manufacturer public communication dated 12 March 2026",
+    "issuer": "Eli Lilly and Company",
+    "year": 2026,
+    "source_type": "Manufacturer communication",
+    "evidence_tier": "Interested-party source",
+    "url": "https://lilly.gcs-web.com/news-releases/news-release-details/open-letter-eli-lilly-and-company-warning-potential-patient",
+    "limitations": "Not an FDA regulatory conclusion; evaluate alongside independent analytical evidence and disclosed commercial interests."
+  },
+  "LY2181308-CRPC-P2-2014": {
+    "title": "Randomised Phase 2 Study of LY2181308 with Docetaxel/Prednisone in Castration-Resistant Prostate Cancer",
+    "status": "Peer-reviewed randomized phase II study in 154 patients",
+    "issuer": "European Urology",
+    "year": 2014,
+    "source_type": "Randomized phase II clinical study",
+    "evidence_tier": "Peer-reviewed primary research",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/24246407/",
+    "limitations": "The negative result applies to the studied agent, regimen, population, and combination; it does not alone invalidate the target or all future BIRC5 approaches."
+  },
+  "LY2181308-FIH-2010": {
+    "title": "Tumor Survivin Is Downregulated by the Antisense Oligonucleotide LY2181308: A Proof-of-Concept, First-in-Human Dose Study",
+    "status": "Peer-reviewed first-in-human dose study",
+    "issuer": "Clinical Cancer Research",
+    "year": 2010,
+    "source_type": "First-in-human clinical study",
+    "evidence_tier": "Peer-reviewed primary research",
+    "url": "https://aacrjournals.org/clincancerres/article/16/24/6150/75592/Tumor-Survivin-Is-Downregulated-by-the-Antisense",
+    "limitations": "Target engagement and tumor uptake do not establish clinical efficacy; findings are specific to LY2181308, its chemistry, dose, and schedule."
+  },
+  "LY2181308-JP-P1-2011": {
+    "title": "Phase I Study of LY2181308, an Antisense Oligonucleotide Against Survivin, in Patients with Advanced Solid Tumors",
+    "status": "Peer-reviewed phase I study in 14 Japanese patients",
+    "issuer": "Cancer Chemotherapy and Pharmacology",
+    "year": 2011,
+    "source_type": "Phase I clinical study",
+    "evidence_tier": "Peer-reviewed primary research",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/21079959/",
+    "limitations": "Small, early-phase study; signals should be treated as historical benchmarks rather than universal class effects."
+  },
+  "LY2181308-PRECLINICAL-2011": {
+    "title": "Antisense Inhibition of Survivin Expression as a Cancer Therapeutic",
+    "status": "Peer-reviewed preclinical primary research",
+    "issuer": "Molecular Cancer Therapeutics",
+    "year": 2011,
+    "source_type": "Preclinical pharmacology study",
+    "evidence_tier": "Peer-reviewed primary research",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/21216939/",
+    "limitations": "Preclinical proof of concept does not establish clinical benefit or the safety of a different sequence or chemistry."
+  },
+  "MOUNJARO-LABEL-2026": {
+    "title": "MOUNJARO (Tirzepatide) U.S. Prescribing Information",
+    "status": "Current DailyMed label, updated in 2026; verify the current SPL at time of use",
+    "issuer": "FDA / DailyMed",
+    "year": 2026,
+    "source_type": "Official drug label",
+    "evidence_tier": "Primary regulatory source",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=d2d7da5d-ad07-4228-955f-cf7e355c8cc0",
+    "limitations": "Applies to approved Mounjaro products; it is not direct evidence for compounded combinations or a different incretin candidate."
+  },
+  "TAC-AZOLE-VALIDATION-2025": {
+    "title": "Accuracy of CYP3A5 Pharmacogenomics Recommended Dosing of Tacrolimus With Concomitant Azole Antifungals Early Post-Lung Transplant",
+    "status": "Peer-reviewed brief communication",
+    "issuer": "Clinical Transplantation",
+    "year": 2025,
+    "source_type": "Clinical validation study",
+    "evidence_tier": "Peer-reviewed observational evidence",
+    "url": "https://pubmed.ncbi.nlm.nih.gov/41085641/",
+    "limitations": "Single clinical context with 85 lung-transplant recipients; generalizability requires local validation."
+  },
+  "TACROLIMUS-LABEL-CURRENT": {
+    "title": "Tacrolimus Capsules — U.S. Prescribing Information",
+    "status": "Current DailyMed drug label; verify the current SPL version at time of use",
+    "issuer": "FDA / DailyMed",
+    "year": 2024,
+    "source_type": "Official drug label",
+    "evidence_tier": "Primary regulatory source",
+    "url": "https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=23b7b4d7-1431-e9f2-43ba-eabd169dc2dd&version=4",
+    "limitations": "Product- and formulation-specific labeling should be confirmed for the exact marketed product."
+  },
+  "TIR-B12-IMPURITY-2026": {
+    "title": "A Novel, Widespread Impurity in Mass-Compounded Tirzepatide/B12 Products: Potential Patient Safety Implications",
+    "status": "Peer-reviewed report published in 2026",
+    "issuer": "Expert Opinion on Drug Safety",
+    "year": 2026,
+    "source_type": "Analytical quality report",
+    "evidence_tier": "Emerging peer-reviewed evidence",
+    "url": "https://www.tandfonline.com/doi/full/10.1080/14740338.2026.2663185",
+    "limitations": "Authors disclosed employment by Eli Lilly; the impurity's clinical effects remain unknown and independent replication is warranted."
+  },
+  "TIRZEPATIDE-MECHANISM-2020": {
+    "title": "Tirzepatide Is an Imbalanced and Biased Dual GIP and GLP-1 Receptor Agonist",
+    "status": "Peer-reviewed mechanistic study",
+    "issuer": "JCI Insight",
+    "year": 2020,
+    "source_type": "Mechanistic pharmacology study",
+    "evidence_tier": "Peer-reviewed primary research",
+    "url": "https://insight.jci.org/articles/view/140532",
+    "limitations": "Mechanistic pharmacology does not by itself establish the safety profile of a different dual or triple agonist."
+  },
+  "TIRZEPATIDE-STRUCTURE-2022": {
+    "title": "Structural Insights into Multiplexed Pharmacological Actions of Tirzepatide and Peptide 20",
+    "status": "Peer-reviewed structural pharmacology study",
+    "issuer": "Nature Communications",
+    "year": 2022,
+    "source_type": "Structural pharmacology study",
+    "evidence_tier": "Peer-reviewed primary research",
+    "url": "https://www.nature.com/articles/s41467-022-28683-0",
+    "limitations": "Structural similarity or receptor binding does not replace candidate-specific exposure and toxicology evidence."
+  }
+}

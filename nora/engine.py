@@ -6,6 +6,7 @@ from hashlib import sha256
 from typing import Iterable
 
 from . import __ontology_version__, __rule_set_version__
+from .ai_credibility import assess_ai_credibility
 from .models import AssessmentInput, AssessmentResult, DataGap, GateResult
 
 
@@ -513,7 +514,107 @@ def _evidence_concordance(inp: AssessmentInput, gaps: list[DataGap]) -> tuple[fl
     return _bounded(score), streams, conflict
 
 
-def _animal_use_text(role: int) -> tuple[str, str]:
+def _toxicity_direction(inp: AssessmentInput, conflict: bool) -> str:
+    if conflict:
+        return "상충"
+    directions: list[str] = []
+    if inp.ai_model.use_ai:
+        if inp.ai_model.result == "양성 / 위험 신호":
+            directions.append("positive")
+        elif inp.ai_model.result == "음성 / 낮은 위험 예측":
+            directions.append("negative")
+        else:
+            directions.append("uncertain")
+    if inp.nam_assay.use_nam and inp.nam_assay.result != "시험 무효":
+        if inp.nam_assay.result == "양성":
+            directions.append("positive")
+        elif inp.nam_assay.result == "음성":
+            directions.append("negative")
+        else:
+            directions.append("uncertain")
+    if not directions:
+        return "평가 불가"
+    if all(item == "positive" for item in directions):
+        return "일관된 양성 신호" if len(directions) > 1 else "양성 신호"
+    if all(item == "negative" for item in directions):
+        return "일관된 음성 신호" if len(directions) > 1 else "음성 신호"
+    if "positive" in directions and "negative" not in directions:
+        return "양성 신호"
+    if "negative" in directions and "positive" not in directions:
+        return "음성 신호"
+    return "불확실"
+
+
+def _evidence_confidence(
+    inp: AssessmentInput,
+    method: float,
+    applicability: float,
+    human: float,
+    exposure: float,
+    concordance: float,
+    ai_profile: dict[str, float | str],
+    critical_gap_count: int,
+) -> str:
+    numeric = [method, applicability, human, exposure, concordance]
+    numeric.extend(float(value) for value in ai_profile.values() if isinstance(value, (int, float)))
+    score = _average(numeric)
+    support = inp.supporting_evidence
+    if not support.evidence_traceable:
+        score = min(score, 1.5)
+    if not support.assertions_reviewed:
+        score = min(score, 2.2)
+    if critical_gap_count:
+        score = min(score, 2.4 if critical_gap_count == 1 else 1.8)
+    if score >= 3.1:
+        return "높음"
+    if score >= 2.1:
+        return "중간"
+    if score >= 1.0:
+        return "낮음"
+    return "평가 불가"
+
+
+def _development_concern(
+    direction: str,
+    prediction_reliability: str,
+    evidence_confidence: str,
+    human: float,
+    exposure: float,
+    uncertainty: str,
+) -> str:
+    if direction in {"일관된 양성 신호", "양성 신호"}:
+        if evidence_confidence in {"높음", "중간"} or human >= 2.5 or exposure >= 2.5:
+            return "높음 — 신뢰 가능한 독성신호의 확인·기전규명 우선"
+        return "중간–높음 — 양성신호 확인 필요"
+    if direction == "상충":
+        return "중간–높음 — 상충 근거 해소 전 낮게 분류 불가"
+    if direction == "불확실":
+        return "미정 — 경계 또는 불확실한 결과"
+    if direction in {"일관된 음성 신호", "음성 신호"}:
+        if (
+            prediction_reliability == "높음"
+            and evidence_confidence == "높음"
+            and human >= 3.0
+            and exposure >= 3.0
+            and uncertainty == "낮음"
+        ):
+            return "낮음 — 정의된 Context of Use 내"
+        if prediction_reliability in {"높음", "중간"} and human >= 2.0 and exposure >= 2.0:
+            return "낮음–중간 — 추가 확인과 사용범위 제한 필요"
+        return "미정 — 음성결과만으로 낮게 분류할 수 없음"
+    return "평가 불가"
+
+
+def _animal_use_text(role: int, direction: str, concern: str) -> tuple[str, str]:
+    if direction in {"일관된 양성 신호", "양성 신호"} or concern.startswith("높음") or concern.startswith("중간–높음"):
+        return (
+            "축소보다 독성신호 확인 우선",
+            "현재 근거는 독성신호의 확인, 기전규명, 노출-반응 및 표적화된 후속시험을 우선하도록 지지합니다. 단순 동물시험 축소로 해석해서는 안 됩니다.",
+        )
+    if direction == "상충":
+        return ("동물시험 축소 미지원", "상충 원인을 독립적으로 확인하기 전에는 동물시험 축소 또는 대체를 지지하지 않습니다.")
+    if concern.startswith("미정") and role >= 4:
+        return ("축소 판단 보류", "Evidence Role이 높더라도 Development Concern이 미정이면 동물시험 축소 결론을 보류합니다.")
     return {
         0: ("평가 불가", "필수정보 또는 유효한 실행이 부족합니다."),
         1: ("축소·대체 근거 불충분", "추가 근거 확보 전 기존 독성평가를 축소해서는 안 됩니다."),
@@ -535,91 +636,43 @@ def evaluate(inp: AssessmentInput) -> AssessmentResult:
 
     if not cou.question_of_interest.strip():
         _add_gap(
-            gaps,
-            "ET-G001",
-            "독성 질문 미정의",
-            "Question of Interest가 명확히 정의되지 않았습니다.",
-            "결정 제한",
-            "ET-R001",
-            "Evidence Role R0",
-            "독성질문과 Context of Use를 한 문장으로 명확히 정의하십시오.",
+            gaps, "ET-G001", "독성 질문 미정의", "Question of Interest가 명확히 정의되지 않았습니다.",
+            "결정 제한", "ET-R001", "Evidence Role R0", "독성질문과 Context of Use를 한 문장으로 명확히 정의하십시오.",
         )
     if not product.product_name.strip():
         _add_gap(
-            gaps,
-            "ET-G001B",
-            "후보물질 미정의",
-            "평가 대상 후보물질을 확인할 수 없습니다.",
-            "결정 제한",
-            "ET-R001",
-            "Evidence Role R0",
-            "후보물질명과 modality를 정의하십시오.",
+            gaps, "ET-G001B", "후보물질 미정의", "평가 대상 후보물질을 확인할 수 없습니다.",
+            "결정 제한", "ET-R001", "Evidence Role R0", "후보물질명과 modality를 정의하십시오.",
         )
     if cou.target_endpoint != "초기 간독성":
         _add_gap(
-            gaps,
-            "ET-G000",
-            "MVP 활성범위 밖",
-            "현재 v0.4의 상세 규칙은 초기 간독성에 한정됩니다.",
-            "결정 제한",
-            "ET-R001",
-            "Evidence Role R0",
-            "초기 간독성 vertical slice로 평가하거나 향후 endpoint 모듈을 추가하십시오.",
+            gaps, "ET-G000", "MVP 활성범위 밖", "현재 v0.8의 상세 규칙은 초기 간독성에 한정됩니다.",
+            "결정 제한", "ET-R001", "Evidence Role R0", "초기 간독성 vertical slice로 평가하거나 검증된 endpoint 모듈을 추가하십시오.",
         )
     if not ai.use_ai and not nam.use_nam:
         _add_gap(
-            gaps,
-            "ET-G000B",
-            "평가방법 없음",
-            "AI 또는 NAM 근거 중 하나 이상을 입력해야 합니다.",
-            "결정 제한",
-            "ET-R001",
-            "Evidence Role R0",
-            "적어도 하나의 AI 또는 NAM 결과를 입력하십시오.",
+            gaps, "ET-G000B", "평가방법 없음", "AI 또는 NAM 근거 중 하나 이상을 입력해야 합니다.",
+            "결정 제한", "ET-R001", "Evidence Role R0", "적어도 하나의 AI 또는 NAM 결과를 입력하십시오.",
         )
     if product.modality in {"나노의약품", "siRNA + 나노의약품"} and nam.use_nam and nam.carrier_only_control == "미포함":
         _add_gap(
-            gaps,
-            "ET-G025",
-            "Carrier-only 대조군 누락",
-            "전달체 자체의 독성기여를 분리할 수 없습니다.",
-            "결정 제한",
-            "ET-R010",
-            "제형 기여도 판단 불가",
-            "Carrier-only와 active-only 대조군으로 독성기여를 분리하십시오.",
+            gaps, "ET-G025", "Carrier-only 대조군 누락", "전달체 자체의 독성기여를 분리할 수 없습니다.",
+            "결정 제한", "ET-R010", "제형 기여도 판단 불가", "Carrier-only와 active-only 대조군으로 독성기여를 분리하십시오.",
         )
     if not support.evidence_traceable:
         _add_gap(
-            gaps,
-            "ET-G026",
-            "근거 추적성 부족",
-            "결론을 문서·페이지·표·원자료로 추적할 수 없습니다.",
-            "결정 제한",
-            "ET-R014",
-            "Evidence Role 최대 R2",
-            "모든 assertion을 문서·페이지·표·원자료와 연결하십시오.",
+            gaps, "ET-G026", "근거 추적성 부족", "결론을 문서·페이지·표·원자료로 추적할 수 없습니다.",
+            "결정 제한", "ET-R014", "Evidence Role 최대 R2", "모든 assertion을 문서·페이지·표·원자료와 연결하십시오.",
         )
     if not support.assertions_reviewed:
         _add_gap(
-            gaps,
-            "ET-G028",
-            "구조화 근거 미검토",
-            "AI가 추출한 Evidence Assertion을 전문가가 아직 승인하지 않았습니다.",
-            "주요 보완",
-            "ET-R014",
-            "고영향 결론 보류",
-            "AI 추출 assertion을 독성전문가가 승인·수정·거절하도록 하십시오.",
+            gaps, "ET-G028", "구조화 근거 미검토", "AI가 추출한 Evidence Assertion을 전문가가 아직 승인하지 않았습니다.",
+            "주요 보완", "ET-R014", "고영향 결론 보류", "AI 추출 assertion을 독성전문가가 승인·수정·거절하도록 하십시오.",
         )
     if not support.version_locked:
         _add_gap(
-            gaps,
-            "ET-G027",
-            "버전 기록 부족",
-            "모델·시험법·규칙 버전이 고정되지 않았습니다.",
-            "주요 보완",
-            "ET-R015",
-            "재현성과 재평가 범위 불명",
-            "모델, NAM, ontology 및 rule set 버전을 기록하십시오.",
+            gaps, "ET-G027", "버전 기록 부족", "모델·시험법·규칙 버전이 고정되지 않았습니다.",
+            "주요 보완", "ET-R015", "재현성과 재평가 범위 불명", "모델, NAM, ontology 및 rule set 버전을 기록하십시오.",
         )
 
     method = _method_credibility(inp, gaps)
@@ -627,6 +680,11 @@ def evaluate(inp: AssessmentInput) -> AssessmentResult:
     human = _human_relevance(inp, gaps)
     exposure = _exposure_relevance(inp, gaps)
     concordance, streams, conflict = _evidence_concordance(inp, gaps)
+    ai_assessment = assess_ai_credibility(inp, applicability)
+    for item in ai_assessment.gaps:
+        if not any(existing.code == item.code for existing in gaps):
+            gaps.append(item)
+    gates.extend(ai_assessment.gates)
 
     critical = [g for g in gaps if g.criticality == "결정 제한"]
     role = 0
@@ -637,54 +695,33 @@ def evaluate(inp: AssessmentInput) -> AssessmentResult:
     if method >= 2.5 and applicability >= 2.5 and human >= 2.0 and exposure >= 2.0 and concordance >= 2.0 and not conflict:
         role = 3
     if (
-        method >= 3.0
-        and applicability >= 3.0
-        and human >= 3.0
-        and exposure >= 3.0
-        and concordance >= 3.0
-        and not critical
-        and support.expert_reviewed
-        and streams >= 2
+        method >= 3.0 and applicability >= 3.0 and human >= 3.0 and exposure >= 3.0
+        and concordance >= 3.0 and not critical and support.expert_reviewed and streams >= 2
+        and (not ai.use_ai or ai_assessment.prediction_reliability_score >= 3.0)
+        and (not ai.use_ai or ai_assessment.lifecycle_governance >= 2.5)
     ):
         role = 4
     if (
-        role >= 4
-        and cou.objective == "특정 독성시험 대체 후보 평가"
-        and method >= 3.5
-        and applicability >= 3.5
-        and human >= 3.5
-        and exposure >= 3.5
-        and concordance >= 3.5
-        and ai.external_validation == "확인됨"
-        and ai.false_negative_rate_percent is not None
-        and support.evidence_traceable
-        and support.assertions_reviewed
-        and support.expert_reviewed
-        and support.version_locked
+        role >= 4 and cou.objective == "특정 독성시험 대체 후보 평가"
+        and method >= 3.5 and applicability >= 3.5 and human >= 3.5 and exposure >= 3.5
+        and concordance >= 3.5 and ai.external_validation == "확인됨"
+        and ai.false_negative_rate_percent is not None and support.evidence_traceable
+        and support.assertions_reviewed and support.expert_reviewed and support.version_locked
+        and ai_assessment.prediction_reliability_score >= 3.5
+        and ai_assessment.lifecycle_governance >= 3.0
     ):
         role = 5
 
-    # Hard caps
     domain = _domain_status(inp)
     if ai.use_ai and ai.result == "음성 / 낮은 위험 예측" and domain == "Out-of-domain":
         role = min(role, 1)
-    if (
-        ai.use_ai
-        and ai.result == "음성 / 낮은 위험 예측"
-        and ai.false_negative_rate_percent is None
-        and cou.decision_consequence >= 3
-    ):
+    if ai.use_ai and ai.result == "음성 / 낮은 위험 예측" and ai.false_negative_rate_percent is None and cou.decision_consequence >= 3:
         role = min(role, 2)
-    if nam.use_nam and (nam.positive_control != "유효" or nam.negative_control != "유효" or nam.result == "시험 무효"):
-        if not ai.use_ai:
-            role = min(role, 1)
+    if nam.use_nam and (nam.positive_control != "유효" or nam.negative_control != "유효" or nam.result == "시험 무효") and not ai.use_ai:
+        role = min(role, 1)
     if nam.use_nam and nam.result == "음성" and nam.measured_exposure == "측정 안 됨":
         role = min(role, 2)
-    if (
-        nam.use_nam
-        and product.exposure_pattern in {"반복 노출", "지속 노출"}
-        and nam.exposure_design == "단회/급성 노출"
-    ):
+    if nam.use_nam and product.exposure_pattern in {"반복 노출", "지속 노출"} and nam.exposure_design == "단회/급성 노출":
         role = min(role, 2)
     if conflict:
         role = min(role, 2)
@@ -694,6 +731,24 @@ def evaluate(inp: AssessmentInput) -> AssessmentResult:
         role = min(role, 3)
     if streams < 2:
         role = min(role, 3)
+
+    # AI-specific conservative role caps.
+    if ai.use_ai:
+        if ai.test_set_independence == "비독립 / 중복 확인" or ai.leakage_assessment == "누수 확인":
+            role = min(role, 1)
+        elif ai.leakage_assessment in {"누수 가능성", "미평가"} and cou.model_influence >= 3:
+            role = min(role, 2)
+        if ai_assessment.ground_truth_adequacy < 2.0 or ai_assessment.performance_adequacy < 2.0:
+            role = min(role, 2)
+        if ai_assessment.prediction_reliability_score < 1.0:
+            role = min(role, 1)
+        elif ai_assessment.prediction_reliability_score < 2.0:
+            role = min(role, 2)
+        if ai.probability_percent is not None and isinstance(ai_assessment.calibration_adequacy, float) and ai_assessment.calibration_adequacy < 2.0:
+            role = min(role, 3)
+        if ai_assessment.lifecycle_governance < 2.0:
+            role = min(role, 3)
+
     if not cou.question_of_interest.strip() or not product.product_name.strip() or cou.target_endpoint != "초기 간독성":
         role = 0
 
@@ -704,6 +759,29 @@ def evaluate(inp: AssessmentInput) -> AssessmentResult:
         uncertainty = "높음"
     elif len(gaps) >= 2:
         uncertainty = "중간"
+
+    toxicity_direction = _toxicity_direction(inp, conflict)
+    # A credible positive signal is useful evidence, but it is not reduction-supporting evidence.
+    if toxicity_direction in {"일관된 양성 신호", "양성 신호"}:
+        role = min(role, 3)
+    evidence_confidence = _evidence_confidence(
+        inp,
+        method,
+        applicability,
+        human,
+        exposure,
+        concordance,
+        ai_assessment.profile(),
+        len(critical),
+    )
+    development_concern = _development_concern(
+        toxicity_direction,
+        ai_assessment.prediction_reliability_label,
+        evidence_confidence,
+        human,
+        exposure,
+        uncertainty,
+    )
 
     gates.extend(
         [
@@ -721,34 +799,46 @@ def evaluate(inp: AssessmentInput) -> AssessmentResult:
     )
 
     role_code, role_name, role_desc = ROLE_DEFINITIONS[role]
-    animal_status, animal_desc = _animal_use_text(role)
+    animal_status, animal_desc = _animal_use_text(role, toxicity_direction, development_concern)
 
     observations: list[str] = [
         f"평가 대상은 {product.product_name or '미정 후보물질'}이며 제품 modality는 {product.modality}, 투여경로는 {product.route}입니다.",
     ]
     if ai.use_ai:
         observations.append(f"AI 모델 {ai.model_name or '(모델명 미상)'} {ai.model_version or '(버전 미상)'}은 {ai.result} 결과를 제시했습니다.")
+        observations.append(
+            f"개별 AI 예측 신뢰성은 {ai_assessment.prediction_reliability_label}이며, 데이터·ground truth·성능·calibration·lifecycle을 분리해 평가했습니다."
+        )
     if nam.use_nam:
         observations.append(f"{nam.nam_type} NAM에서 {nam.result} 결과가 입력되었고 노출설계는 {nam.exposure_design}입니다.")
 
     interpretations: list[str] = []
     if ai.use_ai and domain == "Out-of-domain":
         interpretations.append("AI 모델의 일반적 성능과 별개로 현재 후보는 적용범위 밖이므로 음성예측을 낮은 독성우려로 해석할 수 없습니다.")
+    if ai.use_ai and ai.probability_percent is not None and ai.probability_type != "보정된 확률":
+        interpretations.append("표시된 퍼센트는 calibrated probability로 확인되지 않았으므로 실제 독성 발생확률로 표현할 수 없습니다.")
+    if ai.use_ai and ai.leakage_assessment in {"누수 확인", "누수 가능성"}:
+        interpretations.append("Data leakage 가능성 때문에 보고된 검증성능이 과대평가됐을 수 있습니다.")
     if nam.use_nam and nam.result == "음성" and nam.measured_exposure == "측정 안 됨":
         interpretations.append("실제 free 또는 세포내 노출이 입증되지 않아 NAM 음성결과는 Reliable Negative가 아닙니다.")
     if nam.use_nam and product.exposure_pattern in {"반복 노출", "지속 노출"} and nam.exposure_design == "단회/급성 노출":
         interpretations.append("반복 또는 지속 투여계획을 급성 단회 NAM으로만 평가하여 누적·적응·지연독성의 불확실성이 남습니다.")
     if conflict:
         interpretations.append("AI와 NAM 근거가 상충하므로 어느 결과도 우선하지 않고 원인 규명과 독립적 확인이 필요합니다.")
+    if toxicity_direction in {"일관된 양성 신호", "양성 신호"}:
+        interpretations.append("근거 신뢰성이 높다는 것은 안전하다는 뜻이 아니라, 확인해야 할 독성신호가 더 신뢰할 수 있다는 의미입니다.")
     if not interpretations:
         interpretations.append("현재 방법의 신뢰성·적용성·사람 관련성·노출 관련성을 종합하면 다른 독립적 근거와 함께 제한된 범위에서 활용할 수 있습니다.")
 
     development_relevance = [
         f"현재 패키지의 Evidence Role은 {role_code} — {role_name}입니다.",
+        f"Evidence Confidence는 {evidence_confidence}, Toxicity Direction은 {toxicity_direction}, Development Concern은 {development_concern}입니다.",
         animal_desc,
         f"잔여 불확실성은 {uncertainty}이며, 모델 위험은 {_model_risk(inp)}입니다.",
     ]
     recommendations = list(dict.fromkeys(g.recommendation for g in gaps))
+    if toxicity_direction in {"일관된 양성 신호", "양성 신호"}:
+        recommendations.insert(0, "양성 독성신호의 용량·시간·기전·노출-반응을 독립적 방법으로 확인하고, 필요 시 표적화된 in vivo 평가와 임상 위험완화 초안을 마련하십시오.")
     if not recommendations:
         recommendations.append("현재 근거 역할의 사용조건을 명확히 문서화하고, 실제 동물시험 변경 전 전문가 및 필요 시 규제기관과 검토하십시오.")
 
@@ -761,12 +851,31 @@ def evaluate(inp: AssessmentInput) -> AssessmentResult:
         "rule_set_version": __rule_set_version__,
         "input_hash": input_hash,
         "ai_domain_status": domain,
+        "ai_prediction_reliability": ai_assessment.prediction_reliability_label,
+        "evidence_confidence": evidence_confidence,
+        "toxicity_direction": toxicity_direction,
+        "development_concern": development_concern,
         "assertions_reviewed": support.assertions_reviewed,
         "expert_reviewed": support.expert_reviewed,
         "evidence_traceable": support.evidence_traceable,
         "version_locked": support.version_locked,
         "expert_review_note": support.expert_review_note,
         "prototype_boundary": "초기 간독성 vertical slice; 연구 및 의사결정 지원용",
+    }
+
+    scores: dict[str, float | str] = {
+        "방법 신뢰성": method,
+        "데이터 신뢰성": ai_assessment.data_credibility if ai.use_ai else "해당 없음",
+        "Endpoint·Ground Truth 적절성": ai_assessment.ground_truth_adequacy if ai.use_ai else "해당 없음",
+        "예측성능 적절성": ai_assessment.performance_adequacy if ai.use_ai else "해당 없음",
+        "Calibration 적절성": ai_assessment.calibration_adequacy if ai.use_ai else "해당 없음",
+        "후보 적용성": applicability,
+        "개별 예측 신뢰성": ai_assessment.prediction_reliability_score if ai.use_ai else "해당 없음",
+        "사람 생물학적 관련성": human,
+        "노출 관련성": exposure,
+        "근거 일치성": concordance,
+        "Lifecycle·Governance": ai_assessment.lifecycle_governance if ai.use_ai else "해당 없음",
+        "잔여 불확실성": uncertainty,
     }
 
     return AssessmentResult(
@@ -779,14 +888,12 @@ def evaluate(inp: AssessmentInput) -> AssessmentResult:
         model_risk=_model_risk(inp),
         residual_uncertainty=uncertainty,
         evidence_stream_count=streams,
-        scores={
-            "방법 신뢰성": method,
-            "후보 적용성": applicability,
-            "사람 생물학적 관련성": human,
-            "노출 관련성": exposure,
-            "근거 일치성": concordance,
-            "잔여 불확실성": uncertainty,
-        },
+        evidence_confidence=evidence_confidence,
+        toxicity_direction=toxicity_direction,
+        prediction_reliability=ai_assessment.prediction_reliability_label,
+        development_concern=development_concern,
+        ai_credibility_profile=ai_assessment.profile(),
+        scores=scores,
         gates=gates,
         data_gaps=gaps,
         observations=observations,

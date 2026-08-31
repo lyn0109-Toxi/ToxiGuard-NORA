@@ -1,0 +1,65 @@
+[
+  {
+    "objective_id": "QUESTION_FRAME",
+    "question_ko": "어떤 독성질문을 먼저 설정해야 합니까?",
+    "question_en": "Which toxicity questions should be defined first?",
+    "service": "Discovery Toxicity Mapping",
+    "case_ids": ["LAB-001"]
+  },
+  {
+    "objective_id": "AI_CREDIBILITY",
+    "question_ko": "AI 독성예측을 어디까지 믿고 사용할 수 있습니까?",
+    "question_en": "How far can the AI toxicity prediction be trusted and used?",
+    "service": "AI/NAM Evidence Assurance",
+    "case_ids": ["AI-002", "DD-008"]
+  },
+  {
+    "objective_id": "CANDIDATE_SELECT",
+    "question_ko": "어떤 후보 또는 자산에 다음 자금을 투입해야 합니까?",
+    "question_en": "Which candidate or asset should receive the next investment?",
+    "service": "Candidate & Portfolio Decision Workshop",
+    "case_ids": ["CAND-003", "VC-011"]
+  },
+  {
+    "objective_id": "ANIMAL_REDUCTION",
+    "question_ko": "동물시험의 무엇을 정교화하거나 줄일 수 있습니까?",
+    "question_en": "Which animal-study components can be refined or reduced?",
+    "service": "3Rs Evidence Strategy",
+    "case_ids": ["RED-004", "MAB-006"]
+  },
+  {
+    "objective_id": "POSITIVE_SIGNAL",
+    "question_ko": "사람 관련 양성신호가 나타났을 때 무엇을 해야 합니까?",
+    "question_en": "What should be done after a human-relevant positive signal?",
+    "service": "Positive Signal Escalation Review",
+    "case_ids": ["GT-005", "DD-008"]
+  },
+  {
+    "objective_id": "PROTOCOL_REVIEW",
+    "question_ko": "CRO 프로토콜이 본래 독성질문에 답할 수 있습니까?",
+    "question_en": "Can the CRO protocol answer the intended toxicity questions?",
+    "service": "Protocol Readiness Review",
+    "case_ids": ["CRO-007"]
+  },
+  {
+    "objective_id": "REGULATORY_MEETING",
+    "question_ko": "Pre-IND/CTA 미팅에서 무엇을 질문하고 어떻게 주장해야 합니까?",
+    "question_en": "What should be asked and claimed in a pre-IND/CTA interaction?",
+    "service": "Pre-IND / CTA Question & Briefing Package",
+    "case_ids": ["PREIND-009"]
+  },
+  {
+    "objective_id": "COMPARABILITY",
+    "question_ko": "제품변경 후 기존 독성자료를 bridging할 수 있습니까?",
+    "question_en": "Can existing toxicology evidence be bridged after a product change?",
+    "service": "CMC–Toxicology Comparability Review",
+    "case_ids": ["COMP-010"]
+  },
+  {
+    "objective_id": "IMPURITY_RESPONSE",
+    "question_ko": "불순물 limit와 보완시험 전략을 어떻게 방어해야 합니까?",
+    "question_en": "How should the impurity limit and follow-up strategy be defended?",
+    "service": "Impurity Safety & Regulatory Response",
+    "case_ids": ["IMP-012"]
+  }
+]

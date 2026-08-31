@@ -43,6 +43,9 @@ class StreamlitStub(types.ModuleType):
     def cache_resource(self, func=None, **_kwargs):
         return (lambda item: item) if func is None else func
 
+    def cache_data(self, func=None, **_kwargs):
+        return (lambda item: item) if func is None else func
+
     def __getattr__(self, name):
         if name in {"columns", "tabs", "container", "expander", "form", "spinner"}:
             return getattr(self, name)
@@ -110,7 +113,7 @@ class StreamlitStub(types.ModuleType):
         return value
 
     def radio(self, label, options, key=None, **_kwargs):
-        is_workspace = set(options) == {"overview", "documents", "assertions", "assessment", "results", "rules"}
+        is_workspace = set(options) == {"overview", "consulting", "documents", "assertions", "assessment", "results", "rules"}
         if key == "nora_language":
             value = os.environ.get("NORA_SMOKE_LANGUAGE", options[0])
         elif is_workspace:
@@ -141,7 +144,7 @@ def run_page(page: str) -> None:
 if __name__ == "__main__":
     temp_dir = tempfile.TemporaryDirectory(prefix="nora-smoke-")
     os.environ["NORA_DATA_DIR"] = temp_dir.name
-    pages = ["overview", "documents", "assertions", "assessment", "results", "rules"]
+    pages = ["overview", "consulting", "documents", "assertions", "assessment", "results", "rules"]
     for language in ["한국어", "English"]:
         os.environ["NORA_SMOKE_LANGUAGE"] = language
         for page in pages:
