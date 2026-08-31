@@ -103,6 +103,22 @@ LEGACY_NAV_PAGES = {
 }
 
 
+def normalize_nav_page(page: object) -> str:
+    page_id = LEGACY_NAV_PAGES.get(str(page), page)
+    return str(page_id) if page_id in NAV_PAGES else "overview"
+
+
+def queue_navigation(page: str) -> None:
+    st.session_state[PENDING_NAV_PAGE_KEY] = normalize_nav_page(page)
+
+
+def apply_pending_navigation() -> None:
+    requested_page = st.session_state.pop(
+        PENDING_NAV_PAGE_KEY,
+        st.session_state.get(NAV_PAGE_KEY, "overview"),
+    )
+    st.session_state[NAV_PAGE_KEY] = normalize_nav_page(requested_page)
+
 
 def language() -> str:
     selected = st.session_state.get("nora_language", "한국어")
@@ -123,21 +139,6 @@ def fmt(value: Any) -> str:
 
 def _page(page_id: str) -> str:
     return page_label(page_id, language())
-
-
-def _normalize_nav_page(page: object) -> str:
-    page_id = LEGACY_NAV_PAGES.get(page, page) if isinstance(page, str) else page
-    return page_id if page_id in NAV_PAGES else "overview"
-
-
-def _apply_pending_widget_state() -> None:
-    pending_nav_page = st.session_state.pop(PENDING_NAV_PAGE_KEY, None)
-    if pending_nav_page is not None:
-        normalized_page = _normalize_nav_page(pending_nav_page)
-    else:
-        normalized_page = _normalize_nav_page(st.session_state.get(NAV_PAGE_KEY))
-    if st.session_state.get(NAV_PAGE_KEY) != normalized_page:
-        st.session_state[NAV_PAGE_KEY] = normalized_page
 
 
 @st.cache_data
@@ -162,14 +163,10 @@ def project() -> ProjectBundle:
     return st.session_state.nora_project
 
 
-def _queue_navigation(page: str) -> None:
-    st.session_state[PENDING_NAV_PAGE_KEY] = _normalize_nav_page(page)
-
-
 def set_project(value: ProjectBundle, page: str = "overview") -> None:
     st.session_state.nora_project = value
     st.session_state.assessment_result = None
-    _queue_navigation(page)
+    queue_navigation(page)
 
 
 def result():
@@ -315,7 +312,6 @@ def pipeline(page: str) -> None:
     render_pipeline(steps, active_index)
 
 def sidebar() -> str:
-    _apply_pending_widget_state()
     p = project()
     with st.sidebar:
         st.markdown(
@@ -332,6 +328,7 @@ def sidebar() -> str:
             unsafe_allow_html=True,
         )
 
+        apply_pending_navigation()
         page = st.radio(
             T("workspace"),
             NAV_PAGES,
@@ -684,7 +681,7 @@ def page_project_overview() -> None:
     next_title, next_description, next_page = _next_action_state()
     render_next_action(next_title, next_description, T("next_best_action"))
     if st.button(L("권장 작업으로 이동", "Go to Recommended Workspace"), type="primary", key=f"next_action_{p.project_id}"):
-        _queue_navigation(next_page)
+        queue_navigation(next_page)
         st.rerun()
 
     left, right = st.columns([1.18, 0.82], gap="large")
@@ -738,13 +735,13 @@ def page_project_overview() -> None:
     )
     q1, q2, q3, q4 = st.columns(4)
     if q1.button(T("start_upload"), use_container_width=True, key=f"quick_upload_{p.project_id}"):
-        _queue_navigation("documents")
+        queue_navigation("documents")
         st.rerun()
     if q2.button(T("start_manual"), use_container_width=True, key=f"quick_manual_{p.project_id}"):
-        _queue_navigation("assessment")
+        queue_navigation("assessment")
         st.rerun()
     if q3.button(_page("consulting"), use_container_width=True, key=f"quick_consulting_{p.project_id}"):
-        _queue_navigation("consulting")
+        queue_navigation("consulting")
         st.rerun()
     if q4.button(T("gplct_case"), use_container_width=True, key=f"quick_gplct_{p.project_id}"):
         demo_project = ProjectBundle.new(name="GP-L-CT EarlyTox")
@@ -1027,7 +1024,7 @@ def page_assertion_review() -> None:
         add_event("승인 Assertion 적용", f"승인·수정 {sum(1 for item in p.assertions if item.review_status in {'승인','수정'})}개")
         invalidate_result()
         st.success(T("approved_applied"))
-        _queue_navigation("assessment")
+        queue_navigation("assessment")
         st.rerun()
 
     st.info(L(
@@ -1878,7 +1875,6 @@ def page_rules() -> None:
 
 
 
-_apply_pending_widget_state()
 header()
 page = sidebar()
 status_strip()
