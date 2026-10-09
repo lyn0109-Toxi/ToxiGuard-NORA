@@ -9,7 +9,7 @@ from .models import AssessmentInput, AssessmentResult, DataGap, GateResult
 LANGUAGE_NAMES = {"ko": "한국어", "en": "English"}
 
 UI_TEXT: dict[str, dict[str, str]] = {
-    "app_subtitle": {"ko": "AI·NAM 기반 초기 독성근거 검증", "en": "AI/NAM Early-Toxicity Evidence Assurance"},
+    "app_subtitle": {"ko": "AI·NAM 기반 비임상 독성근거 검토", "en": "AI/NAM Nonclinical Toxicity Evidence Review"},
     "header_description": {
         "ko": "AI와 비동물시험법(NAM)의 독성근거가 현재 후보물질의 개발에 어디까지 사용 가능한지 검증하는 Evidence Assurance 앱",
         "en": "An evidence-assurance application that evaluates how far AI and New Approach Methodology (NAM) toxicity evidence can be used for the current candidate.",
@@ -58,8 +58,8 @@ UI_TEXT: dict[str, dict[str, str]] = {
     "consulting_studio": {"ko": "컨설팅 스튜디오", "en": "Advisory Studio"},
     "consulting_studio_title": {"ko": "고객 목적별 컨설팅 사례", "en": "Client-Objective Advisory Cases"},
     "consulting_studio_caption": {
-        "ko": "고객 유형과 의사결정 목적에 맞는 사례를 비교하고, 현재 EarlyTox 엔진으로 평가할 수 있는 범위와 전문가 주도 범위를 구분합니다.",
-        "en": "Compare cases by client segment and decision objective, and distinguish the current EarlyTox automation scope from expert-led advisory work.",
+        "ko": "고객 유형과 의사결정 목적에 맞는 사례를 비교하고, 현재 NTR 엔진으로 평가할 수 있는 범위와 전문가 주도 범위를 구분합니다.",
+        "en": "Compare cases by client segment and decision objective, and distinguish the current NTR automation scope from expert-led advisory work.",
     },
     "next_best_action": {"ko": "다음 권장 작업", "en": "Next Best Action"},
     "case_filters": {"ko": "사례 필터", "en": "Case Filters"},
@@ -74,7 +74,7 @@ UI_TEXT: dict[str, dict[str, str]] = {
     "rules_ontology": {"ko": "규칙·온톨로지", "en": "Rules & Ontology"},
     "overview_text": {
         "ko": "AI/NAM 독성근거를 단순 점수로 평가하지 않고, 방법·실행·후보 적용성·사람 관련성·노출 번역·근거 일치성을 분리해 검토합니다.",
-        "en": "NORA does not reduce AI/NAM toxicity evidence to a single score. It separately reviews method credibility, execution validity, candidate applicability, human relevance, exposure translation, and evidence concordance.",
+        "en": "NTR does not reduce AI/NAM toxicity evidence to a single score. It separately reviews method credibility, execution validity, candidate applicability, human relevance, exposure translation, and evidence concordance.",
     },
     "current_question": {"ko": "현재 개발 질문", "en": "Current Development Question"},
     "qoi_missing": {"ko": "Question of Interest가 아직 정의되지 않았습니다. ‘평가 입력’에서 먼저 정의하십시오.", "en": "The Question of Interest has not yet been defined. Define it first under Assessment Input."},
@@ -91,8 +91,8 @@ UI_TEXT: dict[str, dict[str, str]] = {
     "carrier_formulation": {"ko": "전달체·제형", "en": "Carrier / Formulation"},
     "route_exposure": {"ko": "경로·노출", "en": "Route / Exposure"},
     "not_entered": {"ko": "미입력", "en": "Not entered"},
-    "judgments_made": {"ko": "앱이 내리는 판단", "en": "What NORA Assesses"},
-    "judgments_not_made": {"ko": "앱이 내리지 않는 판단", "en": "What NORA Does Not Decide"},
+    "judgments_made": {"ko": "앱이 내리는 판단", "en": "What NTR Assesses"},
+    "judgments_not_made": {"ko": "앱이 내리지 않는 판단", "en": "What NTR Does Not Decide"},
     "not_decide_text": {"ko": "안전성 인증 · 동물시험 면제 · 규제기관 승인 예측 · 전체 독성패키지 대체", "en": "Safety certification · animal-study waiver · regulatory approval prediction · replacement of the entire toxicology package"},
     "quick_start": {"ko": "빠른 시작", "en": "Quick Start"},
     "start_upload": {"ko": "문서 업로드로 시작", "en": "Start with Document Upload"},
@@ -147,9 +147,9 @@ UI_TEXT: dict[str, dict[str, str]] = {
     "structured_input_caption": {"ko": "승인된 Assertion을 자동 적용한 뒤 사람이 최종 입력값을 검토할 수 있습니다. 현재 상세 규칙의 활성 범위는 초기 간독성입니다.", "en": "Reviewed Assertions can be applied automatically, after which a human reviews the final structured inputs. The currently active detailed rule set is limited to early hepatotoxicity."},
     "save_assessment_input": {"ko": "평가 입력 저장", "en": "Save Assessment Input"},
     "assessment_saved": {"ko": "평가 입력을 저장했습니다.", "en": "Assessment input has been saved."},
-    "results_title": {"ko": "NORA 자문 결과 및 보고서", "en": "NORA Advisory Results & Reports"},
+    "results_title": {"ko": "NTR 자문 결과 및 보고서", "en": "NTR Advisory Results & Reports"},
     "results_caption": {"ko": "평가 결과는 안전성 인증이 아니라, 현재 근거의 사용 가능한 역할과 다음 근거를 설명합니다.", "en": "The assessment does not certify safety. It explains the current evidence role, its limits, and the next evidence needed."},
-    "run_assessment": {"ko": "NORA EarlyTox 평가 실행", "en": "Run NORA EarlyTox Assessment"},
+    "run_assessment": {"ko": "NTR 평가 실행", "en": "Run NTR Assessment"},
     "assessment_placeholder": {"ko": "평가를 실행하면 Evidence Role, Hard Gate, Data Gap, 자문 및 내보내기 파일이 생성됩니다.", "en": "Run the assessment to generate the Evidence Role, hard gates, data gaps, advisory interpretation, and export files."},
     "animal_recommendation": {"ko": "동물사용 관련 권고", "en": "Animal-Use Recommendation"},
     "model_risk": {"ko": "모델 위험", "en": "Model Risk"},
@@ -175,7 +175,7 @@ UI_TEXT: dict[str, dict[str, str]] = {
     "pdf_disabled": {"ko": "PDF 생성이 비활성화되었습니다: {error}", "en": "PDF generation is unavailable: {error}"},
     "rules_title": {"ko": "규칙 카탈로그와 TG-PTO-ET", "en": "Rule Catalog & TG-PTO-ET"},
     "rules_caption": {"ko": "OWL/RDF는 개념과 관계를 표현하고, SHACL은 필수정보와 추적성을 검증하며, 결정론적 Rule Engine이 Evidence Role과 Data Gap을 계산합니다.", "en": "OWL/RDF represents concepts and relationships, SHACL validates required information and traceability, and the deterministic Rule Engine calculates Evidence Roles and Data Gaps."},
-    "rule_catalog": {"ko": "EarlyTox 규칙 카탈로그", "en": "EarlyTox Rule Catalog"},
+    "rule_catalog": {"ko": "NTR 규칙 카탈로그", "en": "NTR Rule Catalog"},
     "top_constraints": {"ko": "최상위 논리제약", "en": "Top-Level Logical Constraints"},
 }
 
@@ -875,6 +875,7 @@ AUDIT_ACTION_EN = {
     "승인 Assertion 적용": "Reviewed Assertions applied",
     "구조화 평가 입력 저장": "Structured assessment input saved",
     "EarlyTox 평가 실행": "EarlyTox assessment run",
+    "NTR 평가 실행": "NTR assessment run",
 }
 
 

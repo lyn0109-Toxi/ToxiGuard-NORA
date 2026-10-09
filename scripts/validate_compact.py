@@ -51,7 +51,7 @@ def _run_validation() -> int:
     smoke = run_script("scripts/smoke_streamlit_stub.py")
 
     print("")
-    print("NORA compact package validation")
+    print("NTR compact package validation")
     print(f"- Python compile failures: {len(compile_failures)}")
     print(f"- Unit tests run: {test_result.testsRun}")
     print(f"- Unit test failures: {len(test_result.failures)}")

@@ -30,3 +30,12 @@ R4, R5, Reliable Negative, animal-study reduction, and replacement-candidate con
 **Status:** Accepted
 
 The Streamlit app remains at repository root. The explanatory TG-PTO-ET website is kept under `site/` and deployed through GitHub Pages.
+
+## ADR-006 — Toxicity review app is named ToxiGuard NTR
+
+**Status:** Accepted
+**Date:** 2026-10-09
+
+The toxicity evidence review app is named **ToxiGuard NTR**, where NTR means **Nonclinical Toxicity Review**. Its product description is "AI·NAM 기반 비임상 독성근거 검토". NORA remains the name of the broader strategy workspace integrating VCC, CTI, RF, and NTR. The current detailed assessment rules remain focused on early liver toxicity; the rename does not expand validated scope.
+
+Update current app labels and product documentation while retaining existing repository paths, deployment URLs, Python module and environment variable names, project schemas (`nora-project-*`), and NORA homepage backup compatibility (`appId: nora`). Historical decisions, exported files, and user projects remain readable without migration. Public deployment and changes to the separately hosted NORA homepage require their own release steps.

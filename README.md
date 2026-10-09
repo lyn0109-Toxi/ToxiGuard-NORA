@@ -1,14 +1,16 @@
-# ToxiGuard NORA
+# ToxiGuard NTR
 
-[![NORA Validation](https://github.com/lyn0109-Toxi/ToxiGuard-NORA/actions/workflows/ci.yml/badge.svg)](https://github.com/lyn0109-Toxi/ToxiGuard-NORA/actions/workflows/ci.yml)
+[![NTR Validation](https://github.com/lyn0109-Toxi/ToxiGuard-NORA/actions/workflows/ci.yml/badge.svg)](https://github.com/lyn0109-Toxi/ToxiGuard-NORA/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/Python-3.11%20%7C%203.12-3776AB)
 ![Streamlit](https://img.shields.io/badge/Streamlit-1.39%2B-FF4B4B)
 ![Ontology](https://img.shields.io/badge/Ontology-TG--PTO--ET-138A82)
 ![License](https://img.shields.io/badge/License-Proprietary-10243F)
 
-**NORA** stands for **Nonclinical Ontology-based Risk Advisor**.
+**NTR** stands for **Nonclinical Toxicity Review**.
 
-ToxiGuard NORA EarlyTox is an ontology-driven evidence-assurance workspace for evaluating whether AI- and New Approach Methodology (NAM) toxicity evidence is:
+ToxiGuard NTR is the nonclinical toxicity review app; **NORA** remains the broader strategy and evidence-integration workspace. The repository name and technical identifiers remain unchanged.
+
+ToxiGuard NTR is an ontology-driven evidence-assurance workspace for evaluating whether AI- and New Approach Methodology (NAM) toxicity evidence is:
 
 - technically credible,
 - applicable to the candidate product,
@@ -17,13 +19,13 @@ ToxiGuard NORA EarlyTox is an ontology-driven evidence-assurance workspace for e
 - concordant with independent evidence, and
 - sufficient for a defined early drug-development decision.
 
-> **AI predicts toxicity. NORA determines how far the evidence can be trusted.**
+> **AI predicts toxicity. NTR determines how far the evidence can be trusted.**
 
-NORA does not certify product safety, grant animal-test waivers, predict regulatory approval, or replace expert toxicology judgment.
+NTR does not certify product safety, grant animal-test waivers, predict regulatory approval, or replace expert toxicology judgment.
 
-## Why NORA
+## Why NTR
 
-Most AI toxicity tools stop at a prediction. NORA evaluates the evidence around that prediction:
+Most AI toxicity tools stop at a prediction. NTR evaluates the evidence around that prediction:
 
 ```text
 Question of Interest

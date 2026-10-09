@@ -21,7 +21,7 @@ class ReportOntologyTests(unittest.TestCase):
         inp = gp_l_ct_case()
         result = evaluate(inp)
         markdown = build_markdown_report(inp, result, project_name="GP-L-CT")
-        self.assertIn("ToxiGuard NORA EarlyTox", markdown)
+        self.assertIn("ToxiGuard NTR", markdown)
         self.assertIn(result.evidence_role_code, markdown)
         self.assertIn("AI 독성 신뢰성 프로파일", markdown)
         self.assertIn("근거 신뢰도", markdown)

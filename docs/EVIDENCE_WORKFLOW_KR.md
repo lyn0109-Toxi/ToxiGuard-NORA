@@ -1,4 +1,6 @@
-# NORA EarlyTox Evidence Workflow
+# ToxiGuard NTR Evidence Workflow
+
+NTR(Nonclinical Toxicity Review)은 비임상 독성근거를 검토하는 앱입니다. NORA 전략 작업공간에는 NTR의 평가 결과와 검토 메모를 전달합니다. 아래 흐름은 NTR의 문서·평가 처리 과정이며, NORA 홈페이지와의 자동 연동을 의미하지 않습니다.
 
 ## 1. 기본 원칙
 

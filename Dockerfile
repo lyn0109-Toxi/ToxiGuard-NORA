@@ -1,6 +1,6 @@
 FROM python:3.11-slim
 
-LABEL org.opencontainers.image.title="ToxiGuard NORA EarlyTox" \
+LABEL org.opencontainers.image.title="ToxiGuard NTR" \
       org.opencontainers.image.version="0.4.0" \
       org.opencontainers.image.licenses="Proprietary"
 

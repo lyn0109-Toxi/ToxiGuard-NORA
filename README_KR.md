@@ -1,14 +1,16 @@
-# ToxiGuard NORA EarlyTox v0.4
+# ToxiGuard NTR v0.4
 
 ## 1. 제품 정의
 
-**ToxiGuard NORA**는 `Nonclinical Ontology-based Risk Advisor`의 약자입니다.
+**NTR**은 `Nonclinical Toxicity Review`, 즉 **비임상 독성 검토**의 약자입니다.
 
-NORA EarlyTox는 AI와 비동물시험법(NAM)이 생성한 초기 독성근거를 그대로 안전성 결론으로 사용하지 않고 다음 질문에 답합니다.
+**ToxiGuard NTR**은 비임상 독성 검토 앱이며, **NORA**는 앱들의 결과를 통합하는 전략 작업공간의 이름으로 유지합니다. 저장소 이름과 기술 식별자는 변경하지 않습니다.
+
+NTR은 AI와 비동물시험법(NAM)이 생성한 초기 독성근거를 그대로 안전성 결론으로 사용하지 않고 다음 질문에 답합니다.
 
 > 이 근거는 어떤 독성질문에서, 어떤 Context of Use 아래, 현재 후보물질의 개발에 어디까지 사용할 수 있는가?
 
-NORA는 독성 예측모델 자체가 아니라 **독성근거의 신뢰성·후보 적용성·사람 생물학적 관련성·노출 관련성·근거 일치성·잔여 불확실성을 검증하는 Evidence Assurance 작업공간**입니다.
+NTR은 독성 예측모델 자체가 아니라 **독성근거의 신뢰성·후보 적용성·사람 생물학적 관련성·노출 관련성·근거 일치성·잔여 불확실성을 검증하는 Evidence Assurance 작업공간**입니다.
 
 ## 2. 핵심 작동 구조
 

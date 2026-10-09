@@ -65,7 +65,7 @@ now = datetime.now(timezone.utc)
 report_path = report_dir / f"validation_report_{now.strftime('%Y%m%dT%H%M%SZ')}.md"
 
 lines = [
-    f"# NORA EarlyTox v{__version__} Validation Report",
+    f"# NTR v{__version__} Validation Report",
     "",
     f"- Timestamp UTC: {now.isoformat()}",
     f"- Golden-case generation status: {'PASS' if samples.returncode == 0 else 'FAIL'}",

@@ -1,4 +1,4 @@
-"""Visual design system for the ToxiGuard NORA Streamlit application."""
+"""Visual design system for the ToxiGuard NTR Streamlit application."""
 
 from __future__ import annotations
 
@@ -6,6 +6,8 @@ from html import escape
 from typing import Any, Iterable
 
 import streamlit as st
+
+from . import __app_name__
 
 
 ROLE_TONES: dict[int, dict[str, str]] = {
@@ -526,7 +528,7 @@ def render_brand_header(
     <div class="nora-brand-mark">N</div>
     <div class="nora-brand-copy">
       <div class="nora-eyebrow">{safe(eyebrow)}</div>
-      <h1>ToxiGuard NORA EarlyTox</h1>
+      <h1>{safe(__app_name__)}</h1>
       <p>{safe(subtitle)}</p>
     </div>
   </div>

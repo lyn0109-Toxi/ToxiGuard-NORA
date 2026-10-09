@@ -16,9 +16,9 @@ from nora.reports import build_gap_csv, build_markdown_report, build_pdf_report
 
 FIXED_TIME = "2026-08-26T00:00:00+00:00"
 CASES = {
-    "gp_l_ct": ("PRJ-GPLCT-EARLYTOX", "GP-L-CT EarlyTox", gp_l_ct_case),
-    "concordant": ("PRJ-CONCORDANT-01", "Concordant EarlyTox", concordant_case),
-    "conflict": ("PRJ-CONFLICT-01", "Conflicting Evidence EarlyTox", conflicting_case),
+    "gp_l_ct": ("PRJ-GPLCT-EARLYTOX", "GP-L-CT NTR", gp_l_ct_case),
+    "concordant": ("PRJ-CONCORDANT-01", "Concordant NTR", concordant_case),
+    "conflict": ("PRJ-CONFLICT-01", "Conflicting Evidence NTR", conflicting_case),
 }
 
 
@@ -40,8 +40,8 @@ def build_case(case_key: str, project_id: str, project_name: str, builder) -> No
         project_name=project_name,
         created_at_utc=FIXED_TIME,
         updated_at_utc=FIXED_TIME,
-        owner="ToxiGuard NORA",
-        description="Synthetic golden case for deterministic EarlyTox regression testing.",
+        owner="ToxiGuard NTR",
+        description="Synthetic golden case for deterministic NTR regression testing.",
         assessment_input=inp,
         documents=[],
         assertions=[],
@@ -50,7 +50,7 @@ def build_case(case_key: str, project_id: str, project_name: str, builder) -> No
                 event_id=f"AUD-{case_key.upper()}",
                 timestamp_utc=FIXED_TIME,
                 action="Golden case generated",
-                actor="ToxiGuard NORA",
+                actor="ToxiGuard NTR",
                 detail=f"Schema {__project_schema_version__}",
             )
         ],

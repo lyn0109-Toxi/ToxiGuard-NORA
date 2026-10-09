@@ -3,7 +3,7 @@
     "name": "ToxiGuard Preclinical Toxicology Ontology — EarlyTox Extension",
     "shortName": "TG-PTO-ET",
     "version": "1.0-site",
-    "product": "ToxiGuard NORA EarlyTox",
+    "product": "ToxiGuard NTR",
     "purpose": "AI 및 NAM 기반 초기 독성근거가 특정 후보물질과 정의된 개발 의사결정에서 어디까지 신뢰 가능하고 사용할 수 있는지를 구조화"
   },
   "principles": [
@@ -22,7 +22,7 @@
       "id": "decision",
       "label": "개발 의사결정",
       "en": "Development Decision",
-      "description": "NORA가 지원하려는 구체적인 개발 판단"
+      "description": "NTR이 지원하려는 구체적인 개발 판단"
     },
     {
       "id": "product",
@@ -100,7 +100,7 @@
       "classes": [
         {
           "name": "DevelopmentDecision",
-          "definition": "NORA를 통해 지원하려는 구체적인 개발 의사결정",
+          "definition": "NTR을 통해 지원하려는 구체적인 개발 의사결정",
           "children": [
             "EarlyHazardIdentificationDecision",
             "CandidatePrioritizationDecision",
@@ -1506,7 +1506,7 @@
         "Missing repeat-dose study가 현재 단계에 필수 → Additional Evidence Required / Development Hold",
         "TK missing + systemic exposure required → Exposure Gate 실패",
         "Critical gap 존재 → 자동 최대 권고 제한",
-        "NORA는 규제기관 승인 여부를 보장하지 않음"
+        "NTR은 규제기관 승인 여부를 보장하지 않음"
       ]
     },
     {
@@ -1656,7 +1656,7 @@
         },
         {
           "name": "AssessmentRun",
-          "definition": "한 번의 NORA 평가 전체 기록",
+          "definition": "한 번의 NTR 평가 전체 기록",
           "children": [
             "InputSnapshot",
             "RuleExecutionSet",

@@ -1,4 +1,6 @@
-# NORA EarlyTox v0.4 앱 아키텍처
+# ToxiGuard NTR 앱 아키텍처
+
+NTR은 **Nonclinical Toxicity Review(비임상 독성 검토)** 앱입니다. NORA는 여러 앱의 근거와 판단을 통합하는 전략 작업공간의 이름으로 유지합니다. 현재 NTR의 상세 평가 규칙은 초기 간독성 근거를 중심으로 합니다.
 
 ```text
 Streamlit UI

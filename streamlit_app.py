@@ -9,7 +9,7 @@ from typing import Any
 import pandas as pd
 import streamlit as st
 
-from nora import __ontology_version__, __rule_set_version__, __version__
+from nora import __app_full_name__, __app_name__, __ontology_version__, __rule_set_version__, __version__
 from nora.assertions import (
     REVIEW_STATUS_OPTIONS,
     apply_reviewed_assertions,
@@ -81,7 +81,7 @@ ONTOLOGY_CORE_PATH = APP_ROOT / "ontology" / "tg_pto_et_core.ttl"
 ONTOLOGY_SHAPES_PATH = APP_ROOT / "ontology" / "tg_pto_et_shapes.ttl"
 
 st.set_page_config(
-    page_title="ToxiGuard NORA EarlyTox",
+    page_title=__app_name__,
     page_icon="N",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -159,7 +159,7 @@ def get_store() -> ProjectStore:
 
 def project() -> ProjectBundle:
     if "nora_project" not in st.session_state:
-        st.session_state.nora_project = ProjectBundle.new(name=L("새 EarlyTox 프로젝트", "New EarlyTox Project"))
+        st.session_state.nora_project = ProjectBundle.new(name=L("새 NTR 프로젝트", "New NTR Project"))
     return st.session_state.nora_project
 
 
@@ -226,7 +226,7 @@ def header() -> None:
             version=__version__,
             ontology_version=__ontology_version__,
             rule_version=__rule_set_version__,
-            eyebrow=L("비임상 근거 보증", "Nonclinical evidence assurance"),
+            eyebrow=__app_full_name__,
             project_name=project().project_name,
         )
     with right:
@@ -319,7 +319,7 @@ def sidebar() -> str:
 <div class="nora-side-brand">
   <div class="nora-side-brand-top">
     <div class="nora-side-mark">N</div>
-    <div><strong>NORA EarlyTox</strong><span>v{safe_html(__version__)} · {safe_html(__ontology_version__)}</span></div>
+    <div><strong>{safe_html(__app_name__)}</strong><span>v{safe_html(__version__)} · {safe_html(__ontology_version__)}</span></div>
   </div>
   <div class="nora-side-project"><span>{safe_html(T('project'))}</span><strong>{safe_html(p.project_name)}</strong></div>
 </div>
@@ -350,7 +350,7 @@ def sidebar() -> str:
 
             c1, c2 = st.columns(2)
             if c1.button(T("new_project"), use_container_width=True, key=f"new_project_{p.project_id}"):
-                set_project(ProjectBundle.new(name=L("새 EarlyTox 프로젝트", "New EarlyTox Project")), "overview")
+                set_project(ProjectBundle.new(name=L("새 NTR 프로젝트", "New NTR Project")), "overview")
                 st.rerun()
             if c2.button(T("local_save"), use_container_width=True, key=f"local_save_{p.project_id}"):
                 try:
@@ -471,7 +471,7 @@ def page_consulting_studio() -> None:
         T("consulting_studio_caption"),
     )
     render_section_band(
-        L("고객은 서로 다른 결정을 위해 NORA를 사용합니다", "Clients use NORA for different decisions"),
+        L("고객은 서로 다른 결정을 위해 NTR을 사용합니다", "Clients use NTR for different decisions"),
         L(
             "후보선정, CRO 프로토콜 검토, 동물시험 축소, License-in 실사, Pre-IND 준비 등 목적에 따라 필요한 질문과 산출물이 달라집니다.",
             "Candidate selection, CRO protocol review, animal-study reduction, license-in diligence, and pre-IND preparation require different questions and deliverables.",
@@ -610,7 +610,7 @@ def page_consulting_studio() -> None:
                 case.synthetic_assumptions(lang) or (L("컨설팅 방법 검증용 합성 상황", "Synthetic context for consulting-method validation"),),
             ),
             render_advisory_card(
-                L("NORA의 해석·추론", "NORA advisory inferences"),
+                L("NTR의 해석·추론", "NTR advisory inferences"),
                 L("의사결정 해석", "Decision interpretation"),
                 L("근거와 가정에서 도출된 자문", "Advisory derived from evidence and assumptions"),
                 case.advisory_inferences(lang) or (L("사례별 Advisor 추론 미등록", "No case-specific inference registered"),),
@@ -648,8 +648,8 @@ def page_consulting_studio() -> None:
             st.rerun()
     else:
         st.warning(L(
-            "이 사례는 현재 EarlyTox 자동화 범위를 넘어섭니다. NORA는 근거구조와 질문을 정리하지만 최종 자문은 전문가 주도로 수행해야 합니다.",
-            "This case extends beyond the current EarlyTox automation scope. NORA can structure the evidence and questions, but the final advisory must remain expert-led.",
+            "이 사례는 현재 NTR 자동화 범위를 넘어섭니다. NTR은 근거구조와 질문을 정리하지만 최종 자문은 전문가 주도로 수행해야 합니다.",
+            "This case extends beyond the current NTR automation scope. NTR can structure the evidence and questions, but the final advisory must remain expert-led.",
         ))
 
     with st.expander(T("case_library_table"), expanded=False):
@@ -744,7 +744,7 @@ def page_project_overview() -> None:
         queue_navigation("consulting")
         st.rerun()
     if q4.button(T("gplct_case"), use_container_width=True, key=f"quick_gplct_{p.project_id}"):
-        demo_project = ProjectBundle.new(name="GP-L-CT EarlyTox")
+        demo_project = ProjectBundle.new(name="GP-L-CT NTR")
         demo_project.assessment_input = load_case("GP-L-CT — 적용범위 밖 음성예측", language())
         set_project(demo_project, "assessment")
         st.rerun()
@@ -786,8 +786,8 @@ def page_documents() -> None:
     render_section_band(
         L("문서가 곧 결론은 아닙니다", "A document is not yet a conclusion"),
         L(
-            "NORA는 문서에서 출처가 연결된 Assertion 후보를 만들고, 사람이 검토한 값만 평가 입력에 반영합니다.",
-            "NORA creates source-linked candidate Assertions from documents and uses only human-reviewed values in the assessment.",
+            "NTR은 문서에서 출처가 연결된 Assertion 후보를 만들고, 사람이 검토한 값만 평가 입력에 반영합니다.",
+            "NTR creates source-linked candidate Assertions from documents and uses only human-reviewed values in the assessment.",
         ),
         "PDF · DOCX · XLSX · CSV · TXT · JSON",
     )
@@ -1177,8 +1177,8 @@ def _assessment_form() -> AssessmentInput | None:
             )
             st.caption(
                 L(
-                    "모델 출력확률은 NORA의 Evidence Confidence와 동일하지 않습니다. 필수정보가 없으면 비워두고, 근거가 있는 값만 입력하십시오.",
-                    "A model output probability is not the same as NORA Evidence Confidence. Leave fields blank when evidence is unavailable and enter only source-supported values.",
+                    "모델 출력확률은 NTR의 Evidence Confidence와 동일하지 않습니다. 필수정보가 없으면 비워두고, 근거가 있는 값만 입력하십시오.",
+                    "A model output probability is not the same as NTR Evidence Confidence. Leave fields blank when evidence is unavailable and enter only source-supported values.",
                 )
             )
 
@@ -1550,7 +1550,7 @@ def _run_assessment() -> None:
     assessed = evaluate(p.assessment_input)
     st.session_state.assessment_result = assessed
     p.last_result = assessed.to_dict()
-    add_event("EarlyTox 평가 실행", f"{assessed.evidence_role_code} - {assessed.evidence_role_name}")
+    add_event("NTR 평가 실행", f"{assessed.evidence_role_code} - {assessed.evidence_role_name}")
 
 
 def page_results() -> None:
@@ -1752,13 +1752,13 @@ def page_results() -> None:
     with st.expander(T("downloads"), expanded=False):
         st.caption(L("고객·전문가 공유용 보고서와 온톨로지 교환파일을 내려받습니다.", "Download reviewer-facing reports and ontology exchange files."))
         d1, d2, d3 = st.columns(3)
-        d1.download_button(T("advisory_md"), markdown.encode("utf-8"), file_name=f"{p.project_name}_EarlyTox_Report_{language_suffix}.md", mime="text/markdown", use_container_width=True)
-        d2.download_button("Ontology JSON-LD", json.dumps(jsonld, ensure_ascii=False, indent=2).encode("utf-8"), file_name=f"{p.project_name}_EarlyTox.jsonld", mime="application/ld+json", use_container_width=True)
-        d3.download_button("Ontology Turtle", turtle.encode("utf-8"), file_name=f"{p.project_name}_EarlyTox.ttl", mime="text/turtle", use_container_width=True)
+        d1.download_button(T("advisory_md"), markdown.encode("utf-8"), file_name=f"{p.project_name}_NTR_Report_{language_suffix}.md", mime="text/markdown", use_container_width=True)
+        d2.download_button("Ontology JSON-LD", json.dumps(jsonld, ensure_ascii=False, indent=2).encode("utf-8"), file_name=f"{p.project_name}_NTR.jsonld", mime="application/ld+json", use_container_width=True)
+        d3.download_button("Ontology Turtle", turtle.encode("utf-8"), file_name=f"{p.project_name}_NTR.ttl", mime="text/turtle", use_container_width=True)
         d4, d5, d6 = st.columns(3)
         d4.download_button(T("gap_csv"), build_gap_csv(assessed, p.assessment_input, language=lang), file_name=f"{p.project_name}_Data_Gaps_{language_suffix}.csv", mime="text/csv", use_container_width=True)
         d5.download_button(T("project_json"), project_json_bytes(p), file_name=f"{p.project_name}.nora.json", mime="application/json", use_container_width=True)
-        d6.download_button(T("advisory_pdf"), pdf, file_name=f"{p.project_name}_EarlyTox_Report_{language_suffix}.pdf", mime="application/pdf", use_container_width=True, disabled=not bool(pdf))
+        d6.download_button(T("advisory_pdf"), pdf, file_name=f"{p.project_name}_NTR_Report_{language_suffix}.pdf", mime="application/pdf", use_container_width=True, disabled=not bool(pdf))
         if pdf_error:
             st.warning(T("pdf_disabled", error=pdf_error))
 
@@ -1902,16 +1902,16 @@ try:
     if _nora_lang == "en":
         _notice = (
             "Regulatory-status notice: R0–R5 Evidence Roles and ET-R001–ET-R015 role caps "
-            "are NORA's conservative internal decision-support policies. They are not regulatory "
+            "are NTR's conservative internal decision-support policies. They are not regulatory "
             "classifications, agency approvals, animal-test waivers, or guarantees of regulatory acceptance. "
-            "FDA AI/NAM documents cited by NORA are draft and nonbinding unless explicitly identified otherwise "
+            "FDA AI/NAM documents cited by NTR are draft and nonbinding unless explicitly identified otherwise "
             "in the verified reference registry."
         )
     else:
         _notice = (
-            "규제 상태 고지: R0–R5 Evidence Role과 ET-R001–ET-R015 역할 상한은 NORA의 보수적 내부 "
+            "규제 상태 고지: R0–R5 Evidence Role과 ET-R001–ET-R015 역할 상한은 NTR의 보수적 내부 "
             "의사결정 지원 정책입니다. 규제기관이 정한 법적 분류, 승인, 동물시험 면제 또는 규제 수용 "
-            "보장이 아닙니다. NORA가 인용하는 FDA AI/NAM 문서는 검증된 레퍼런스 레지스트리에 달리 "
+            "보장이 아닙니다. NTR이 인용하는 FDA AI/NAM 문서는 검증된 레퍼런스 레지스트리에 달리 "
             "표시되지 않는 한 초안이며 비구속적입니다."
         )
     render_footer_notice(_notice)

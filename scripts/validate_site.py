@@ -61,7 +61,7 @@ def main() -> int:
     if not re.search(r"GP.?L.?CT", js, flags=re.IGNORECASE):
         errors.append("app.js must include the GP-L-CT demonstration")
 
-    print("NORA ontology site validation")
+    print("NTR ontology site validation")
     print(f"- modules: {len(ontology.get('modules', []))}")
     print(f"- causal nodes: {len(ontology.get('chain', []))}")
     print(f"- evidence roles: {len(ontology.get('roles', []))}")

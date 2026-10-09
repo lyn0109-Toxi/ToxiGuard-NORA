@@ -66,7 +66,7 @@ class ProjectBundle:
     last_result: dict[str, Any] | None = None
 
     @classmethod
-    def new(cls, name: str = "새 EarlyTox 프로젝트", owner: str = "") -> "ProjectBundle":
+    def new(cls, name: str = "새 NTR 프로젝트", owner: str = "") -> "ProjectBundle":
         now = utc_now()
         return cls(
             project_id=f"PRJ-{uuid.uuid4().hex[:12]}",
@@ -106,7 +106,7 @@ class ProjectBundle:
     def from_dict(cls, payload: dict[str, Any]) -> "ProjectBundle":
         return cls(
             project_id=str(payload.get("project_id") or f"PRJ-{uuid.uuid4().hex[:12]}"),
-            project_name=str(payload.get("project_name", "EarlyTox 프로젝트")),
+            project_name=str(payload.get("project_name", "NTR 프로젝트")),
             created_at_utc=str(payload.get("created_at_utc", utc_now())),
             updated_at_utc=str(payload.get("updated_at_utc", utc_now())),
             owner=str(payload.get("owner", "")),

@@ -39,7 +39,7 @@ LIMITATION_TEXT = {
 
 REPORT_LABELS = {
     "ko": {
-        "title": "ToxiGuard NORA EarlyTox 한글 자문보고서",
+        "title": "ToxiGuard NTR 한글 자문보고서",
         "subtitle": "AI/NAM 초기 독성근거 검증 자문보고서",
         "overview": "평가 개요",
         "project": "프로젝트",
@@ -94,7 +94,7 @@ REPORT_LABELS = {
         "approved_evidence_none": "전문가가 승인한 Evidence Assertion 없음",
     },
     "en": {
-        "title": "ToxiGuard NORA EarlyTox Advisory Report",
+        "title": "ToxiGuard NTR Advisory Report",
         "subtitle": "AI/NAM Early-Toxicity Evidence Assurance Report",
         "overview": "Assessment Overview",
         "project": "Project",
@@ -397,7 +397,7 @@ def build_pdf_report(
         topMargin=16 * mm,
         bottomMargin=16 * mm,
         title=labels["title"],
-        author="ToxiGuard NORA",
+        author="ToxiGuard NTR",
         invariant=1,
     )
     styles = getSampleStyleSheet()
@@ -409,7 +409,7 @@ def build_pdf_report(
     callout = ParagraphStyle("NoraCallout", parent=body, fontName=heading_font, fontSize=10.5, leading=15, textColor=colors.white, backColor=colors.HexColor("#10243F"), borderPadding=10, borderRadius=6, spaceAfter=12)
 
     story: list[object] = [
-        _p("ToxiGuard NORA EarlyTox", title),
+        _p("ToxiGuard NTR", title),
         _p(labels["subtitle"], h2),
         _pm(f"{localized['evidence_role_code']} — {localized['evidence_role_name']}<br/>{localized['evidence_role_description']}", callout),
     ]

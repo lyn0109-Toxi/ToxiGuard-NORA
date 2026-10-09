@@ -122,7 +122,7 @@ def main() -> int:
     if not (ROOT / ".gitignore").exists():
         errors.append(".gitignore is required")
 
-    print("NORA repository guard")
+    print("NTR repository guard")
     print(f"- scanned files: {sum(1 for _ in iter_files())}")
     print(f"- warnings: {len(warnings)}")
     print(f"- errors: {len(errors)}")
