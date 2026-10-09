@@ -21,6 +21,11 @@ from nora.assertions import (
 from nora.cases import CASE_BUILDERS, load_case
 from nora.consulting_cases import CONSULTING_CASES, load_consulting_assessment
 from nora.engine import ROLE_DEFINITIONS, evaluate
+from nora.guideline_references import (
+    load_guideline_references,
+    references_for_context,
+    search_guideline_references,
+)
 from nora.i18n import (
     ASSERTION_COLUMNS,
     PAGE_IDS,
@@ -149,6 +154,66 @@ def consulting_reference_registry() -> dict[str, dict[str, Any]]:
         return json.loads(FLAGSHIP_REFERENCE_PATH.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError):
         return {}
+
+
+def render_guideline_references(
+    references: list[dict[str, Any]], title: str | None = None
+) -> None:
+    if not references:
+        return
+    st.caption(title or L("독성 레퍼런스 · 번호를 클릭하세요", "Toxicity references · click a number"))
+    for start in range(0, len(references), 8):
+        columns = st.columns(8)
+        for column, ref in zip(columns, references[start:start + 8]):
+            with column:
+                with st.popover(
+                    f"[{ref['number']}]",
+                    help=f"{ref['short_label']} · {ref['title']}",
+                    use_container_width=True,
+                ):
+                    st.markdown(f"**[{ref['number']}] {ref['short_label']}**")
+                    st.caption(ref["title"])
+                    st.markdown(ref["summary"][language()])
+                    st.caption(L("검토 주제: ", "Review topic: ") + ref["relevance"][language()])
+                    st.caption(ref["status_note"][language()])
+                    st.link_button(
+                        L("공식 출처에서 확인", "Open official source"), ref["url"],
+                        use_container_width=True,
+                    )
+
+
+def render_context_references() -> None:
+    inp = project().assessment_input
+    references = references_for_context(
+        load_guideline_references(),
+        modality=inp.product.modality,
+        endpoint=inp.context_of_use.target_endpoint,
+    )
+    render_guideline_references(
+        references,
+        L(
+            "독성 레퍼런스 · 저장된 입력 기준 · 번호를 클릭하세요",
+            "Toxicity references · saved input · click a number",
+        ),
+    )
+
+
+def render_guideline_library() -> None:
+    references = load_guideline_references()
+    with st.expander(
+        L("독성 가이드라인 레퍼런스", "Toxicity guideline references") + f" · {len(references)}",
+        expanded=False,
+    ):
+        query = st.text_input(
+            L("레퍼런스 검색", "Search references"),
+            placeholder=L("번호, 지침명 또는 독성 주제", "Number, guideline or toxicity topic"),
+            key="toxicity_reference_search",
+        )
+        filtered = search_guideline_references(references, query)
+        if filtered:
+            render_guideline_references(filtered)
+        else:
+            st.caption(L("검색 결과가 없습니다.", "No matching references."))
 
 
 @st.cache_resource
@@ -674,6 +739,7 @@ def page_project_overview() -> None:
         T("project_overview"),
         T("overview_text"),
     )
+    render_guideline_library()
 
     cou = p.assessment_input.context_of_use
     product = p.assessment_input.product
@@ -783,6 +849,9 @@ def page_documents() -> None:
         T("document_workspace"),
         T("document_workspace_caption"),
     )
+    render_guideline_references([
+        ref for ref in load_guideline_references() if "reporting" in ref["tags"]
+    ])
     render_section_band(
         L("문서가 곧 결론은 아닙니다", "A document is not yet a conclusion"),
         L(
@@ -894,6 +963,9 @@ def page_assertion_review() -> None:
         T("assertion_review"),
         T("assertion_review_caption"),
     )
+    render_guideline_references([
+        ref for ref in load_guideline_references() if "reporting" in ref["tags"]
+    ])
 
     if not p.assertions:
         st.info(T("no_assertions"))
@@ -1520,6 +1592,7 @@ def page_assessment_input() -> None:
         T("structured_input"),
         T("structured_input_caption"),
     )
+    render_context_references()
     updated = _assessment_form()
     if updated:
         project().assessment_input = updated
@@ -1561,6 +1634,7 @@ def page_results() -> None:
         T("results_title"),
         T("results_caption"),
     )
+    render_context_references()
 
     if st.button(T("run_assessment"), type="primary", use_container_width=True, key=f"run_assessment_{p.project_id}"):
         _run_assessment()
@@ -1769,6 +1843,7 @@ def page_rules() -> None:
         T("rules_title"),
         T("rules_caption"),
     )
+    render_guideline_library()
     render_section_band(
         L("온톨로지와 규칙의 역할을 분리합니다", "Separate ontology, validation, and decision roles"),
         L(
@@ -1904,15 +1979,15 @@ try:
             "Regulatory-status notice: R0–R5 Evidence Roles and ET-R001–ET-R015 role caps "
             "are NTR's conservative internal decision-support policies. They are not regulatory "
             "classifications, agency approvals, animal-test waivers, or guarantees of regulatory acceptance. "
-            "FDA AI/NAM documents cited by NTR are draft and nonbinding unless explicitly identified otherwise "
-            "in the verified reference registry."
+            "Check each reference for its document status and scope. "
+            "Current revisions and primary texts of the added toxicity references remain unverified."
         )
     else:
         _notice = (
             "규제 상태 고지: R0–R5 Evidence Role과 ET-R001–ET-R015 역할 상한은 NTR의 보수적 내부 "
             "의사결정 지원 정책입니다. 규제기관이 정한 법적 분류, 승인, 동물시험 면제 또는 규제 수용 "
-            "보장이 아닙니다. NTR이 인용하는 FDA AI/NAM 문서는 검증된 레퍼런스 레지스트리에 달리 "
-            "표시되지 않는 한 초안이며 비구속적입니다."
+            "보장이 아닙니다. 문서 상태와 적용 범위는 각 레퍼런스에서 확인하십시오. "
+            "추가된 독성 레퍼런스의 최신판과 원문은 아직 확인되지 않았습니다."
         )
     render_footer_notice(_notice)
 except Exception:

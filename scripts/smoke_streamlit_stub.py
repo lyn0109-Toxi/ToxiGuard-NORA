@@ -119,6 +119,9 @@ class StreamlitStub(types.ModuleType):
     def expander(self, *_args, **_kwargs):
         return Context()
 
+    def popover(self, *_args, **_kwargs):
+        return Context()
+
     def form(self, *_args, **_kwargs):
         return Context()
 

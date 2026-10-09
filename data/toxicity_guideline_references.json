@@ -1,0 +1,879 @@
+{
+  "schema_version": 1,
+  "references": [
+    {
+      "id": "ICH-M3-R2",
+      "number": 1,
+      "issuer": "ICH",
+      "short_label": "ICH M3(R2)",
+      "title": "Nonclinical Safety Studies for the Conduct of Human Clinical Trials and Marketing Authorization for Pharmaceuticals",
+      "summary": {
+        "ko": "임상 개발 단계와 예정 투여기간에 맞는 비임상 안전성 자료를 검토하는 기준선입니다. 특수 제품군의 적용 지침을 함께 확인합니다.",
+        "en": "A baseline for reviewing nonclinical support for clinical development and intended treatment duration. Check product-specific guidance alongside it."
+      },
+      "relevance": {
+        "ko": "임상 계획을 뒷받침할 시험·기간·노출 근거가 있는가?",
+        "en": "Do the studies, duration and exposure support the clinical plan?"
+      },
+      "url": "https://www.ich.org/page/multidisciplinary-guidelines",
+      "source_kind": "guideline",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "baseline",
+        "general",
+        "clinical_support",
+        "repeat_dose",
+        "exposure"
+      ]
+    },
+    {
+      "id": "ICH-M4S",
+      "number": 2,
+      "issuer": "ICH",
+      "short_label": "ICH M4S",
+      "title": "The Common Technical Document for the Registration of Pharmaceuticals for Human Use: Safety",
+      "summary": {
+        "ko": "비임상 개요·요약과 원시험보고서를 연결하는 CTD 안전성 문서 구조입니다. 문서 형식 자체가 시험의 충분성을 보증하지는 않습니다.",
+        "en": "The CTD safety structure connects nonclinical overviews and summaries with study reports. Document structure alone does not establish study adequacy."
+      },
+      "relevance": {
+        "ko": "요약의 결론을 원보고서와 추적할 수 있는가?",
+        "en": "Can each summary conclusion be traced to its source report?"
+      },
+      "url": "https://www.ich.org/page/multidisciplinary-guidelines",
+      "source_kind": "guideline",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "reporting",
+        "general",
+        "traceability"
+      ]
+    },
+    {
+      "id": "ICH-M7-R2",
+      "number": 3,
+      "issuer": "ICH",
+      "short_label": "ICH M7(R2)",
+      "title": "Assessment and Control of DNA Reactive (Mutagenic) Impurities in Pharmaceuticals to Limit Potential Carcinogenic Risk",
+      "summary": {
+        "ko": "DNA 반응성 변이원성 불순물의 위해 평가와 관리에 관한 지침입니다. 원약물의 전신 독성 평가와 구분합니다.",
+        "en": "Addresses the assessment and control of DNA-reactive mutagenic impurities. Keep impurity risk distinct from systemic toxicity of the active drug."
+      },
+      "relevance": {
+        "ko": "불순물의 변이원성·노출·관리 근거가 있는가?",
+        "en": "Are impurity mutagenicity, exposure and controls supported?"
+      },
+      "url": "https://www.ich.org/page/multidisciplinary-guidelines",
+      "source_kind": "guideline",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "genotoxicity",
+        "impurities",
+        "carcinogenicity"
+      ]
+    },
+    {
+      "id": "ICH-S1A",
+      "number": 4,
+      "issuer": "ICH",
+      "short_label": "ICH S1A",
+      "title": "The Need for Carcinogenicity Studies of Pharmaceuticals",
+      "summary": {
+        "ko": "사용 조건과 기존 근거에 따라 발암성 평가의 필요성을 검토합니다.",
+        "en": "Supports consideration of whether carcinogenicity assessment is needed in light of intended use and existing evidence."
+      },
+      "relevance": {
+        "ko": "발암성 평가 필요성 또는 생략의 근거가 명확한가?",
+        "en": "Is the rationale for conducting or omitting carcinogenicity assessment clear?"
+      },
+      "url": "https://www.ich.org/page/safety-guidelines",
+      "source_kind": "guideline",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "carcinogenicity",
+        "study_applicability"
+      ]
+    },
+    {
+      "id": "ICH-S1B-R1",
+      "number": 5,
+      "issuer": "ICH",
+      "short_label": "ICH S1B(R1)",
+      "title": "Testing for Carcinogenicity of Pharmaceuticals",
+      "summary": {
+        "ko": "발암성 시험 접근과 관련 부록의 통합 근거 평가를 검토합니다. 시험 생략 여부는 제품별 근거와 지침 범위를 확인해야 합니다.",
+        "en": "Addresses carcinogenicity testing and the weight-of-evidence approach in its addendum. Any omission requires product-specific evidence and scope review."
+      },
+      "relevance": {
+        "ko": "표적·유전독성·반복독성 근거가 발암 위험 질문에 답하는가?",
+        "en": "Do target biology, genotoxicity and repeat-dose evidence address carcinogenic risk?"
+      },
+      "url": "https://www.ich.org/page/safety-guidelines",
+      "source_kind": "guideline",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "carcinogenicity",
+        "weight_of_evidence"
+      ]
+    },
+    {
+      "id": "ICH-S1C-R2",
+      "number": 6,
+      "issuer": "ICH",
+      "short_label": "ICH S1C(R2)",
+      "title": "Dose Selection for Carcinogenicity Studies of Pharmaceuticals",
+      "summary": {
+        "ko": "발암성 시험의 용량 선택을 노출·독성·약리 근거와 연결합니다.",
+        "en": "Links carcinogenicity study dose selection with exposure, toxicity and pharmacology."
+      },
+      "relevance": {
+        "ko": "발암성 시험 용량과 실제 노출이 타당하게 선정됐는가?",
+        "en": "Are carcinogenicity study doses and achieved exposure justified?"
+      },
+      "url": "https://www.ich.org/page/safety-guidelines",
+      "source_kind": "guideline",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "carcinogenicity",
+        "dose_selection",
+        "exposure"
+      ]
+    },
+    {
+      "id": "ICH-S2-R1",
+      "number": 7,
+      "issuer": "ICH",
+      "short_label": "ICH S2(R1)",
+      "title": "Genotoxicity Testing and Data Interpretation for Pharmaceuticals Intended for Human Use",
+      "summary": {
+        "ko": "유전독성 시험 전략과 양성·불명확 결과의 해석을 다룹니다. 시험 조건과 표적조직 노출을 함께 확인합니다.",
+        "en": "Addresses genotoxicity testing and interpretation of positive or equivocal findings, with attention to test conditions and target-tissue exposure."
+      },
+      "relevance": {
+        "ko": "유전독성 결과와 후속 평가를 해석할 근거가 충분한가?",
+        "en": "Is there adequate evidence to interpret genotoxicity findings and follow-up?"
+      },
+      "url": "https://www.ich.org/page/safety-guidelines",
+      "source_kind": "guideline",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "genotoxicity",
+        "exposure",
+        "follow_up"
+      ]
+    },
+    {
+      "id": "ICH-S3A",
+      "number": 8,
+      "issuer": "ICH",
+      "short_label": "ICH S3A",
+      "title": "Toxicokinetics: The Assessment of Systemic Exposure in Toxicity Studies",
+      "summary": {
+        "ko": "독성시험에서 실제 전신 노출을 확인하는 TK 지침입니다. 관련 미량채혈 Q&A도 시험 해석에 연결합니다.",
+        "en": "Addresses systemic exposure in toxicity studies. Its microsampling Q&A is also relevant to study interpretation."
+      },
+      "relevance": {
+        "ko": "독성 결과와 AUC·Cmax·축적 근거를 연결할 수 있는가?",
+        "en": "Can toxicity findings be linked to AUC, Cmax and accumulation?"
+      },
+      "url": "https://www.ich.org/page/safety-guidelines",
+      "source_kind": "guideline",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "exposure",
+        "general",
+        "toxicokinetics",
+        "microsampling"
+      ]
+    },
+    {
+      "id": "ICH-S3B",
+      "number": 9,
+      "issuer": "ICH",
+      "short_label": "ICH S3B",
+      "title": "Pharmacokinetics: Guidance for Repeated Dose Tissue Distribution Studies",
+      "summary": {
+        "ko": "반복투여 조직분포 시험의 필요성과 해석을 검토합니다. 조직 잔류·축적과 대사체 정보를 구분합니다.",
+        "en": "Addresses repeated-dose tissue distribution studies, including interpretation of tissue retention, accumulation and metabolite information."
+      },
+      "relevance": {
+        "ko": "조직 분포가 표적기관 독성과 지속성을 설명하는가?",
+        "en": "Does tissue distribution help explain target-organ toxicity and persistence?"
+      },
+      "url": "https://www.ich.org/page/safety-guidelines",
+      "source_kind": "guideline",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "exposure",
+        "tissue_distribution",
+        "repeat_dose"
+      ]
+    },
+    {
+      "id": "ICH-S4",
+      "number": 10,
+      "issuer": "ICH",
+      "short_label": "ICH S4",
+      "title": "Duration of Chronic Toxicity Testing in Animals (Rodent and Non Rodent Toxicity Testing)",
+      "summary": {
+        "ko": "만성독성 시험기간과 예정 임상 사용기간의 관계를 검토합니다. 제품별 특화 지침의 적용을 함께 확인합니다.",
+        "en": "Addresses chronic toxicity study duration in relation to intended clinical use. Check applicable product-specific guidance."
+      },
+      "relevance": {
+        "ko": "시험기간이 예정 투여기간과 개발 맥락에 적합한가?",
+        "en": "Is study duration appropriate for the intended treatment and development context?"
+      },
+      "url": "https://www.ich.org/page/safety-guidelines",
+      "source_kind": "guideline",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "baseline",
+        "general",
+        "repeat_dose",
+        "chronic_toxicity",
+        "duration"
+      ]
+    },
+    {
+      "id": "ICH-S5-R3",
+      "number": 11,
+      "issuer": "ICH",
+      "short_label": "ICH S5(R3)",
+      "title": "Detection of Reproductive and Developmental Toxicity for Human Pharmaceuticals",
+      "summary": {
+        "ko": "생식능과 배·태자 및 출생 전후 발생 위험을 검토합니다. 모체독성과 실제 노출을 함께 해석합니다.",
+        "en": "Addresses fertility and embryo-fetal and pre/postnatal developmental risks, with interpretation of maternal toxicity and exposure."
+      },
+      "relevance": {
+        "ko": "대상 환자군과 투여 시기를 뒷받침할 생식·발생 근거가 있는가?",
+        "en": "Does reproductive and developmental evidence support the population and treatment timing?"
+      },
+      "url": "https://www.ich.org/page/safety-guidelines",
+      "source_kind": "guideline",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "reproduction",
+        "reproductive_toxicity",
+        "developmental_toxicity",
+        "exposure"
+      ]
+    },
+    {
+      "id": "ICH-S6-R1",
+      "number": 12,
+      "issuer": "ICH",
+      "short_label": "ICH S6(R1)",
+      "title": "Preclinical Safety Evaluation of Biotechnology-Derived Pharmaceuticals",
+      "summary": {
+        "ko": "바이오의약품의 관련 종·모델과 제품 특성에 맞는 안전성 평가를 다룹니다. 동물 면역원성이 노출과 결과에 미친 영향을 확인합니다.",
+        "en": "Addresses relevant species and product-specific safety assessment for biotechnology-derived pharmaceuticals, including immune responses that affect exposure or interpretation."
+      },
+      "relevance": {
+        "ko": "시험종의 약리 관련성과 독성자료의 사람 적용성이 설명됐는가?",
+        "en": "Are species relevance and the applicability of toxicity evidence to humans justified?"
+      },
+      "url": "https://www.ich.org/page/safety-guidelines",
+      "source_kind": "guideline",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "biologic",
+        "biologics",
+        "species_relevance",
+        "immunogenicity",
+        "exposure"
+      ]
+    },
+    {
+      "id": "ICH-S7A",
+      "number": 13,
+      "issuer": "ICH",
+      "short_label": "ICH S7A",
+      "title": "Safety Pharmacology Studies for Human Pharmaceuticals",
+      "summary": {
+        "ko": "심혈관·호흡·중추신경계 등 주요 생명 유지 기능의 안전성 약리를 검토합니다.",
+        "en": "Addresses safety pharmacology for vital functions, including cardiovascular, respiratory and central nervous system function."
+      },
+      "relevance": {
+        "ko": "주요 기능 영향과 후속 평가의 근거가 있는가?",
+        "en": "Are effects on vital functions and follow-up needs supported by evidence?"
+      },
+      "url": "https://www.ich.org/page/safety-guidelines",
+      "source_kind": "guideline",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "cardiac",
+        "safety_pharmacology",
+        "cardiovascular",
+        "respiratory",
+        "central_nervous_system"
+      ]
+    },
+    {
+      "id": "ICH-S7B",
+      "number": 14,
+      "issuer": "ICH",
+      "short_label": "ICH S7B",
+      "title": "The Nonclinical Evaluation of the Potential for Delayed Ventricular Repolarization (QT Interval Prolongation) by Human Pharmaceuticals",
+      "summary": {
+        "ko": "심장 재분극·QT 지연의 비임상 근거를 검토합니다. 관련 E14/S7B Q&A와 임상 자료를 연결하며 심장 위험 전체와 구분합니다.",
+        "en": "Addresses nonclinical evidence for delayed repolarization and QT prolongation. Review related E14/S7B Q&A with clinical evidence; this is not the full scope of cardiac risk."
+      },
+      "relevance": {
+        "ko": "이온채널·in vivo QT·노출과 임상 근거가 일관되는가?",
+        "en": "Are ion-channel, in vivo QT, exposure and clinical evidence consistent?"
+      },
+      "url": "https://www.ich.org/page/safety-guidelines",
+      "source_kind": "guideline",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "cardiac",
+        "safety_pharmacology",
+        "cardiovascular",
+        "qt",
+        "exposure"
+      ]
+    },
+    {
+      "id": "ICH-S8",
+      "number": 15,
+      "issuer": "ICH",
+      "short_label": "ICH S8",
+      "title": "Immunotoxicity Studies for Human Pharmaceuticals",
+      "summary": {
+        "ko": "의도하지 않은 면역계 영향과 추가 기능 평가의 필요성을 검토합니다.",
+        "en": "Addresses unintended immune-system effects and the need for further functional assessment."
+      },
+      "relevance": {
+        "ko": "반복독성·약리 근거에 면역독성 신호가 있는가?",
+        "en": "Do repeat-dose or pharmacology data indicate an immunotoxicity concern?"
+      },
+      "url": "https://www.ich.org/page/safety-guidelines",
+      "source_kind": "guideline",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "immunotoxicity",
+        "repeat_dose",
+        "immune_function"
+      ]
+    },
+    {
+      "id": "ICH-S9",
+      "number": 16,
+      "issuer": "ICH",
+      "short_label": "ICH S9",
+      "title": "Nonclinical Evaluation for Anticancer Pharmaceuticals",
+      "summary": {
+        "ko": "항암제의 환자·치료 목적에 맞는 비임상 평가를 다룹니다. 일반 의약품이나 예방 목적에 자동 확대하지 않습니다.",
+        "en": "Addresses nonclinical assessment in the intended anticancer treatment setting. Do not automatically extend its scope to general medicines or prevention."
+      },
+      "relevance": {
+        "ko": "항암제 지침의 환자군·개발 목적에 해당하는가?",
+        "en": "Does the population and development purpose fall within the anticancer guidance scope?"
+      },
+      "url": "https://www.ich.org/page/safety-guidelines",
+      "source_kind": "guideline",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "oncology",
+        "clinical_support",
+        "study_applicability"
+      ]
+    },
+    {
+      "id": "ICH-S10",
+      "number": 17,
+      "issuer": "ICH",
+      "short_label": "ICH S10",
+      "title": "Photosafety Evaluation of Pharmaceuticals",
+      "summary": {
+        "ko": "흡광·광반응성과 피부·눈의 노출을 바탕으로 광안전성 평가 필요성을 검토합니다.",
+        "en": "Addresses photosafety assessment in relation to absorption, photoreactivity and exposure of skin and eyes."
+      },
+      "relevance": {
+        "ko": "광안전성 질문과 시험 필요성을 제품 노출로 설명하는가?",
+        "en": "Are photosafety questions and study needs justified by product exposure?"
+      },
+      "url": "https://www.ich.org/page/safety-guidelines",
+      "source_kind": "guideline",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "photosafety",
+        "skin",
+        "ocular",
+        "exposure"
+      ]
+    },
+    {
+      "id": "ICH-S11",
+      "number": 18,
+      "issuer": "ICH",
+      "short_label": "ICH S11",
+      "title": "Nonclinical Safety Testing in Support of Development of Paediatric Pharmaceuticals",
+      "summary": {
+        "ko": "소아의 발달 단계와 기존 근거를 바탕으로 추가 비임상 자료의 필요성을 검토합니다. 어린동물시험을 자동 필수로 판단하지 않습니다.",
+        "en": "Addresses nonclinical needs in relation to pediatric development and existing evidence. Juvenile animal testing is not automatically required for every product."
+      },
+      "relevance": {
+        "ko": "임상 연령과 발달 장기의 자료 부족을 확인했는가?",
+        "en": "Have evidence gaps for clinical age and developing organs been identified?"
+      },
+      "url": "https://www.ich.org/page/safety-guidelines",
+      "source_kind": "guideline",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "pediatric",
+        "juvenile",
+        "developmental_toxicity",
+        "weight_of_evidence"
+      ]
+    },
+    {
+      "id": "ICH-S12",
+      "number": 19,
+      "issuer": "ICH",
+      "short_label": "ICH S12",
+      "title": "Nonclinical Biodistribution Considerations for Gene Therapy Products",
+      "summary": {
+        "ko": "유전자치료제의 조직 분포·지속성과 검출법을 검토합니다. 벡터 검출·발현·기능과 shedding을 구분합니다.",
+        "en": "Addresses gene-therapy biodistribution, persistence and detection methods. Distinguish vector detection, expression and function from shedding."
+      },
+      "relevance": {
+        "ko": "투여경로·조직·시점·분석법이 생체분포 질문에 적합한가?",
+        "en": "Are route, tissues, time points and methods appropriate for the biodistribution question?"
+      },
+      "url": "https://www.ich.org/page/safety-guidelines",
+      "source_kind": "guideline",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "gene_therapy",
+        "biodistribution",
+        "persistence",
+        "assay_quality"
+      ]
+    },
+    {
+      "id": "FDA-STARTING-DOSE",
+      "number": 20,
+      "issuer": "FDA",
+      "short_label": "FDA · Starting dose",
+      "title": "Estimating the Maximum Safe Starting Dose in Initial Clinical Trials for Therapeutics in Adult Healthy Volunteers",
+      "summary": {
+        "ko": "성인 건강인 초기 임상의 시작 용량 근거를 검토하는 후보 가이던스입니다. 모든 환자·모달리티에 공통 공식으로 적용하지 않습니다.",
+        "en": "A candidate guidance for reviewing starting-dose rationale in adult healthy volunteers. It is not a universal formula for every population or modality."
+      },
+      "relevance": {
+        "ko": "용량 근거의 대상군·동물자료·환산·불확실성이 적합한가?",
+        "en": "Are the population, animal evidence, dose conversion and uncertainty appropriate?"
+      },
+      "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents",
+      "source_kind": "guidance_candidate",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "starting_dose",
+        "clinical_support",
+        "exposure",
+        "healthy_volunteers"
+      ]
+    },
+    {
+      "id": "FDA-DRUG-METABOLITES",
+      "number": 21,
+      "issuer": "FDA",
+      "short_label": "FDA · Metabolites",
+      "title": "Safety Testing of Drug Metabolites",
+      "summary": {
+        "ko": "사람 대사체와 독성시험종의 대사체 노출·특성을 비교하는 후보 가이던스입니다.",
+        "en": "A candidate guidance for comparing human metabolites with the exposure and characteristics of metabolites in toxicity-test species."
+      },
+      "relevance": {
+        "ko": "사람 대사체를 시험종이 충분히 커버하는가?",
+        "en": "Do the test species adequately cover relevant human metabolites?"
+      },
+      "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents",
+      "source_kind": "guidance_candidate",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "metabolite",
+        "metabolites",
+        "toxicokinetics",
+        "exposure",
+        "species_relevance"
+      ]
+    },
+    {
+      "id": "FDA-DRUG-BIOLOGIC-COMBINATIONS",
+      "number": 22,
+      "issuer": "FDA",
+      "short_label": "FDA · Combinations",
+      "title": "Nonclinical Safety Evaluation of Drug or Biologic Combinations",
+      "summary": {
+        "ko": "병용 성분의 기존 근거와 중첩·새로운 독성 가능성을 검토하는 후보 가이던스입니다.",
+        "en": "A candidate guidance for reviewing component evidence and overlapping or new toxicity from combinations."
+      },
+      "relevance": {
+        "ko": "단독 성분의 자료가 병용 조건을 뒷받침하는가?",
+        "en": "Does the evidence for individual components support the combination setting?"
+      },
+      "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents",
+      "source_kind": "guidance_candidate",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "combination",
+        "combinations",
+        "pharmacology",
+        "exposure",
+        "clinical_support"
+      ]
+    },
+    {
+      "id": "FDA-PHARMACEUTICAL-EXCIPIENTS",
+      "number": 23,
+      "issuer": "FDA",
+      "short_label": "FDA · Excipients",
+      "title": "Nonclinical Studies for the Safety Evaluation of Pharmaceutical Excipients",
+      "summary": {
+        "ko": "첨가제의 사용 전례와 경로·기간·노출에 맞는 안전성 근거를 검토하는 후보 가이던스입니다.",
+        "en": "A candidate guidance for reviewing excipient evidence in relation to prior use, route, duration and exposure."
+      },
+      "relevance": {
+        "ko": "첨가제의 실제 사용 조건에 안전성 근거가 적용되는가?",
+        "en": "Does excipient safety evidence apply to the actual conditions of use?"
+      },
+      "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents",
+      "source_kind": "guidance_candidate",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "excipient",
+        "excipients",
+        "formulation",
+        "local_toxicity",
+        "exposure"
+      ]
+    },
+    {
+      "id": "FDA-REFORMULATION-ALTERNATE-ROUTE",
+      "number": 24,
+      "issuer": "FDA",
+      "short_label": "FDA · Formulation / route",
+      "title": "Nonclinical Safety Evaluation of Reformulated Drug Products and Products Intended for Administration by an Alternate Route",
+      "summary": {
+        "ko": "제형·투여경로 변경 시 기존 자료의 적용성과 국소·전신 노출 변화를 검토하는 후보 가이던스입니다.",
+        "en": "A candidate guidance for reviewing evidence bridging and local or systemic exposure changes after reformulation or a route change."
+      },
+      "relevance": {
+        "ko": "기존 자료를 변경 제형·경로에 연결할 근거가 있는가?",
+        "en": "Is there evidence to bridge existing data to the new formulation or route?"
+      },
+      "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents",
+      "source_kind": "guidance_candidate",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "reformulation",
+        "formulation",
+        "route",
+        "local_toxicity",
+        "bridging",
+        "exposure"
+      ]
+    },
+    {
+      "id": "FDA-OLIGONUCLEOTIDE-NONCLINICAL",
+      "number": 25,
+      "issuer": "FDA",
+      "short_label": "FDA · Oligonucleotides",
+      "title": "Nonclinical Safety Assessment of Oligonucleotide-Based Therapeutics",
+      "summary": {
+        "ko": "올리고뉴클레오타이드의 서열·화학구조·전달체와 관련 종에 맞는 비임상 평가 후보입니다. 임상 약리 문서와 구분합니다.",
+        "en": "A candidate nonclinical assessment guidance for oligonucleotide sequence, chemistry, delivery and relevant species. Keep it distinct from clinical-pharmacology guidance."
+      },
+      "relevance": {
+        "ko": "표적·비표적 영향과 조직 노출의 제품별 근거가 있는가?",
+        "en": "Is there product-specific evidence for target and off-target effects and tissue exposure?"
+      },
+      "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/nonclinical-safety-assessment-oligonucleotide-based-therapeutics",
+      "source_kind": "guidance_candidate",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "oligonucleotide",
+        "off_target",
+        "species_relevance",
+        "tissue_distribution"
+      ]
+    },
+    {
+      "id": "FDA-CELL-GENE-PRECLINICAL",
+      "number": 26,
+      "issuer": "FDA",
+      "short_label": "FDA · Cell / gene therapy",
+      "title": "Preclinical Assessment of Investigational Cellular and Gene Therapy Products",
+      "summary": {
+        "ko": "세포·유전자치료의 모델 관련성, 독성·지속성과 투여절차를 함께 검토하는 후보 가이던스입니다.",
+        "en": "A candidate guidance for reviewing model relevance, toxicity, persistence and administration procedures for cell and gene therapies."
+      },
+      "relevance": {
+        "ko": "모델·시험물질·투여법이 임상 제품의 위험 질문에 답하는가?",
+        "en": "Do the model, test article and administration method address clinical-product risks?"
+      },
+      "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/preclinical-assessment-investigational-cellular-and-gene-therapy-products",
+      "source_kind": "guidance_candidate",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "gene_therapy",
+        "cell_therapy",
+        "species_relevance",
+        "tumorigenicity",
+        "persistence"
+      ]
+    },
+    {
+      "id": "FDA-NANOMATERIALS",
+      "number": 27,
+      "issuer": "FDA",
+      "short_label": "FDA · Nanomaterials",
+      "title": "Drug Products, Including Biological Products, that Contain Nanomaterials",
+      "summary": {
+        "ko": "나노물질 제품의 특성과 분포·노출·안전성을 연결하는 후보 가이던스입니다. 품질·임상 범위도 포함합니다.",
+        "en": "A candidate guidance linking nanomaterial product characteristics with distribution, exposure and safety. Its scope also includes quality and clinical topics."
+      },
+      "relevance": {
+        "ko": "활성성분과 전달체의 노출·독성 및 제형 변경 근거를 구분했는가?",
+        "en": "Are active-substance and carrier exposure, toxicity and formulation changes distinguished?"
+      },
+      "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/drug-products-including-biological-products-contain-nanomaterials-guidance-industry",
+      "source_kind": "guidance_candidate",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "nanomaterial",
+        "nanomaterials",
+        "formulation",
+        "carrier",
+        "tissue_distribution",
+        "assay_quality"
+      ]
+    },
+    {
+      "id": "FDA-PROTEIN-IMMUNOGENICITY",
+      "number": 28,
+      "issuer": "FDA",
+      "short_label": "FDA · Immunogenicity",
+      "title": "Immunogenicity Assessment for Therapeutic Protein Products",
+      "summary": {
+        "ko": "치료용 단백질의 면역원성을 위험 기반으로 검토하는 후보 가이던스입니다. 동물 면역반응은 사람 면역원성의 직접 예측값이 아닙니다.",
+        "en": "A candidate guidance for risk-based immunogenicity assessment of therapeutic proteins. Animal immune responses do not directly predict human immunogenicity."
+      },
+      "relevance": {
+        "ko": "면역반응이 노출·기능·안전성 해석에 미친 영향을 확인했는가?",
+        "en": "Have immune effects on exposure, function and safety interpretation been assessed?"
+      },
+      "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/immunogenicity-assessment-therapeutic-protein-products",
+      "source_kind": "guidance_candidate",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "biologic",
+        "immunotoxicity",
+        "biologics",
+        "immunogenicity",
+        "exposure",
+        "immune_function"
+      ]
+    },
+    {
+      "id": "FDA-GENE-THERAPY-SHEDDING",
+      "number": 29,
+      "issuer": "FDA",
+      "short_label": "FDA · Shedding",
+      "title": "Design and Analysis of Shedding Studies for Virus or Bacteria-Based Gene Therapy and Oncolytic Products",
+      "summary": {
+        "ko": "바이러스·세균 기반 제품의 체외 방출과 전달 가능성을 검토하는 후보 가이던스입니다. 조직 생체분포와 별도 질문입니다.",
+        "en": "A candidate guidance for shedding and possible transmission of virus- or bacteria-based products. This is a separate question from tissue biodistribution."
+      },
+      "relevance": {
+        "ko": "체외 방출·감염성·전달 가능성의 자료가 있는가?",
+        "en": "Is there evidence on shedding, infectivity and possible transmission?"
+      },
+      "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/design-and-analysis-shedding-studies-virus-or-bacteria-based-gene-therapy-and-oncolytic-products",
+      "source_kind": "guidance_candidate",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "gene_therapy",
+        "shedding",
+        "oncolytic",
+        "infectivity"
+      ]
+    },
+    {
+      "id": "FDA-GENOME-EDITING",
+      "number": 30,
+      "issuer": "FDA",
+      "short_label": "FDA · Genome editing",
+      "title": "Considerations for the Development of Human Gene Therapy Products Incorporating Human Genome Editing",
+      "summary": {
+        "ko": "유전자편집 제품의 편집 정확성, 의도하지 않은 변화와 장기 위험을 검토하는 후보 가이던스입니다. 품질·임상 범위도 포함합니다.",
+        "en": "A candidate guidance for editing specificity, unintended alterations and longer-term risks in genome-editing products. Its scope also includes quality and clinical topics."
+      },
+      "relevance": {
+        "ko": "편집 결과·off-target·염색체 변화의 분석 한계가 설명됐는가?",
+        "en": "Are editing outcomes, off-target changes and assay limitations explained?"
+      },
+      "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/considerations-development-human-gene-therapy-products-incorporating-human-genome-editing",
+      "source_kind": "guidance_candidate",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "gene_therapy",
+        "genome_editing",
+        "off_target",
+        "assay_quality",
+        "delayed_risk"
+      ]
+    },
+    {
+      "id": "FDA-VACCINE-DEVELOPMENTAL-TOXICITY",
+      "number": 31,
+      "issuer": "FDA",
+      "short_label": "FDA · Vaccine development",
+      "title": "Considerations for Developmental Toxicity Studies for Preventive and Therapeutic Vaccines for Infectious Disease Indications",
+      "summary": {
+        "ko": "감염질환 예방·치료 백신의 발생독성 평가를 검토하는 후보 가이던스입니다. 모든 백신 유형에 자동 확대하지 않습니다.",
+        "en": "A candidate guidance for developmental toxicity assessment of preventive and therapeutic vaccines for infectious diseases. Do not automatically extend it to all vaccine types."
+      },
+      "relevance": {
+        "ko": "백신의 적응증·대상군·접종 계획에 발생독성 근거가 적용되는가?",
+        "en": "Does developmental toxicity evidence apply to the indication, population and vaccination schedule?"
+      },
+      "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/considerations-developmental-toxicity-studies-preventive-and-therapeutic-vaccines-infectious-disease",
+      "source_kind": "guidance_candidate",
+      "verification_status": "unverified",
+      "status_note": {
+        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
+        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+      },
+      "tags": [
+        "reproduction",
+        "vaccine",
+        "developmental_toxicity",
+        "reproductive_toxicity",
+        "clinical_support"
+      ]
+    }
+  ]
+}

@@ -52,6 +52,12 @@ The v0.4 vertical slice focuses on **early hepatotoxicity** for:
 
 Supported evidence types include AI/QSAR outputs, 2D human hepatocytes, cocultures, spheroids, organoids, liver-on-chip/MPS, PK/TK, biodistribution, mechanistic evidence, in vivo evidence, and human/class evidence.
 
+## Toxicity guideline references
+
+Assessment and results screens show compact numbered references selected from the saved product and endpoint. Click a number to view the guideline title, review topic, official source link and verification status. Document and evidence-review screens link to the reporting reference; the Project Overview and Rules & Ontology screens contain the complete searchable catalog.
+
+The catalog includes 31 ICH/FDA reading references. Current revisions, publication status and primary texts remain unverified. Reference selection does not determine regulatory applicability or change assessment rules. Numbers are stable catalog identifiers; append new entries without renumbering existing ones. Maintain the bilingual details and verification metadata in `data/toxicity_guideline_references.json`.
+
 ## Evidence Role
 
 | Role | Meaning |
