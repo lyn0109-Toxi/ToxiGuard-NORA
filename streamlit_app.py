@@ -176,10 +176,24 @@ def render_guideline_references(
                     st.markdown(ref["summary"][language()])
                     st.caption(L("검토 주제: ", "Review topic: ") + ref["relevance"][language()])
                     st.caption(ref["status_note"][language()])
-                    st.link_button(
-                        L("공식 출처에서 확인", "Open official source"), ref["url"],
+                    if ref.get("verification_details"):
+                        st.markdown(
+                            f"<details><summary>{safe_html(L('문서 상태 확인 기록', 'Document status details'))}</summary>"
+                            f"<p>{safe_html(ref['verification_details'][language()])}</p></details>",
+                            unsafe_allow_html=True,
+                        )
+                    pdf_url = ref.get("provenance", {}).get("pdf_url")
+                    source_columns = st.columns(2) if pdf_url else [st]
+                    source_columns[0].link_button(
+                        L("공식 출처에서 확인", "Open official source"),
+                        ref.get("provenance", {}).get("landing_page_url", ref["url"]),
                         use_container_width=True,
                     )
+                    if pdf_url:
+                        source_columns[1].link_button(
+                            L("PDF 원문", "Read source PDF"), pdf_url,
+                            use_container_width=True,
+                        )
 
 
 def render_context_references() -> None:
@@ -1979,15 +1993,13 @@ try:
             "Regulatory-status notice: R0–R5 Evidence Roles and ET-R001–ET-R015 role caps "
             "are NTR's conservative internal decision-support policies. They are not regulatory "
             "classifications, agency approvals, animal-test waivers, or guarantees of regulatory acceptance. "
-            "Check each reference for its document status and scope. "
-            "Current revisions and primary texts of the added toxicity references remain unverified."
+            "Check each reference for its document status, scope and source-review level."
         )
     else:
         _notice = (
             "규제 상태 고지: R0–R5 Evidence Role과 ET-R001–ET-R015 역할 상한은 NTR의 보수적 내부 "
             "의사결정 지원 정책입니다. 규제기관이 정한 법적 분류, 승인, 동물시험 면제 또는 규제 수용 "
-            "보장이 아닙니다. 문서 상태와 적용 범위는 각 레퍼런스에서 확인하십시오. "
-            "추가된 독성 레퍼런스의 최신판과 원문은 아직 확인되지 않았습니다."
+            "보장이 아닙니다. 문서 상태·적용 범위·원문 확인 수준은 각 레퍼런스에서 확인하십시오."
         )
     render_footer_notice(_notice)
 except Exception:

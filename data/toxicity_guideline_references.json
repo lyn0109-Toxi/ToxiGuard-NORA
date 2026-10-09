@@ -6,7 +6,7 @@
       "number": 1,
       "issuer": "ICH",
       "short_label": "ICH M3(R2)",
-      "title": "Nonclinical Safety Studies for the Conduct of Human Clinical Trials and Marketing Authorization for Pharmaceuticals",
+      "title": "Guidance on Nonclinical Safety Studies for the Conduct of Human Clinical Trials and Marketing Authorization for Pharmaceuticals",
       "summary": {
         "ko": "임상 개발 단계와 예정 투여기간에 맞는 비임상 안전성 자료를 검토하는 기준선입니다. 특수 제품군의 적용 지침을 함께 확인합니다.",
         "en": "A baseline for reviewing nonclinical support for clinical development and intended treatment duration. Check product-specific guidance alongside it."
@@ -15,12 +15,12 @@
         "ko": "임상 계획을 뒷받침할 시험·기간·노출 근거가 있는가?",
         "en": "Do the studies, duration and exposure support the clinical plan?"
       },
-      "url": "https://www.ich.org/page/multidisciplinary-guidelines",
+      "url": "https://database.ich.org/sites/default/files/M3_R2__Guideline.pdf",
       "source_kind": "guideline",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "ICH 문서·FDA 채택 정보 확인(2026-10-09). 현행 전체 개정목록·원문 전체 검토는 미완료입니다.",
+        "en": "ICH document and FDA adoption metadata checked (2026-10-09). Full current revision-index and scientific-text review remains incomplete."
       },
       "tags": [
         "baseline",
@@ -28,14 +28,33 @@
         "clinical_support",
         "repeat_dose",
         "exposure"
-      ]
+      ],
+      "provenance": {
+        "checked_on": "2026-10-09",
+        "fda_adoption_page": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/m3r2-nonclinical-safety-studies-conduct-human-clinical-trials-and-marketing-authorization",
+        "fda_pdf": "https://www.fda.gov/media/71542/download",
+        "fda_index_status": "Final",
+        "fda_index_issue_date": "01/21/2010",
+        "fda_index_source": "https://www.fda.gov/files/api/datatables/static/search-for-guidance.json",
+        "current_ich_index_checked": false,
+        "scientific_text_review": "selected sections only, not complete",
+        "ich_pdf": "https://database.ich.org/sites/default/files/M3_R2__Guideline.pdf",
+        "ich_cover_revision": "M3(R2)",
+        "ich_cover_step4_date": "2009-06-11",
+        "pdf_url": "https://database.ich.org/sites/default/files/M3_R2__Guideline.pdf",
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/m3r2-nonclinical-safety-studies-conduct-human-clinical-trials-and-marketing-authorization"
+      },
+      "verification_details": {
+        "ko": "ICH M3(R2) 표지(Step 4: 2009-06-11)와 FDA Final(2010-01)을 확인했습니다. 현행 ICH 목록의 최신판 확인과 본문 전체 검토는 미완료입니다.",
+        "en": "ICH M3(R2) cover metadata (Step 4: 2009-06-11) and FDA Final adoption (2010-01) were checked. Current ICH-index latestness and a complete scientific-text review remain unverified."
+      }
     },
     {
       "id": "ICH-M4S",
       "number": 2,
       "issuer": "ICH",
       "short_label": "ICH M4S",
-      "title": "The Common Technical Document for the Registration of Pharmaceuticals for Human Use: Safety",
+      "title": "The Common Technical Document for the Registration of Pharmaceuticals for Human Use: Safety – M4S(R2)",
       "summary": {
         "ko": "비임상 개요·요약과 원시험보고서를 연결하는 CTD 안전성 문서 구조입니다. 문서 형식 자체가 시험의 충분성을 보증하지는 않습니다.",
         "en": "The CTD safety structure connects nonclinical overviews and summaries with study reports. Document structure alone does not establish study adequacy."
@@ -44,18 +63,37 @@
         "ko": "요약의 결론을 원보고서와 추적할 수 있는가?",
         "en": "Can each summary conclusion be traced to its source report?"
       },
-      "url": "https://www.ich.org/page/multidisciplinary-guidelines",
+      "url": "https://database.ich.org/sites/default/files/M4S_R2_Guideline.pdf",
       "source_kind": "guideline",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "ICH 문서·FDA 채택 정보 확인(2026-10-09). 현행 전체 개정목록·원문 전체 검토는 미완료입니다.",
+        "en": "ICH document and FDA adoption metadata checked (2026-10-09). Full current revision-index and scientific-text review remains incomplete."
       },
       "tags": [
         "reporting",
         "general",
         "traceability"
-      ]
+      ],
+      "provenance": {
+        "checked_on": "2026-10-09",
+        "fda_adoption_page": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/m4s-ctd-safety",
+        "fda_pdf": "https://www.fda.gov/media/185340/download",
+        "fda_index_status": "Final",
+        "fda_index_issue_date": "08/01/2001",
+        "fda_index_source": "https://www.fda.gov/files/api/datatables/static/search-for-guidance.json",
+        "current_ich_index_checked": false,
+        "scientific_text_review": "selected sections only, not complete",
+        "ich_pdf": "https://database.ich.org/sites/default/files/M4S_R2_Guideline.pdf",
+        "ich_cover_revision": "M4S(R2)",
+        "ich_cover_step4_date": "2002-12-20",
+        "pdf_url": "https://database.ich.org/sites/default/files/M4S_R2_Guideline.pdf",
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/m4s-ctd-safety"
+      },
+      "verification_details": {
+        "ko": "ICH M4S(R2) 표지(2002-12-20)와 FDA M4S Final(2001-08)을 확인했습니다. 지역 문서 간 개정 범위 대조, 현행 ICH 목록 및 본문 전체 검토는 미완료입니다.",
+        "en": "ICH M4S(R2) cover metadata (2002-12-20) and FDA M4S Final adoption (2001-08) were checked. Revision-scope comparison across regional documents, current ICH-index latestness and a complete scientific-text review remain unfinished."
+      }
     },
     {
       "id": "ICH-M7-R2",
@@ -73,23 +111,41 @@
       },
       "url": "https://www.ich.org/page/multidisciplinary-guidelines",
       "source_kind": "guideline",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "ICH 문서·FDA 채택 정보 확인(2026-10-09). 현행 전체 개정목록·원문 전체 검토는 미완료입니다.",
+        "en": "ICH document and FDA adoption metadata checked (2026-10-09). Full current revision-index and scientific-text review remains incomplete."
       },
       "tags": [
         "genotoxicity",
         "impurities",
         "carcinogenicity"
-      ]
+      ],
+      "provenance": {
+        "checked_on": "2026-10-09",
+        "fda_adoption_page": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/guidance-industry-m7r2-assessment-and-control-dna-reactive-mutagenic-impurities-pharmaceuticals",
+        "fda_pdf": "https://www.fda.gov/media/170461/download",
+        "fda_index_status": "Final",
+        "fda_index_issue_date": "07/25/2023",
+        "fda_index_source": "https://www.fda.gov/files/api/datatables/static/search-for-guidance.json",
+        "current_ich_index_checked": false,
+        "scientific_text_review": "selected sections only, not complete",
+        "ich_step4_endorsement_in_fda_text": "2023-04",
+        "ich_pdf_not_identified": true,
+        "pdf_url": "https://www.fda.gov/media/170461/download",
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/guidance-industry-m7r2-assessment-and-control-dna-reactive-mutagenic-impurities-pharmaceuticals"
+      },
+      "verification_details": {
+        "ko": "FDA M7(R2) Final(2023-07)과 공식 원문의 판번호를 확인했습니다. FDA 원문은 ICH Step 4(2023-04)를 명시하지만, 현행 ICH 목록과 본문 전체 검토는 미완료입니다.",
+        "en": "FDA M7(R2) Final adoption (2023-07) and its official-text revision were checked. The FDA text identifies ICH Step 4 endorsement in 2023-04; current ICH-index latestness and a complete scientific-text review remain unverified."
+      }
     },
     {
       "id": "ICH-S1A",
       "number": 4,
       "issuer": "ICH",
       "short_label": "ICH S1A",
-      "title": "The Need for Carcinogenicity Studies of Pharmaceuticals",
+      "title": "Guideline on the Need for Carcinogenicity Studies of Pharmaceuticals",
       "summary": {
         "ko": "사용 조건과 기존 근거에 따라 발암성 평가의 필요성을 검토합니다.",
         "en": "Supports consideration of whether carcinogenicity assessment is needed in light of intended use and existing evidence."
@@ -98,17 +154,51 @@
         "ko": "발암성 평가 필요성 또는 생략의 근거가 명확한가?",
         "en": "Is the rationale for conducting or omitting carcinogenicity assessment clear?"
       },
-      "url": "https://www.ich.org/page/safety-guidelines",
+      "url": "https://database.ich.org/sites/default/files/S1A_Guideline.pdf",
       "source_kind": "guideline",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "ICH 문서·FDA 채택 정보 확인(2026-10-09). 현행 전체 개정목록·원문 전체 검토는 미완료입니다.",
+        "en": "ICH document and FDA adoption metadata checked (2026-10-09). Full current revision-index and scientific-text review remains incomplete."
       },
       "tags": [
         "carcinogenicity",
         "study_applicability"
-      ]
+      ],
+      "provenance": {
+        "sources": [
+          {
+            "issuer": "ICH",
+            "url": "https://database.ich.org/sites/default/files/S1A_Guideline.pdf",
+            "title": "Guideline on the Need for Carcinogenicity Studies of Pharmaceuticals",
+            "document_code": "S1A",
+            "document_status": "Final / Step 4",
+            "document_date": "1995-11-29",
+            "date_kind": "ICH document cover/history; not FDA issue date",
+            "snapshot_sha256": "79ecb2db23846fd883a57d18b8295419e76492511771a5a121cf000d5cb8d5e2",
+            "sha256": "79ecb2db23846fd883a57d18b8295419e76492511771a5a121cf000d5cb8d5e2",
+            "checked_at": "2026-10-09T19:29:14Z",
+            "verification_scope": "cover, document history, table of contents and selected sections; full latest-index verification incomplete"
+          },
+          {
+            "issuer": "FDA",
+            "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s1a-need-long-term-rodent-carcinogenicity-studies-pharmaceuticals",
+            "document_status": "Final",
+            "document_date": "1996-03",
+            "date_kind": "FDA guidance page issue month; not ICH adoption date",
+            "snapshot_sha256": "31dcb8be820a88881e97ff2302e6f0860886c276239cf2cd632d8b9978fff8d1",
+            "primary_text_snapshot_sha256": "d31fc17a445f93f3a7a2ddac68ff526ac2858f78d0e8c8e698ffd7d6d6a8a056",
+            "checked_at": "2026-10-09T19:29:14Z"
+          }
+        ],
+        "review_level": "official_metadata_and_selected_sections",
+        "pdf_url": "https://database.ich.org/sites/default/files/S1A_Guideline.pdf",
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s1a-need-long-term-rodent-carcinogenicity-studies-pharmaceuticals"
+      },
+      "verification_details": {
+        "ko": "ICH 공식 S1A 원문의 Step 4 상태·1995-11-29 문서일과 FDA Final 채택 페이지(1996-03)를 확인했습니다. ICH 전체 목록/API의 최신 개정 여부는 별도 재확인이 필요합니다.",
+        "en": "Official ICH S1A primary text Step 4 status and document date 1995-11-29, and FDA Final adoption page (1996-03), checked. Latest revision across the full ICH index/API remains to be rechecked."
+      }
     },
     {
       "id": "ICH-S1B-R1",
@@ -124,17 +214,52 @@
         "ko": "표적·유전독성·반복독성 근거가 발암 위험 질문에 답하는가?",
         "en": "Do target biology, genotoxicity and repeat-dose evidence address carcinogenic risk?"
       },
-      "url": "https://www.ich.org/page/safety-guidelines",
+      "url": "https://database.ich.org/sites/default/files/S1B-R1_FinalGuideline_2022_0719.pdf",
       "source_kind": "guideline",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "ICH 문서·FDA 채택 정보 확인(2026-10-09). 현행 전체 개정목록·원문 전체 검토는 미완료입니다.",
+        "en": "ICH document and FDA adoption metadata checked (2026-10-09). Full current revision-index and scientific-text review remains incomplete."
       },
       "tags": [
         "carcinogenicity",
         "weight_of_evidence"
-      ]
+      ],
+      "provenance": {
+        "sources": [
+          {
+            "issuer": "ICH",
+            "url": "https://database.ich.org/sites/default/files/S1B-R1_FinalGuideline_2022_0719.pdf",
+            "title": "Testing for Carcinogenicity of Pharmaceuticals",
+            "document_code": "S1B(R1)",
+            "document_status": "Final / Step 4",
+            "document_date": "2022-08-04",
+            "date_kind": "ICH document cover/history; not FDA issue date",
+            "snapshot_sha256": "e1222f68a5b11d66a8827b15f07abbc73d5394c4dc8d7570358f05c25ee529cb",
+            "sha256": "e1222f68a5b11d66a8827b15f07abbc73d5394c4dc8d7570358f05c25ee529cb",
+            "checked_at": "2026-10-09T19:29:14Z",
+            "verification_scope": "cover, document history, table of contents and selected sections; full latest-index verification incomplete"
+          },
+          {
+            "issuer": "FDA",
+            "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s1br1-addendum-s1b-testing-carcinogenicity-pharmaceuticals",
+            "document_status": "Final",
+            "document_date": "2022-11",
+            "date_kind": "FDA guidance page issue month; not ICH adoption date",
+            "snapshot_sha256": "abd4597844cec3f7bb97b92d8cc23fa3f51654d4eef28f56bc23c858a5d2403c",
+            "primary_text_snapshot_sha256": "ef29c95a913bbe5ec4983ba3bd8c4cf2955a59c7d08a69a2cd57c2641653a587",
+            "checked_at": "2026-10-09T19:29:14Z",
+            "title": "S1B(R1) Addendum to S1B Testing for Carcinogenicity of Pharmaceuticals"
+          }
+        ],
+        "review_level": "official_metadata_and_selected_sections",
+        "pdf_url": "https://database.ich.org/sites/default/files/S1B-R1_FinalGuideline_2022_0719.pdf",
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s1br1-addendum-s1b-testing-carcinogenicity-pharmaceuticals"
+      },
+      "verification_details": {
+        "ko": "ICH 통합 S1B(R1) Final(2022-08-04)과 FDA 2022-11 Final addendum을 확인했습니다. 1997 S1B 기본 지침과 보완 부록을 함께 읽어야 합니다. ICH 전체 목록/API 최신 개정 여부는 별도 재확인이 필요합니다.",
+        "en": "Integrated ICH S1B(R1) Final (2022-08-04) and FDA Final addendum (2022-11) checked. Read the 1997 parent S1B guideline with the complementary addendum. Latest revision across the full ICH index/API remains to be rechecked."
+      }
     },
     {
       "id": "ICH-S1C-R2",
@@ -150,25 +275,59 @@
         "ko": "발암성 시험 용량과 실제 노출이 타당하게 선정됐는가?",
         "en": "Are carcinogenicity study doses and achieved exposure justified?"
       },
-      "url": "https://www.ich.org/page/safety-guidelines",
+      "url": "https://database.ich.org/sites/default/files/S1C%28R2%29%20Guideline.pdf",
       "source_kind": "guideline",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "ICH 문서·FDA 채택 정보 확인(2026-10-09). 현행 전체 개정목록·원문 전체 검토는 미완료입니다.",
+        "en": "ICH document and FDA adoption metadata checked (2026-10-09). Full current revision-index and scientific-text review remains incomplete."
       },
       "tags": [
         "carcinogenicity",
         "dose_selection",
         "exposure"
-      ]
+      ],
+      "provenance": {
+        "sources": [
+          {
+            "issuer": "ICH",
+            "url": "https://database.ich.org/sites/default/files/S1C%28R2%29%20Guideline.pdf",
+            "title": "Dose Selection for Carcinogenicity Studies of Pharmaceuticals",
+            "document_code": "S1C(R2)",
+            "document_status": "Final / Step 4",
+            "document_date": "2008-03-11",
+            "date_kind": "ICH document cover/history; not FDA issue date",
+            "snapshot_sha256": "9748f19a4c66675d46df98a6d96431bad41859e49a38ee890d44119afedb2d97",
+            "sha256": "9748f19a4c66675d46df98a6d96431bad41859e49a38ee890d44119afedb2d97",
+            "checked_at": "2026-10-09T19:29:14Z",
+            "verification_scope": "cover, document history, table of contents and selected sections; full latest-index verification incomplete"
+          },
+          {
+            "issuer": "FDA",
+            "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s1cr2-dose-selection-carcinogenicity-studies-pharmaceuticals",
+            "document_status": "Final",
+            "document_date": "2008-09",
+            "date_kind": "FDA guidance page issue month; not ICH adoption date",
+            "snapshot_sha256": "cac846d67bff3a2d320c3e673b65cd566775edd6c399ba8d9925053461a88fec",
+            "primary_text_snapshot_sha256": "b74387ad37f20f51dfc6b2a81d9e2dd8142b4678e4da26d8735d34aefbf3ec0e",
+            "checked_at": "2026-10-09T19:29:14Z"
+          }
+        ],
+        "review_level": "official_metadata_and_selected_sections",
+        "pdf_url": "https://database.ich.org/sites/default/files/S1C%28R2%29%20Guideline.pdf",
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s1cr2-dose-selection-carcinogenicity-studies-pharmaceuticals"
+      },
+      "verification_details": {
+        "ko": "ICH 공식 S1C(R2) 원문의 Step 4 상태·2008-03-11 문서일과 FDA Final 채택 페이지(2008-09)를 확인했습니다. ICH 전체 목록/API의 최신 개정 여부는 별도 재확인이 필요합니다.",
+        "en": "Official ICH S1C(R2) primary text Step 4 status and document date 2008-03-11, and FDA Final adoption page (2008-09), checked. Latest revision across the full ICH index/API remains to be rechecked."
+      }
     },
     {
       "id": "ICH-S2-R1",
       "number": 7,
       "issuer": "ICH",
       "short_label": "ICH S2(R1)",
-      "title": "Genotoxicity Testing and Data Interpretation for Pharmaceuticals Intended for Human Use",
+      "title": "Guidance on Genotoxicity Testing and Data Interpretation for Pharmaceuticals Intended for Human Use",
       "summary": {
         "ko": "유전독성 시험 전략과 양성·불명확 결과의 해석을 다룹니다. 시험 조건과 표적조직 노출을 함께 확인합니다.",
         "en": "Addresses genotoxicity testing and interpretation of positive or equivocal findings, with attention to test conditions and target-tissue exposure."
@@ -177,25 +336,59 @@
         "ko": "유전독성 결과와 후속 평가를 해석할 근거가 충분한가?",
         "en": "Is there adequate evidence to interpret genotoxicity findings and follow-up?"
       },
-      "url": "https://www.ich.org/page/safety-guidelines",
+      "url": "https://database.ich.org/sites/default/files/S2_R1_Guideline.pdf",
       "source_kind": "guideline",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "ICH 문서·FDA 채택 정보 확인(2026-10-09). 현행 전체 개정목록·원문 전체 검토는 미완료입니다.",
+        "en": "ICH document and FDA adoption metadata checked (2026-10-09). Full current revision-index and scientific-text review remains incomplete."
       },
       "tags": [
         "genotoxicity",
         "exposure",
         "follow_up"
-      ]
+      ],
+      "provenance": {
+        "sources": [
+          {
+            "issuer": "ICH",
+            "url": "https://database.ich.org/sites/default/files/S2_R1_Guideline.pdf",
+            "title": "Guidance on Genotoxicity Testing and Data Interpretation for Pharmaceuticals Intended for Human Use",
+            "document_code": "S2(R1)",
+            "document_status": "Final / Step 4",
+            "document_date": "2011-11-09",
+            "date_kind": "ICH document cover/history; not FDA issue date",
+            "snapshot_sha256": "deaf85d7ae019f4c8d1180cdc5aab9f749b2f310cd8f1123578a0ec7520957c0",
+            "sha256": "deaf85d7ae019f4c8d1180cdc5aab9f749b2f310cd8f1123578a0ec7520957c0",
+            "checked_at": "2026-10-09T19:29:14Z",
+            "verification_scope": "cover, document history, table of contents and selected sections; full latest-index verification incomplete"
+          },
+          {
+            "issuer": "FDA",
+            "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s2r1-genotoxicity-testing-and-data-interpretation-pharmaceuticals-intended-human-use",
+            "document_status": "Final",
+            "document_date": "2012-06",
+            "date_kind": "FDA guidance page issue month; not ICH adoption date",
+            "snapshot_sha256": "ea3fc5a0e47d5bddfd7dc2385143b33552f943bf0ca74507e487838365bccf7f",
+            "primary_text_snapshot_sha256": "ac26e35d32e57c719e6ca8d4e92ff67b40273cb4dabba737af50941098d93b26",
+            "checked_at": "2026-10-09T19:29:14Z"
+          }
+        ],
+        "review_level": "official_metadata_and_selected_sections",
+        "pdf_url": "https://database.ich.org/sites/default/files/S2_R1_Guideline.pdf",
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s2r1-genotoxicity-testing-and-data-interpretation-pharmaceuticals-intended-human-use"
+      },
+      "verification_details": {
+        "ko": "ICH 공식 S2(R1) 원문의 Step 4 상태·2011-11-09 문서일과 FDA Final 채택 페이지(2012-06)를 확인했습니다. ICH 전체 목록/API의 최신 개정 여부는 별도 재확인이 필요합니다.",
+        "en": "Official ICH S2(R1) primary text Step 4 status and document date 2011-11-09, and FDA Final adoption page (2012-06), checked. Latest revision across the full ICH index/API remains to be rechecked."
+      }
     },
     {
       "id": "ICH-S3A",
       "number": 8,
       "issuer": "ICH",
       "short_label": "ICH S3A",
-      "title": "Toxicokinetics: The Assessment of Systemic Exposure in Toxicity Studies",
+      "title": "Note for Guidance on Toxicokinetics: The Assessment of Systemic Exposure in Toxicity Studies",
       "summary": {
         "ko": "독성시험에서 실제 전신 노출을 확인하는 TK 지침입니다. 관련 미량채혈 Q&A도 시험 해석에 연결합니다.",
         "en": "Addresses systemic exposure in toxicity studies. Its microsampling Q&A is also relevant to study interpretation."
@@ -204,19 +397,64 @@
         "ko": "독성 결과와 AUC·Cmax·축적 근거를 연결할 수 있는가?",
         "en": "Can toxicity findings be linked to AUC, Cmax and accumulation?"
       },
-      "url": "https://www.ich.org/page/safety-guidelines",
+      "url": "https://database.ich.org/sites/default/files/S3A_Guideline.pdf",
       "source_kind": "guideline",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "ICH 문서·FDA 채택 정보 확인(2026-10-09). 현행 전체 개정목록·원문 전체 검토는 미완료입니다.",
+        "en": "ICH document and FDA adoption metadata checked (2026-10-09). Full current revision-index and scientific-text review remains incomplete."
       },
       "tags": [
         "exposure",
         "general",
         "toxicokinetics",
         "microsampling"
-      ]
+      ],
+      "provenance": {
+        "sources": [
+          {
+            "issuer": "ICH",
+            "url": "https://database.ich.org/sites/default/files/S3A_Guideline.pdf",
+            "title": "Note for Guidance on Toxicokinetics: The Assessment of Systemic Exposure in Toxicity Studies",
+            "document_code": "S3A",
+            "document_status": "Final / Step 4",
+            "document_date": "1994-10-27",
+            "date_kind": "ICH document cover/history; not FDA issue date",
+            "snapshot_sha256": "f499610710c4206331c58318ec1377729b1c4b6a1fdc9dd4154fb3cdfded9b37",
+            "sha256": "f499610710c4206331c58318ec1377729b1c4b6a1fdc9dd4154fb3cdfded9b37",
+            "checked_at": "2026-10-09T19:29:14Z",
+            "verification_scope": "cover, document history, table of contents and selected sections; full latest-index verification incomplete"
+          },
+          {
+            "issuer": "FDA",
+            "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s3a-toxicokinetics-assessment-systemic-exposure-toxicity-studies",
+            "document_status": "Final",
+            "document_date": "1995-03",
+            "date_kind": "FDA guidance page issue month; not ICH adoption date",
+            "snapshot_sha256": "defa692514361531920966391f9bc64b1500e815e9d7ea06a0e7d737296d549b",
+            "primary_text_snapshot_sha256": "6d7770b1d7fdb15060d3aa4e53a4c71c5155b5bd8cd318969b7c666893089d14",
+            "checked_at": "2026-10-09T19:29:14Z"
+          },
+          {
+            "issuer": "FDA",
+            "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s3a-guidance-note-guidance-toxicokinetics-assessment-systemic-exposure-toxicity-studies-focus",
+            "title": "S3A Guidance: Note for Guidance on Toxicokinetics: The Assessment of Systemic Exposure in Toxicity Studies: Focus on Microsampling",
+            "document_status": "Final",
+            "document_date": "2018-05",
+            "document_kind": "Questions and Answers",
+            "snapshot_sha256": "55ec9ff5d1dfa29c30d768e3b263526bea37a9730c46291ab07e24f5635ff1a8",
+            "primary_text_snapshot_sha256": "ca55f08c385b27bfc64895f3c6d20bc1b8b9233238c15765373fae3f140bf59e",
+            "checked_at": "2026-10-09T19:29:14Z"
+          }
+        ],
+        "review_level": "official_metadata_and_selected_sections",
+        "pdf_url": "https://database.ich.org/sites/default/files/S3A_Guideline.pdf",
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s3a-toxicokinetics-assessment-systemic-exposure-toxicity-studies"
+      },
+      "verification_details": {
+        "ko": "ICH 공식 S3A 원문의 Step 4 상태·1994-10-27 문서일과 FDA Final 채택 페이지(1995-03)를 확인했습니다. ICH 전체 목록/API의 최신 개정 여부는 별도 재확인이 필요합니다. 관련 미량채혈 Q&A의 FDA Final(2018-05)와 원문도 확인했습니다.",
+        "en": "Official ICH S3A primary text Step 4 status and document date 1994-10-27, and FDA Final adoption page (1995-03), checked. Latest revision across the full ICH index/API remains to be rechecked. Related microsampling Q&A FDA Final (2018-05) page and primary text also checked."
+      }
     },
     {
       "id": "ICH-S3B",
@@ -232,18 +470,52 @@
         "ko": "조직 분포가 표적기관 독성과 지속성을 설명하는가?",
         "en": "Does tissue distribution help explain target-organ toxicity and persistence?"
       },
-      "url": "https://www.ich.org/page/safety-guidelines",
+      "url": "https://database.ich.org/sites/default/files/S3B_Guideline.pdf",
       "source_kind": "guideline",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "ICH 문서·FDA 채택 정보 확인(2026-10-09). 현행 전체 개정목록·원문 전체 검토는 미완료입니다.",
+        "en": "ICH document and FDA adoption metadata checked (2026-10-09). Full current revision-index and scientific-text review remains incomplete."
       },
       "tags": [
         "exposure",
         "tissue_distribution",
         "repeat_dose"
-      ]
+      ],
+      "provenance": {
+        "sources": [
+          {
+            "issuer": "ICH",
+            "url": "https://database.ich.org/sites/default/files/S3B_Guideline.pdf",
+            "title": "Pharmacokinetics: Guidance for Repeated Dose Tissue Distribution Studies",
+            "document_code": "S3B",
+            "document_status": "Final / Step 4",
+            "document_date": "1994-10-27",
+            "date_kind": "ICH document cover/history; not FDA issue date",
+            "snapshot_sha256": "fbef33727f1d4ef8e1aec0aebc7330f07346bad73cb4e70b4641e8852de8c5c0",
+            "sha256": "fbef33727f1d4ef8e1aec0aebc7330f07346bad73cb4e70b4641e8852de8c5c0",
+            "checked_at": "2026-10-09T19:29:14Z",
+            "verification_scope": "cover, document history, table of contents and selected sections; full latest-index verification incomplete"
+          },
+          {
+            "issuer": "FDA",
+            "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s3b-pharmacokinetics-guidance-repeated-dose-tissue-distribution-studies",
+            "document_status": "Final",
+            "document_date": "1995-03",
+            "date_kind": "FDA guidance page issue month; not ICH adoption date",
+            "snapshot_sha256": "2335e5c1bd2a855509868740d0862e32bfb3b0900eaa2f6ba06d3faf86999383",
+            "primary_text_snapshot_sha256": "89e11f9ffb4a2968f61a82ee31e86f55c64c49cf2157188080bb5209568e6aa7",
+            "checked_at": "2026-10-09T19:29:14Z"
+          }
+        ],
+        "review_level": "official_metadata_and_selected_sections",
+        "pdf_url": "https://database.ich.org/sites/default/files/S3B_Guideline.pdf",
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s3b-pharmacokinetics-guidance-repeated-dose-tissue-distribution-studies"
+      },
+      "verification_details": {
+        "ko": "ICH 공식 S3B 원문의 Step 4 상태·1994-10-27 문서일과 FDA Final 채택 페이지(1995-03)를 확인했습니다. ICH 전체 목록/API의 최신 개정 여부는 별도 재확인이 필요합니다.",
+        "en": "Official ICH S3B primary text Step 4 status and document date 1994-10-27, and FDA Final adoption page (1995-03), checked. Latest revision across the full ICH index/API remains to be rechecked."
+      }
     },
     {
       "id": "ICH-S4",
@@ -259,12 +531,12 @@
         "ko": "시험기간이 예정 투여기간과 개발 맥락에 적합한가?",
         "en": "Is study duration appropriate for the intended treatment and development context?"
       },
-      "url": "https://www.ich.org/page/safety-guidelines",
+      "url": "https://database.ich.org/sites/default/files/S4_Guideline.pdf",
       "source_kind": "guideline",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "ICH 문서·FDA 채택 정보 확인(2026-10-09). 현행 전체 개정목록·원문 전체 검토는 미완료입니다.",
+        "en": "ICH document and FDA adoption metadata checked (2026-10-09). Full current revision-index and scientific-text review remains incomplete."
       },
       "tags": [
         "baseline",
@@ -272,7 +544,41 @@
         "repeat_dose",
         "chronic_toxicity",
         "duration"
-      ]
+      ],
+      "provenance": {
+        "sources": [
+          {
+            "issuer": "ICH",
+            "url": "https://database.ich.org/sites/default/files/S4_Guideline.pdf",
+            "title": "Duration of Chronic Toxicity Testing in Animals (Rodent and Non Rodent Toxicity Testing)",
+            "document_code": "S4",
+            "document_status": "Final / Step 4",
+            "document_date": "1998-09-02",
+            "date_kind": "ICH document cover/history; not FDA issue date",
+            "snapshot_sha256": "d2cb2098209fb40eb639867379c8578ffdf4429ffb56fb7567f1a017befc2803",
+            "sha256": "d2cb2098209fb40eb639867379c8578ffdf4429ffb56fb7567f1a017befc2803",
+            "checked_at": "2026-10-09T19:29:14Z",
+            "verification_scope": "cover, document history, table of contents and selected sections; full latest-index verification incomplete"
+          },
+          {
+            "issuer": "FDA",
+            "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s4a-duration-chronic-toxicity-testing-animals-rodent-and-nonrodent-toxicity-testing",
+            "document_status": "Final",
+            "document_date": "1999-06",
+            "date_kind": "FDA guidance page issue month; not ICH adoption date",
+            "snapshot_sha256": "e5db36c5b8181d95994aa79c789d2430a0d8f4c6346b75d4ad6a9a108c2e8b7d",
+            "primary_text_snapshot_sha256": "98bad58194f9c75303c0ff032df3f2ac920cdf74d67be9ec1234f3669c2e5589",
+            "checked_at": "2026-10-09T19:29:14Z"
+          }
+        ],
+        "review_level": "official_metadata_and_selected_sections",
+        "pdf_url": "https://database.ich.org/sites/default/files/S4_Guideline.pdf",
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s4a-duration-chronic-toxicity-testing-animals-rodent-and-nonrodent-toxicity-testing"
+      },
+      "verification_details": {
+        "ko": "ICH 공식 S4 원문의 Step 4 상태·1998-09-02 문서일과 FDA Final 채택 페이지(1999-06)를 확인했습니다. ICH 전체 목록/API의 최신 개정 여부는 별도 재확인이 필요합니다.",
+        "en": "Official ICH S4 primary text Step 4 status and document date 1998-09-02, and FDA Final adoption page (1999-06), checked. Latest revision across the full ICH index/API remains to be rechecked."
+      }
     },
     {
       "id": "ICH-S5-R3",
@@ -288,19 +594,53 @@
         "ko": "대상 환자군과 투여 시기를 뒷받침할 생식·발생 근거가 있는가?",
         "en": "Does reproductive and developmental evidence support the population and treatment timing?"
       },
-      "url": "https://www.ich.org/page/safety-guidelines",
+      "url": "https://database.ich.org/sites/default/files/S5-R3_Step4_Guideline_2020_0218_1.pdf",
       "source_kind": "guideline",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "ICH 문서·FDA 채택 정보 확인(2026-10-09). 현행 전체 개정목록·원문 전체 검토는 미완료입니다.",
+        "en": "ICH document and FDA adoption metadata checked (2026-10-09). Full current revision-index and scientific-text review remains incomplete."
       },
       "tags": [
         "reproduction",
         "reproductive_toxicity",
         "developmental_toxicity",
         "exposure"
-      ]
+      ],
+      "provenance": {
+        "sources": [
+          {
+            "issuer": "ICH",
+            "url": "https://database.ich.org/sites/default/files/S5-R3_Step4_Guideline_2020_0218_1.pdf",
+            "title": "Detection of Reproductive and Developmental Toxicity for Human Pharmaceuticals",
+            "document_code": "S5(R3)",
+            "document_status": "Final / Step 4",
+            "document_date": "2020-02-18",
+            "date_kind": "ICH document cover/history; not FDA issue date",
+            "snapshot_sha256": "20d82f2b60b96e7a39bdde3fcc564f110c68f43aee628c276c11c2afd7cfe292",
+            "sha256": "20d82f2b60b96e7a39bdde3fcc564f110c68f43aee628c276c11c2afd7cfe292",
+            "checked_at": "2026-10-09T19:29:14Z",
+            "verification_scope": "cover, document history, table of contents and selected sections; full latest-index verification incomplete"
+          },
+          {
+            "issuer": "FDA",
+            "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s5r3-detection-reproductive-and-developmental-toxicity-human-pharmaceuticals",
+            "document_status": "Final",
+            "document_date": "2021-05",
+            "date_kind": "FDA guidance page issue month; not ICH adoption date",
+            "snapshot_sha256": "896c724c9ebb00b27784b522766612438ceca227aa45694459110550be81ebed",
+            "primary_text_snapshot_sha256": "9148c9d0d07bf5a9d975dd0a30af8847c255a5262218417659abed86ece778f3",
+            "checked_at": "2026-10-09T19:29:14Z"
+          }
+        ],
+        "review_level": "official_metadata_and_selected_sections",
+        "pdf_url": "https://database.ich.org/sites/default/files/S5-R3_Step4_Guideline_2020_0218_1.pdf",
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s5r3-detection-reproductive-and-developmental-toxicity-human-pharmaceuticals"
+      },
+      "verification_details": {
+        "ko": "ICH 공식 S5(R3) 원문의 Final 상태·2020-02-18 문서일과 FDA Final 채택 페이지(2021-05)를 확인했습니다. ICH 전체 목록/API의 최신 개정 여부는 별도 재확인이 필요합니다.",
+        "en": "Official ICH S5(R3) primary text Final status and document date 2020-02-18, and FDA Final adoption page (2021-05), checked. Latest revision across the full ICH index/API remains to be rechecked."
+      }
     },
     {
       "id": "ICH-S6-R1",
@@ -316,12 +656,12 @@
         "ko": "시험종의 약리 관련성과 독성자료의 사람 적용성이 설명됐는가?",
         "en": "Are species relevance and the applicability of toxicity evidence to humans justified?"
       },
-      "url": "https://www.ich.org/page/safety-guidelines",
+      "url": "https://database.ich.org/sites/default/files/S6_R1_Guideline_0.pdf",
       "source_kind": "guideline",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "ICH 문서·FDA 채택 정보 확인(2026-10-09). 현행 전체 개정목록·원문 전체 검토는 미완료입니다.",
+        "en": "ICH document and FDA adoption metadata checked (2026-10-09). Full current revision-index and scientific-text review remains incomplete."
       },
       "tags": [
         "biologic",
@@ -329,7 +669,44 @@
         "species_relevance",
         "immunogenicity",
         "exposure"
-      ]
+      ],
+      "provenance": {
+        "sources": [
+          {
+            "issuer": "ICH",
+            "url": "https://database.ich.org/sites/default/files/S6_R1_Guideline_0.pdf",
+            "title": "Preclinical Safety Evaluation of Biotechnology-Derived Pharmaceuticals",
+            "document_code": "S6(R1)",
+            "document_status": "Final / Step 4",
+            "document_date": "2011-06-12",
+            "date_kind": "ICH document cover/history; not FDA issue date",
+            "snapshot_sha256": "05c41d25575259d9c931fcad33a8227089a8b2f704c0922c0b5f7f411d812e22",
+            "sha256": "05c41d25575259d9c931fcad33a8227089a8b2f704c0922c0b5f7f411d812e22",
+            "checked_at": "2026-10-09T19:29:14Z",
+            "verification_scope": "cover, document history, table of contents and selected sections; full latest-index verification incomplete",
+            "parent_document_date": "1997-07-16",
+            "date_note": "Addendum dated 12 June 2011, incorporated at the end of June 2011."
+          },
+          {
+            "issuer": "FDA",
+            "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s6r1-preclinical-safety-evaluation-biotechnology-derived-pharmaceuticals",
+            "document_status": "Final",
+            "document_date": "2012-05",
+            "date_kind": "FDA guidance page issue month; not ICH adoption date",
+            "snapshot_sha256": "bfa0684c1bbf3fdeaea811d1dcb14db1f3c0b2eb29734583495bce9e78b5a5db",
+            "primary_text_snapshot_sha256": "defcdeae2c53963481310fc70a0af70fb2462b229e9408d3971e41b76812cd41",
+            "checked_at": "2026-10-09T19:29:14Z",
+            "date_note": "FDA page explicitly says original S6 plus S6 Addendum reflect the combined S6(R1). Addendum is complementary; where it differs it prevails."
+          }
+        ],
+        "review_level": "official_metadata_and_selected_sections",
+        "pdf_url": "https://database.ich.org/sites/default/files/S6_R1_Guideline_0.pdf",
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s6r1-preclinical-safety-evaluation-biotechnology-derived-pharmaceuticals"
+      },
+      "verification_details": {
+        "ko": "ICH 공식 S6(R1) 원문의 Step 4 상태·2011-06-12 문서일과 FDA Final 채택 페이지(2012-05)를 확인했습니다. ICH 전체 목록/API의 최신 개정 여부는 별도 재확인이 필요합니다.",
+        "en": "Official ICH S6(R1) primary text Step 4 status and document date 2011-06-12, and FDA Final adoption page (2012-05), checked. Latest revision across the full ICH index/API remains to be rechecked."
+      }
     },
     {
       "id": "ICH-S7A",
@@ -345,12 +722,12 @@
         "ko": "주요 기능 영향과 후속 평가의 근거가 있는가?",
         "en": "Are effects on vital functions and follow-up needs supported by evidence?"
       },
-      "url": "https://www.ich.org/page/safety-guidelines",
+      "url": "https://database.ich.org/sites/default/files/S7A_Guideline.pdf",
       "source_kind": "guideline",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "ICH 문서·FDA 채택 정보 확인(2026-10-09). 현행 전체 개정목록·원문 전체 검토는 미완료입니다.",
+        "en": "ICH document and FDA adoption metadata checked (2026-10-09). Full current revision-index and scientific-text review remains incomplete."
       },
       "tags": [
         "cardiac",
@@ -358,14 +735,34 @@
         "cardiovascular",
         "respiratory",
         "central_nervous_system"
-      ]
+      ],
+      "provenance": {
+        "checked_at": "2026-10-09T19:28:36.213450+00:00",
+        "primary_source": "https://database.ich.org/sites/default/files/S7A_Guideline.pdf",
+        "primary_code": "S7A",
+        "primary_observed_status": "Step 4 / Final",
+        "primary_adoption_date": "2000-11-08",
+        "fda_adoption_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s7a-safety-pharmacology-studies-human-pharmaceuticals",
+        "fda_pdf_url": "https://www.fda.gov/media/72033/download",
+        "fda_observed_status": "Final",
+        "fda_page_guidance_date": "July 2001",
+        "fda_pdf_cover_date": "April 2001",
+        "review_breadth": "official cover/history + regional metadata + selected scope and applicability sections",
+        "current_revision_index_verified": false,
+        "pdf_url": "https://database.ich.org/sites/default/files/S7A_Guideline.pdf",
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s7a-safety-pharmacology-studies-human-pharmaceuticals"
+      },
+      "verification_details": {
+        "ko": "ICH Step 4 2000-11-08; FDA Final. FDA 웹페이지는 July 2001, PDF 표지는 April 2001로 서로 다릅니다. January 2025 파일 갱신은 새 ICH 개정판으로 해석하지 않습니다. ICH 공식 PDF 표지·이력, FDA 채택 페이지·PDF 및 적용 범위 일부를 직접 확인했습니다. ICH 현행 색인의 전체 개정·Q&A 목록은 아직 미검증이며 전 조항의 정독 완료를 뜻하지 않습니다.",
+        "en": "ICH Step 4 2000-11-08; FDA Final. FDA page says July 2001 while PDF cover says April 2001. January 2025 file update does not establish a new ICH revision. Checked ICH official PDF cover/history, FDA adoption page/PDF and selected scope text. The complete current ICH revision/Q&A index remains unverified; this does not mean a complete clause-by-clause review."
+      }
     },
     {
       "id": "ICH-S7B",
       "number": 14,
       "issuer": "ICH",
       "short_label": "ICH S7B",
-      "title": "The Nonclinical Evaluation of the Potential for Delayed Ventricular Repolarization (QT Interval Prolongation) by Human Pharmaceuticals",
+      "title": "The Non-Clinical Evaluation of the Potential for Delayed Ventricular Repolarization (QT Interval Prolongation) by Human Pharmaceuticals",
       "summary": {
         "ko": "심장 재분극·QT 지연의 비임상 근거를 검토합니다. 관련 E14/S7B Q&A와 임상 자료를 연결하며 심장 위험 전체와 구분합니다.",
         "en": "Addresses nonclinical evidence for delayed repolarization and QT prolongation. Review related E14/S7B Q&A with clinical evidence; this is not the full scope of cardiac risk."
@@ -374,12 +771,12 @@
         "ko": "이온채널·in vivo QT·노출과 임상 근거가 일관되는가?",
         "en": "Are ion-channel, in vivo QT, exposure and clinical evidence consistent?"
       },
-      "url": "https://www.ich.org/page/safety-guidelines",
+      "url": "https://database.ich.org/sites/default/files/S7B_Guideline.pdf",
       "source_kind": "guideline",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "ICH 문서·FDA 채택 정보 확인(2026-10-09). 현행 전체 개정목록·원문 전체 검토는 미완료입니다.",
+        "en": "ICH document and FDA adoption metadata checked (2026-10-09). Full current revision-index and scientific-text review remains incomplete."
       },
       "tags": [
         "cardiac",
@@ -387,7 +784,27 @@
         "cardiovascular",
         "qt",
         "exposure"
-      ]
+      ],
+      "provenance": {
+        "checked_at": "2026-10-09T19:28:36.213450+00:00",
+        "primary_source": "https://database.ich.org/sites/default/files/S7B_Guideline.pdf",
+        "primary_code": "S7B",
+        "primary_observed_status": "Step 4 / Final",
+        "primary_adoption_date": "2005-05-12",
+        "fda_adoption_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s7b-nonclinical-evaluation-potential-delayed-ventricular-repolarization-qt-interval-prolongation",
+        "fda_pdf_url": "https://www.fda.gov/media/72043/download",
+        "fda_observed_status": "Final",
+        "fda_page_guidance_date": "October 2005",
+        "fda_pdf_cover_date": "October 2005",
+        "review_breadth": "official cover/history + regional metadata + selected scope and applicability sections",
+        "current_revision_index_verified": false,
+        "pdf_url": "https://database.ich.org/sites/default/files/S7B_Guideline.pdf",
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s7b-nonclinical-evaluation-potential-delayed-ventricular-repolarization-qt-interval-prolongation"
+      },
+      "verification_details": {
+        "ko": "ICH Step 4 2005-05-12; FDA Final October 2005. E14/S7B Q&A의 FDA Final August 2022 및 PDF의 ICH Step 4 February 2022 설명도 확인했습니다. ICH 공식 PDF 표지·이력, FDA 채택 페이지·PDF 및 적용 범위 일부를 직접 확인했습니다. ICH 현행 색인의 전체 개정·Q&A 목록은 아직 미검증이며 전 조항의 정독 완료를 뜻하지 않습니다.",
+        "en": "ICH Step 4 2005-05-12; FDA Final October 2005. FDA Final August 2022 E14/S7B Q&A and its statement of ICH Step 4 February 2022 were also checked. Checked ICH official PDF cover/history, FDA adoption page/PDF and selected scope text. The complete current ICH revision/Q&A index remains unverified; this does not mean a complete clause-by-clause review."
+      }
     },
     {
       "id": "ICH-S8",
@@ -403,18 +820,38 @@
         "ko": "반복독성·약리 근거에 면역독성 신호가 있는가?",
         "en": "Do repeat-dose or pharmacology data indicate an immunotoxicity concern?"
       },
-      "url": "https://www.ich.org/page/safety-guidelines",
+      "url": "https://database.ich.org/sites/default/files/S8_Guideline.pdf",
       "source_kind": "guideline",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "ICH 문서·FDA 채택 정보 확인(2026-10-09). 현행 전체 개정목록·원문 전체 검토는 미완료입니다.",
+        "en": "ICH document and FDA adoption metadata checked (2026-10-09). Full current revision-index and scientific-text review remains incomplete."
       },
       "tags": [
         "immunotoxicity",
         "repeat_dose",
         "immune_function"
-      ]
+      ],
+      "provenance": {
+        "checked_at": "2026-10-09T19:28:36.213450+00:00",
+        "primary_source": "https://database.ich.org/sites/default/files/S8_Guideline.pdf",
+        "primary_code": "S8",
+        "primary_observed_status": "Step 4 / Final",
+        "primary_adoption_date": "2005-09-15",
+        "fda_adoption_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s8-immunotoxicity-studies-human-pharmaceuticals",
+        "fda_pdf_url": "https://www.fda.gov/media/72047/download",
+        "fda_observed_status": "Final",
+        "fda_page_guidance_date": "April 2006",
+        "fda_pdf_cover_date": "April 2006",
+        "review_breadth": "official cover/history + regional metadata + selected scope and applicability sections",
+        "current_revision_index_verified": false,
+        "pdf_url": "https://database.ich.org/sites/default/files/S8_Guideline.pdf",
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s8-immunotoxicity-studies-human-pharmaceuticals"
+      },
+      "verification_details": {
+        "ko": "ICH Step 4 2005-09-15; FDA Final April 2006. 의도하지 않은 면역억제·증강이 범위이며 과민반응·자가면역 및 ICH S6 생물의약품은 제외합니다. ICH 공식 PDF 표지·이력, FDA 채택 페이지·PDF 및 적용 범위 일부를 직접 확인했습니다. ICH 현행 색인의 전체 개정·Q&A 목록은 아직 미검증이며 전 조항의 정독 완료를 뜻하지 않습니다.",
+        "en": "ICH Step 4 2005-09-15; FDA Final April 2006. Scope is unintended immunosuppression or enhancement; hypersensitivity, autoimmunity and ICH S6 biotechnology-derived products are excluded. Checked ICH official PDF cover/history, FDA adoption page/PDF and selected scope text. The complete current ICH revision/Q&A index remains unverified; this does not mean a complete clause-by-clause review."
+      }
     },
     {
       "id": "ICH-S9",
@@ -430,18 +867,38 @@
         "ko": "항암제 지침의 환자군·개발 목적에 해당하는가?",
         "en": "Does the population and development purpose fall within the anticancer guidance scope?"
       },
-      "url": "https://www.ich.org/page/safety-guidelines",
+      "url": "https://database.ich.org/sites/default/files/S9_Guideline.pdf",
       "source_kind": "guideline",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "ICH 문서·FDA 채택 정보 확인(2026-10-09). 현행 전체 개정목록·원문 전체 검토는 미완료입니다.",
+        "en": "ICH document and FDA adoption metadata checked (2026-10-09). Full current revision-index and scientific-text review remains incomplete."
       },
       "tags": [
         "oncology",
         "clinical_support",
         "study_applicability"
-      ]
+      ],
+      "provenance": {
+        "checked_at": "2026-10-09T19:28:36.213450+00:00",
+        "primary_source": "https://database.ich.org/sites/default/files/S9_Guideline.pdf",
+        "primary_code": "S9",
+        "primary_observed_status": "Step 4 / Final",
+        "primary_adoption_date": "2009-10-29",
+        "fda_adoption_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s9-nonclinical-evaluation-anticancer-pharmaceuticals",
+        "fda_pdf_url": "https://www.fda.gov/media/73161/download",
+        "fda_observed_status": "Final",
+        "fda_page_guidance_date": "March 2010",
+        "fda_pdf_cover_date": "March 2010",
+        "review_breadth": "official cover/history + regional metadata + selected scope and applicability sections",
+        "current_revision_index_verified": false,
+        "pdf_url": "https://database.ich.org/sites/default/files/S9_Guideline.pdf",
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s9-nonclinical-evaluation-anticancer-pharmaceuticals"
+      },
+      "verification_details": {
+        "ko": "ICH Step 4 2009-10-29; FDA Final March 2010. S9 Q&A는 FDA Final PDF June 2018입니다. Q&A 페이지의 March 2010 메타데이터와 June 2018 갱신을 구분합니다. ICH 공식 PDF 표지·이력, FDA 채택 페이지·PDF 및 적용 범위 일부를 직접 확인했습니다. ICH 현행 색인의 전체 개정·Q&A 목록은 아직 미검증이며 전 조항의 정독 완료를 뜻하지 않습니다.",
+        "en": "ICH Step 4 2009-10-29; FDA Final March 2010. S9 Q&A FDA Final PDF is June 2018; distinguish page metadata March 2010 from its June 2018 update. Checked ICH official PDF cover/history, FDA adoption page/PDF and selected scope text. The complete current ICH revision/Q&A index remains unverified; this does not mean a complete clause-by-clause review."
+      }
     },
     {
       "id": "ICH-S10",
@@ -457,19 +914,39 @@
         "ko": "광안전성 질문과 시험 필요성을 제품 노출로 설명하는가?",
         "en": "Are photosafety questions and study needs justified by product exposure?"
       },
-      "url": "https://www.ich.org/page/safety-guidelines",
+      "url": "https://database.ich.org/sites/default/files/S10_Guideline.pdf",
       "source_kind": "guideline",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "ICH 문서·FDA 채택 정보 확인(2026-10-09). 현행 전체 개정목록·원문 전체 검토는 미완료입니다.",
+        "en": "ICH document and FDA adoption metadata checked (2026-10-09). Full current revision-index and scientific-text review remains incomplete."
       },
       "tags": [
         "photosafety",
         "skin",
         "ocular",
         "exposure"
-      ]
+      ],
+      "provenance": {
+        "checked_at": "2026-10-09T19:28:36.213450+00:00",
+        "primary_source": "https://database.ich.org/sites/default/files/S10_Guideline.pdf",
+        "primary_code": "S10",
+        "primary_observed_status": "Step 4 / Final",
+        "primary_adoption_date": "2013-11-13",
+        "fda_adoption_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s10-photosafety-evaluation-pharmaceuticals",
+        "fda_pdf_url": "https://www.fda.gov/media/85076/download",
+        "fda_observed_status": "Final",
+        "fda_page_guidance_date": "January 2015",
+        "fda_pdf_cover_date": "January 2015",
+        "review_breadth": "official cover/history + regional metadata + selected scope and applicability sections",
+        "current_revision_index_verified": false,
+        "pdf_url": "https://database.ich.org/sites/default/files/S10_Guideline.pdf",
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s10-photosafety-evaluation-pharmaceuticals"
+      },
+      "verification_details": {
+        "ko": "ICH Step 4 2013-11-13; FDA Final January 2015. 적용 범위와 광화학·조직노출 기반 평가 원칙을 확인했습니다. ICH 공식 PDF 표지·이력, FDA 채택 페이지·PDF 및 적용 범위 일부를 직접 확인했습니다. ICH 현행 색인의 전체 개정·Q&A 목록은 아직 미검증이며 전 조항의 정독 완료를 뜻하지 않습니다.",
+        "en": "ICH Step 4 2013-11-13; FDA Final January 2015. Scope and photochemical/tissue-exposure assessment principles were checked. Checked ICH official PDF cover/history, FDA adoption page/PDF and selected scope text. The complete current ICH revision/Q&A index remains unverified; this does not mean a complete clause-by-clause review."
+      }
     },
     {
       "id": "ICH-S11",
@@ -485,19 +962,39 @@
         "ko": "임상 연령과 발달 장기의 자료 부족을 확인했는가?",
         "en": "Have evidence gaps for clinical age and developing organs been identified?"
       },
-      "url": "https://www.ich.org/page/safety-guidelines",
+      "url": "https://database.ich.org/sites/default/files/S11_Step4_FinalGuideline_2020_0310.pdf",
       "source_kind": "guideline",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "ICH 문서·FDA 채택 정보 확인(2026-10-09). 현행 전체 개정목록·원문 전체 검토는 미완료입니다.",
+        "en": "ICH document and FDA adoption metadata checked (2026-10-09). Full current revision-index and scientific-text review remains incomplete."
       },
       "tags": [
         "pediatric",
         "juvenile",
         "developmental_toxicity",
         "weight_of_evidence"
-      ]
+      ],
+      "provenance": {
+        "checked_at": "2026-10-09T19:28:36.213450+00:00",
+        "primary_source": "https://database.ich.org/sites/default/files/S11_Step4_FinalGuideline_2020_0310.pdf",
+        "primary_code": "S11",
+        "primary_observed_status": "Step 4 / Final",
+        "primary_adoption_date": "2020-04-14",
+        "fda_adoption_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s11-nonclinical-safety-testing-support-development-pediatric-pharmaceuticals",
+        "fda_pdf_url": "https://www.fda.gov/media/148478/download",
+        "fda_observed_status": "Final",
+        "fda_page_guidance_date": "May 2021",
+        "fda_pdf_cover_date": "May 2021",
+        "review_breadth": "official cover/history + regional metadata + selected scope and applicability sections",
+        "current_revision_index_verified": false,
+        "pdf_url": "https://database.ich.org/sites/default/files/S11_Step4_FinalGuideline_2020_0310.pdf",
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s11-nonclinical-safety-testing-support-development-pediatric-pharmaceuticals"
+      },
+      "verification_details": {
+        "ko": "ICH Final/Step 4 adopted 2020-04-14 (문서 날짜 2020-03-10); FDA Final May 2021. FDA의 오래된 Draft 부제와 달리 Final 배지·최종 PDF를 확인했습니다. ICH 공식 PDF 표지·이력, FDA 채택 페이지·PDF 및 적용 범위 일부를 직접 확인했습니다. ICH 현행 색인의 전체 개정·Q&A 목록은 아직 미검증이며 전 조항의 정독 완료를 뜻하지 않습니다.",
+        "en": "ICH Final/Step 4 adopted 2020-04-14 (document dated 2020-03-10); FDA Final May 2021. The Final badge and final PDF clarify the stale Draft subtitle on the FDA page. Checked ICH official PDF cover/history, FDA adoption page/PDF and selected scope text. The complete current ICH revision/Q&A index remains unverified; this does not mean a complete clause-by-clause review."
+      }
     },
     {
       "id": "ICH-S12",
@@ -513,19 +1010,39 @@
         "ko": "투여경로·조직·시점·분석법이 생체분포 질문에 적합한가?",
         "en": "Are route, tissues, time points and methods appropriate for the biodistribution question?"
       },
-      "url": "https://www.ich.org/page/safety-guidelines",
+      "url": "https://database.ich.org/sites/default/files/ICH_S12_Step4_Guideline_2023_0314.pdf",
       "source_kind": "guideline",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "ICH 문서·FDA 채택 정보 확인(2026-10-09). 현행 전체 개정목록·원문 전체 검토는 미완료입니다.",
+        "en": "ICH document and FDA adoption metadata checked (2026-10-09). Full current revision-index and scientific-text review remains incomplete."
       },
       "tags": [
         "gene_therapy",
         "biodistribution",
         "persistence",
         "assay_quality"
-      ]
+      ],
+      "provenance": {
+        "checked_at": "2026-10-09T19:28:36.213450+00:00",
+        "primary_source": "https://database.ich.org/sites/default/files/ICH_S12_Step4_Guideline_2023_0314.pdf",
+        "primary_code": "S12",
+        "primary_observed_status": "Step 4 / Final",
+        "primary_adoption_date": "2023-03-14",
+        "fda_adoption_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s12-nonclinical-biodistribution-considerations-gene-therapy-products",
+        "fda_pdf_url": "https://www.fda.gov/media/167605/download",
+        "fda_observed_status": "Final",
+        "fda_page_guidance_date": "May 2023",
+        "fda_pdf_cover_date": "May 2023",
+        "review_breadth": "official cover/history + regional metadata + selected scope and applicability sections",
+        "current_revision_index_verified": false,
+        "pdf_url": "https://database.ich.org/sites/default/files/ICH_S12_Step4_Guideline_2023_0314.pdf",
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/s12-nonclinical-biodistribution-considerations-gene-therapy-products"
+      },
+      "verification_details": {
+        "ko": "ICH Final/Step 4 adopted 2023-03-14; FDA Final May 2023, September 2021 초안을 대체합니다. 생체분포 지침이며 shedding·genomic/germline integration 평가는 범위 밖입니다. ICH 공식 PDF 표지·이력, FDA 채택 페이지·PDF 및 적용 범위 일부를 직접 확인했습니다. ICH 현행 색인의 전체 개정·Q&A 목록은 아직 미검증이며 전 조항의 정독 완료를 뜻하지 않습니다.",
+        "en": "ICH Final/Step 4 adopted 2023-03-14; FDA Final May 2023 replacing the September 2021 draft. This is biodistribution guidance; shedding and genomic/germline integration assessment are outside its scope. Checked ICH official PDF cover/history, FDA adoption page/PDF and selected scope text. The complete current ICH revision/Q&A index remains unverified; this does not mean a complete clause-by-clause review."
+      }
     },
     {
       "id": "FDA-STARTING-DOSE",
@@ -541,19 +1058,42 @@
         "ko": "용량 근거의 대상군·동물자료·환산·불확실성이 적합한가?",
         "en": "Are the population, animal evidence, dose conversion and uncertainty appropriate?"
       },
-      "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents",
+      "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/estimating-maximum-safe-starting-dose-initial-clinical-trials-therapeutics-adult-healthy-volunteers",
       "source_kind": "guidance_candidate",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "FDA 공식 문서 확인: Final · July 2005 (2026-10-09). 원문 전체·후속 문서 검토는 미완료입니다.",
+        "en": "FDA source checked: Final · July 2005 (2026-10-09). Full-text and related-document review remains incomplete."
       },
       "tags": [
         "starting_dose",
         "clinical_support",
         "exposure",
         "healthy_volunteers"
-      ]
+      ],
+      "provenance": {
+        "checked_at": "2026-10-09T19:25:45.083137+00:00",
+        "landing_page_http_status": 200,
+        "publication_label": "July 2005",
+        "publication_status_label": "Final",
+        "pdf_url": "https://www.fda.gov/media/72309/download",
+        "metadata_snapshot_sha256": "2ac4633352ef1c3a2ca9d7caa4fecda56fd167c6a9ae436c5571ba38158b66e1",
+        "review_level": "official_landing_page_metadata",
+        "pdf_sha256": "133b827046cd3b99157d15afb483a638c4ab3b0c319898e2bc089129670916b8",
+        "primary_text_review": "selected scope/introduction sections; not complete document review",
+        "guidance_index_crosscheck": {
+          "url": "https://www.fda.gov/files/api/datatables/static/search-for-guidance.json",
+          "snapshot_sha256": "12c4ad0f8597b8bf5100c3bd8d5f8351cef50b2cc6857463e666bc6e3438753b",
+          "issue_date": "07/28/2005",
+          "status": "Final",
+          "document_type": ""
+        },
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/estimating-maximum-safe-starting-dose-initial-clinical-trials-therapeutics-adult-healthy-volunteers"
+      },
+      "verification_details": {
+        "ko": "2026-10-09 FDA 공식 문서 페이지에서 제목·발행표시(July 2005)·상태(Final)와 PDF 링크를 확인했습니다. 이는 공식 메타데이터 확인이며 원문 전체 검토 또는 모든 후속 개정·관련 문서 확인을 뜻하지 않습니다.",
+        "en": "On 2026-10-09, checked the FDA official landing page title, issue label (July 2005), status (Final) and PDF link. This confirms official metadata, not a complete primary-text review or an exhaustive check of subsequent revisions and related documents."
+      }
     },
     {
       "id": "FDA-DRUG-METABOLITES",
@@ -569,12 +1109,12 @@
         "ko": "사람 대사체를 시험종이 충분히 커버하는가?",
         "en": "Do the test species adequately cover relevant human metabolites?"
       },
-      "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents",
+      "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/safety-testing-drug-metabolites",
       "source_kind": "guidance_candidate",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "FDA 공식 문서 확인: Final; Level 2 Revised Guidance · March 2020, Revision 2 (2026-10-09). 원문 전체·후속 문서 검토는 미완료입니다.",
+        "en": "FDA source checked: Final; Level 2 Revised Guidance · March 2020, Revision 2 (2026-10-09). Full-text and related-document review remains incomplete."
       },
       "tags": [
         "metabolite",
@@ -582,7 +1122,32 @@
         "toxicokinetics",
         "exposure",
         "species_relevance"
-      ]
+      ],
+      "provenance": {
+        "checked_at": "2026-10-09T19:25:44.930945+00:00",
+        "landing_page_http_status": 200,
+        "publication_label": "November 2016; page notes updated March 5, 2020",
+        "publication_status_label": "Final; Level 2 Revised Guidance",
+        "pdf_url": "https://www.fda.gov/media/72279/download",
+        "metadata_snapshot_sha256": "a887627333d32c62610e6da9b9aa96014f43bdd25e74390e9efd28ea34aa070f",
+        "review_level": "official_landing_page_metadata",
+        "pdf_sha256": "1cc35c273cf48df985604c0b1fd7c0d04c48aca88f53ed49e063cac9ddae8d85",
+        "primary_text_review": "selected scope/introduction sections; not complete document review",
+        "pdf_publication_label": "March 2020, Revision 2",
+        "supersedes": "November 2016 guidance, explicitly stated in PDF section I",
+        "guidance_index_crosscheck": {
+          "url": "https://www.fda.gov/files/api/datatables/static/search-for-guidance.json",
+          "snapshot_sha256": "12c4ad0f8597b8bf5100c3bd8d5f8351cef50b2cc6857463e666bc6e3438753b",
+          "issue_date": "11/22/2016",
+          "status": "Final",
+          "document_type": "Guidance Document"
+        },
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/safety-testing-drug-metabolites"
+      },
+      "verification_details": {
+        "ko": "2026-10-09 FDA 공식 페이지의 Final·Level 2 Revised Guidance 표시와 직접 연결 PDF를 확인했습니다. 페이지 발행표시는 November 2016이나 PDF는 March 2020 Revision 2이며, 서론은 2016판을 대체한다고 명시합니다. 원문 전체와 모든 후속 문서 검토는 완료하지 않았습니다.",
+        "en": "On 2026-10-09, checked the FDA page marked Final and Level 2 Revised Guidance and its linked PDF. The page issue label is November 2016, but the PDF is March 2020 Revision 2 and states that it supersedes the 2016 guidance. A complete primary-text and related-document review is not complete."
+      }
     },
     {
       "id": "FDA-DRUG-BIOLOGIC-COMBINATIONS",
@@ -598,12 +1163,12 @@
         "ko": "단독 성분의 자료가 병용 조건을 뒷받침하는가?",
         "en": "Does the evidence for individual components support the combination setting?"
       },
-      "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents",
+      "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/nonclinical-safety-evaluation-drug-or-biologic-combinations",
       "source_kind": "guidance_candidate",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "FDA 공식 문서 확인: Final · March 2006 (2026-10-09). 원문 전체·후속 문서 검토는 미완료입니다.",
+        "en": "FDA source checked: Final · March 2006 (2026-10-09). Full-text and related-document review remains incomplete."
       },
       "tags": [
         "combination",
@@ -611,7 +1176,30 @@
         "pharmacology",
         "exposure",
         "clinical_support"
-      ]
+      ],
+      "provenance": {
+        "checked_at": "2026-10-09T19:25:45.202634+00:00",
+        "landing_page_http_status": 200,
+        "publication_label": "March 2006",
+        "publication_status_label": "Final",
+        "pdf_url": "https://www.fda.gov/media/119657/download",
+        "metadata_snapshot_sha256": "8e5c01ad16b38227a9e0c5cd65ac9cc83bc60107364e5d7e07901aa7370d8bbc",
+        "review_level": "official_landing_page_metadata",
+        "pdf_sha256": "ff11bef39b45ee7910707cc689e6f072731c6ed74afc8e7574256f3e428c7264",
+        "primary_text_review": "selected scope/introduction sections; not complete document review",
+        "guidance_index_crosscheck": {
+          "url": "https://www.fda.gov/files/api/datatables/static/search-for-guidance.json",
+          "snapshot_sha256": "12c4ad0f8597b8bf5100c3bd8d5f8351cef50b2cc6857463e666bc6e3438753b",
+          "issue_date": "03/15/2006",
+          "status": "Final",
+          "document_type": "Guidance Document"
+        },
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/nonclinical-safety-evaluation-drug-or-biologic-combinations"
+      },
+      "verification_details": {
+        "ko": "2026-10-09 FDA 공식 문서 페이지에서 제목·발행표시(March 2006)·상태(Final)와 PDF 링크를 확인했습니다. 이는 공식 메타데이터 확인이며 원문 전체 검토 또는 모든 후속 개정·관련 문서 확인을 뜻하지 않습니다.",
+        "en": "On 2026-10-09, checked the FDA official landing page title, issue label (March 2006), status (Final) and PDF link. This confirms official metadata, not a complete primary-text review or an exhaustive check of subsequent revisions and related documents."
+      }
     },
     {
       "id": "FDA-PHARMACEUTICAL-EXCIPIENTS",
@@ -627,12 +1215,12 @@
         "ko": "첨가제의 실제 사용 조건에 안전성 근거가 적용되는가?",
         "en": "Does excipient safety evidence apply to the actual conditions of use?"
       },
-      "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents",
+      "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/nonclinical-studies-safety-evaluation-pharmaceutical-excipients",
       "source_kind": "guidance_candidate",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "FDA 공식 문서 확인: Final · May 2005 (2026-10-09). 원문 전체·후속 문서 검토는 미완료입니다.",
+        "en": "FDA source checked: Final · May 2005 (2026-10-09). Full-text and related-document review remains incomplete."
       },
       "tags": [
         "excipient",
@@ -640,7 +1228,30 @@
         "formulation",
         "local_toxicity",
         "exposure"
-      ]
+      ],
+      "provenance": {
+        "checked_at": "2026-10-09T19:25:44.906642+00:00",
+        "landing_page_http_status": 200,
+        "publication_label": "May 2005",
+        "publication_status_label": "Final",
+        "pdf_url": "https://www.fda.gov/media/72260/download",
+        "metadata_snapshot_sha256": "6b3b460758cda766909405703bd80f0ac576f8880fe0090d68c5ae0d3d4623e5",
+        "review_level": "official_landing_page_metadata",
+        "pdf_sha256": "68df85878bce3738dd4f112aca1b6c4f25ed664d9ca7b3a4916380b12e51f8e2",
+        "primary_text_review": "selected scope/introduction sections; not complete document review",
+        "guidance_index_crosscheck": {
+          "url": "https://www.fda.gov/files/api/datatables/static/search-for-guidance.json",
+          "snapshot_sha256": "12c4ad0f8597b8bf5100c3bd8d5f8351cef50b2cc6857463e666bc6e3438753b",
+          "issue_date": "05/19/2005",
+          "status": "Final",
+          "document_type": "Guidance Document"
+        },
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/nonclinical-studies-safety-evaluation-pharmaceutical-excipients"
+      },
+      "verification_details": {
+        "ko": "2026-10-09 FDA 공식 문서 페이지에서 제목·발행표시(May 2005)·상태(Final)와 PDF 링크를 확인했습니다. 이는 공식 메타데이터 확인이며 원문 전체 검토 또는 모든 후속 개정·관련 문서 확인을 뜻하지 않습니다.",
+        "en": "On 2026-10-09, checked the FDA official landing page title, issue label (May 2005), status (Final) and PDF link. This confirms official metadata, not a complete primary-text review or an exhaustive check of subsequent revisions and related documents."
+      }
     },
     {
       "id": "FDA-REFORMULATION-ALTERNATE-ROUTE",
@@ -656,12 +1267,12 @@
         "ko": "기존 자료를 변경 제형·경로에 연결할 근거가 있는가?",
         "en": "Is there evidence to bridge existing data to the new formulation or route?"
       },
-      "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents",
+      "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/nonclinical-safety-evaluation-reformulated-drug-products-and-products-intended-administration",
       "source_kind": "guidance_candidate",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "FDA 공식 문서 확인: Final · October 2015 (2026-10-09). 원문 전체·후속 문서 검토는 미완료입니다.",
+        "en": "FDA source checked: Final · October 2015 (2026-10-09). Full-text and related-document review remains incomplete."
       },
       "tags": [
         "reformulation",
@@ -670,7 +1281,30 @@
         "local_toxicity",
         "bridging",
         "exposure"
-      ]
+      ],
+      "provenance": {
+        "checked_at": "2026-10-09T19:26:12.642074+00:00",
+        "landing_page_http_status": 200,
+        "publication_label": "October 2015",
+        "publication_status_label": "Final",
+        "pdf_url": "https://www.fda.gov/media/72246/download",
+        "metadata_snapshot_sha256": "8cb7ad566dc21f8c40e69d5e04756979d74879a31d32a255296077262256b3f5",
+        "review_level": "official_landing_page_metadata",
+        "pdf_sha256": "64fcf3fad7f1878ad73b94d5fe1e98e08c2bfb5d5be15d3fc057cd877ea68eba",
+        "primary_text_review": "selected scope/introduction sections; not complete document review",
+        "guidance_index_crosscheck": {
+          "url": "https://www.fda.gov/files/api/datatables/static/search-for-guidance.json",
+          "snapshot_sha256": "12c4ad0f8597b8bf5100c3bd8d5f8351cef50b2cc6857463e666bc6e3438753b",
+          "issue_date": "10/28/2015",
+          "status": "Final",
+          "document_type": "Guidance Document"
+        },
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/nonclinical-safety-evaluation-reformulated-drug-products-and-products-intended-administration"
+      },
+      "verification_details": {
+        "ko": "2026-10-09 FDA 공식 문서 페이지에서 제목·발행표시(October 2015)·상태(Final)와 PDF 링크를 확인했습니다. 이는 공식 메타데이터 확인이며 원문 전체 검토 또는 모든 후속 개정·관련 문서 확인을 뜻하지 않습니다.",
+        "en": "On 2026-10-09, checked the FDA official landing page title, issue label (October 2015), status (Final) and PDF link. This confirms official metadata, not a complete primary-text review or an exhaustive check of subsequent revisions and related documents."
+      }
     },
     {
       "id": "FDA-OLIGONUCLEOTIDE-NONCLINICAL",
@@ -679,8 +1313,8 @@
       "short_label": "FDA · Oligonucleotides",
       "title": "Nonclinical Safety Assessment of Oligonucleotide-Based Therapeutics",
       "summary": {
-        "ko": "올리고뉴클레오타이드의 서열·화학구조·전달체와 관련 종에 맞는 비임상 평가 후보입니다. 임상 약리 문서와 구분합니다.",
-        "en": "A candidate nonclinical assessment guidance for oligonucleotide sequence, chemistry, delivery and relevant species. Keep it distinct from clinical-pharmacology guidance."
+        "ko": "Antisense·siRNA 등 올리고뉴클레오타이드의 비임상 안전성 초안입니다. mRNA·DNA/RNA 백신·바이러스 전달 올리고·유전자편집용 RNA 등은 적용 범위에서 제외됩니다.",
+        "en": "Draft nonclinical guidance for oligonucleotides such as antisense and siRNA. Its scope excludes mRNA, DNA/RNA vaccines, virally delivered oligonucleotides and gene-editing RNA, among others."
       },
       "relevance": {
         "ko": "표적·비표적 영향과 조직 노출의 제품별 근거가 있는가?",
@@ -688,17 +1322,40 @@
       },
       "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/nonclinical-safety-assessment-oligonucleotide-based-therapeutics",
       "source_kind": "guidance_candidate",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "FDA 공식 문서 확인: Draft; Level 1 Guidance; not for implementation · November 2024 (2026-10-09). 원문 전체·후속 문서 검토는 미완료입니다.",
+        "en": "FDA source checked: Draft; Level 1 Guidance; not for implementation · November 2024 (2026-10-09). Full-text and related-document review remains incomplete."
       },
       "tags": [
         "oligonucleotide",
         "off_target",
         "species_relevance",
         "tissue_distribution"
-      ]
+      ],
+      "provenance": {
+        "checked_at": "2026-10-09T19:25:45.232329+00:00",
+        "landing_page_http_status": 200,
+        "publication_label": "November 2024",
+        "publication_status_label": "Draft; Level 1 Guidance; not for implementation",
+        "pdf_url": "https://www.fda.gov/media/183496/download",
+        "metadata_snapshot_sha256": "31b90d70a37ab2237d403b7100687008c0acbe31d33318061ace7702430fcc02",
+        "review_level": "official_landing_page_metadata",
+        "pdf_sha256": "b8512389ef1fbdbda3fead914c066c901eff4af5783825ce7a737a3f39db0afb",
+        "primary_text_review": "selected scope/introduction sections; not complete document review",
+        "guidance_index_crosscheck": {
+          "url": "https://www.fda.gov/files/api/datatables/static/search-for-guidance.json",
+          "snapshot_sha256": "12c4ad0f8597b8bf5100c3bd8d5f8351cef50b2cc6857463e666bc6e3438753b",
+          "issue_date": "11/15/2024",
+          "status": "Draft",
+          "document_type": "Guidance Document"
+        },
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/nonclinical-safety-assessment-oligonucleotide-based-therapeutics"
+      },
+      "verification_details": {
+        "ko": "2026-10-09 FDA 공식 문서 페이지에서 제목·발행표시(November 2024)·상태(Draft; Level 1 Guidance; not for implementation)와 PDF 링크를 확인했습니다. 이는 공식 메타데이터 확인이며 원문 전체 검토 또는 모든 후속 개정·관련 문서 확인을 뜻하지 않습니다. Draft는 시행용이 아니며 비구속적 권고입니다.",
+        "en": "On 2026-10-09, checked the FDA official landing page title, issue label (November 2024), status (Draft; Level 1 Guidance; not for implementation) and PDF link. This confirms official metadata, not a complete primary-text review or an exhaustive check of subsequent revisions and related documents. The draft is not for implementation and contains nonbinding recommendations."
+      }
     },
     {
       "id": "FDA-CELL-GENE-PRECLINICAL",
@@ -716,10 +1373,10 @@
       },
       "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/preclinical-assessment-investigational-cellular-and-gene-therapy-products",
       "source_kind": "guidance_candidate",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "FDA 공식 문서 확인: Final · November 2013 (2026-10-09). 원문 전체·후속 문서 검토는 미완료입니다.",
+        "en": "FDA source checked: Final · November 2013 (2026-10-09). Full-text and related-document review remains incomplete."
       },
       "tags": [
         "gene_therapy",
@@ -727,14 +1384,37 @@
         "species_relevance",
         "tumorigenicity",
         "persistence"
-      ]
+      ],
+      "provenance": {
+        "checked_at": "2026-10-09T19:25:45.274817+00:00",
+        "landing_page_http_status": 200,
+        "publication_label": "November 2013",
+        "publication_status_label": "Final",
+        "pdf_url": "https://www.fda.gov/media/87564/download",
+        "metadata_snapshot_sha256": "914a41fa6d9d59881fc5643938bf4ffd60faca20adca8e2b941e3a9de519aff9",
+        "review_level": "official_landing_page_metadata",
+        "pdf_sha256": "9a44984db905a4de31538c8716776cee5f23bcf69081ce6749c25b8f8d360569",
+        "primary_text_review": "selected scope/introduction sections; not complete document review",
+        "guidance_index_crosscheck": {
+          "url": "https://www.fda.gov/files/api/datatables/static/search-for-guidance.json",
+          "snapshot_sha256": "12c4ad0f8597b8bf5100c3bd8d5f8351cef50b2cc6857463e666bc6e3438753b",
+          "issue_date": "11/01/2013",
+          "status": "Final",
+          "document_type": "Guidance Document"
+        },
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/preclinical-assessment-investigational-cellular-and-gene-therapy-products"
+      },
+      "verification_details": {
+        "ko": "2026-10-09 FDA 공식 문서 페이지에서 제목·발행표시(November 2013)·상태(Final)와 PDF 링크를 확인했습니다. 이는 공식 메타데이터 확인이며 원문 전체 검토 또는 모든 후속 개정·관련 문서 확인을 뜻하지 않습니다.",
+        "en": "On 2026-10-09, checked the FDA official landing page title, issue label (November 2013), status (Final) and PDF link. This confirms official metadata, not a complete primary-text review or an exhaustive check of subsequent revisions and related documents."
+      }
     },
     {
       "id": "FDA-NANOMATERIALS",
       "number": 27,
       "issuer": "FDA",
       "short_label": "FDA · Nanomaterials",
-      "title": "Drug Products, Including Biological Products, that Contain Nanomaterials",
+      "title": "Drug Products, Including Biological Products, that Contain Nanomaterials - Guidance for Industry",
       "summary": {
         "ko": "나노물질 제품의 특성과 분포·노출·안전성을 연결하는 후보 가이던스입니다. 품질·임상 범위도 포함합니다.",
         "en": "A candidate guidance linking nanomaterial product characteristics with distribution, exposure and safety. Its scope also includes quality and clinical topics."
@@ -745,10 +1425,10 @@
       },
       "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/drug-products-including-biological-products-contain-nanomaterials-guidance-industry",
       "source_kind": "guidance_candidate",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "FDA 공식 문서 확인: Final · April 2022 (2026-10-09). 원문 전체·후속 문서 검토는 미완료입니다.",
+        "en": "FDA source checked: Final · April 2022 (2026-10-09). Full-text and related-document review remains incomplete."
       },
       "tags": [
         "nanomaterial",
@@ -757,7 +1437,30 @@
         "carrier",
         "tissue_distribution",
         "assay_quality"
-      ]
+      ],
+      "provenance": {
+        "checked_at": "2026-10-09T19:25:45.494426+00:00",
+        "landing_page_http_status": 200,
+        "publication_label": "April 2022",
+        "publication_status_label": "Final",
+        "pdf_url": "https://www.fda.gov/media/157812/download",
+        "metadata_snapshot_sha256": "15d2af3c0a74bb98314fe0faf8e78bea7ca7cec65ca45db479645af26e0464dc",
+        "review_level": "official_landing_page_metadata",
+        "pdf_sha256": "70781eac5388323de72c78d7be7ab3e468d6d4114b08f46dc2b12164ddb0e939",
+        "primary_text_review": "selected scope/introduction sections; not complete document review",
+        "guidance_index_crosscheck": {
+          "url": "https://www.fda.gov/files/api/datatables/static/search-for-guidance.json",
+          "snapshot_sha256": "12c4ad0f8597b8bf5100c3bd8d5f8351cef50b2cc6857463e666bc6e3438753b",
+          "issue_date": "04/21/2022",
+          "status": "Final",
+          "document_type": "Guidance Document"
+        },
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/drug-products-including-biological-products-contain-nanomaterials-guidance-industry"
+      },
+      "verification_details": {
+        "ko": "2026-10-09 FDA 공식 문서 페이지에서 제목·발행표시(April 2022)·상태(Final)와 PDF 링크를 확인했습니다. 이는 공식 메타데이터 확인이며 원문 전체 검토 또는 모든 후속 개정·관련 문서 확인을 뜻하지 않습니다.",
+        "en": "On 2026-10-09, checked the FDA official landing page title, issue label (April 2022), status (Final) and PDF link. This confirms official metadata, not a complete primary-text review or an exhaustive check of subsequent revisions and related documents."
+      }
     },
     {
       "id": "FDA-PROTEIN-IMMUNOGENICITY",
@@ -775,10 +1478,10 @@
       },
       "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/immunogenicity-assessment-therapeutic-protein-products",
       "source_kind": "guidance_candidate",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "FDA 공식 문서 확인: Final · August 2014 (2026-10-09). 원문 전체·후속 문서 검토는 미완료입니다.",
+        "en": "FDA source checked: Final · August 2014 (2026-10-09). Full-text and related-document review remains incomplete."
       },
       "tags": [
         "biologic",
@@ -787,7 +1490,30 @@
         "immunogenicity",
         "exposure",
         "immune_function"
-      ]
+      ],
+      "provenance": {
+        "checked_at": "2026-10-09T19:25:45.360247+00:00",
+        "landing_page_http_status": 200,
+        "publication_label": "August 2014",
+        "publication_status_label": "Final",
+        "pdf_url": "https://www.fda.gov/media/85017/download",
+        "metadata_snapshot_sha256": "4e40ff0d5db7bd005be846bffb259e108d97286f7de823f77a417f4b7de02fa9",
+        "review_level": "official_landing_page_metadata",
+        "pdf_sha256": "ac16a6ffdae3cb6055c22e96476fda075ef8fc7b63b623cd2dc4695e54e56b12",
+        "primary_text_review": "selected scope/introduction sections; not complete document review",
+        "guidance_index_crosscheck": {
+          "url": "https://www.fda.gov/files/api/datatables/static/search-for-guidance.json",
+          "snapshot_sha256": "12c4ad0f8597b8bf5100c3bd8d5f8351cef50b2cc6857463e666bc6e3438753b",
+          "issue_date": "08/14/2014",
+          "status": "Final",
+          "document_type": "Guidance Document"
+        },
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/immunogenicity-assessment-therapeutic-protein-products"
+      },
+      "verification_details": {
+        "ko": "2026-10-09 FDA 공식 문서 페이지에서 제목·발행표시(August 2014)·상태(Final)와 PDF 링크를 확인했습니다. 이는 공식 메타데이터 확인이며 원문 전체 검토 또는 모든 후속 개정·관련 문서 확인을 뜻하지 않습니다.",
+        "en": "On 2026-10-09, checked the FDA official landing page title, issue label (August 2014), status (Final) and PDF link. This confirms official metadata, not a complete primary-text review or an exhaustive check of subsequent revisions and related documents."
+      }
     },
     {
       "id": "FDA-GENE-THERAPY-SHEDDING",
@@ -805,24 +1531,47 @@
       },
       "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/design-and-analysis-shedding-studies-virus-or-bacteria-based-gene-therapy-and-oncolytic-products",
       "source_kind": "guidance_candidate",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "FDA 공식 문서 확인: Final · August 2015 (2026-10-09). 원문 전체·후속 문서 검토는 미완료입니다.",
+        "en": "FDA source checked: Final · August 2015 (2026-10-09). Full-text and related-document review remains incomplete."
       },
       "tags": [
         "gene_therapy",
         "shedding",
         "oncolytic",
         "infectivity"
-      ]
+      ],
+      "provenance": {
+        "checked_at": "2026-10-09T19:25:45.457965+00:00",
+        "landing_page_http_status": 200,
+        "publication_label": "August 2015",
+        "publication_status_label": "Final",
+        "pdf_url": "https://www.fda.gov/media/89036/download",
+        "metadata_snapshot_sha256": "fe72f50f05eb28a830dc532083e0a71aa77813b2e1a42073a838435d8a7a42be",
+        "review_level": "official_landing_page_metadata",
+        "pdf_sha256": "685f0a4cfc5059144a16e151248eaa0564ade53d68eb3ee3e8b2105358fe13fc",
+        "primary_text_review": "selected scope/introduction sections; not complete document review",
+        "guidance_index_crosscheck": {
+          "url": "https://www.fda.gov/files/api/datatables/static/search-for-guidance.json",
+          "snapshot_sha256": "12c4ad0f8597b8bf5100c3bd8d5f8351cef50b2cc6857463e666bc6e3438753b",
+          "issue_date": "08/27/2015",
+          "status": "Final",
+          "document_type": "Guidance Document"
+        },
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/design-and-analysis-shedding-studies-virus-or-bacteria-based-gene-therapy-and-oncolytic-products"
+      },
+      "verification_details": {
+        "ko": "2026-10-09 FDA 공식 문서 페이지에서 제목·발행표시(August 2015)·상태(Final)와 PDF 링크를 확인했습니다. 이는 공식 메타데이터 확인이며 원문 전체 검토 또는 모든 후속 개정·관련 문서 확인을 뜻하지 않습니다.",
+        "en": "On 2026-10-09, checked the FDA official landing page title, issue label (August 2015), status (Final) and PDF link. This confirms official metadata, not a complete primary-text review or an exhaustive check of subsequent revisions and related documents."
+      }
     },
     {
       "id": "FDA-GENOME-EDITING",
       "number": 30,
       "issuer": "FDA",
       "short_label": "FDA · Genome editing",
-      "title": "Considerations for the Development of Human Gene Therapy Products Incorporating Human Genome Editing",
+      "title": "Human Gene Therapy Products Incorporating Human Genome Editing",
       "summary": {
         "ko": "유전자편집 제품의 편집 정확성, 의도하지 않은 변화와 장기 위험을 검토하는 후보 가이던스입니다. 품질·임상 범위도 포함합니다.",
         "en": "A candidate guidance for editing specificity, unintended alterations and longer-term risks in genome-editing products. Its scope also includes quality and clinical topics."
@@ -831,12 +1580,12 @@
         "ko": "편집 결과·off-target·염색체 변화의 분석 한계가 설명됐는가?",
         "en": "Are editing outcomes, off-target changes and assay limitations explained?"
       },
-      "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/considerations-development-human-gene-therapy-products-incorporating-human-genome-editing",
+      "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/human-gene-therapy-products-incorporating-human-genome-editing",
       "source_kind": "guidance_candidate",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "FDA 공식 문서 확인: Final · January 2024 (2026-10-09). 원문 전체·후속 문서 검토는 미완료입니다.",
+        "en": "FDA source checked: Final · January 2024 (2026-10-09). Full-text and related-document review remains incomplete."
       },
       "tags": [
         "gene_therapy",
@@ -844,7 +1593,30 @@
         "off_target",
         "assay_quality",
         "delayed_risk"
-      ]
+      ],
+      "provenance": {
+        "checked_at": "2026-10-09T19:26:12.647501+00:00",
+        "landing_page_http_status": 200,
+        "publication_label": "January 2024",
+        "publication_status_label": "Final",
+        "pdf_url": "https://www.fda.gov/media/156894/download",
+        "metadata_snapshot_sha256": "b75388a6af6d5973af3d7648cbcfd33f7434f91bc3bed04e82a0ca884afe4c1c",
+        "review_level": "official_landing_page_metadata",
+        "pdf_sha256": "5da3d2fbb6477658ad6de7236db81158d06430ac5f44a9fafdbc667babad3da9",
+        "primary_text_review": "selected scope/introduction sections; not complete document review",
+        "guidance_index_crosscheck": {
+          "url": "https://www.fda.gov/files/api/datatables/static/search-for-guidance.json",
+          "snapshot_sha256": "12c4ad0f8597b8bf5100c3bd8d5f8351cef50b2cc6857463e666bc6e3438753b",
+          "issue_date": "01/29/2024",
+          "status": "Final",
+          "document_type": "Guidance Document"
+        },
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/human-gene-therapy-products-incorporating-human-genome-editing"
+      },
+      "verification_details": {
+        "ko": "2026-10-09 FDA 공식 문서 페이지에서 제목·발행표시(January 2024)·상태(Final)와 PDF 링크를 확인했습니다. 이는 공식 메타데이터 확인이며 원문 전체 검토 또는 모든 후속 개정·관련 문서 확인을 뜻하지 않습니다.",
+        "en": "On 2026-10-09, checked the FDA official landing page title, issue label (January 2024), status (Final) and PDF link. This confirms official metadata, not a complete primary-text review or an exhaustive check of subsequent revisions and related documents."
+      }
     },
     {
       "id": "FDA-VACCINE-DEVELOPMENTAL-TOXICITY",
@@ -862,10 +1634,10 @@
       },
       "url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/considerations-developmental-toxicity-studies-preventive-and-therapeutic-vaccines-infectious-disease",
       "source_kind": "guidance_candidate",
-      "verification_status": "unverified",
+      "verification_status": "official_metadata_checked",
       "status_note": {
-        "ko": "현행 개정판·발행 상태와 공식 원문은 미검증입니다. 적용 범위와 관련 Q&A·부록은 원문에서 확인해야 합니다.",
-        "en": "The current revision, publication status and primary text are unverified. Confirm scope and related Q&A or addenda in the official source."
+        "ko": "FDA 공식 문서 확인: Final · February 2006 (2026-10-09). 원문 전체·후속 문서 검토는 미완료입니다.",
+        "en": "FDA source checked: Final · February 2006 (2026-10-09). Full-text and related-document review remains incomplete."
       },
       "tags": [
         "reproduction",
@@ -873,7 +1645,30 @@
         "developmental_toxicity",
         "reproductive_toxicity",
         "clinical_support"
-      ]
+      ],
+      "provenance": {
+        "checked_at": "2026-10-09T19:25:45.678813+00:00",
+        "landing_page_http_status": 200,
+        "publication_label": "February 2006",
+        "publication_status_label": "Final",
+        "pdf_url": "https://www.fda.gov/media/73986/download",
+        "metadata_snapshot_sha256": "184e5a1f27b367032a2220a9def480b512562ad55329f6614dab7911e4cd9379",
+        "review_level": "official_landing_page_metadata",
+        "pdf_sha256": "11af836d417b3e24ffa2dc2416fedc32b6ea8fa0b5d784a0677a5454f44e091e",
+        "primary_text_review": "selected scope/introduction sections; not complete document review",
+        "guidance_index_crosscheck": {
+          "url": "https://www.fda.gov/files/api/datatables/static/search-for-guidance.json",
+          "snapshot_sha256": "12c4ad0f8597b8bf5100c3bd8d5f8351cef50b2cc6857463e666bc6e3438753b",
+          "issue_date": "02/01/2006",
+          "status": "Final",
+          "document_type": "Guidance Document"
+        },
+        "landing_page_url": "https://www.fda.gov/regulatory-information/search-fda-guidance-documents/considerations-developmental-toxicity-studies-preventive-and-therapeutic-vaccines-infectious-disease"
+      },
+      "verification_details": {
+        "ko": "2026-10-09 FDA 공식 문서 페이지에서 제목·발행표시(February 2006)·상태(Final)와 PDF 링크를 확인했습니다. 이는 공식 메타데이터 확인이며 원문 전체 검토 또는 모든 후속 개정·관련 문서 확인을 뜻하지 않습니다.",
+        "en": "On 2026-10-09, checked the FDA official landing page title, issue label (February 2006), status (Final) and PDF link. This confirms official metadata, not a complete primary-text review or an exhaustive check of subsequent revisions and related documents."
+      }
     }
   ]
 }

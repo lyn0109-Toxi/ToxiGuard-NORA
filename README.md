@@ -56,7 +56,7 @@ Supported evidence types include AI/QSAR outputs, 2D human hepatocytes, cocultur
 
 Assessment and results screens show compact numbered references selected from the saved product and endpoint. Click a number to view the guideline title, review topic, official source link and verification status. Document and evidence-review screens link to the reporting reference; the Project Overview and Rules & Ontology screens contain the complete searchable catalog.
 
-The catalog includes 31 ICH/FDA reading references. Current revisions, publication status and primary texts remain unverified. Reference selection does not determine regulatory applicability or change assessment rules. Numbers are stable catalog identifiers; append new entries without renumbering existing ones. Maintain the bilingual details and verification metadata in `data/toxicity_guideline_references.json`.
+The catalog includes 31 ICH/FDA reading references with official source pages, PDF links and document-status details checked on 2026-10-09. This checks source metadata and selected sections; complete scientific-text, current ICH revision-index and related-document reviews remain incomplete. Reference selection does not determine regulatory applicability or change assessment rules. Numbers are stable catalog identifiers; append new entries without renumbering existing ones. Maintain the bilingual details and verification metadata in `data/toxicity_guideline_references.json`.
 
 ## Evidence Role
 
