@@ -7,7 +7,7 @@ from typing import Any, Iterable
 
 import streamlit as st
 
-from . import __app_name__
+from .branding import __app_name__
 
 
 ROLE_TONES: dict[int, dict[str, str]] = {

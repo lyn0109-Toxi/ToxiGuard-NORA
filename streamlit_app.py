@@ -9,7 +9,8 @@ from typing import Any
 import pandas as pd
 import streamlit as st
 
-from nora import __app_full_name__, __app_name__, __ontology_version__, __rule_set_version__, __version__
+from nora import __ontology_version__, __rule_set_version__, __version__
+from nora.branding import __app_full_name__, __app_name__
 from nora.assertions import (
     REVIEW_STATUS_OPTIONS,
     apply_reviewed_assertions,
