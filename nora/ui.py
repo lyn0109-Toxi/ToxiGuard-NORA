@@ -7,7 +7,7 @@ from typing import Any, Iterable
 
 import streamlit as st
 
-from .branding import __app_name__
+from .brand_header import render_brand_header
 
 
 ROLE_TONES: dict[int, dict[str, str]] = {
@@ -510,38 +510,6 @@ div[data-testid="stColumn"]:has(.nora-language-anchor) { min-height:104px; }
 
 def inject_design_system() -> None:
     st.markdown(GLOBAL_CSS, unsafe_allow_html=True)
-
-
-def render_brand_header(
-    *,
-    subtitle: str,
-    version: str,
-    ontology_version: str,
-    rule_version: str,
-    eyebrow: str = "Nonclinical evidence assurance",
-    project_name: str = "",
-) -> None:
-    st.markdown(
-        f"""
-<div class="nora-shell-header">
-  <div class="nora-brand-lockup">
-    <div class="nora-brand-mark">N</div>
-    <div class="nora-brand-copy">
-      <div class="nora-eyebrow">{safe(eyebrow)}</div>
-      <h1>{safe(__app_name__)}</h1>
-      <p>{safe(subtitle)}</p>
-    </div>
-  </div>
-  <div class="nora-brand-meta">
-    <span class="nora-meta-chip primary">Evidence Assurance</span>
-    {f'<span class="nora-meta-chip">{safe(project_name)}</span>' if project_name else ''}
-    <span class="nora-meta-chip">v{safe(version)}</span>
-    <span class="nora-meta-chip">{safe(ontology_version)}</span>
-  </div>
-</div>
-""",
-        unsafe_allow_html=True,
-    )
 
 
 def render_page_header(kicker: str, title: str, description: str) -> None:

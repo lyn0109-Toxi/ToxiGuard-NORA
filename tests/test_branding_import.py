@@ -17,17 +17,28 @@ import os
 import sys
 import nora
 
+from scripts.smoke_streamlit_stub import STUB, run_page
+sys.modules['streamlit'] = STUB
+import nora.ui
+
+def obsolete_header(**kwargs):
+    raise AssertionError('The app used a UI header cached before the rename')
+
+nora.ui.render_brand_header = obsolete_header
+rendered = []
+STUB.markdown = lambda body, *args, **kwargs: rendered.append(str(body))
+
 del nora.__app_name__
 del nora.__app_full_name__
 sys.modules.pop('nora.branding', None)
 del nora.branding
 
-from scripts.smoke_streamlit_stub import run_page
-
 for language in ('한국어', 'English'):
     os.environ['NORA_SMOKE_LANGUAGE'] = language
     for page in ('overview', 'consulting', 'documents', 'assertions', 'assessment', 'results', 'rules'):
         run_page(page, clear_state=True)
+
+assert any('<h1>ToxiGuard NTR</h1>' in body for body in rendered)
 """
         with tempfile.TemporaryDirectory(prefix="ntr-branding-test-") as data_dir:
             completed = subprocess.run(

@@ -11,6 +11,7 @@ import streamlit as st
 
 from nora import __ontology_version__, __rule_set_version__, __version__
 from nora.branding import __app_full_name__, __app_name__
+from nora.brand_header import render_brand_header
 from nora.assertions import (
     REVIEW_STATUS_OPTIONS,
     apply_reviewed_assertions,
@@ -64,7 +65,6 @@ from nora.projects import ProjectBundle, ProjectStore, load_project_json, projec
 from nora.reports import build_gap_csv, build_markdown_report, build_pdf_report
 from nora.ui import (
     inject_design_system,
-    render_brand_header,
     render_advisory_card,
     render_consulting_case_card,
     render_footer_notice,
@@ -169,7 +169,6 @@ def render_guideline_references(
             with column:
                 with st.popover(
                     f"[{ref['number']}]",
-                    help=f"{ref['short_label']} · {ref['title']}",
                     use_container_width=True,
                 ):
                     st.markdown(f"**[{ref['number']}] {ref['short_label']}**")
