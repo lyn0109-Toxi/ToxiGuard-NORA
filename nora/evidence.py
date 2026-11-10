@@ -46,6 +46,7 @@ class DocumentRecord:
     segments: list[SourceSegment] = field(default_factory=list)
     warnings: list[str] = field(default_factory=list)
     uploaded_at_utc: str = ""
+    source_kind: str = "unclassified"
 
     def to_dict(self) -> dict[str, Any]:
         payload = asdict(self)
@@ -65,6 +66,7 @@ class DocumentRecord:
             segments=[SourceSegment.from_dict(item) for item in payload.get("segments", [])],
             warnings=[str(item) for item in payload.get("warnings", [])],
             uploaded_at_utc=str(payload.get("uploaded_at_utc", "")),
+            source_kind=str(payload.get("source_kind", "unclassified")),
         )
 
 

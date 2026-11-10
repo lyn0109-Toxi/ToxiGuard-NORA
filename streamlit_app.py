@@ -12,6 +12,7 @@ import streamlit as st
 from nora import __ontology_version__, __rule_set_version__, __version__
 from nora.branding import __app_full_name__, __app_name__
 from nora.brand_header import render_brand_header
+from nora.evidence_review import SOURCE_KINDS, application_blockers, evidence_gap_rows
 from nora.assertions import (
     REVIEW_STATUS_OPTIONS,
     apply_reviewed_assertions,
@@ -411,7 +412,7 @@ def sidebar() -> str:
         page = st.radio(
             T("workspace"),
             NAV_PAGES,
-            format_func=lambda page_id: _page(page_id),
+            format_func=lambda page_id, lang=language(): page_label(page_id, lang),
             key=NAV_PAGE_KEY,
             label_visibility="collapsed",
         )
@@ -445,7 +446,7 @@ def sidebar() -> str:
             selected_saved = st.selectbox(
                 T("saved_projects"),
                 [none_option] + list(saved_map),
-                format_func=lambda value: T("none_selected") if value == none_option else value,
+                format_func=lambda value, lang=language(): i18n_text("none_selected", lang) if value == none_option else value,
                 key=f"saved_project_selector_{language()}",
             )
             c3, c4 = st.columns(2)
@@ -489,7 +490,7 @@ def sidebar() -> str:
             demo = st.selectbox(
                 T("synthetic_case"),
                 list(CASE_BUILDERS),
-                format_func=lambda value: case_label(value, language()),
+                format_func=lambda value, lang=language(): case_label(value, lang),
                 key="demo_selector",
             )
             if st.button(T("load_case"), use_container_width=True, key=f"load_case_{p.project_id}"):
@@ -942,8 +943,29 @@ def page_documents() -> None:
     inventory_rows = [localize_document_row(document_inventory_row(item), language()) for item in p.documents]
     st.dataframe(pd.DataFrame(inventory_rows), hide_index=True, use_container_width=True, height=min(420, 90 + 36 * len(inventory_rows)))
 
-    selected_name = st.selectbox(T("review_document"), [item.name for item in p.documents], key=f"selected_doc_{p.project_id}")
-    selected = next(item for item in p.documents if item.name == selected_name)
+    selected_id = st.selectbox(T("review_document"), [item.document_id for item in p.documents],
+        format_func=lambda value: next(f"{item.name} · {item.document_id}" for item in p.documents if item.document_id == value),
+        key=f"selected_doc_id_{p.project_id}")
+    selected = next(item for item in p.documents if item.document_id == selected_id)
+    source_labels = {
+        "unclassified": L("미분류 · 검토 필요", "Unclassified · review required"),
+        "customer_evidence": L("고객 프로젝트 근거", "Customer project evidence"),
+        "external_reference": L("외부 참고자료", "External reference"),
+    }
+    source_kind = st.selectbox(L("자료 구분", "Source category"), SOURCE_KINDS,
+        index=SOURCE_KINDS.index(selected.source_kind) if selected.source_kind in SOURCE_KINDS else 0,
+        format_func=lambda value: source_labels[value], key=f"source_kind_{selected.document_id}")
+    st.caption(L("고객 프로젝트에 직접 적용되는 자료인지 확인하십시오. 외부 참고자료는 고객 시험 결과를 대신하지 않습니다. 저장 시 검토·추적성 확인을 해제합니다. 이전에 적용된 입력값은 남으므로 다시 검토하십시오.",
+        "Confirm that the source directly applies to this customer project. External references do not substitute for customer study results. Saving clears review/traceability attestations; previously applied input values remain and must be reviewed."))
+    if st.button(L("자료 구분 저장", "Save source category"), key=f"save_source_kind_{selected.document_id}"):
+        selected.source_kind = source_kind
+        # Source reclassification invalidates earlier provenance attestation, not
+        # manually entered assessment values. Those must be reviewed explicitly.
+        p.assessment_input.supporting_evidence.evidence_traceable = False
+        p.assessment_input.supporting_evidence.assertions_reviewed = False
+        add_event("자료 구분 저장", f"{selected.document_id}: {source_kind}")
+        invalidate_result()
+        st.rerun()
     m1, m2, m3, m4 = st.columns(4)
     m1.metric(T("evidence_segments"), len(selected.segments))
     m2.metric(T("characters_extracted"), f"{len(selected.extracted_text):,}")
@@ -980,6 +1002,31 @@ def page_assertion_review() -> None:
     render_guideline_references([
         ref for ref in load_guideline_references() if "reporting" in ref["tags"]
     ])
+
+    source_blockers = application_blockers(p.assertions, p.documents)
+    with st.expander(L("근거 연결 및 검토 갭", "Source linkage and review gaps"), expanded=True):
+        st.caption(L(
+            "미추출은 근거 없음이나 음성을 뜻하지 않습니다. 기본 입력 점검이며 완전한 규제 체크리스트가 아닙니다. 출처 연결도 과학적 타당성 검증을 의미하지 않습니다.",
+            "Not extracted does not mean absent or negative evidence. This is an intake check, not a complete regulatory checklist. Source linkage is not scientific validation."))
+        states = {
+            "all_candidates_rejected": L("후보 모두 거절 · 추가 검토 필요", "All candidates rejected · further review required"),
+            "not_extracted": L("미추출 · 원문/추가자료 확인", "Not extracted · inspect source/request evidence"),
+            "conflicting_reviewed_values": L("승인값 충돌 · 해결 필요", "Conflicting reviewed values · resolve"),
+            "source_review_required": L("자료 구분/출처 연결 검토 필요", "Source category/linkage review required"),
+            "reviewed_source_linked": L("검토 및 출처 연결됨 · 전문가 판단 필요", "Reviewed and source-linked · expert judgment required"),
+            "human_review_pending": L("사람 검토 대기", "Human review pending"),
+        }
+        gap_rows = evidence_gap_rows(p.assertions, p.documents)
+        st.dataframe(pd.DataFrame([{
+            L("평가 필드", "Assessment field"): row["field_path"],
+            L("검토 상태", "Review state"): states[row["review_state"]],
+            "Assertion IDs": row["assertion_ids"],
+            L("원문 위치", "Source locations"): row["source_locations"],
+        } for row in gap_rows]), hide_index=True, use_container_width=True)
+        if source_blockers:
+            st.warning(L("승인된 근거의 자료 구분 또는 원문 연결이 확인되지 않아 적용을 보류합니다. 문서 근거에서 자료를 확인하십시오.",
+                "Application is blocked because reviewed claims have unclassified, external, or unresolved sources. Inspect the document workspace."))
+            st.json(source_blockers)
 
     if not p.assertions:
         st.info(T("no_assertions"))
@@ -1020,19 +1067,19 @@ def page_assertion_review() -> None:
         selected_category = f1.selectbox(
             T("category"),
             [all_value] + categories,
-            format_func=lambda value: T("total") if value == all_value else category_label(value, lang),
+            format_func=lambda value: i18n_text("total", lang) if value == all_value else category_label(value, lang),
             key=f"assert_cat_{p.project_id}",
         )
         selected_status = f2.selectbox(
             T("review_status"),
             [all_value] + REVIEW_STATUS_OPTIONS,
-            format_func=lambda value: T("total") if value == all_value else review_status_label(value, lang),
+            format_func=lambda value: i18n_text("total", lang) if value == all_value else review_status_label(value, lang),
             key=f"assert_status_{p.project_id}",
         )
         selected_document = f3.selectbox(
             T("source_document"),
             [all_value] + documents,
-            format_func=lambda value: T("total") if value == all_value else value,
+            format_func=lambda value: i18n_text("total", lang) if value == all_value else value,
             key=f"assert_doc_{p.project_id}",
         )
         search = st.text_input(T("search"), key=f"assert_search_{p.project_id}", placeholder=T("search_placeholder"))
@@ -1103,10 +1150,10 @@ def page_assertion_review() -> None:
         T("apply_approved"),
         use_container_width=True,
         key=f"apply_assert_{p.project_id}_{lang}",
-        disabled=bool(reviewed_conflicts),
+        disabled=bool(reviewed_conflicts or source_blockers),
         help=L("상충하는 reviewed value를 먼저 하나로 해결하십시오.", "Resolve conflicting reviewed values before applying them.") if reviewed_conflicts else None,
     ):
-        p.assessment_input = apply_reviewed_assertions(p.assessment_input, p.assertions)
+        p.assessment_input = apply_reviewed_assertions(p.assessment_input, p.assertions, documents=p.documents)
         add_event("승인 Assertion 적용", f"승인·수정 {sum(1 for item in p.assertions if item.review_status in {'승인','수정'})}개")
         invalidate_result()
         st.success(T("approved_applied"))
@@ -1152,7 +1199,7 @@ def _assessment_form() -> AssessmentInput | None:
             L(label_ko, label_en),
             options,
             index=idx(options, current_value),
-            format_func=fmt,
+            format_func=lambda value, lang=language(): value_label(value, lang),
             key=f"{prefix}_{key}",
         )
 
@@ -1331,7 +1378,7 @@ def _assessment_form() -> AssessmentInput | None:
                     L("학습·검증자료 Modality", "Modalities in Training / Validation Data"),
                     domain_values,
                     default=current.ai_model.domain_modalities,
-                    format_func=fmt,
+                    format_func=lambda value, lang=language(): value_label(value, lang),
                     key=f"{prefix}_ai_domain_modalities",
                 )
 
@@ -1416,7 +1463,7 @@ def _assessment_form() -> AssessmentInput | None:
             nam_result_options = ["음성", "양성", "경계", "시험 무효"]
             nam_result = sb(n3, "NAM 결과", "NAM Result", nam_result_options, current.nam_assay.result, "nam_result")
             cell_values = ["간세포(Hepatocyte)", "Kupffer cell", "Stellate cell", "간 내피세포", "담관세포"]
-            cell_types = st.multiselect(L("포함 세포", "Included Cell Types"), cell_values, default=current.nam_assay.cell_types, format_func=fmt, key=f"{prefix}_nam_cells")
+            cell_types = st.multiselect(L("포함 세포", "Included Cell Types"), cell_values, default=current.nam_assay.cell_types, format_func=lambda value, lang=language(): value_label(value, lang), key=f"{prefix}_nam_cells")
             n4, n5, n6 = st.columns(3)
             metabolic_options = ["충분히 확인", "부분 확인", "확인되지 않음"]
             metabolic = sb(n4, "대사능", "Metabolic Competence", metabolic_options, current.nam_assay.metabolic_competence, "nam_metabolic")
@@ -1444,7 +1491,7 @@ def _assessment_form() -> AssessmentInput | None:
             reproducibility = sb(n14, "재현성", "Reproducibility", repro_options, current.nam_assay.reproducibility, "nam_repro")
             nominal_exposure = st.text_input(L("명목 농도", "Nominal Concentration"), value=current.nam_assay.nominal_exposure, key=f"{prefix}_nam_nominal")
             endpoint_values = ["Cell viability / ATP", "미토콘드리아 기능", "산화스트레스", "ALT / AST / GLDH", "Cytokine", "담즙산 수송", "CYP 대사기능", "Omics signature"]
-            nam_endpoints = st.multiselect("NAM Endpoint", endpoint_values, default=current.nam_assay.endpoints, format_func=fmt, key=f"{prefix}_nam_endpoints")
+            nam_endpoints = st.multiselect("NAM Endpoint", endpoint_values, default=current.nam_assay.endpoints, format_func=lambda value, lang=language(): value_label(value, lang), key=f"{prefix}_nam_endpoints")
 
         with tabs[4]:
             render_section_band(

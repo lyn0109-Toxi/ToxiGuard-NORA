@@ -320,8 +320,14 @@ def reviewed_assertion_conflicts(assertions: Iterable[EvidenceAssertion]) -> dic
     return {path: sorted(values) for path, values in grouped.items() if len(values) > 1}
 
 
-def apply_reviewed_assertions(inp: AssessmentInput, assertions: Iterable[EvidenceAssertion]) -> AssessmentInput:
+def apply_reviewed_assertions(inp: AssessmentInput, assertions: Iterable[EvidenceAssertion], *, documents: Iterable[DocumentRecord] | None = None) -> AssessmentInput:
     """Apply only human-reviewed assertions to a copy of AssessmentInput."""
+    assertions = list(assertions)
+    if documents is not None:
+        from .evidence_review import application_blockers
+        blockers = application_blockers(assertions, documents)
+        if blockers:
+            raise ValueError("Source review required before application: " + ", ".join(blockers))
     updated = copy.deepcopy(inp)
     reviewed = [item for item in assertions if item.review_status in REVIEWED_STATUSES]
     conflicts = reviewed_assertion_conflicts(reviewed)

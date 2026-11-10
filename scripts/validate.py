@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import hashlib
 import py_compile
 import subprocess
 import sys
@@ -39,17 +40,19 @@ def run_script(name: str) -> subprocess.CompletedProcess[str]:
     )
 
 
+def sample_hashes() -> dict[str, str]:
+    return {
+        str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
+        for path in sorted((ROOT / "samples").rglob("*")) if path.is_file()
+    }
+
+
+samples_before = sample_hashes()
 samples = run_script("generate_samples.py")
 
-if (ROOT / ".git").exists():
-    sample_diff = subprocess.run(
-        ["git", "diff", "--quiet", "--", "samples"],
-        cwd=ROOT,
-        capture_output=True,
-        text=True,
-    )
-else:
-    sample_diff = subprocess.CompletedProcess([], 0, "", "")
+# Compare against the checked-out artifacts, including intentional uncommitted
+# updates, rather than HEAD. A clean Git diff is not evidence of reproducibility.
+sample_diff = subprocess.CompletedProcess([], 0 if samples_before == sample_hashes() else 1, "", "")
 
 guard = run_script("repository_guard.py")
 site = run_script("validate_site.py")

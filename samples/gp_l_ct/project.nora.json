@@ -1,11 +1,11 @@
 {
-  "schema_version": "nora-project-0.4",
+  "schema_version": "nora-project-0.8",
   "project_id": "PRJ-GPLCT-EARLYTOX",
-  "project_name": "GP-L-CT EarlyTox",
+  "project_name": "GP-L-CT NTR",
   "created_at_utc": "2026-08-26T00:00:00+00:00",
   "updated_at_utc": "2026-08-26T00:00:00+00:00",
-  "owner": "ToxiGuard NORA",
-  "description": "Synthetic golden case for deterministic EarlyTox regression testing.",
+  "owner": "ToxiGuard NTR",
+  "description": "Synthetic golden case for deterministic NTR regression testing.",
   "assessment_input": {
     "context_of_use": {
       "objective": "동물시험 범위 축소 가능성 평가",
@@ -44,17 +44,58 @@
       "endpoint": "초기 간독성",
       "result": "음성 / 낮은 위험 예측",
       "probability_percent": 91,
-      "domain_modalities": [
-        "저분자"
-      ],
+      "probability_type": "원시 모델점수",
+      "endpoint_definition": "문헌 기반 hepatotoxicity binary label; 중증도와 시간범위는 불명확",
+      "reference_standard": "문헌 / 라벨 기반",
+      "label_quality": "단일 출처 / 자동 라벨",
+      "missing_label_policy": "불명확",
+      "time_window_defined": false,
+      "severity_threshold_defined": false,
+      "dataset_source": "가상 vendor summary dataset",
+      "dataset_version": "2025-Q4",
+      "training_sample_size": 1200,
+      "positive_class_percent": null,
+      "split_strategy": "무작위 분할",
+      "test_set_independence": "부분 확인",
+      "leakage_assessment": "미평가",
+      "duplicate_assessment": "미평가",
       "external_validation": "부분적으로 확인",
+      "external_validation_representativeness": "부적절",
       "sensitivity_percent": 82,
       "specificity_percent": 76,
       "false_negative_rate_percent": null,
+      "false_positive_rate_percent": 24,
+      "ppv_percent": null,
+      "npv_percent": null,
+      "balanced_accuracy_percent": 79,
+      "auroc": 0.84,
+      "auprc": null,
+      "performance_confidence_intervals": "불명확",
+      "decision_threshold": null,
       "calibration_status": "불명확",
+      "brier_score": null,
+      "calibration_slope": null,
+      "calibration_intercept": null,
+      "domain_modalities": [
+        "저분자"
+      ],
       "domain_status": "자동 평가",
+      "nearest_neighbor_similarity_percent": null,
+      "ood_detection": "불명확",
+      "prediction_interval": "",
+      "prediction_uncertainty": "높음",
+      "input_quality_verified": false,
+      "explainability_status": "부분 연결",
+      "biological_plausibility": "낮음",
       "source": "가상 모델 보고서",
-      "known_limitations": "저분자 중심 학습; siRNA, 나노입자 전달체, 반복노출 및 간·비장 축적 미반영"
+      "known_limitations": "저분자 중심 학습; siRNA, 나노입자 전달체, 반복노출 및 간·비장 축적 미반영",
+      "code_commit": "",
+      "software_environment": "",
+      "training_data_hash": "",
+      "last_validation_date": "",
+      "drift_monitoring": "없음",
+      "change_control": "불명확",
+      "lifecycle_plan": "없음"
     },
     "nam_assay": {
       "use_nam": true,
@@ -102,8 +143,8 @@
       "event_id": "AUD-GP_L_CT",
       "timestamp_utc": "2026-08-26T00:00:00+00:00",
       "action": "Golden case generated",
-      "actor": "ToxiGuard NORA",
-      "detail": "Schema nora-project-0.4"
+      "actor": "ToxiGuard NTR",
+      "detail": "Schema nora-project-0.8"
     }
   ],
   "last_result": {
@@ -116,15 +157,69 @@
     "model_risk": "중간",
     "residual_uncertainty": "매우 높음",
     "evidence_stream_count": 4,
+    "evidence_confidence": "낮음",
+    "toxicity_direction": "일관된 음성 신호",
+    "prediction_reliability": "낮음",
+    "development_concern": "미정 — 음성결과만으로 낮게 분류할 수 없음",
+    "ai_credibility_profile": {
+      "데이터 신뢰성": 1.8,
+      "Endpoint·Ground Truth 적절성": 1.5,
+      "예측성능 적절성": 1.4,
+      "Calibration 적절성": 0.0,
+      "개별 예측 신뢰성": 1.1,
+      "Lifecycle·Governance": 0.4
+    },
     "scores": {
       "방법 신뢰성": 2.7,
+      "데이터 신뢰성": 1.8,
+      "Endpoint·Ground Truth 적절성": 1.5,
+      "예측성능 적절성": 1.4,
+      "Calibration 적절성": 0.0,
       "후보 적용성": 1.4,
+      "개별 예측 신뢰성": 1.1,
       "사람 생물학적 관련성": 2.5,
       "노출 관련성": 0.2,
       "근거 일치성": 2.7,
+      "Lifecycle·Governance": 0.4,
       "잔여 불확실성": "매우 높음"
     },
     "gates": [
+      {
+        "gate": "Endpoint·Ground Truth",
+        "status": "미통과",
+        "rationale": "Endpoint 정의, reference standard, label 품질, missing-label 정책을 확인합니다.",
+        "effect": "낮으면 Evidence Role R2 이하"
+      },
+      {
+        "gate": "데이터 독립성·Leakage",
+        "status": "조건부",
+        "rationale": "학습·시험자료 독립성과 전처리·feature leakage를 확인합니다.",
+        "effect": "Leakage 또는 비독립 검증은 R1 이하"
+      },
+      {
+        "gate": "예측성능·불확실성",
+        "status": "미통과",
+        "rationale": "Sensitivity, specificity, predictive values, threshold, AUPRC 및 confidence interval을 확인합니다.",
+        "effect": "낮으면 고영향 음성·양성 해석 제한"
+      },
+      {
+        "gate": "확률 Calibration",
+        "status": "미통과",
+        "rationale": "표시된 퍼센트가 calibrated probability인지 확인합니다.",
+        "effect": "미통과 시 실제 위험확률 표현 금지"
+      },
+      {
+        "gate": "개별 예측 신뢰성",
+        "status": "미통과",
+        "rationale": "현재 후보의 입력품질, domain fit, OOD 및 prediction uncertainty를 확인합니다.",
+        "effect": "낮으면 Reliable Negative/Positive 불인정"
+      },
+      {
+        "gate": "AI Lifecycle·Governance",
+        "status": "미통과",
+        "rationale": "Version, code, data hash, drift monitoring 및 change control을 확인합니다.",
+        "effect": "낮으면 R4/R5와 반복사용 제한"
+      },
       {
         "gate": "독성 질문·COU",
         "status": "통과",
@@ -267,20 +362,194 @@
         "rule_id": "ET-R009",
         "effect": "노출 관련성 및 Evidence Role을 R2 이하로 제한할 수 있음",
         "recommendation": "반복노출 NAM 또는 과학적으로 타당한 acute-to-repeat bridge를 확보하십시오."
+      },
+      {
+        "code": "AI-G003",
+        "title": "Class balance 미확인",
+        "description": "독성 양성 비율과 class imbalance가 보고되지 않았습니다.",
+        "criticality": "주요 보완",
+        "rule_id": "AI-R002",
+        "effect": "Accuracy와 AUROC의 해석 제한",
+        "recommendation": "양성·음성 비율, prevalence 및 imbalance 처리방법을 보고하십시오."
+      },
+      {
+        "code": "AI-G006",
+        "title": "시험세트 독립성 불충분",
+        "description": "학습·튜닝·시험 자료의 독립성과 유사체 중복 여부가 충분히 확인되지 않았습니다.",
+        "criticality": "주요 보완",
+        "rule_id": "AI-R003",
+        "effect": "외부검증 신뢰성 제한",
+        "recommendation": "화합물, 염, 이성질체, scaffold 및 출처 단위의 중복검사를 수행하십시오."
+      },
+      {
+        "code": "AI-G008",
+        "title": "Data leakage 평가 불충분",
+        "description": "전처리, feature selection, 유사체 중복 및 target-derived feature를 포함한 누수평가가 충분하지 않습니다.",
+        "criticality": "주요 보완",
+        "rule_id": "AI-R004",
+        "effect": "모델 성능 과대평가 가능성",
+        "recommendation": "독립 pipeline 기준으로 데이터 누수검사를 수행하고 결과를 보고하십시오."
+      },
+      {
+        "code": "AI-G009",
+        "title": "중복·유사체 평가 불충분",
+        "description": "동일 화합물, 염, 이성질체 또는 근접 scaffold의 세트 간 중복을 배제하지 못했습니다.",
+        "criticality": "주요 보완",
+        "rule_id": "AI-R003",
+        "effect": "검증성능의 독립성 제한",
+        "recommendation": "구조 정규화 후 exact duplicate와 scaffold-level overlap을 평가하십시오."
+      },
+      {
+        "code": "AI-G012",
+        "title": "Label 품질 제한",
+        "description": "독성 label이 전문가 합의 또는 독립검토를 거쳤다는 근거가 부족합니다.",
+        "criticality": "주요 보완",
+        "rule_id": "AI-R005",
+        "effect": "Ground-truth 오류가 모델성능에 전파될 수 있음",
+        "recommendation": "Blinded expert review, adjudication 또는 label uncertainty 분석을 수행하십시오."
+      },
+      {
+        "code": "AI-G014",
+        "title": "Missing-label 정책 불충분",
+        "description": "미평가, 결측, 비보고와 실제 음성을 어떻게 구분했는지 충분히 확인되지 않았습니다.",
+        "criticality": "주요 보완",
+        "rule_id": "AI-R006",
+        "effect": "음성 label 신뢰성 제한",
+        "recommendation": "Missingness taxonomy와 label assignment rule을 문서화하십시오."
+      },
+      {
+        "code": "AI-G015",
+        "title": "독성 관찰기간 미정의",
+        "description": "급성, 반복, 지연성 또는 누적 독성 중 어떤 시간범위를 예측하는지 불명확합니다.",
+        "criticality": "주요 보완",
+        "rule_id": "AI-R005",
+        "effect": "현재 투여기간과의 정합성 판단 제한",
+        "recommendation": "학습 endpoint의 관찰기간과 현재 Context of Use의 투여기간을 명시하십시오."
+      },
+      {
+        "code": "AI-G016",
+        "title": "중증도 기준 미정의",
+        "description": "경미한 변화와 adverse 또는 임상적으로 중대한 독성을 구분하는 기준이 없습니다.",
+        "criticality": "주요 보완",
+        "rule_id": "AI-R005",
+        "effect": "양성예측의 개발상 의미 불명확",
+        "recommendation": "severity/adversity threshold와 판정자를 명시하십시오."
+      },
+      {
+        "code": "AI-G018",
+        "title": "음성예측 성능 불충분",
+        "description": "현재 음성예측을 해석하는 데 필요한 false-negative rate 또는 NPV가 부족합니다.",
+        "criticality": "결정 제한",
+        "rule_id": "AI-R007",
+        "effect": "Prediction Reliability 최대 중간",
+        "recommendation": "해당 endpoint, prevalence 및 threshold에서 FNR과 NPV를 보고하십시오."
+      },
+      {
+        "code": "AI-G021",
+        "title": "성능 신뢰구간 미보고",
+        "description": "Point estimate만으로는 모델성능의 통계적 불확실성을 판단할 수 없습니다.",
+        "criticality": "주요 보완",
+        "rule_id": "AI-R007",
+        "effect": "성능추정 정밀도 불명",
+        "recommendation": "Sensitivity, specificity, PPV/NPV, AUROC/AUPRC에 신뢰구간을 보고하십시오."
+      },
+      {
+        "code": "AI-G022",
+        "title": "Decision threshold 미보고",
+        "description": "양성·음성을 구분한 threshold와 선택근거가 확인되지 않았습니다.",
+        "criticality": "결정 제한",
+        "rule_id": "AI-R008",
+        "effect": "현재 예측 class의 재현성 제한",
+        "recommendation": "Threshold, 선정목적 및 false-positive/false-negative trade-off를 보고하십시오."
+      },
+      {
+        "code": "AI-G023",
+        "title": "외부검증 집단 대표성 불충분",
+        "description": "외부검증 자료가 현재 modality, endpoint, 노출범위 또는 intended population을 대표하는지 불명확합니다.",
+        "criticality": "주요 보완",
+        "rule_id": "AI-R009",
+        "effect": "현재 Context of Use로의 일반화 제한",
+        "recommendation": "외부검증 집단과 현재 후보의 modality, chemical space, endpoint 및 exposure를 비교하십시오."
+      },
+      {
+        "code": "AI-G026",
+        "title": "출력확률의 의미 불명확",
+        "description": "화면에 표시된 퍼센트가 calibrated probability인지 원시 score 또는 ensemble agreement인지 불명확합니다.",
+        "criticality": "결정 제한",
+        "rule_id": "AI-R011",
+        "effect": "예측값을 실제 독성확률로 표현할 수 없음",
+        "recommendation": "출력값의 정의를 명시하고, 비보정 score에는 확률 또는 confidence라는 표현을 사용하지 마십시오."
+      },
+      {
+        "code": "AI-G027",
+        "title": "Calibration 불충분",
+        "description": "모델 output과 실제 발생률의 일치가 검증되지 않았습니다.",
+        "criticality": "주요 보완",
+        "rule_id": "AI-R011",
+        "effect": "출력확률을 실제 위험확률로 해석할 수 없음",
+        "recommendation": "Reliability curve, Brier score, calibration slope/intercept를 제시하십시오."
+      },
+      {
+        "code": "AI-G028",
+        "title": "재현성 메타데이터 불완전",
+        "description": "Code commit, software environment 또는 training-data hash 중 하나 이상이 없습니다.",
+        "criticality": "주요 보완",
+        "rule_id": "AI-R012",
+        "effect": "동일 예측의 재생산과 변경영향 추적 제한",
+        "recommendation": "Code commit, package/environment lock 및 dataset hash를 함께 기록하십시오."
+      },
+      {
+        "code": "AI-G029",
+        "title": "Lifecycle·Drift 관리 불충분",
+        "description": "모델 성능저하, data/concept drift, threshold 변경 및 재검증을 관리하는 절차가 충분하지 않습니다.",
+        "criticality": "주요 보완",
+        "rule_id": "AI-R012",
+        "effect": "R4/R5와 장기 운영 적합성 제한",
+        "recommendation": "Drift trigger, change control, 재검증 기준 및 과거 평가 재실행 절차를 정의하십시오."
+      },
+      {
+        "code": "AI-G030",
+        "title": "개별 예측 입력 품질 미검증",
+        "description": "구조, 염형, 이성질체, 서열, 제형 또는 입력 feature가 현재 후보를 정확히 표현하는지 확인되지 않았습니다.",
+        "criticality": "결정 제한",
+        "rule_id": "AI-R013",
+        "effect": "개별 prediction reliability 최대 중간",
+        "recommendation": "예측 입력의 identity, structure/sequence normalization 및 batch/formulation 정보를 확인하십시오."
+      },
+      {
+        "code": "AI-G031",
+        "title": "OOD 탐지 근거 부족",
+        "description": "개별 후보가 학습분포 밖에 있는지 탐지하는 정량적 근거가 부족합니다.",
+        "criticality": "주요 보완",
+        "rule_id": "AI-R014",
+        "effect": "Applicability 판단의 객관성 제한",
+        "recommendation": "Nearest-neighbor distance, leverage, domain density 또는 별도 OOD detector를 보고하십시오."
+      },
+      {
+        "code": "AI-G032",
+        "title": "생물학적 설명가능성 제한",
+        "description": "모델이 강조한 feature가 알려진 독성기전, 제품 특성 및 관찰 가능한 endpoint와 충분히 연결되지 않았습니다.",
+        "criticality": "주요 보완",
+        "rule_id": "AI-R015",
+        "effect": "기전적 해석과 후속시험 설계 제한",
+        "recommendation": "Prediction explanation을 알려진 독성기전 및 orthogonal NAM endpoint와 연결하십시오."
       }
     ],
     "observations": [
       "평가 대상은 GP-L-CT이며 제품 modality는 siRNA + 나노의약품, 투여경로는 정맥투여입니다.",
       "AI 모델 Small-Molecule Hepato Classifier v3.0은 음성 / 낮은 위험 예측 결과를 제시했습니다.",
+      "개별 AI 예측 신뢰성은 낮음이며, 데이터·ground truth·성능·calibration·lifecycle을 분리해 평가했습니다.",
       "2D 세포시험 NAM에서 음성 결과가 입력되었고 노출설계는 단회/급성 노출입니다."
     ],
     "interpretations": [
       "AI 모델의 일반적 성능과 별개로 현재 후보는 적용범위 밖이므로 음성예측을 낮은 독성우려로 해석할 수 없습니다.",
+      "표시된 퍼센트는 calibrated probability로 확인되지 않았으므로 실제 독성 발생확률로 표현할 수 없습니다.",
       "실제 free 또는 세포내 노출이 입증되지 않아 NAM 음성결과는 Reliable Negative가 아닙니다.",
       "반복 또는 지속 투여계획을 급성 단회 NAM으로만 평가하여 누적·적응·지연독성의 불확실성이 남습니다."
     ],
     "development_relevance": [
       "현재 패키지의 Evidence Role은 R1 — 가설 생성입니다.",
+      "Evidence Confidence는 낮음, Toxicity Direction은 일관된 음성 신호, Development Concern은 미정 — 음성결과만으로 낮게 분류할 수 없음입니다.",
       "추가 근거 확보 전 기존 독성평가를 축소해서는 안 됩니다.",
       "잔여 불확실성은 매우 높음이며, 모델 위험은 중간입니다."
     ],
@@ -293,15 +562,38 @@
       "예상 사람 Cmax/AUC 또는 초기 PK 가정을 정의하십시오.",
       "명목 농도와 별도로 free 또는 세포내 실제 노출을 측정하십시오.",
       "QIVIVE 또는 PBPK를 이용하여 NAM 농도를 사람노출로 연결하십시오.",
-      "반복노출 NAM 또는 과학적으로 타당한 acute-to-repeat bridge를 확보하십시오."
+      "반복노출 NAM 또는 과학적으로 타당한 acute-to-repeat bridge를 확보하십시오.",
+      "양성·음성 비율, prevalence 및 imbalance 처리방법을 보고하십시오.",
+      "화합물, 염, 이성질체, scaffold 및 출처 단위의 중복검사를 수행하십시오.",
+      "독립 pipeline 기준으로 데이터 누수검사를 수행하고 결과를 보고하십시오.",
+      "구조 정규화 후 exact duplicate와 scaffold-level overlap을 평가하십시오.",
+      "Blinded expert review, adjudication 또는 label uncertainty 분석을 수행하십시오.",
+      "Missingness taxonomy와 label assignment rule을 문서화하십시오.",
+      "학습 endpoint의 관찰기간과 현재 Context of Use의 투여기간을 명시하십시오.",
+      "severity/adversity threshold와 판정자를 명시하십시오.",
+      "해당 endpoint, prevalence 및 threshold에서 FNR과 NPV를 보고하십시오.",
+      "Sensitivity, specificity, PPV/NPV, AUROC/AUPRC에 신뢰구간을 보고하십시오.",
+      "Threshold, 선정목적 및 false-positive/false-negative trade-off를 보고하십시오.",
+      "외부검증 집단과 현재 후보의 modality, chemical space, endpoint 및 exposure를 비교하십시오.",
+      "출력값의 정의를 명시하고, 비보정 score에는 확률 또는 confidence라는 표현을 사용하지 마십시오.",
+      "Reliability curve, Brier score, calibration slope/intercept를 제시하십시오.",
+      "Code commit, package/environment lock 및 dataset hash를 함께 기록하십시오.",
+      "Drift trigger, change control, 재검증 기준 및 과거 평가 재실행 절차를 정의하십시오.",
+      "예측 입력의 identity, structure/sequence normalization 및 batch/formulation 정보를 확인하십시오.",
+      "Nearest-neighbor distance, leverage, domain density 또는 별도 OOD detector를 보고하십시오.",
+      "Prediction explanation을 알려진 독성기전 및 orthogonal NAM endpoint와 연결하십시오."
     ],
     "audit": {
       "assessment_id": "NORA-SAMPLE-GP-L-CT",
       "assessment_timestamp_utc": "2026-08-26T00:00:00+00:00",
-      "ontology_version": "TG-PTO-ET v0.4",
-      "rule_set_version": "ET Rules v0.4",
-      "input_hash": "11cf913fc9a948dc",
+      "ontology_version": "TG-PTO-ET v0.8",
+      "rule_set_version": "ET + AI Credibility Rules v0.8",
+      "input_hash": "868be8d7fe5c09e7",
       "ai_domain_status": "Out-of-domain",
+      "ai_prediction_reliability": "낮음",
+      "evidence_confidence": "낮음",
+      "toxicity_direction": "일관된 음성 신호",
+      "development_concern": "미정 — 음성결과만으로 낮게 분류할 수 없음",
       "assertions_reviewed": false,
       "expert_reviewed": false,
       "evidence_traceable": true,

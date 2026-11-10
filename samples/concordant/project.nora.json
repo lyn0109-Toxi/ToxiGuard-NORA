@@ -1,11 +1,11 @@
 {
-  "schema_version": "nora-project-0.4",
+  "schema_version": "nora-project-0.8",
   "project_id": "PRJ-CONCORDANT-01",
-  "project_name": "Concordant EarlyTox",
+  "project_name": "Concordant NTR",
   "created_at_utc": "2026-08-26T00:00:00+00:00",
   "updated_at_utc": "2026-08-26T00:00:00+00:00",
-  "owner": "ToxiGuard NORA",
-  "description": "Synthetic golden case for deterministic EarlyTox regression testing.",
+  "owner": "ToxiGuard NTR",
+  "description": "Synthetic golden case for deterministic NTR regression testing.",
   "assessment_input": {
     "context_of_use": {
       "objective": "동물시험 범위 축소 가능성 평가",
@@ -44,17 +44,58 @@
       "endpoint": "초기 간독성",
       "result": "음성 / 낮은 위험 예측",
       "probability_percent": 8,
-      "domain_modalities": [
-        "저분자"
-      ],
+      "probability_type": "보정된 확률",
+      "endpoint_definition": "전문가 adjudication으로 확인된 임상 DILI 또는 중대한 간손상 binary endpoint",
+      "reference_standard": "전문가 adjudication / 임상 기준",
+      "label_quality": "전문가 검토·합의",
+      "missing_label_policy": "미평가와 음성을 명확히 구분",
+      "time_window_defined": true,
+      "severity_threshold_defined": true,
+      "dataset_source": "다기관 curated DILI dataset",
+      "dataset_version": "2026.2",
+      "training_sample_size": 4850,
+      "positive_class_percent": 14.0,
+      "split_strategy": "Scaffold 분할",
+      "test_set_independence": "독립 확인",
+      "leakage_assessment": "평가 완료 — 문제 없음",
+      "duplicate_assessment": "중복 제거 / 관리",
       "external_validation": "확인됨",
+      "external_validation_representativeness": "현재 COU에 적절",
       "sensitivity_percent": 90,
       "specificity_percent": 86,
       "false_negative_rate_percent": 10,
+      "false_positive_rate_percent": 14,
+      "ppv_percent": 68,
+      "npv_percent": 97,
+      "balanced_accuracy_percent": 88,
+      "auroc": 0.91,
+      "auprc": 0.72,
+      "performance_confidence_intervals": "보고됨",
+      "decision_threshold": 0.35,
       "calibration_status": "검증됨",
+      "brier_score": 0.08,
+      "calibration_slope": 0.98,
+      "calibration_intercept": 0.02,
+      "domain_modalities": [
+        "저분자"
+      ],
       "domain_status": "In-domain",
+      "nearest_neighbor_similarity_percent": 78,
+      "ood_detection": "정량 평가 — In-domain",
+      "prediction_interval": "5–12%",
+      "prediction_uncertainty": "낮음",
+      "input_quality_verified": true,
+      "explainability_status": "기전과 연결됨",
+      "biological_plausibility": "높음",
       "source": "독립 외부검증 보고서",
-      "known_limitations": "중증 간질환 환자군은 별도 검증 필요"
+      "known_limitations": "중증 간질환 환자군은 별도 검증 필요",
+      "code_commit": "a1b2c3d",
+      "software_environment": "Python 3.12; locked environment",
+      "training_data_hash": "sha256:validated-hepato-dataset",
+      "last_validation_date": "2026-07-15",
+      "drift_monitoring": "운영 중",
+      "change_control": "정의됨",
+      "lifecycle_plan": "정의됨"
     },
     "nam_assay": {
       "use_nam": true,
@@ -107,8 +148,8 @@
       "event_id": "AUD-CONCORDANT",
       "timestamp_utc": "2026-08-26T00:00:00+00:00",
       "action": "Golden case generated",
-      "actor": "ToxiGuard NORA",
-      "detail": "Schema nora-project-0.4"
+      "actor": "ToxiGuard NTR",
+      "detail": "Schema nora-project-0.8"
     }
   ],
   "last_result": {
@@ -121,15 +162,69 @@
     "model_risk": "중간",
     "residual_uncertainty": "낮음",
     "evidence_stream_count": 7,
+    "evidence_confidence": "높음",
+    "toxicity_direction": "일관된 음성 신호",
+    "prediction_reliability": "높음",
+    "development_concern": "낮음 — 정의된 Context of Use 내",
+    "ai_credibility_profile": {
+      "데이터 신뢰성": 4.0,
+      "Endpoint·Ground Truth 적절성": 4.0,
+      "예측성능 적절성": 3.8,
+      "Calibration 적절성": 4.0,
+      "개별 예측 신뢰성": 3.9,
+      "Lifecycle·Governance": 4.0
+    },
     "scores": {
       "방법 신뢰성": 4.0,
+      "데이터 신뢰성": 4.0,
+      "Endpoint·Ground Truth 적절성": 4.0,
+      "예측성능 적절성": 3.8,
+      "Calibration 적절성": 4.0,
       "후보 적용성": 3.5,
+      "개별 예측 신뢰성": 3.9,
       "사람 생물학적 관련성": 4.0,
       "노출 관련성": 4.0,
       "근거 일치성": 3.8,
+      "Lifecycle·Governance": 4.0,
       "잔여 불확실성": "낮음"
     },
     "gates": [
+      {
+        "gate": "Endpoint·Ground Truth",
+        "status": "통과",
+        "rationale": "Endpoint 정의, reference standard, label 품질, missing-label 정책을 확인합니다.",
+        "effect": "낮으면 Evidence Role R2 이하"
+      },
+      {
+        "gate": "데이터 독립성·Leakage",
+        "status": "통과",
+        "rationale": "학습·시험자료 독립성과 전처리·feature leakage를 확인합니다.",
+        "effect": "Leakage 또는 비독립 검증은 R1 이하"
+      },
+      {
+        "gate": "예측성능·불확실성",
+        "status": "통과",
+        "rationale": "Sensitivity, specificity, predictive values, threshold, AUPRC 및 confidence interval을 확인합니다.",
+        "effect": "낮으면 고영향 음성·양성 해석 제한"
+      },
+      {
+        "gate": "확률 Calibration",
+        "status": "통과",
+        "rationale": "표시된 퍼센트가 calibrated probability인지 확인합니다.",
+        "effect": "미통과 시 실제 위험확률 표현 금지"
+      },
+      {
+        "gate": "개별 예측 신뢰성",
+        "status": "통과",
+        "rationale": "현재 후보의 입력품질, domain fit, OOD 및 prediction uncertainty를 확인합니다.",
+        "effect": "낮으면 Reliable Negative/Positive 불인정"
+      },
+      {
+        "gate": "AI Lifecycle·Governance",
+        "status": "통과",
+        "rationale": "Version, code, data hash, drift monitoring 및 change control을 확인합니다.",
+        "effect": "낮으면 R4/R5와 반복사용 제한"
+      },
       {
         "gate": "독성 질문·COU",
         "status": "통과",
@@ -195,6 +290,7 @@
     "observations": [
       "평가 대상은 SM-NME-01이며 제품 modality는 저분자 NME, 투여경로는 경구입니다.",
       "AI 모델 Validated Hepato-AI v5.2은 음성 / 낮은 위험 예측 결과를 제시했습니다.",
+      "개별 AI 예측 신뢰성은 높음이며, 데이터·ground truth·성능·calibration·lifecycle을 분리해 평가했습니다.",
       "3D 간 Spheroid NAM에서 음성 결과가 입력되었고 노출설계는 반복노출입니다."
     ],
     "interpretations": [
@@ -202,6 +298,7 @@
     ],
     "development_relevance": [
       "현재 패키지의 Evidence Role은 R4 — 동물시험 축소 지원입니다.",
+      "Evidence Confidence는 높음, Toxicity Direction은 일관된 음성 신호, Development Concern은 낮음 — 정의된 Context of Use 내입니다.",
       "명시된 조건과 endpoint에서 동물 수·용량군·중복시험 축소를 검토할 수 있습니다.",
       "잔여 불확실성은 낮음이며, 모델 위험은 중간입니다."
     ],
@@ -211,10 +308,14 @@
     "audit": {
       "assessment_id": "NORA-SAMPLE-CONCORDANT",
       "assessment_timestamp_utc": "2026-08-26T00:00:00+00:00",
-      "ontology_version": "TG-PTO-ET v0.4",
-      "rule_set_version": "ET Rules v0.4",
-      "input_hash": "cfd7255af1554bab",
+      "ontology_version": "TG-PTO-ET v0.8",
+      "rule_set_version": "ET + AI Credibility Rules v0.8",
+      "input_hash": "a3a3f3894db1383d",
       "ai_domain_status": "In-domain",
+      "ai_prediction_reliability": "높음",
+      "evidence_confidence": "높음",
+      "toxicity_direction": "일관된 음성 신호",
+      "development_concern": "낮음 — 정의된 Context of Use 내",
       "assertions_reviewed": true,
       "expert_reviewed": true,
       "evidence_traceable": true,

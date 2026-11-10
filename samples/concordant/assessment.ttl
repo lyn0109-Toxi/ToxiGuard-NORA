@@ -10,7 +10,10 @@
 <https://toxiguard.ai/ontology/earlytox/assessment/NORA-SAMPLE-CONCORDANT> a assessment:AssessmentRun ;
     assessment:evaluatesProduct <https://toxiguard.ai/ontology/earlytox/product/SM-NME-01> ;
     assessment:hasAssessmentResult [ a assessment:EvidenceRoleAssessment ;
+            assessment:hasAICredibilityProfile [ ] ;
             assessment:hasAnimalUseRecommendation "제한적 축소 지원" ;
+            assessment:hasDevelopmentConcern "낮음 — 정의된 Context of Use 내" ;
+            assessment:hasEvidenceConfidence "높음" ;
             assessment:hasEvidenceRole "R4" ;
             assessment:hasEvidenceRoleName "동물시험 축소 지원" ;
             assessment:hasEvidenceStreamCount 7 ;
@@ -23,27 +26,77 @@
                 [ ],
                 [ ],
                 [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
                 [ ] ;
             assessment:hasModelRisk "중간" ;
+            assessment:hasPredictionReliability "높음" ;
             assessment:hasRecommendations "현재 근거 역할의 사용조건을 명확히 문서화하고, 실제 동물시험 변경 전 전문가 및 필요 시 규제기관과 검토하십시오." ;
             assessment:hasResidualUncertainty "낮음" ;
-            assessment:hasScores [ ] ] ;
-    assessment:usesAIModelCard [ a ai:AIModelCard ;
+            assessment:hasScores [ ] ;
+            assessment:hasToxicityDirection "일관된 음성 신호" ] ;
+    assessment:usesAIModelCard [ a ai:AIModelAssessmentSubject,
+                ai:AIModelCard ;
+            ai:hasAUPRC 7.2e-01 ;
+            ai:hasAUROC 9.1e-01 ;
+            ai:hasBalancedAccuracyPercent 88 ;
+            ai:hasBiologicalPlausibility "높음" ;
+            ai:hasBrierScore 8e-02 ;
+            ai:hasCalibrationIntercept 2e-02 ;
+            ai:hasCalibrationSlope 9.8e-01 ;
             ai:hasCalibrationStatus "검증됨" ;
+            ai:hasChangeControl "정의됨" ;
+            ai:hasCodeCommit "a1b2c3d" ;
+            ai:hasDatasetSource "다기관 curated DILI dataset" ;
+            ai:hasDatasetVersion "2026.2" ;
+            ai:hasDecisionThreshold 3.5e-01 ;
+            ai:hasDefinedSeverityThreshold true ;
+            ai:hasDefinedTimeWindow true ;
             ai:hasDomainModalities "저분자" ;
             ai:hasDomainStatus "In-domain" ;
+            ai:hasDriftMonitoring "운영 중" ;
+            ai:hasDuplicateAssessment "중복 제거 / 관리" ;
+            ai:hasEndpointDefinition "전문가 adjudication으로 확인된 임상 DILI 또는 중대한 간손상 binary endpoint" ;
+            ai:hasExplainabilityStatus "기전과 연결됨" ;
+            ai:hasExternalValidationRepresentativeness "현재 COU에 적절" ;
             ai:hasExternalValidationStatus "확인됨" ;
             ai:hasFalseNegativeRatePercent 10 ;
+            ai:hasFalsePositiveRatePercent 14 ;
             ai:hasIntendedEndpoint "초기 간독성" ;
             ai:hasKnownLimitation "중증 간질환 환자군은 별도 검증 필요" ;
+            ai:hasLabelQuality "전문가 검토·합의" ;
+            ai:hasLastValidationDate "2026-07-15" ;
+            ai:hasLeakageAssessment "평가 완료 — 문제 없음" ;
+            ai:hasLifecyclePlan "정의됨" ;
+            ai:hasMissingLabelPolicy "미평가와 음성을 명확히 구분" ;
             ai:hasModelName "Validated Hepato-AI" ;
             ai:hasModelType "Machine learning classifier" ;
             ai:hasModelVersion "v5.2" ;
+            ai:hasNPVPercent 97 ;
+            ai:hasNearestNeighborSimilarityPercent 78 ;
+            ai:hasOODDetectionStatus "정량 평가 — In-domain" ;
+            ai:hasPPVPercent 68 ;
+            ai:hasPerformanceConfidenceIntervals "보고됨" ;
+            ai:hasPositiveClassPercent 1.4e+01 ;
+            ai:hasPredictionInterval "5–12%" ;
             ai:hasPredictionResult "음성 / 낮은 위험 예측" ;
+            ai:hasPredictionUncertainty "낮음" ;
             ai:hasProbabilityPercent 8 ;
+            ai:hasProbabilityType "보정된 확률" ;
+            ai:hasReferenceStandard "전문가 adjudication / 임상 기준" ;
             ai:hasSensitivityPercent 90 ;
+            ai:hasSoftwareEnvironment "Python 3.12; locked environment" ;
             ai:hasSource "독립 외부검증 보고서" ;
             ai:hasSpecificityPercent 86 ;
+            ai:hasSplitStrategy "Scaffold 분할" ;
+            ai:hasTestSetIndependence "독립 확인" ;
+            ai:hasTrainingDataHash "sha256:validated-hepato-dataset" ;
+            ai:hasTrainingSampleSize 4850 ;
+            ai:hasVerifiedInputQuality true ;
             ai:useAI true ] ;
     assessment:usesNAMAssayCard [ a nam:NAMAssayCard ;
             nam:hasActiveOnlyControlStatus "해당 없음" ;
@@ -104,5 +157,5 @@
     product:hasTreatmentDuration "4주" .
 
 <https://toxiguard.ai/ontology/earlytox/project/PRJ-CONCORDANT-01> a core:DevelopmentProgram ;
-    core:hasName "Concordant EarlyTox" .
+    core:hasName "Concordant NTR" .
 

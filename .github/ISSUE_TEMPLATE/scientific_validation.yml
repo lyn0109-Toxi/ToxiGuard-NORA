@@ -1,0 +1,22 @@
+name: Scientific validation review
+description: Record a scientific rule or evidence review without implying regulatory approval.
+title: "[Scientific review] "
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: Question, context of use, endpoint and modality
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence provenance, affected rules and expected role effect
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Golden cases, residual uncertainty and required expert review
+    validations:
+      required: true

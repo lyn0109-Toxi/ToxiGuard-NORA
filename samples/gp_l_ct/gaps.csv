@@ -8,3 +8,22 @@ ET-G018,사람 예상노출 정보 부족,Cmax 또는 AUC가 없어 시험노출
 ET-G019,실제 Free/세포내 노출 미측정,명목 농도만으로는 세포 또는 표적조직의 실제 노출을 확인할 수 없습니다.,결정 제한,ET-R008,음성 NAM 결과를 Reliable Negative로 인정하지 않음,명목 농도와 별도로 free 또는 세포내 실제 노출을 측정하십시오.
 ET-G020,QIVIVE/PBPK 연결 없음,NAM 결과가 계획된 사람노출로 정량 번역되지 않았습니다.,주요 보완,ET-R007,사람노출 번역 제한,QIVIVE 또는 PBPK를 이용하여 NAM 농도를 사람노출로 연결하십시오.
 ET-G021,단회·반복노출 불일치,계획된 반복 또는 지속 노출을 급성 단회시험만으로 지원하고 있습니다.,결정 제한,ET-R009,노출 관련성 및 Evidence Role을 R2 이하로 제한할 수 있음,반복노출 NAM 또는 과학적으로 타당한 acute-to-repeat bridge를 확보하십시오.
+AI-G003,Class balance 미확인,독성 양성 비율과 class imbalance가 보고되지 않았습니다.,주요 보완,AI-R002,Accuracy와 AUROC의 해석 제한,"양성·음성 비율, prevalence 및 imbalance 처리방법을 보고하십시오."
+AI-G006,시험세트 독립성 불충분,학습·튜닝·시험 자료의 독립성과 유사체 중복 여부가 충분히 확인되지 않았습니다.,주요 보완,AI-R003,외부검증 신뢰성 제한,"화합물, 염, 이성질체, scaffold 및 출처 단위의 중복검사를 수행하십시오."
+AI-G008,Data leakage 평가 불충분,"전처리, feature selection, 유사체 중복 및 target-derived feature를 포함한 누수평가가 충분하지 않습니다.",주요 보완,AI-R004,모델 성능 과대평가 가능성,독립 pipeline 기준으로 데이터 누수검사를 수행하고 결과를 보고하십시오.
+AI-G009,중복·유사체 평가 불충분,"동일 화합물, 염, 이성질체 또는 근접 scaffold의 세트 간 중복을 배제하지 못했습니다.",주요 보완,AI-R003,검증성능의 독립성 제한,구조 정규화 후 exact duplicate와 scaffold-level overlap을 평가하십시오.
+AI-G012,Label 품질 제한,독성 label이 전문가 합의 또는 독립검토를 거쳤다는 근거가 부족합니다.,주요 보완,AI-R005,Ground-truth 오류가 모델성능에 전파될 수 있음,"Blinded expert review, adjudication 또는 label uncertainty 분석을 수행하십시오."
+AI-G014,Missing-label 정책 불충분,"미평가, 결측, 비보고와 실제 음성을 어떻게 구분했는지 충분히 확인되지 않았습니다.",주요 보완,AI-R006,음성 label 신뢰성 제한,Missingness taxonomy와 label assignment rule을 문서화하십시오.
+AI-G015,독성 관찰기간 미정의,"급성, 반복, 지연성 또는 누적 독성 중 어떤 시간범위를 예측하는지 불명확합니다.",주요 보완,AI-R005,현재 투여기간과의 정합성 판단 제한,학습 endpoint의 관찰기간과 현재 Context of Use의 투여기간을 명시하십시오.
+AI-G016,중증도 기준 미정의,경미한 변화와 adverse 또는 임상적으로 중대한 독성을 구분하는 기준이 없습니다.,주요 보완,AI-R005,양성예측의 개발상 의미 불명확,severity/adversity threshold와 판정자를 명시하십시오.
+AI-G018,음성예측 성능 불충분,현재 음성예측을 해석하는 데 필요한 false-negative rate 또는 NPV가 부족합니다.,결정 제한,AI-R007,Prediction Reliability 최대 중간,"해당 endpoint, prevalence 및 threshold에서 FNR과 NPV를 보고하십시오."
+AI-G021,성능 신뢰구간 미보고,Point estimate만으로는 모델성능의 통계적 불확실성을 판단할 수 없습니다.,주요 보완,AI-R007,성능추정 정밀도 불명,"Sensitivity, specificity, PPV/NPV, AUROC/AUPRC에 신뢰구간을 보고하십시오."
+AI-G022,Decision threshold 미보고,양성·음성을 구분한 threshold와 선택근거가 확인되지 않았습니다.,결정 제한,AI-R008,현재 예측 class의 재현성 제한,"Threshold, 선정목적 및 false-positive/false-negative trade-off를 보고하십시오."
+AI-G023,외부검증 집단 대표성 불충분,"외부검증 자료가 현재 modality, endpoint, 노출범위 또는 intended population을 대표하는지 불명확합니다.",주요 보완,AI-R009,현재 Context of Use로의 일반화 제한,"외부검증 집단과 현재 후보의 modality, chemical space, endpoint 및 exposure를 비교하십시오."
+AI-G026,출력확률의 의미 불명확,화면에 표시된 퍼센트가 calibrated probability인지 원시 score 또는 ensemble agreement인지 불명확합니다.,결정 제한,AI-R011,예측값을 실제 독성확률로 표현할 수 없음,"출력값의 정의를 명시하고, 비보정 score에는 확률 또는 confidence라는 표현을 사용하지 마십시오."
+AI-G027,Calibration 불충분,모델 output과 실제 발생률의 일치가 검증되지 않았습니다.,주요 보완,AI-R011,출력확률을 실제 위험확률로 해석할 수 없음,"Reliability curve, Brier score, calibration slope/intercept를 제시하십시오."
+AI-G028,재현성 메타데이터 불완전,"Code commit, software environment 또는 training-data hash 중 하나 이상이 없습니다.",주요 보완,AI-R012,동일 예측의 재생산과 변경영향 추적 제한,"Code commit, package/environment lock 및 dataset hash를 함께 기록하십시오."
+AI-G029,Lifecycle·Drift 관리 불충분,"모델 성능저하, data/concept drift, threshold 변경 및 재검증을 관리하는 절차가 충분하지 않습니다.",주요 보완,AI-R012,R4/R5와 장기 운영 적합성 제한,"Drift trigger, change control, 재검증 기준 및 과거 평가 재실행 절차를 정의하십시오."
+AI-G030,개별 예측 입력 품질 미검증,"구조, 염형, 이성질체, 서열, 제형 또는 입력 feature가 현재 후보를 정확히 표현하는지 확인되지 않았습니다.",결정 제한,AI-R013,개별 prediction reliability 최대 중간,"예측 입력의 identity, structure/sequence normalization 및 batch/formulation 정보를 확인하십시오."
+AI-G031,OOD 탐지 근거 부족,개별 후보가 학습분포 밖에 있는지 탐지하는 정량적 근거가 부족합니다.,주요 보완,AI-R014,Applicability 판단의 객관성 제한,"Nearest-neighbor distance, leverage, domain density 또는 별도 OOD detector를 보고하십시오."
+AI-G032,생물학적 설명가능성 제한,"모델이 강조한 feature가 알려진 독성기전, 제품 특성 및 관찰 가능한 endpoint와 충분히 연결되지 않았습니다.",주요 보완,AI-R015,기전적 해석과 후속시험 설계 제한,Prediction explanation을 알려진 독성기전 및 orthogonal NAM endpoint와 연결하십시오.

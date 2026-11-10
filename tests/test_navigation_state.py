@@ -58,7 +58,7 @@ class NavigationStateRegressionTests(unittest.TestCase):
 
         self.assertNotIn("st.session_state.nav_page =", source)
         self.assertIn("PENDING_NAV_PAGE_KEY", source)
-        self.assertIn("_queue_navigation(next_page)", source)
+        self.assertIn("queue_navigation(next_page)", source)
         self.assertIn("key=NAV_PAGE_KEY", source)
 
 

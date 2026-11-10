@@ -19,7 +19,7 @@
   "core:isPartOfProject": {
     "@id": "tg:project/PRJ-CONFLICT-01",
     "@type": "core:DevelopmentProgram",
-    "core:hasName": "Conflicting Evidence EarlyTox"
+    "core:hasName": "Conflicting Evidence NTR"
   },
   "decision:hasQuestionOfInterest": {
     "@type": "decision:QuestionOfInterest",
@@ -57,7 +57,10 @@
     "product:hasTestArticleRepresentativeness": "불명확"
   },
   "assessment:usesAIModelCard": {
-    "@type": "ai:AIModelCard",
+    "@type": [
+      "ai:AIModelCard",
+      "ai:AIModelAssessmentSubject"
+    ],
     "ai:useAI": true,
     "ai:hasModelName": "Hepato-ML",
     "ai:hasModelVersion": "v2.1",
@@ -65,17 +68,58 @@
     "ai:hasIntendedEndpoint": "초기 간독성",
     "ai:hasPredictionResult": "음성 / 낮은 위험 예측",
     "ai:hasProbabilityPercent": 15,
+    "ai:hasProbabilityType": "보정된 확률",
+    "ai:hasEndpointDefinition": "전문가 검토된 임상 DILI binary endpoint",
+    "ai:hasReferenceStandard": "전문가 adjudication / 임상 기준",
+    "ai:hasLabelQuality": "독립적 검토",
+    "ai:hasMissingLabelPolicy": "미평가와 음성을 명확히 구분",
+    "ai:hasDefinedTimeWindow": true,
+    "ai:hasDefinedSeverityThreshold": true,
+    "ai:hasDatasetSource": "External DILI benchmark",
+    "ai:hasDatasetVersion": "2026.1",
+    "ai:hasTrainingSampleSize": 2600,
+    "ai:hasPositiveClassPercent": 16.0,
+    "ai:hasSplitStrategy": "시간 분할",
+    "ai:hasTestSetIndependence": "독립 확인",
+    "ai:hasLeakageAssessment": "평가 완료 — 문제 없음",
+    "ai:hasDuplicateAssessment": "중복 제거 / 관리",
     "ai:hasDomainModalities": [
       "저분자"
     ],
     "ai:hasExternalValidationStatus": "확인됨",
+    "ai:hasExternalValidationRepresentativeness": "현재 COU에 적절",
     "ai:hasSensitivityPercent": 80,
     "ai:hasSpecificityPercent": 82,
     "ai:hasFalseNegativeRatePercent": 20,
+    "ai:hasFalsePositiveRatePercent": 18,
+    "ai:hasPPVPercent": 58,
+    "ai:hasNPVPercent": 94,
+    "ai:hasBalancedAccuracyPercent": 81,
+    "ai:hasAUROC": 0.86,
+    "ai:hasAUPRC": 0.61,
+    "ai:hasPerformanceConfidenceIntervals": "보고됨",
+    "ai:hasDecisionThreshold": 0.4,
     "ai:hasCalibrationStatus": "부분 검증",
+    "ai:hasBrierScore": 0.13,
+    "ai:hasCalibrationSlope": 0.87,
+    "ai:hasCalibrationIntercept": 0.08,
     "ai:hasDomainStatus": "In-domain",
+    "ai:hasNearestNeighborSimilarityPercent": 72,
+    "ai:hasOODDetectionStatus": "정량 평가 — In-domain",
+    "ai:hasPredictionInterval": "9–24%",
+    "ai:hasPredictionUncertainty": "중간",
+    "ai:hasVerifiedInputQuality": true,
+    "ai:hasExplainabilityStatus": "기전과 연결됨",
+    "ai:hasBiologicalPlausibility": "중간",
     "ai:hasSource": "외부검증 논문",
-    "ai:hasKnownLimitation": ""
+    "ai:hasKnownLimitation": "",
+    "ai:hasCodeCommit": "d4e5f6g",
+    "ai:hasSoftwareEnvironment": "Python 3.12; locked environment",
+    "ai:hasTrainingDataHash": "sha256:external-dili-benchmark",
+    "ai:hasLastValidationDate": "2026-06-30",
+    "ai:hasDriftMonitoring": "계획 있음",
+    "ai:hasChangeControl": "부분 정의",
+    "ai:hasLifecyclePlan": "부분 정의"
   },
   "assessment:usesNAMAssayCard": {
     "@type": "nam:NAMAssayCard",
@@ -111,19 +155,73 @@
     "@type": "assessment:EvidenceRoleAssessment",
     "assessment:hasEvidenceRole": "R2",
     "assessment:hasEvidenceRoleName": "초기 선별",
-    "assessment:hasAnimalUseRecommendation": "선별 용도로만 사용",
+    "assessment:hasAnimalUseRecommendation": "축소보다 독성신호 확인 우선",
     "assessment:hasModelRisk": "높음",
     "assessment:hasResidualUncertainty": "높음",
     "assessment:hasEvidenceStreamCount": 4,
+    "assessment:hasEvidenceConfidence": "중간",
+    "assessment:hasToxicityDirection": "상충",
+    "assessment:hasPredictionReliability": "높음",
+    "assessment:hasDevelopmentConcern": "중간–높음 — 상충 근거 해소 전 낮게 분류 불가",
+    "assessment:hasAICredibilityProfile": {
+      "데이터 신뢰성": 4.0,
+      "Endpoint·Ground Truth 적절성": 4.0,
+      "예측성능 적절성": 3.8,
+      "Calibration 적절성": 3.2,
+      "개별 예측 신뢰성": 3.6,
+      "Lifecycle·Governance": 3.0
+    },
     "assessment:hasScores": {
       "방법 신뢰성": 3.9,
+      "데이터 신뢰성": 4.0,
+      "Endpoint·Ground Truth 적절성": 4.0,
+      "예측성능 적절성": 3.8,
+      "Calibration 적절성": 3.2,
       "후보 적용성": 3.5,
+      "개별 예측 신뢰성": 3.6,
       "사람 생물학적 관련성": 3.6,
       "노출 관련성": 3.7,
       "근거 일치성": 0.9,
+      "Lifecycle·Governance": 3.0,
       "잔여 불확실성": "높음"
     },
     "assessment:hasGateResults": [
+      {
+        "gate": "Endpoint·Ground Truth",
+        "status": "통과",
+        "rationale": "Endpoint 정의, reference standard, label 품질, missing-label 정책을 확인합니다.",
+        "effect": "낮으면 Evidence Role R2 이하"
+      },
+      {
+        "gate": "데이터 독립성·Leakage",
+        "status": "통과",
+        "rationale": "학습·시험자료 독립성과 전처리·feature leakage를 확인합니다.",
+        "effect": "Leakage 또는 비독립 검증은 R1 이하"
+      },
+      {
+        "gate": "예측성능·불확실성",
+        "status": "통과",
+        "rationale": "Sensitivity, specificity, predictive values, threshold, AUPRC 및 confidence interval을 확인합니다.",
+        "effect": "낮으면 고영향 음성·양성 해석 제한"
+      },
+      {
+        "gate": "확률 Calibration",
+        "status": "통과",
+        "rationale": "표시된 퍼센트가 calibrated probability인지 확인합니다.",
+        "effect": "미통과 시 실제 위험확률 표현 금지"
+      },
+      {
+        "gate": "개별 예측 신뢰성",
+        "status": "통과",
+        "rationale": "현재 후보의 입력품질, domain fit, OOD 및 prediction uncertainty를 확인합니다.",
+        "effect": "낮으면 Reliable Negative/Positive 불인정"
+      },
+      {
+        "gate": "AI Lifecycle·Governance",
+        "status": "통과",
+        "rationale": "Version, code, data hash, drift monitoring 및 change control을 확인합니다.",
+        "effect": "낮으면 R4/R5와 반복사용 제한"
+      },
       {
         "gate": "독성 질문·COU",
         "status": "통과",
@@ -203,10 +301,14 @@
   "governance:hasAudit": {
     "assessment_id": "NORA-SAMPLE-CONFLICT",
     "assessment_timestamp_utc": "2026-08-26T00:00:00+00:00",
-    "ontology_version": "TG-PTO-ET v0.4",
-    "rule_set_version": "ET Rules v0.4",
-    "input_hash": "99c45277a42cc79a",
+    "ontology_version": "TG-PTO-ET v0.8",
+    "rule_set_version": "ET + AI Credibility Rules v0.8",
+    "input_hash": "6b3386cba26070a2",
     "ai_domain_status": "In-domain",
+    "ai_prediction_reliability": "높음",
+    "evidence_confidence": "중간",
+    "toxicity_direction": "상충",
+    "development_concern": "중간–높음 — 상충 근거 해소 전 낮게 분류 불가",
     "assertions_reviewed": true,
     "expert_reviewed": false,
     "evidence_traceable": true,

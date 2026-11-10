@@ -51,7 +51,7 @@ def iter_files():
     for path in ROOT.rglob("*"):
         if not path.is_file():
             continue
-        if any(part in EXCLUDED_DIRS for part in path.relative_to(ROOT).parts):
+        if any(part in EXCLUDED_DIRS or part.startswith(".venv") for part in path.relative_to(ROOT).parts):
             continue
         yield path
 

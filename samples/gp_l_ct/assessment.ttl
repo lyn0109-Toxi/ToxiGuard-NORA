@@ -10,6 +10,7 @@
 <https://toxiguard.ai/ontology/earlytox/assessment/NORA-SAMPLE-GP-L-CT> a assessment:AssessmentRun ;
     assessment:evaluatesProduct <https://toxiguard.ai/ontology/earlytox/product/GP-L-CT> ;
     assessment:hasAssessmentResult [ a assessment:EvidenceRoleAssessment ;
+            assessment:hasAICredibilityProfile [ ] ;
             assessment:hasAnimalUseRecommendation "축소·대체 근거 불충분" ;
             assessment:hasDataGaps [ ],
                 [ ],
@@ -19,7 +20,28 @@
                 [ ],
                 [ ],
                 [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
                 [ ] ;
+            assessment:hasDevelopmentConcern "미정 — 음성결과만으로 낮게 분류할 수 없음" ;
+            assessment:hasEvidenceConfidence "낮음" ;
             assessment:hasEvidenceRole "R1" ;
             assessment:hasEvidenceRoleName "가설 생성" ;
             assessment:hasEvidenceStreamCount 4 ;
@@ -32,34 +54,94 @@
                 [ ],
                 [ ],
                 [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
+                [ ],
                 [ ] ;
             assessment:hasModelRisk "중간" ;
+            assessment:hasPredictionReliability "낮음" ;
             assessment:hasRecommendations "AI 추출 assertion을 독성전문가가 승인·수정·거절하도록 하십시오.",
+                "Blinded expert review, adjudication 또는 label uncertainty 분석을 수행하십시오.",
                 "Carrier-only와 active-only 대조군으로 독성기여를 분리하십시오.",
+                "Code commit, package/environment lock 및 dataset hash를 함께 기록하십시오.",
+                "Drift trigger, change control, 재검증 기준 및 과거 평가 재실행 절차를 정의하십시오.",
                 "Kupffer cell 공배양, cytokine 또는 보완적인 면역 적격 간 모델을 추가하십시오.",
+                "Missingness taxonomy와 label assignment rule을 문서화하십시오.",
+                "Nearest-neighbor distance, leverage, domain density 또는 별도 OOD detector를 보고하십시오.",
+                "Prediction explanation을 알려진 독성기전 및 orthogonal NAM endpoint와 연결하십시오.",
                 "QIVIVE 또는 PBPK를 이용하여 NAM 농도를 사람노출로 연결하십시오.",
+                "Reliability curve, Brier score, calibration slope/intercept를 제시하십시오.",
+                "Sensitivity, specificity, PPV/NPV, AUROC/AUPRC에 신뢰구간을 보고하십시오.",
+                "Threshold, 선정목적 및 false-positive/false-negative trade-off를 보고하십시오.",
+                "severity/adversity threshold와 판정자를 명시하십시오.",
+                "구조 정규화 후 exact duplicate와 scaffold-level overlap을 평가하십시오.",
+                "독립 pipeline 기준으로 데이터 누수검사를 수행하고 결과를 보고하십시오.",
                 "명목 농도와 별도로 free 또는 세포내 실제 노출을 측정하십시오.",
                 "반복노출 NAM 또는 과학적으로 타당한 acute-to-repeat bridge를 확보하십시오.",
+                "양성·음성 비율, prevalence 및 imbalance 처리방법을 보고하십시오.",
                 "예상 사람 Cmax/AUC 또는 초기 PK 가정을 정의하십시오.",
+                "예측 입력의 identity, structure/sequence normalization 및 batch/formulation 정보를 확인하십시오.",
+                "외부검증 집단과 현재 후보의 modality, chemical space, endpoint 및 exposure를 비교하십시오.",
+                "출력값의 정의를 명시하고, 비보정 score에는 확률 또는 confidence라는 표현을 사용하지 마십시오.",
+                "학습 endpoint의 관찰기간과 현재 Context of Use의 투여기간을 명시하십시오.",
+                "해당 endpoint, prevalence 및 threshold에서 FNR과 NPV를 보고하십시오.",
                 "현재 endpoint와 threshold에서 sensitivity, false-negative rate 및 신뢰구간을 확보하십시오.",
-                "현재 modality를 포함하는 모델 또는 독립적인 orthogonal NAM을 사용하십시오." ;
+                "현재 modality를 포함하는 모델 또는 독립적인 orthogonal NAM을 사용하십시오.",
+                "화합물, 염, 이성질체, scaffold 및 출처 단위의 중복검사를 수행하십시오." ;
             assessment:hasResidualUncertainty "매우 높음" ;
-            assessment:hasScores [ ] ] ;
-    assessment:usesAIModelCard [ a ai:AIModelCard ;
+            assessment:hasScores [ ] ;
+            assessment:hasToxicityDirection "일관된 음성 신호" ] ;
+    assessment:usesAIModelCard [ a ai:AIModelAssessmentSubject,
+                ai:AIModelCard ;
+            ai:hasAUROC 8.4e-01 ;
+            ai:hasBalancedAccuracyPercent 79 ;
+            ai:hasBiologicalPlausibility "낮음" ;
             ai:hasCalibrationStatus "불명확" ;
+            ai:hasChangeControl "불명확" ;
+            ai:hasCodeCommit "" ;
+            ai:hasDatasetSource "가상 vendor summary dataset" ;
+            ai:hasDatasetVersion "2025-Q4" ;
+            ai:hasDefinedSeverityThreshold false ;
+            ai:hasDefinedTimeWindow false ;
             ai:hasDomainModalities "저분자" ;
             ai:hasDomainStatus "Out-of-domain" ;
+            ai:hasDriftMonitoring "없음" ;
+            ai:hasDuplicateAssessment "미평가" ;
+            ai:hasEndpointDefinition "문헌 기반 hepatotoxicity binary label; 중증도와 시간범위는 불명확" ;
+            ai:hasExplainabilityStatus "부분 연결" ;
+            ai:hasExternalValidationRepresentativeness "부적절" ;
             ai:hasExternalValidationStatus "부분적으로 확인" ;
+            ai:hasFalsePositiveRatePercent 24 ;
             ai:hasIntendedEndpoint "초기 간독성" ;
             ai:hasKnownLimitation "저분자 중심 학습; siRNA, 나노입자 전달체, 반복노출 및 간·비장 축적 미반영" ;
+            ai:hasLabelQuality "단일 출처 / 자동 라벨" ;
+            ai:hasLastValidationDate "" ;
+            ai:hasLeakageAssessment "미평가" ;
+            ai:hasLifecyclePlan "없음" ;
+            ai:hasMissingLabelPolicy "불명확" ;
             ai:hasModelName "Small-Molecule Hepato Classifier" ;
             ai:hasModelType "Machine learning classifier" ;
             ai:hasModelVersion "v3.0" ;
+            ai:hasOODDetectionStatus "불명확" ;
+            ai:hasPerformanceConfidenceIntervals "불명확" ;
+            ai:hasPredictionInterval "" ;
             ai:hasPredictionResult "음성 / 낮은 위험 예측" ;
+            ai:hasPredictionUncertainty "높음" ;
             ai:hasProbabilityPercent 91 ;
+            ai:hasProbabilityType "원시 모델점수" ;
+            ai:hasReferenceStandard "문헌 / 라벨 기반" ;
             ai:hasSensitivityPercent 82 ;
+            ai:hasSoftwareEnvironment "" ;
             ai:hasSource "가상 모델 보고서" ;
             ai:hasSpecificityPercent 76 ;
+            ai:hasSplitStrategy "무작위 분할" ;
+            ai:hasTestSetIndependence "부분 확인" ;
+            ai:hasTrainingDataHash "" ;
+            ai:hasTrainingSampleSize 1200 ;
+            ai:hasVerifiedInputQuality false ;
             ai:useAI true ] ;
     assessment:usesNAMAssayCard [ a nam:NAMAssayCard ;
             nam:hasActiveOnlyControlStatus "미포함" ;
@@ -115,5 +197,5 @@
     product:hasTreatmentDuration "4주" .
 
 <https://toxiguard.ai/ontology/earlytox/project/PRJ-GPLCT-EARLYTOX> a core:DevelopmentProgram ;
-    core:hasName "GP-L-CT EarlyTox" .
+    core:hasName "GP-L-CT NTR" .
 
